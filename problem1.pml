@@ -1,8 +1,7 @@
 #define noShuttles 4
 #define noOrders 2
 #define noStations 4
-#define max 2
-#define trackLength 3
+#define trackLength 1
 #define minLength 2
 
 #define Reject 0
@@ -22,7 +21,6 @@ typedef Order {
 	int size;
 };
 
-chan order_stack = [max] of {Order};
 chan shuttleTOmanagement = [noShuttles] of {int, int};
 chan managementTOshuttle[noShuttles] = [1] of {Order};
 
@@ -142,7 +140,7 @@ L2:	fi
 }
 
 proctype Shuttle(int max_cap; int charge; int init_pos; int id; chan om_out; chan om_in; chan rm_out; chan rm_in) {
-	chan order_queue = [max] of {Order};
+	chan order_queue = [noOrders] of {Order};
 	Order current_order;
 	Order recieve_order;
 	Request track_req;
@@ -187,7 +185,10 @@ proctype RailwayNetwork() {
 	od
 }
 
-proctype ManagementSystem() {
+proctype ManagementSystem(Order first; Order second) {
+	chan order_stack = [noOrders] of {Order};
+	order_stack!first;
+    order_stack!second;
 	int i;
 	Order current;
 	Order reject;
@@ -207,7 +208,7 @@ proctype ManagementSystem() {
 			for (i:0 .. noShuttles-1){
 				shuttleTOmanagement?shuttle_charge,shuttle_id;
 				if
-				:: shuttle_charge < min_charge -> min_charge = shuttle_charge; offer_id = shuttle_id;
+				:: shuttle_charge < min_charge && shuttle_charge != 0 -> min_charge = shuttle_charge; offer_id = shuttle_id;
 				:: else -> skip;
 				fi
 			}
@@ -226,15 +227,13 @@ proctype ManagementSystem() {
 
 init{
 	atomic{
-		run Shuttle(4, 2, 1, 0, shuttleTOmanagement, managementTOshuttle[0], shuttleTOrailway, railwayTOshuttle[0]); 
-		run Shuttle(2, 4, 1, 1, shuttleTOmanagement, managementTOshuttle[1], shuttleTOrailway, railwayTOshuttle[1]); 
-		run Shuttle(5, 1, 2, 2, shuttleTOmanagement, managementTOshuttle[2], shuttleTOrailway, railwayTOshuttle[2]);
-		run Shuttle(3, 3, 3, 3, shuttleTOmanagement, managementTOshuttle[3], shuttleTOrailway, railwayTOshuttle[3]);
-        Order first; first.start = 1; first.end = 3; first.size = 4;
+		run Shuttle(6, 9, 1, 0, shuttleTOmanagement, managementTOshuttle[0], shuttleTOrailway, railwayTOshuttle[0]); 
+		run Shuttle(6, 1, 1, 1, shuttleTOmanagement, managementTOshuttle[1], shuttleTOrailway, railwayTOshuttle[1]); 
+		run Shuttle(6, 9, 2, 2, shuttleTOmanagement, managementTOshuttle[2], shuttleTOrailway, railwayTOshuttle[2]);
+		run Shuttle(6, 9, 3, 3, shuttleTOmanagement, managementTOshuttle[3], shuttleTOrailway, railwayTOshuttle[3]);
+        run RailwayNetwork();
+		Order first; first.start = 1; first.end = 3; first.size = 4;
         Order second; second.start = 2; second.end = 3; second.size = 2;
-        order_stack!first;
-        order_stack!second;
-		run RailwayNetwork();
-		run ManagementSystem();
+		run ManagementSystem(first, second);
 	}
 }

@@ -132,15 +132,15 @@ typedef struct S_F_MAP {
 	int upto;
 } S_F_MAP;
 
-#define _nstates3	19	/* :init: */
-#define minseq3	190
-#define maxseq3	207
-#define _endstate3	18
+#define _nstates3	17	/* :init: */
+#define minseq3	199
+#define maxseq3	214
+#define _endstate3	16
 
-#define _nstates2	51	/* ManagementSystem */
+#define _nstates2	60	/* ManagementSystem */
 #define minseq2	140
-#define maxseq2	189
-#define _endstate2	50
+#define maxseq2	198
+#define _endstate2	59
 
 #define _nstates1	27	/* RailwayNetwork */
 #define minseq1	114
@@ -162,8 +162,8 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned char
-#define _T5	85
-#define _T2	86
+#define _T5	86
+#define _T2	87
 #define WS		4 /* word size in bytes */
 #define SYNC	0
 #define ASYNC	6
@@ -196,8 +196,8 @@ typedef struct P3 { /* :init: */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	struct Order _11_10_first;
-	struct Order _11_10_second;
+	struct Order _10_11_first;
+	struct Order _10_11_second;
 } P3;
 #define Air3	0
 
@@ -209,11 +209,14 @@ typedef struct P2 { /* ManagementSystem */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
+	uchar order_stack;
 	int i;
 	int min_charge;
 	int offer_id;
 	int shuttle_id;
 	int shuttle_charge;
+	struct Order first;
+	struct Order second;
 	struct Order current;
 	struct Order reject;
 } P2;
@@ -242,7 +245,7 @@ typedef struct P0 { /* Shuttle */
 #endif
 	unsigned isMoving : 1;
 	unsigned isFree : 1;
-	unsigned _8_3_got_track : 1;
+	unsigned _7_3_got_track : 1;
 	uchar om_out;
 	uchar om_in;
 	uchar rm_out;
@@ -259,9 +262,9 @@ typedef struct P0 { /* Shuttle */
 	int track_distance;
 	int direction;
 	int station_distance;
-	int _8_2_temp_station;
-	int _8_2_1_distance_a;
-	int _8_2_1_distance_b;
+	int _7_2_temp_station;
+	int _7_2_1_distance_a;
+	int _7_2_1_distance_b;
 	struct Order current_order;
 	struct Order recieve_order;
 	struct Request track_req;
@@ -470,7 +473,6 @@ typedef struct State {
 #endif
 	uchar track_clockwise[4];
 	uchar track_anti_clockwise[4];
-	uchar order_stack;
 	uchar shuttleTOmanagement;
 	uchar managementTOshuttle[4];
 	uchar shuttleTOrailway;
@@ -504,8 +506,8 @@ typedef struct TRIX_v6 {
 #define _endstate4	2 /* np_ */
 
 #define _start4	0 /* np_ */
-#define _start3	17
-#define _start2	47
+#define _start3	15
+#define _start2	1
 #define _start1	23
 #define _start0	1
 #ifdef NP
@@ -966,7 +968,7 @@ void qsend(int, int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	87
+#define NTRANS	88
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);

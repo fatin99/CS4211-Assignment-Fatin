@@ -490,48 +490,50 @@ int _;	/* predefined write-only variable */
 #endif
 
 short src_ln3 [] = {
-	  0, 229, 230, 231, 232, 233, 233, 233, 
-	233, 234, 234, 234, 234, 235, 236, 237, 
-	238, 228, 240,   0, };
+	  0, 230, 231, 232, 233, 234, 235, 235, 
+	235, 235, 236, 236, 236, 236, 237, 229, 
+	239,   0, };
 S_F_MAP src_file3 [] = {
 	{ "-", 0, 0 },
-	{ "problem1.pml", 1, 18 },
-	{ "-", 19, 20 }
+	{ "problem1.pml", 1, 16 },
+	{ "-", 17, 18 }
 };
 uchar reached3 [] = {
 	  0,   1,   0,   0,   0,   0,   0,   0, 
 	  0,   0,   0,   0,   0,   0,   0,   0, 
-	  0,   0,   0,   0, };
+	  0,   0, };
 uchar *loopstate3;
 
 short src_ln2 [] = {
-	  0, 199, 200, 201, 202, 202, 203, 202, 
-	204, 204, 204, 205, 204, 205, 206, 207, 
-	207, 208, 210, 210, 210, 211, 211, 209, 
-	213, 207, 213, 213, 213, 214, 213, 214, 
-	215, 216, 216, 218, 218, 219, 219, 217, 
-	221, 216, 221, 221, 221, 223, 221, 198, 
-	225, 198, 225,   0, };
+	  0, 190, 191, 193, 194, 195, 196, 197, 
+	198, 199, 200, 201, 202, 203, 203, 204, 
+	203, 205, 205, 205, 206, 205, 206, 207, 
+	208, 208, 209, 211, 211, 211, 212, 212, 
+	210, 214, 208, 214, 214, 214, 215, 214, 
+	215, 216, 217, 217, 219, 219, 220, 220, 
+	218, 222, 217, 222, 222, 222, 224, 222, 
+	199, 226, 199, 226,   0, };
 S_F_MAP src_file2 [] = {
 	{ "-", 0, 0 },
-	{ "problem1.pml", 1, 50 },
-	{ "-", 51, 52 }
+	{ "problem1.pml", 1, 59 },
+	{ "-", 60, 61 }
 };
 uchar reached2 [] = {
-	  0,   1,   0,   0,   0,   1,   0,   0, 
-	  1,   0,   0,   1,   1,   0,   0,   0, 
-	  1,   0,   1,   0,   0,   1,   0,   0, 
-	  1,   0,   1,   0,   0,   1,   1,   0, 
-	  0,   0,   1,   1,   0,   1,   0,   0, 
-	  0,   0,   1,   1,   0,   1,   1,   0, 
-	  1,   1,   0,   0, };
+	  0,   0,   0,   0,   0,   0,   0,   0, 
+	  0,   0,   1,   0,   0,   0,   1,   0, 
+	  0,   1,   0,   0,   1,   1,   0,   0, 
+	  0,   1,   0,   1,   0,   0,   1,   0, 
+	  0,   1,   0,   1,   0,   0,   1,   1, 
+	  0,   0,   0,   1,   1,   0,   1,   0, 
+	  0,   0,   0,   1,   1,   0,   1,   1, 
+	  0,   1,   1,   0,   0, };
 uchar *loopstate2;
 
 short src_ln1 [] = {
-	  0, 173, 174, 176, 178, 178, 178, 178, 
-	179, 179, 177, 181, 181, 183, 183, 183, 
-	183, 184, 184, 182, 186, 175, 187, 172, 
-	188, 172, 188,   0, };
+	  0, 171, 172, 174, 176, 176, 176, 176, 
+	177, 177, 175, 179, 179, 181, 181, 181, 
+	181, 182, 182, 180, 184, 173, 185, 170, 
+	186, 170, 186,   0, };
 S_F_MAP src_file1 [] = {
 	{ "-", 0, 0 },
 	{ "problem1.pml", 1, 26 },
@@ -545,21 +547,21 @@ uchar reached1 [] = {
 uchar *loopstate1;
 
 short src_ln0 [] = {
-	  0, 159, 162,  54,  55,  55,  56,  56, 
-	 54,  59,  40,  41,  41,  38,  62,  62, 
-	 63,  63,  61,  66,  66,  69,  69,  70, 
-	 70,  68,  73,  51, 163,  87,  88,  89, 
-	 90,  91,  92,  93,  94,  46,  46,  47, 
-	 47,  45,  49,  44,  96,  97,  98,  99, 
-	100, 101, 102, 102,  86, 105, 106, 108, 
-	108, 109, 109, 107, 112, 112, 114, 114, 
-	115, 115, 113, 118, 120, 121, 122, 124, 
-	124, 124, 124, 125, 125, 123, 127, 120, 
-	129, 120, 129, 130, 131, 132, 133, 135, 
-	135, 136, 136, 134, 138, 138, 140, 105, 
-	142,  84, 164,  76,  77,  78,  79,  46, 
-	 46,  47,  47,  45,  49,  44,  75, 161, 
-	166, 161, 166,   0, };
+	  0, 157, 160,  52,  53,  53,  54,  54, 
+	 52,  57,  38,  39,  39,  36,  60,  60, 
+	 61,  61,  59,  64,  64,  67,  67,  68, 
+	 68,  66,  71,  49, 161,  85,  86,  87, 
+	 88,  89,  90,  91,  92,  44,  44,  45, 
+	 45,  43,  47,  42,  94,  95,  96,  97, 
+	 98,  99, 100, 100,  84, 103, 104, 106, 
+	106, 107, 107, 105, 110, 110, 112, 112, 
+	113, 113, 111, 116, 118, 119, 120, 122, 
+	122, 122, 122, 123, 123, 121, 125, 118, 
+	127, 118, 127, 128, 129, 130, 131, 133, 
+	133, 134, 134, 132, 136, 136, 138, 103, 
+	140,  82, 162,  74,  75,  76,  77,  44, 
+	 44,  45,  45,  43,  47,  42,  73, 159, 
+	164, 159, 164,   0, };
 S_F_MAP src_file0 [] = {
 	{ "-", 0, 0 },
 	{ "problem1.pml", 1, 114 },
@@ -898,26 +900,26 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		break;
 	case 3:	/* :init: */
 		((P3 *)pptr(h))->_t = 3;
-		((P3 *)pptr(h))->_p = 17;
+		((P3 *)pptr(h))->_p = 15;
 #ifdef HAS_PRIORITY
 		((P3 *)pptr(h))->_priority = priority; /* was: 1 */
 #endif
-		reached3[17]=1;
+		reached3[15]=1;
 		/* params: */
 		/* locals: */
-		((P3 *)pptr(h))->_11_10_first.start = 0;
-		((P3 *)pptr(h))->_11_10_first.end = 0;
-		((P3 *)pptr(h))->_11_10_first.size = 0;
-		((P3 *)pptr(h))->_11_10_second.start = 0;
-		((P3 *)pptr(h))->_11_10_second.end = 0;
-		((P3 *)pptr(h))->_11_10_second.size = 0;
+		((P3 *)pptr(h))->_10_11_first.start = 0;
+		((P3 *)pptr(h))->_10_11_first.end = 0;
+		((P3 *)pptr(h))->_10_11_first.size = 0;
+		((P3 *)pptr(h))->_10_11_second.start = 0;
+		((P3 *)pptr(h))->_10_11_second.end = 0;
+		((P3 *)pptr(h))->_10_11_second.size = 0;
 #ifdef VAR_RANGES
-		logval(":init::_11_10_first.start", ((P3 *)pptr(h))->_11_10_first.start);
-		logval(":init::_11_10_first.end", ((P3 *)pptr(h))->_11_10_first.end);
-		logval(":init::_11_10_first.size", ((P3 *)pptr(h))->_11_10_first.size);
-		logval(":init::_11_10_second.start", ((P3 *)pptr(h))->_11_10_second.start);
-		logval(":init::_11_10_second.end", ((P3 *)pptr(h))->_11_10_second.end);
-		logval(":init::_11_10_second.size", ((P3 *)pptr(h))->_11_10_second.size);
+		logval(":init::_10_11_first.start", ((P3 *)pptr(h))->_10_11_first.start);
+		logval(":init::_10_11_first.end", ((P3 *)pptr(h))->_10_11_first.end);
+		logval(":init::_10_11_first.size", ((P3 *)pptr(h))->_10_11_first.size);
+		logval(":init::_10_11_second.start", ((P3 *)pptr(h))->_10_11_second.start);
+		logval(":init::_10_11_second.end", ((P3 *)pptr(h))->_10_11_second.end);
+		logval(":init::_10_11_second.size", ((P3 *)pptr(h))->_10_11_second.size);
 #endif
 #ifdef HAS_CODE
 		locinit3(h);
@@ -925,13 +927,20 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		break;
 	case 2:	/* ManagementSystem */
 		((P2 *)pptr(h))->_t = 2;
-		((P2 *)pptr(h))->_p = 47;
+		((P2 *)pptr(h))->_p = 1;
 #ifdef HAS_PRIORITY
 		((P2 *)pptr(h))->_priority = priority; /* was: 1 */
 #endif
-		reached2[47]=1;
+		reached2[1]=1;
 		/* params: */
+		((P2 *)pptr(h))->first.start = par0;
+		((P2 *)pptr(h))->first.end = par1;
+		((P2 *)pptr(h))->first.size = par2;
+		((P2 *)pptr(h))->second.start = par3;
+		((P2 *)pptr(h))->second.end = par4;
+		((P2 *)pptr(h))->second.size = par5;
 		/* locals: */
+		((P2 *)pptr(h))->order_stack = addqueue(calling_pid, 1, 0);
 		((P2 *)pptr(h))->i = 0;
 		((P2 *)pptr(h))->current.start = 0;
 		((P2 *)pptr(h))->current.end = 0;
@@ -939,7 +948,6 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		((P2 *)pptr(h))->reject.start = 0;
 		((P2 *)pptr(h))->reject.end = 0;
 		((P2 *)pptr(h))->reject.size = 0;
-		((P2 *)pptr(h))->min_charge = 100;
 		((P2 *)pptr(h))->offer_id = 0;
 		((P2 *)pptr(h))->shuttle_id = 0;
 		((P2 *)pptr(h))->shuttle_charge = 0;
@@ -949,6 +957,12 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		logval("ManagementSystem:offer_id", ((P2 *)pptr(h))->offer_id);
 		logval("ManagementSystem:shuttle_id", ((P2 *)pptr(h))->shuttle_id);
 		logval("ManagementSystem:shuttle_charge", ((P2 *)pptr(h))->shuttle_charge);
+		logval("ManagementSystem:first.start", ((P2 *)pptr(h))->first.start);
+		logval("ManagementSystem:first.end", ((P2 *)pptr(h))->first.end);
+		logval("ManagementSystem:first.size", ((P2 *)pptr(h))->first.size);
+		logval("ManagementSystem:second.start", ((P2 *)pptr(h))->second.start);
+		logval("ManagementSystem:second.end", ((P2 *)pptr(h))->second.end);
+		logval("ManagementSystem:second.size", ((P2 *)pptr(h))->second.size);
 		logval("ManagementSystem:current.start", ((P2 *)pptr(h))->current.start);
 		logval("ManagementSystem:current.end", ((P2 *)pptr(h))->current.end);
 		logval("ManagementSystem:current.size", ((P2 *)pptr(h))->current.size);
@@ -1000,7 +1014,7 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		((P0 *)pptr(h))->rm_out = par6;
 		((P0 *)pptr(h))->rm_in = par7;
 		/* locals: */
-		((P0 *)pptr(h))->order_queue = addqueue(calling_pid, 1, 0);
+		((P0 *)pptr(h))->order_queue = addqueue(calling_pid, 2, 0);
 		((P0 *)pptr(h))->current_order.start = 0;
 		((P0 *)pptr(h))->current_order.end = 0;
 		((P0 *)pptr(h))->current_order.size = 0;
@@ -1019,12 +1033,12 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		((P0 *)pptr(h))->track_distance = 0;
 		((P0 *)pptr(h))->direction = 0;
 		((P0 *)pptr(h))->station_distance = 0;
-		((P0 *)pptr(h))->_8_2_temp_station = 0;
-		((P0 *)pptr(h))->_8_3_got_track = 0;
+		((P0 *)pptr(h))->_7_2_temp_station = 0;
+		((P0 *)pptr(h))->_7_3_got_track = 0;
 #ifdef VAR_RANGES
 		logval("Shuttle:isMoving", ((P0 *)pptr(h))->isMoving);
 		logval("Shuttle:isFree", ((P0 *)pptr(h))->isFree);
-		logval("Shuttle:got_track", ((P0 *)pptr(h))->_8_3_got_track);
+		logval("Shuttle:got_track", ((P0 *)pptr(h))->_7_3_got_track);
 		logval("Shuttle:max_cap", ((P0 *)pptr(h))->max_cap);
 		logval("Shuttle:charge", ((P0 *)pptr(h))->charge);
 		logval("Shuttle:init_pos", ((P0 *)pptr(h))->init_pos);
@@ -1036,9 +1050,9 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		logval("Shuttle:track_distance", ((P0 *)pptr(h))->track_distance);
 		logval("Shuttle:direction", ((P0 *)pptr(h))->direction);
 		logval("Shuttle:station_distance", ((P0 *)pptr(h))->station_distance);
-		logval("Shuttle:temp_station", ((P0 *)pptr(h))->_8_2_temp_station);
-		logval("Shuttle:distance_a", ((P0 *)pptr(h))->_8_2_1_distance_a);
-		logval("Shuttle:distance_b", ((P0 *)pptr(h))->_8_2_1_distance_b);
+		logval("Shuttle:temp_station", ((P0 *)pptr(h))->_7_2_temp_station);
+		logval("Shuttle:distance_a", ((P0 *)pptr(h))->_7_2_1_distance_a);
+		logval("Shuttle:distance_b", ((P0 *)pptr(h))->_7_2_1_distance_b);
 		logval("Shuttle:current_order.start", ((P0 *)pptr(h))->current_order.start);
 		logval("Shuttle:current_order.end", ((P0 *)pptr(h))->current_order.end);
 		logval("Shuttle:current_order.size", ((P0 *)pptr(h))->current_order.size);
@@ -12587,7 +12601,6 @@ iniglobals(int calling_pid)
 			now.track_anti_clockwise[l_in] = 0;
 		}
 	}
-		now.order_stack = addqueue(calling_pid, 2, 0);
 		now.shuttleTOmanagement = addqueue(calling_pid, 3, 0);
 		now.managementTOshuttle[0] = addqueue(calling_pid, 4, 0);
 		now.managementTOshuttle[1] = addqueue(calling_pid, 5, 0);
@@ -13724,17 +13737,12 @@ q_cond(short II, Trans *t)
 #endif
 		switch (t->qu[i]) {
 		case 0: break;
-		case 1: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( now.order_stack) )))
-			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( now.order_stack) )))
-			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( now.order_stack) )))
-			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( now.order_stack) )))
-			    ) return 0; break;
-		case 2: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( now.shuttleTOmanagement) )))
+		case 1: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( now.shuttleTOmanagement) )))
 			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( now.shuttleTOmanagement) )))
 			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( now.shuttleTOmanagement) )))
 			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( now.shuttleTOmanagement) )))
 			    ) return 0; break;
-		case 3: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( now.managementTOshuttle[0]) )
+		case 2: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( now.managementTOshuttle[0]) )
 			 ||     q_full((int) ( now.managementTOshuttle[1]) )
 			 ||     q_full((int) ( now.managementTOshuttle[2]) )
 			 ||     q_full((int) ( now.managementTOshuttle[3]) )))
@@ -13751,12 +13759,12 @@ q_cond(short II, Trans *t)
 			 ||      q_len((int) ( now.managementTOshuttle[2]) )
 			 ||      q_len((int) ( now.managementTOshuttle[3]) )))
 			    ) return 0; break;
-		case 4: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( now.shuttleTOrailway) )))
+		case 3: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( now.shuttleTOrailway) )))
 			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( now.shuttleTOrailway) )))
 			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( now.shuttleTOrailway) )))
 			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( now.shuttleTOrailway) )))
 			    ) return 0; break;
-		case 5: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( now.railwayTOshuttle[0]) )
+		case 4: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( now.railwayTOshuttle[0]) )
 			 ||     q_full((int) ( now.railwayTOshuttle[1]) )
 			 ||     q_full((int) ( now.railwayTOshuttle[2]) )
 			 ||     q_full((int) ( now.railwayTOshuttle[3]) )))
@@ -13773,30 +13781,35 @@ q_cond(short II, Trans *t)
 			 ||      q_len((int) ( now.railwayTOshuttle[2]) )
 			 ||      q_len((int) ( now.railwayTOshuttle[3]) )))
 			    ) return 0; break;
-		case 6: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->om_out) )))
+		case 5: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->om_out) )))
 			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P0 *)_this)->om_out) )))
 			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P0 *)_this)->om_out) )))
 			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P0 *)_this)->om_out) )))
 			    ) return 0; break;
-		case 7: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->om_in) )))
+		case 6: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->om_in) )))
 			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P0 *)_this)->om_in) )))
 			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P0 *)_this)->om_in) )))
 			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P0 *)_this)->om_in) )))
 			    ) return 0; break;
-		case 8: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->rm_out) )))
+		case 7: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->rm_out) )))
 			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P0 *)_this)->rm_out) )))
 			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P0 *)_this)->rm_out) )))
 			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P0 *)_this)->rm_out) )))
 			    ) return 0; break;
-		case 9: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->rm_in) )))
+		case 8: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->rm_in) )))
 			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P0 *)_this)->rm_in) )))
 			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P0 *)_this)->rm_in) )))
 			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P0 *)_this)->rm_in) )))
 			    ) return 0; break;
-		case 10: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->order_queue) )))
+		case 9: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->order_queue) )))
 			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P0 *)_this)->order_queue) )))
 			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P0 *)_this)->order_queue) )))
 			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P0 *)_this)->order_queue) )))
+			    ) return 0; break;
+		case 10: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P2 *)_this)->order_stack) )))
+			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P2 *)_this)->order_stack) )))
+			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P2 *)_this)->order_stack) )))
+			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P2 *)_this)->order_stack) )))
 			    ) return 0; break;
 		default: Uerror("unknown qid - q_cond");
 				return 0;
@@ -15109,8 +15122,6 @@ c_globals(void)
 			printf("	bit    track_anti_clockwise[%d]:	%d\n", l_in, now.track_anti_clockwise[l_in]);
 		}
 	}
-	printf("	chan order_stack (=%d):	len %d:\t", now.order_stack, q_len(now.order_stack));
-	c_chandump(now.order_stack);
 	printf("	chan shuttleTOmanagement (=%d):	len %d:\t", now.shuttleTOmanagement, q_len(now.shuttleTOmanagement));
 	c_chandump(now.shuttleTOmanagement);
 	printf("	chan managementTOshuttle[0] (=%d):	len %d:\t", now.managementTOshuttle[0], q_len(now.managementTOshuttle[0]));
@@ -15138,17 +15149,27 @@ c_locals(int pid, int tp)
 	switch(tp) {
 	case 3:
 		printf("local vars proc %d (:init:):\n", pid);
-		printf("	(struct _11_10_first)\n");
-	printf("	int    start:	%d\n", ((P3 *)pptr(pid))->_11_10_first.start);
-	printf("	int    end:	%d\n", ((P3 *)pptr(pid))->_11_10_first.end);
-	printf("	int    size:	%d\n", ((P3 *)pptr(pid))->_11_10_first.size);
-		printf("	(struct _11_10_second)\n");
-	printf("	int    start:	%d\n", ((P3 *)pptr(pid))->_11_10_second.start);
-	printf("	int    end:	%d\n", ((P3 *)pptr(pid))->_11_10_second.end);
-	printf("	int    size:	%d\n", ((P3 *)pptr(pid))->_11_10_second.size);
+		printf("	(struct _10_11_first)\n");
+	printf("	int    start:	%d\n", ((P3 *)pptr(pid))->_10_11_first.start);
+	printf("	int    end:	%d\n", ((P3 *)pptr(pid))->_10_11_first.end);
+	printf("	int    size:	%d\n", ((P3 *)pptr(pid))->_10_11_first.size);
+		printf("	(struct _10_11_second)\n");
+	printf("	int    start:	%d\n", ((P3 *)pptr(pid))->_10_11_second.start);
+	printf("	int    end:	%d\n", ((P3 *)pptr(pid))->_10_11_second.end);
+	printf("	int    size:	%d\n", ((P3 *)pptr(pid))->_10_11_second.size);
 		break;
 	case 2:
 		printf("local vars proc %d (ManagementSystem):\n", pid);
+		printf("	(struct first)\n");
+	printf("	int    start:	%d\n", ((P2 *)pptr(pid))->first.start);
+	printf("	int    end:	%d\n", ((P2 *)pptr(pid))->first.end);
+	printf("	int    size:	%d\n", ((P2 *)pptr(pid))->first.size);
+		printf("	(struct second)\n");
+	printf("	int    start:	%d\n", ((P2 *)pptr(pid))->second.start);
+	printf("	int    end:	%d\n", ((P2 *)pptr(pid))->second.end);
+	printf("	int    size:	%d\n", ((P2 *)pptr(pid))->second.size);
+	printf("	chan order_stack (=%d):	len %d:\t", ((P2 *)pptr(pid))->order_stack, q_len(((P2 *)pptr(pid))->order_stack));
+	c_chandump(((P2 *)pptr(pid))->order_stack);
 	printf("	int    i:	%d\n", ((P2 *)pptr(pid))->i);
 		printf("	(struct current)\n");
 	printf("	int    start:	%d\n", ((P2 *)pptr(pid))->current.start);
@@ -15208,10 +15229,10 @@ c_locals(int pid, int tp)
 	printf("	int    track_distance:	%d\n", ((P0 *)pptr(pid))->track_distance);
 	printf("	int    direction:	%d\n", ((P0 *)pptr(pid))->direction);
 	printf("	int    station_distance:	%d\n", ((P0 *)pptr(pid))->station_distance);
-	printf("	int    temp_station:	%d\n", ((P0 *)pptr(pid))->_8_2_temp_station);
-	printf("	int    distance_a:	%d\n", ((P0 *)pptr(pid))->_8_2_1_distance_a);
-	printf("	int    distance_b:	%d\n", ((P0 *)pptr(pid))->_8_2_1_distance_b);
-	printf("	bit    got_track:	%d\n", ((P0 *)pptr(pid))->_8_3_got_track);
+	printf("	int    temp_station:	%d\n", ((P0 *)pptr(pid))->_7_2_temp_station);
+	printf("	int    distance_a:	%d\n", ((P0 *)pptr(pid))->_7_2_1_distance_a);
+	printf("	int    distance_b:	%d\n", ((P0 *)pptr(pid))->_7_2_1_distance_b);
+	printf("	bit    got_track:	%d\n", ((P0 *)pptr(pid))->_7_3_got_track);
 		break;
 	}
 }
@@ -15333,7 +15354,7 @@ c_chandump(int from)
 	printf("\n");
 }
 
-Trans *t_id_lkup[208];
+Trans *t_id_lkup[215];
 
 
 #ifdef BFS_PAR
