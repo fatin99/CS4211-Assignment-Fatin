@@ -34,8 +34,8 @@ chan shuttleTOrailway = [noShuttles] of {Request};
 chan railwayTOshuttle[noShuttles] = [1] of {bool};
 
 inline get_distance(){
-    int distance_a = get_abs(temp_station, recieve_order.start); 
-    int distance_b = noStations - get_max(temp_station, recieve_order.start) + get_min(temp_station, recieve_order.start);
+    int distance_a = get_abs(temp_station, receive_order.start); 
+    int distance_b = noStations - get_max(temp_station, receive_order.start) + get_min(temp_station, receive_order.start);
     station_distance = get_min(distance_a, distance_b);
 }
 
@@ -57,14 +57,14 @@ inline shuttle_offer(){
     get_distance();
 
     if
-    :: current_cap + recieve_order.size <= max_cap && station_distance <= minLength -> shuttleTOmanagement!charge,id;
+    :: current_cap + receive_order.size <= max_cap && station_distance <= minLength -> shuttleTOmanagement!charge,id;
     :: else -> shuttleTOmanagement!Reject,id;
     fi
 
-    managementTOshuttle[id]?recieve_order;
+    managementTOshuttle[id]?receive_order;
 
     if
-    :: recieve_order.size != 0 -> order_queue!recieve_order;
+    :: receive_order.size != 0 -> order_queue!receive_order;
     :: else -> skip;
     fi
 
@@ -142,7 +142,7 @@ L2:	fi
 proctype Shuttle(int max_cap; int charge; int init_pos; int id) {
 	chan order_queue = [noOrders] of {Order};
 	Order current_order;
-	Order recieve_order;
+	Order receive_order;
 	Request track_req;
 	bool isMoving = false;
 	bool isFree = true;
@@ -157,7 +157,7 @@ proctype Shuttle(int max_cap; int charge; int init_pos; int id) {
 	track_req.shuttle_id = id;
 
 L0:	do
-    ::  managementTOshuttle[id]?recieve_order -> shuttle_offer();
+    ::  managementTOshuttle[id]?receive_order -> shuttle_offer();
     ::  isMoving || !isFree -> shuttle_move();
     ::  isFree && nempty(order_queue) -> shuttle_process_order();       
     od;
