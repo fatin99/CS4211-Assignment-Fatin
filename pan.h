@@ -133,14 +133,14 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates3	17	/* :init: */
-#define minseq3	199
-#define maxseq3	214
+#define minseq3	210
+#define maxseq3	225
 #define _endstate3	16
 
-#define _nstates2	60	/* ManagementSystem */
+#define _nstates2	71	/* ShuttleManagementSystem */
 #define minseq2	140
-#define maxseq2	198
-#define _endstate2	59
+#define maxseq2	209
+#define _endstate2	70
 
 #define _nstates1	27	/* RailwayNetwork */
 #define minseq1	114
@@ -162,11 +162,11 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned char
-#define _T5	86
-#define _T2	87
+#define _T5	82
+#define _T2	83
 #define WS		4 /* word size in bytes */
 #define SYNC	0
-#define ASYNC	6
+#define ASYNC	5
 
 #ifndef NCORE
 	#ifdef DUAL_CORE
@@ -196,21 +196,21 @@ typedef struct P3 { /* :init: */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	struct Order _10_11_first;
-	struct Order _10_11_second;
+	struct Order _10_8_first;
+	struct Order _10_8_second;
 } P3;
 #define Air3	0
 
-#define PManagementSystem	((P2 *)_this)
-typedef struct P2 { /* ManagementSystem */
+#define PShuttleManagementSystem	((P2 *)_this)
+typedef struct P2 { /* ShuttleManagementSystem */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
 	unsigned _p   : 8; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	uchar order_stack;
 	int i;
+	int j;
 	int min_charge;
 	int offer_id;
 	int shuttle_id;
@@ -219,6 +219,7 @@ typedef struct P2 { /* ManagementSystem */
 	struct Order second;
 	struct Order current;
 	struct Order reject;
+	struct Order orders[2];
 } P2;
 #define Air2	0
 
@@ -538,14 +539,7 @@ typedef struct TRIX_v6 {
 	#define MEMLIM	(2048)	/* need a default, using 2 GB */
 #endif
 #define PROG_LAB	0 /* progress labels */
-#define NQS	12
-typedef struct Q12 {
-	uchar Qlen;	/* q_size */
-	uchar _t;	/* q_type */
-	struct {
-		uchar fld0;
-	} contents[1];
-} Q12;
+#define NQS	11
 typedef struct Q11 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
@@ -571,10 +565,8 @@ typedef struct Q8 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-		int fld1;
-		int fld2;
-	} contents[4];
+		uchar fld0;
+	} contents[1];
 } Q8;
 typedef struct Q7 {
 	uchar Qlen;	/* q_size */
@@ -583,7 +575,7 @@ typedef struct Q7 {
 		int fld0;
 		int fld1;
 		int fld2;
-	} contents[1];
+	} contents[4];
 } Q7;
 typedef struct Q6 {
 	uchar Qlen;	/* q_size */
@@ -618,7 +610,8 @@ typedef struct Q3 {
 	struct {
 		int fld0;
 		int fld1;
-	} contents[4];
+		int fld2;
+	} contents[1];
 } Q3;
 typedef struct Q2 {
 	uchar Qlen;	/* q_size */
@@ -626,8 +619,7 @@ typedef struct Q2 {
 	struct {
 		int fld0;
 		int fld1;
-		int fld2;
-	} contents[2];
+	} contents[4];
 } Q2;
 typedef struct Q1 {
 	uchar Qlen;	/* q_size */
@@ -964,7 +956,7 @@ void qsend(int, int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	88
+#define NTRANS	84
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);

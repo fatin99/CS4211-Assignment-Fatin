@@ -186,43 +186,41 @@ proctype RailwayNetwork() {
 }
 
 proctype ShuttleManagementSystem(Order first; Order second) {
-	chan order_stack = [noOrders] of {Order};
-	order_stack!first;
-    order_stack!second;
+	Order orders[noOrders];
+	orders[0].start = first.start; orders[0].end = first.end; orders[0].size = first.size;
+	orders[1].start = second.start; orders[1].end = second.end; orders[1].size = second.size;
 	int i;
+	int j;
 	Order current;
 	Order reject;
 	int min_charge = 100;
 	int offer_id;
 	int shuttle_id;
 	int shuttle_charge;
-	do
-	:: nempty(order_stack) -> 
-			printf("[Management System]: Broadcasting New Order\n");
-			order_stack?current;
-			for (i:0 .. noShuttles-1){
-				managementTOshuttle[i]!current;
-			}
-			i = 0;
-			printf("[Management System]: Waiting for replies\n");
-			for (i:0 .. noShuttles-1){
-				shuttleTOmanagement?shuttle_charge,shuttle_id;
-				if
-				:: shuttle_charge < min_charge && shuttle_charge != 0 -> min_charge = shuttle_charge; offer_id = shuttle_id;
-				:: else -> skip;
-				fi
-			}
-			i = 0;
-			printf("[Management System]: New Order assigned to Shuttle %d\n", offer_id);
-			for (i:0 .. noShuttles-1){				
-				if
-				:: i == offer_id -> managementTOshuttle[i]!current;
-				:: else -> managementTOshuttle[i]!reject;
-				fi
-			}
-
-	od
-
+	for (j:0 .. noOrders-1){
+		printf("[Management System]: Broadcasting New Order\n");
+		current.start = orders[j].start; current.end = orders[j].end; current.size = orders[j].size;
+		for (i:0 .. noShuttles-1){
+			managementTOshuttle[i]!current;
+		}
+		i = 0;
+		printf("[Management System]: Waiting for replies\n");
+		for (i:0 .. noShuttles-1){
+			shuttleTOmanagement?shuttle_charge,shuttle_id;
+			if
+			:: shuttle_charge < min_charge && shuttle_charge != 0 -> min_charge = shuttle_charge; offer_id = shuttle_id;
+			:: else -> skip;
+			fi
+		}
+		i = 0;
+		printf("[Management System]: New Order assigned to Shuttle %d\n", offer_id);
+		for (i:0 .. noShuttles-1){				
+			if
+			:: i == offer_id -> managementTOshuttle[i]!current;
+			:: else -> managementTOshuttle[i]!reject;
+			fi
+		}
+	}
 }
 
 init{
