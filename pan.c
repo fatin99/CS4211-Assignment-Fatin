@@ -949,8 +949,8 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		((P2 *)pptr(h))->min_id = 0;
 		((P2 *)pptr(h))->shuttle_id = 0;
 		((P2 *)pptr(h))->shuttle_charge = 0;
-		((P2 *)pptr(h))->j = 0;
-		((P2 *)pptr(h))->_9_5_i = 0;
+		((P2 *)pptr(h))->i = 0;
+		((P2 *)pptr(h))->_9_5_j = 0;
 		((P2 *)pptr(h))->_9_5_3_dummy.start = 0;
 		((P2 *)pptr(h))->_9_5_3_dummy.end = 0;
 		((P2 *)pptr(h))->_9_5_3_dummy.size = 0;
@@ -959,8 +959,8 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		logval("ShuttleManagementSystem:min_id", ((P2 *)pptr(h))->min_id);
 		logval("ShuttleManagementSystem:shuttle_id", ((P2 *)pptr(h))->shuttle_id);
 		logval("ShuttleManagementSystem:shuttle_charge", ((P2 *)pptr(h))->shuttle_charge);
-		logval("ShuttleManagementSystem:j", ((P2 *)pptr(h))->j);
-		logval("ShuttleManagementSystem:i", ((P2 *)pptr(h))->_9_5_i);
+		logval("ShuttleManagementSystem:i", ((P2 *)pptr(h))->i);
+		logval("ShuttleManagementSystem:j", ((P2 *)pptr(h))->_9_5_j);
 		logval("ShuttleManagementSystem:first.start", ((P2 *)pptr(h))->first.start);
 		logval("ShuttleManagementSystem:first.end", ((P2 *)pptr(h))->first.end);
 		logval("ShuttleManagementSystem:first.size", ((P2 *)pptr(h))->first.size);
@@ -15082,8 +15082,8 @@ c_locals(int pid, int tp)
 	printf("	int    min_id:	%d\n", ((P2 *)pptr(pid))->min_id);
 	printf("	int    shuttle_id:	%d\n", ((P2 *)pptr(pid))->shuttle_id);
 	printf("	int    shuttle_charge:	%d\n", ((P2 *)pptr(pid))->shuttle_charge);
-	printf("	int    j:	%d\n", ((P2 *)pptr(pid))->j);
-	printf("	int    i:	%d\n", ((P2 *)pptr(pid))->_9_5_i);
+	printf("	int    i:	%d\n", ((P2 *)pptr(pid))->i);
+	printf("	int    j:	%d\n", ((P2 *)pptr(pid))->_9_5_j);
 		printf("	(struct _9_5_3_dummy)\n");
 	printf("	int    start:	%d\n", ((P2 *)pptr(pid))->_9_5_3_dummy.start);
 	printf("	int    end:	%d\n", ((P2 *)pptr(pid))->_9_5_3_dummy.end);

@@ -174,15 +174,15 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 	int min_id;
 	int shuttle_id;
 	int shuttle_charge;
-	int j;
-	for (j:0 .. noOrders-1){
+	int i;
+	for (i:0 .. noOrders-1){
 		printf("[Management System]: Broadcasting New Order\n");
-		int i;
-		for (i:0 .. noShuttles-1){
-			managementTOshuttle[i]!orders[j];
+		int j;
+		for (j:0 .. noShuttles-1){
+			managementTOshuttle[j]!orders[i];
 		}
 		printf("[Management System]: Waiting for replies\n");
-		for (i:0 .. noShuttles-1){
+		for (j:0 .. noShuttles-1){
 			shuttleTOmanagement?shuttle_charge,shuttle_id;
 			if
 			:: shuttle_charge < min_charge && shuttle_charge != 0 -> min_charge = shuttle_charge; min_id = shuttle_id;
@@ -190,10 +190,10 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 			fi
 		}
 		printf("[Management System]: New Order assigned to Shuttle %d\n", min_id);
-		for (i:0 .. noShuttles-1){				
+		for (j:0 .. noShuttles-1){				
 			if
-			:: i == min_id -> managementTOshuttle[i]!orders[j];
-			:: else -> Order dummy; managementTOshuttle[i]!dummy;
+			:: j == min_id -> managementTOshuttle[j]!orders[i];
+			:: else -> Order dummy; managementTOshuttle[j]!dummy;
 			fi
 		}
 	}

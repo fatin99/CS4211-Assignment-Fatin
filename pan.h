@@ -213,8 +213,8 @@ typedef struct P2 { /* ShuttleManagementSystem */
 	int min_id;
 	int shuttle_id;
 	int shuttle_charge;
-	int j;
-	int _9_5_i;
+	int i;
+	int _9_5_j;
 	struct Order first;
 	struct Order second;
 	struct Order _9_5_3_dummy;

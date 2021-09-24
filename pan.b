@@ -71,8 +71,8 @@
 
 	case 11: // STATE 12
 		;
-		((P2 *)_this)->j = trpt->bup.ovals[11];
-		((P2 *)_this)->j = trpt->bup.ovals[10];
+		((P2 *)_this)->i = trpt->bup.ovals[11];
+		((P2 *)_this)->i = trpt->bup.ovals[10];
 		((P2 *)_this)->shuttle_charge = trpt->bup.ovals[9];
 		((P2 *)_this)->shuttle_id = trpt->bup.ovals[8];
 		((P2 *)_this)->min_id = trpt->bup.ovals[7];
@@ -89,8 +89,8 @@
 
 	case 12: // STATE 16
 		;
-		((P2 *)_this)->_9_5_i = trpt->bup.ovals[1];
-		((P2 *)_this)->_9_5_i = trpt->bup.ovals[0];
+		((P2 *)_this)->_9_5_j = trpt->bup.ovals[1];
+		((P2 *)_this)->_9_5_j = trpt->bup.ovals[0];
 		;
 		ungrab_ints(trpt->bup.ovals, 2);
 		goto R999;
@@ -99,19 +99,19 @@
 		
 	case 14: // STATE 18
 		;
-		_m = unsend(now.managementTOshuttle[ Index(((P2 *)_this)->_9_5_i, 4) ]);
+		_m = unsend(now.managementTOshuttle[ Index(((P2 *)_this)->_9_5_j, 4) ]);
 		;
 		goto R999;
 
 	case 15: // STATE 19
 		;
-		((P2 *)_this)->_9_5_i = trpt->bup.oval;
+		((P2 *)_this)->_9_5_j = trpt->bup.oval;
 		;
 		goto R999;
 
 	case 16: // STATE 26
 		;
-		((P2 *)_this)->_9_5_i = trpt->bup.oval;
+		((P2 *)_this)->_9_5_j = trpt->bup.oval;
 		;
 		goto R999;
 ;
@@ -131,7 +131,7 @@
 
 	case 19: // STATE 36
 		;
-		((P2 *)_this)->_9_5_i = trpt->bup.ovals[3];
+		((P2 *)_this)->_9_5_j = trpt->bup.ovals[3];
 		((P2 *)_this)->min_id = trpt->bup.ovals[2];
 		((P2 *)_this)->min_charge = trpt->bup.ovals[1];
 	/* 0 */	((P2 *)_this)->min_charge = trpt->bup.ovals[0];
@@ -142,19 +142,19 @@
 
 	case 20: // STATE 36
 		;
-		((P2 *)_this)->_9_5_i = trpt->bup.oval;
+		((P2 *)_this)->_9_5_j = trpt->bup.oval;
 		;
 		goto R999;
 
 	case 21: // STATE 36
 		;
-		((P2 *)_this)->_9_5_i = trpt->bup.oval;
+		((P2 *)_this)->_9_5_j = trpt->bup.oval;
 		;
 		goto R999;
 
 	case 22: // STATE 43
 		;
-		((P2 *)_this)->_9_5_i = trpt->bup.oval;
+		((P2 *)_this)->_9_5_j = trpt->bup.oval;
 		;
 		goto R999;
 ;
@@ -164,7 +164,7 @@
 		
 	case 25: // STATE 46
 		;
-		_m = unsend(now.managementTOshuttle[ Index(((P2 *)_this)->_9_5_i, 4) ]);
+		_m = unsend(now.managementTOshuttle[ Index(((P2 *)_this)->_9_5_j, 4) ]);
 		;
 		goto R999;
 
@@ -176,19 +176,19 @@
 
 	case 27: // STATE 49
 		;
-		_m = unsend(now.managementTOshuttle[ Index(((P2 *)_this)->_9_5_i, 4) ]);
+		_m = unsend(now.managementTOshuttle[ Index(((P2 *)_this)->_9_5_j, 4) ]);
 		;
 		goto R999;
 
 	case 28: // STATE 52
 		;
-		((P2 *)_this)->_9_5_i = trpt->bup.oval;
+		((P2 *)_this)->_9_5_j = trpt->bup.oval;
 		;
 		goto R999;
 
 	case 29: // STATE 58
 		;
-		((P2 *)_this)->j = trpt->bup.oval;
+		((P2 *)_this)->i = trpt->bup.oval;
 		;
 		goto R999;
 
