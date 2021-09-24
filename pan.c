@@ -490,9 +490,9 @@ int _;	/* predefined write-only variable */
 #endif
 
 short src_ln3 [] = {
-	  0, 228, 229, 230, 231, 232, 233, 233, 
-	233, 233, 234, 234, 234, 234, 235, 227, 
-	237,   0, };
+	  0, 204, 205, 206, 207, 208, 209, 209, 
+	209, 209, 210, 210, 210, 210, 211, 203, 
+	213,   0, };
 S_F_MAP src_file3 [] = {
 	{ "-", 0, 0 },
 	{ "problem1.pml", 1, 16 },
@@ -505,37 +505,37 @@ uchar reached3 [] = {
 uchar *loopstate3;
 
 short src_ln2 [] = {
-	  0, 190, 190, 190, 191, 191, 191, 193, 
-	194, 195, 196, 197, 198, 199, 200, 200, 
-	200, 201, 202, 202, 202, 203, 203, 204, 
-	203, 205, 205, 205, 206, 205, 206, 207, 
-	208, 208, 209, 211, 211, 211, 212, 212, 
-	210, 214, 208, 214, 214, 214, 215, 214, 
-	215, 216, 217, 217, 219, 219, 220, 220, 
-	218, 222, 217, 222, 222, 222, 223, 222, 
-	200, 223, 223, 223, 224, 223, 224,   0, };
+	  0, 171, 171, 171, 172, 172, 172, 174, 
+	175, 176, 177, 178, 178, 178, 179, 181, 
+	181, 181, 182, 181, 183, 183, 183, 184, 
+	183, 184, 185, 185, 186, 188, 188, 188, 
+	189, 189, 187, 191, 185, 191, 191, 191, 
+	192, 191, 192, 193, 193, 195, 195, 196, 
+	196, 196, 194, 198, 193, 198, 198, 198, 
+	199, 198, 178, 199, 199, 199, 200, 199, 
+	200,   0, };
 S_F_MAP src_file2 [] = {
 	{ "-", 0, 0 },
-	{ "problem1.pml", 1, 70 },
-	{ "-", 71, 72 }
+	{ "problem1.pml", 1, 64 },
+	{ "-", 65, 66 }
 };
 uchar reached2 [] = {
 	  0,   0,   0,   0,   0,   0,   0,   0, 
-	  0,   0,   0,   0,   0,   0,   0,   0, 
-	  1,   0,   0,   0,   0,   0,   1,   0, 
-	  0,   1,   0,   0,   1,   1,   0,   0, 
-	  0,   1,   0,   1,   0,   0,   1,   0, 
-	  0,   1,   0,   1,   0,   0,   1,   1, 
-	  0,   0,   0,   1,   1,   0,   1,   0, 
-	  0,   0,   0,   1,   0,   0,   1,   1, 
-	  0,   1,   1,   0,   1,   1,   0,   0, };
+	  0,   0,   0,   0,   0,   1,   0,   0, 
+	  0,   1,   0,   0,   1,   0,   0,   1, 
+	  1,   0,   0,   1,   0,   1,   0,   0, 
+	  1,   0,   0,   1,   0,   1,   0,   0, 
+	  1,   1,   0,   0,   1,   1,   0,   1, 
+	  0,   0,   0,   0,   0,   1,   0,   0, 
+	  1,   1,   0,   1,   1,   0,   1,   1, 
+	  0,   0, };
 uchar *loopstate2;
 
 short src_ln1 [] = {
-	  0, 171, 172, 174, 176, 176, 176, 176, 
-	177, 177, 175, 179, 179, 181, 181, 181, 
-	181, 182, 182, 180, 184, 173, 185, 170, 
-	186, 170, 186,   0, };
+	  0, 152, 153, 155, 157, 157, 157, 157, 
+	158, 158, 156, 160, 160, 162, 162, 162, 
+	162, 163, 163, 161, 165, 154, 166, 151, 
+	167, 151, 167,   0, };
 S_F_MAP src_file1 [] = {
 	{ "-", 0, 0 },
 	{ "problem1.pml", 1, 26 },
@@ -549,42 +549,40 @@ uchar reached1 [] = {
 uchar *loopstate1;
 
 short src_ln0 [] = {
-	  0, 157, 160,  52,  53,  53,  54,  54, 
-	 52,  57,  38,  39,  39,  36,  60,  60, 
-	 61,  61,  59,  64,  64,  67,  67,  68, 
-	 68,  66,  71,  49, 161,  85,  86,  87, 
-	 88,  89,  90,  91,  92,  44,  44,  45, 
-	 45,  43,  47,  42,  94,  95,  96,  97, 
-	 98,  99, 100, 100,  84, 103, 104, 106, 
-	106, 107, 107, 105, 110, 110, 112, 112, 
-	113, 113, 111, 116, 118, 119, 120, 122, 
-	122, 122, 122, 123, 123, 121, 125, 118, 
-	127, 118, 127, 128, 129, 130, 131, 133, 
-	133, 134, 134, 132, 136, 136, 138, 103, 
-	140,  82, 162,  74,  75,  76,  77,  44, 
-	 44,  45,  45,  43,  47,  42,  73, 159, 
-	164, 159, 164,   0, };
+	  0, 113, 116, 118, 119, 119, 120, 120, 
+	118, 122, 123, 124, 124, 126, 126, 127, 
+	127, 125, 129, 129, 131, 131, 132, 132, 
+	130, 134, 134,  38,  39,  40,  41,  42, 
+	 43,  44,  45,  47,  47,  48,  48,  46, 
+	 50,  50,  51,  52,  53,  54,  55,  56, 
+	 56,  37,  59,  60,  62,  62,  63,  63, 
+	 61,  66,  66,  68,  68,  69,  69,  67, 
+	 72,  74,  75,  76,  78,  78,  78,  78, 
+	 79,  79,  77,  81,  74,  83,  74,  83, 
+	 84,  85,  86,  87,  89,  89,  90,  90, 
+	 88,  92,  92,  94,  59,  96,  36, 135, 
+	136, 137, 138, 139, 141, 141, 142, 142, 
+	140, 144, 115, 145, 115, 145,   0, };
 S_F_MAP src_file0 [] = {
 	{ "-", 0, 0 },
-	{ "problem1.pml", 1, 114 },
-	{ "-", 115, 116 }
+	{ "problem1.pml", 1, 109 },
+	{ "-", 110, 111 }
 };
 uchar reached0 [] = {
-	  0,   0,   1,   1,   1,   0,   1,   0, 
-	  0,   1,   1,   0,   0,   0,   1,   0, 
-	  1,   0,   0,   1,   0,   1,   0,   1, 
-	  1,   0,   1,   0,   1,   1,   0,   0, 
-	  0,   0,   1,   1,   0,   1,   0,   1, 
-	  0,   1,   1,   0,   0,   0,   0,   0, 
-	  0,   1,   1,   1,   1,   1,   1,   1, 
-	  0,   1,   0,   0,   1,   0,   1,   0, 
-	  1,   0,   0,   1,   0,   1,   0,   1, 
-	  0,   0,   1,   1,   1,   0,   1,   0, 
-	  1,   1,   1,   0,   0,   1,   0,   1, 
-	  0,   1,   0,   0,   0,   0,   1,   0, 
-	  1,   0,   1,   1,   0,   0,   0,   1, 
-	  0,   1,   0,   1,   1,   0,   0,   0, 
-	  1,   1,   0,   0, };
+	  0,   0,   1,   0,   1,   0,   1,   0, 
+	  0,   1,   0,   0,   0,   1,   0,   1, 
+	  0,   0,   1,   0,   1,   0,   1,   1, 
+	  0,   1,   1,   1,   0,   0,   0,   0, 
+	  1,   1,   0,   1,   0,   1,   0,   0, 
+	  1,   0,   0,   0,   0,   0,   1,   1, 
+	  1,   1,   1,   1,   1,   0,   1,   0, 
+	  0,   1,   0,   1,   0,   1,   0,   0, 
+	  1,   0,   1,   0,   1,   0,   0,   1, 
+	  1,   1,   0,   1,   0,   1,   1,   1, 
+	  0,   0,   1,   0,   1,   0,   1,   0, 
+	  0,   0,   0,   1,   0,   1,   0,   1, 
+	  0,   0,   0,   0,   1,   0,   1,   0, 
+	  0,   1,   0,   1,   1,   0,   0, };
 uchar *loopstate0;
 uchar reached4[3];  /* np_ */
 uchar *loopstate4;  /* np_ */
@@ -909,19 +907,19 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		reached3[15]=1;
 		/* params: */
 		/* locals: */
-		((P3 *)pptr(h))->_10_8_first.start = 0;
-		((P3 *)pptr(h))->_10_8_first.end = 0;
-		((P3 *)pptr(h))->_10_8_first.size = 0;
-		((P3 *)pptr(h))->_10_8_second.start = 0;
-		((P3 *)pptr(h))->_10_8_second.end = 0;
-		((P3 *)pptr(h))->_10_8_second.size = 0;
+		((P3 *)pptr(h))->_10_6_first.start = 0;
+		((P3 *)pptr(h))->_10_6_first.end = 0;
+		((P3 *)pptr(h))->_10_6_first.size = 0;
+		((P3 *)pptr(h))->_10_6_second.start = 0;
+		((P3 *)pptr(h))->_10_6_second.end = 0;
+		((P3 *)pptr(h))->_10_6_second.size = 0;
 #ifdef VAR_RANGES
-		logval(":init::_10_8_first.start", ((P3 *)pptr(h))->_10_8_first.start);
-		logval(":init::_10_8_first.end", ((P3 *)pptr(h))->_10_8_first.end);
-		logval(":init::_10_8_first.size", ((P3 *)pptr(h))->_10_8_first.size);
-		logval(":init::_10_8_second.start", ((P3 *)pptr(h))->_10_8_second.start);
-		logval(":init::_10_8_second.end", ((P3 *)pptr(h))->_10_8_second.end);
-		logval(":init::_10_8_second.size", ((P3 *)pptr(h))->_10_8_second.size);
+		logval(":init::_10_6_first.start", ((P3 *)pptr(h))->_10_6_first.start);
+		logval(":init::_10_6_first.end", ((P3 *)pptr(h))->_10_6_first.end);
+		logval(":init::_10_6_first.size", ((P3 *)pptr(h))->_10_6_first.size);
+		logval(":init::_10_6_second.start", ((P3 *)pptr(h))->_10_6_second.start);
+		logval(":init::_10_6_second.end", ((P3 *)pptr(h))->_10_6_second.end);
+		logval(":init::_10_6_second.size", ((P3 *)pptr(h))->_10_6_second.size);
 #endif
 #ifdef HAS_CODE
 		locinit3(h);
@@ -948,36 +946,30 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		((P2 *)pptr(h))->orders[1].start = 0;
 		((P2 *)pptr(h))->orders[1].end = 0;
 		((P2 *)pptr(h))->orders[1].size = 0;
-		((P2 *)pptr(h))->i = 0;
-		((P2 *)pptr(h))->j = 0;
-		((P2 *)pptr(h))->current.start = 0;
-		((P2 *)pptr(h))->current.end = 0;
-		((P2 *)pptr(h))->current.size = 0;
-		((P2 *)pptr(h))->reject.start = 0;
-		((P2 *)pptr(h))->reject.end = 0;
-		((P2 *)pptr(h))->reject.size = 0;
-		((P2 *)pptr(h))->offer_id = 0;
+		((P2 *)pptr(h))->min_id = 0;
 		((P2 *)pptr(h))->shuttle_id = 0;
 		((P2 *)pptr(h))->shuttle_charge = 0;
+		((P2 *)pptr(h))->j = 0;
+		((P2 *)pptr(h))->_9_5_i = 0;
+		((P2 *)pptr(h))->_9_5_3_dummy.start = 0;
+		((P2 *)pptr(h))->_9_5_3_dummy.end = 0;
+		((P2 *)pptr(h))->_9_5_3_dummy.size = 0;
 #ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:i", ((P2 *)pptr(h))->i);
-		logval("ShuttleManagementSystem:j", ((P2 *)pptr(h))->j);
 		logval("ShuttleManagementSystem:min_charge", ((P2 *)pptr(h))->min_charge);
-		logval("ShuttleManagementSystem:offer_id", ((P2 *)pptr(h))->offer_id);
+		logval("ShuttleManagementSystem:min_id", ((P2 *)pptr(h))->min_id);
 		logval("ShuttleManagementSystem:shuttle_id", ((P2 *)pptr(h))->shuttle_id);
 		logval("ShuttleManagementSystem:shuttle_charge", ((P2 *)pptr(h))->shuttle_charge);
+		logval("ShuttleManagementSystem:j", ((P2 *)pptr(h))->j);
+		logval("ShuttleManagementSystem:i", ((P2 *)pptr(h))->_9_5_i);
 		logval("ShuttleManagementSystem:first.start", ((P2 *)pptr(h))->first.start);
 		logval("ShuttleManagementSystem:first.end", ((P2 *)pptr(h))->first.end);
 		logval("ShuttleManagementSystem:first.size", ((P2 *)pptr(h))->first.size);
 		logval("ShuttleManagementSystem:second.start", ((P2 *)pptr(h))->second.start);
 		logval("ShuttleManagementSystem:second.end", ((P2 *)pptr(h))->second.end);
 		logval("ShuttleManagementSystem:second.size", ((P2 *)pptr(h))->second.size);
-		logval("ShuttleManagementSystem:current.start", ((P2 *)pptr(h))->current.start);
-		logval("ShuttleManagementSystem:current.end", ((P2 *)pptr(h))->current.end);
-		logval("ShuttleManagementSystem:current.size", ((P2 *)pptr(h))->current.size);
-		logval("ShuttleManagementSystem:reject.start", ((P2 *)pptr(h))->reject.start);
-		logval("ShuttleManagementSystem:reject.end", ((P2 *)pptr(h))->reject.end);
-		logval("ShuttleManagementSystem:reject.size", ((P2 *)pptr(h))->reject.size);
+		logval("ShuttleManagementSystem:_9_5_3_dummy.start", ((P2 *)pptr(h))->_9_5_3_dummy.start);
+		logval("ShuttleManagementSystem:_9_5_3_dummy.end", ((P2 *)pptr(h))->_9_5_3_dummy.end);
+		logval("ShuttleManagementSystem:_9_5_3_dummy.size", ((P2 *)pptr(h))->_9_5_3_dummy.size);
 		logval("ShuttleManagementSystem:orders[0].start", ((P2 *)pptr(h))->orders[0].start);
 		logval("ShuttleManagementSystem:orders[0].end", ((P2 *)pptr(h))->orders[0].end);
 		logval("ShuttleManagementSystem:orders[0].size", ((P2 *)pptr(h))->orders[0].size);
@@ -1029,9 +1021,9 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		((P0 *)pptr(h))->current_order.start = 0;
 		((P0 *)pptr(h))->current_order.end = 0;
 		((P0 *)pptr(h))->current_order.size = 0;
-		((P0 *)pptr(h))->recieve_order.start = 0;
-		((P0 *)pptr(h))->recieve_order.end = 0;
-		((P0 *)pptr(h))->recieve_order.size = 0;
+		((P0 *)pptr(h))->receive_order.start = 0;
+		((P0 *)pptr(h))->receive_order.end = 0;
+		((P0 *)pptr(h))->receive_order.size = 0;
 		((P0 *)pptr(h))->track_req.track = 0;
 		((P0 *)pptr(h))->track_req.direction = 0;
 		((P0 *)pptr(h))->track_req.shuttle_id = 0;
@@ -1044,12 +1036,12 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		((P0 *)pptr(h))->track_distance = 0;
 		((P0 *)pptr(h))->direction = 0;
 		((P0 *)pptr(h))->station_distance = 0;
-		((P0 *)pptr(h))->_7_2_temp_station = 0;
-		((P0 *)pptr(h))->_7_3_got_track = 0;
+		((P0 *)pptr(h))->temp_station = 0;
+		((P0 *)pptr(h))->_7_2_got_track = 0;
 #ifdef VAR_RANGES
 		logval("Shuttle:isMoving", ((P0 *)pptr(h))->isMoving);
 		logval("Shuttle:isFree", ((P0 *)pptr(h))->isFree);
-		logval("Shuttle:got_track", ((P0 *)pptr(h))->_7_3_got_track);
+		logval("Shuttle:got_track", ((P0 *)pptr(h))->_7_2_got_track);
 		logval("Shuttle:max_cap", ((P0 *)pptr(h))->max_cap);
 		logval("Shuttle:charge", ((P0 *)pptr(h))->charge);
 		logval("Shuttle:init_pos", ((P0 *)pptr(h))->init_pos);
@@ -1061,15 +1053,15 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		logval("Shuttle:track_distance", ((P0 *)pptr(h))->track_distance);
 		logval("Shuttle:direction", ((P0 *)pptr(h))->direction);
 		logval("Shuttle:station_distance", ((P0 *)pptr(h))->station_distance);
-		logval("Shuttle:temp_station", ((P0 *)pptr(h))->_7_2_temp_station);
-		logval("Shuttle:distance_a", ((P0 *)pptr(h))->_7_2_1_distance_a);
-		logval("Shuttle:distance_b", ((P0 *)pptr(h))->_7_2_1_distance_b);
+		logval("Shuttle:temp_station", ((P0 *)pptr(h))->temp_station);
+		logval("Shuttle:distance_a", ((P0 *)pptr(h))->distance_a);
+		logval("Shuttle:distance_b", ((P0 *)pptr(h))->distance_b);
 		logval("Shuttle:current_order.start", ((P0 *)pptr(h))->current_order.start);
 		logval("Shuttle:current_order.end", ((P0 *)pptr(h))->current_order.end);
 		logval("Shuttle:current_order.size", ((P0 *)pptr(h))->current_order.size);
-		logval("Shuttle:recieve_order.start", ((P0 *)pptr(h))->recieve_order.start);
-		logval("Shuttle:recieve_order.end", ((P0 *)pptr(h))->recieve_order.end);
-		logval("Shuttle:recieve_order.size", ((P0 *)pptr(h))->recieve_order.size);
+		logval("Shuttle:receive_order.start", ((P0 *)pptr(h))->receive_order.start);
+		logval("Shuttle:receive_order.end", ((P0 *)pptr(h))->receive_order.end);
+		logval("Shuttle:receive_order.size", ((P0 *)pptr(h))->receive_order.size);
 		logval("Shuttle:track_req.track", ((P0 *)pptr(h))->track_req.track);
 		logval("Shuttle:track_req.direction", ((P0 *)pptr(h))->track_req.direction);
 		logval("Shuttle:track_req.shuttle_id", ((P0 *)pptr(h))->track_req.shuttle_id);
@@ -15060,14 +15052,14 @@ c_locals(int pid, int tp)
 	switch(tp) {
 	case 3:
 		printf("local vars proc %d (:init:):\n", pid);
-		printf("	(struct _10_8_first)\n");
-	printf("	int    start:	%d\n", ((P3 *)pptr(pid))->_10_8_first.start);
-	printf("	int    end:	%d\n", ((P3 *)pptr(pid))->_10_8_first.end);
-	printf("	int    size:	%d\n", ((P3 *)pptr(pid))->_10_8_first.size);
-		printf("	(struct _10_8_second)\n");
-	printf("	int    start:	%d\n", ((P3 *)pptr(pid))->_10_8_second.start);
-	printf("	int    end:	%d\n", ((P3 *)pptr(pid))->_10_8_second.end);
-	printf("	int    size:	%d\n", ((P3 *)pptr(pid))->_10_8_second.size);
+		printf("	(struct _10_6_first)\n");
+	printf("	int    start:	%d\n", ((P3 *)pptr(pid))->_10_6_first.start);
+	printf("	int    end:	%d\n", ((P3 *)pptr(pid))->_10_6_first.end);
+	printf("	int    size:	%d\n", ((P3 *)pptr(pid))->_10_6_first.size);
+		printf("	(struct _10_6_second)\n");
+	printf("	int    start:	%d\n", ((P3 *)pptr(pid))->_10_6_second.start);
+	printf("	int    end:	%d\n", ((P3 *)pptr(pid))->_10_6_second.end);
+	printf("	int    size:	%d\n", ((P3 *)pptr(pid))->_10_6_second.size);
 		break;
 	case 2:
 		printf("local vars proc %d (ShuttleManagementSystem):\n", pid);
@@ -15086,20 +15078,16 @@ c_locals(int pid, int tp)
 	printf("	int    start:	%d\n", ((P2 *)pptr(pid))->orders[ 1 ].start);
 	printf("	int    end:	%d\n", ((P2 *)pptr(pid))->orders[ 1 ].end);
 	printf("	int    size:	%d\n", ((P2 *)pptr(pid))->orders[ 1 ].size);
-	printf("	int    i:	%d\n", ((P2 *)pptr(pid))->i);
-	printf("	int    j:	%d\n", ((P2 *)pptr(pid))->j);
-		printf("	(struct current)\n");
-	printf("	int    start:	%d\n", ((P2 *)pptr(pid))->current.start);
-	printf("	int    end:	%d\n", ((P2 *)pptr(pid))->current.end);
-	printf("	int    size:	%d\n", ((P2 *)pptr(pid))->current.size);
-		printf("	(struct reject)\n");
-	printf("	int    start:	%d\n", ((P2 *)pptr(pid))->reject.start);
-	printf("	int    end:	%d\n", ((P2 *)pptr(pid))->reject.end);
-	printf("	int    size:	%d\n", ((P2 *)pptr(pid))->reject.size);
 	printf("	int    min_charge:	%d\n", ((P2 *)pptr(pid))->min_charge);
-	printf("	int    offer_id:	%d\n", ((P2 *)pptr(pid))->offer_id);
+	printf("	int    min_id:	%d\n", ((P2 *)pptr(pid))->min_id);
 	printf("	int    shuttle_id:	%d\n", ((P2 *)pptr(pid))->shuttle_id);
 	printf("	int    shuttle_charge:	%d\n", ((P2 *)pptr(pid))->shuttle_charge);
+	printf("	int    j:	%d\n", ((P2 *)pptr(pid))->j);
+	printf("	int    i:	%d\n", ((P2 *)pptr(pid))->_9_5_i);
+		printf("	(struct _9_5_3_dummy)\n");
+	printf("	int    start:	%d\n", ((P2 *)pptr(pid))->_9_5_3_dummy.start);
+	printf("	int    end:	%d\n", ((P2 *)pptr(pid))->_9_5_3_dummy.end);
+	printf("	int    size:	%d\n", ((P2 *)pptr(pid))->_9_5_3_dummy.size);
 		break;
 	case 1:
 		printf("local vars proc %d (RailwayNetwork):\n", pid);
@@ -15121,10 +15109,10 @@ c_locals(int pid, int tp)
 	printf("	int    start:	%d\n", ((P0 *)pptr(pid))->current_order.start);
 	printf("	int    end:	%d\n", ((P0 *)pptr(pid))->current_order.end);
 	printf("	int    size:	%d\n", ((P0 *)pptr(pid))->current_order.size);
-		printf("	(struct recieve_order)\n");
-	printf("	int    start:	%d\n", ((P0 *)pptr(pid))->recieve_order.start);
-	printf("	int    end:	%d\n", ((P0 *)pptr(pid))->recieve_order.end);
-	printf("	int    size:	%d\n", ((P0 *)pptr(pid))->recieve_order.size);
+		printf("	(struct receive_order)\n");
+	printf("	int    start:	%d\n", ((P0 *)pptr(pid))->receive_order.start);
+	printf("	int    end:	%d\n", ((P0 *)pptr(pid))->receive_order.end);
+	printf("	int    size:	%d\n", ((P0 *)pptr(pid))->receive_order.size);
 		printf("	(struct track_req)\n");
 	printf("	int    track:	%d\n", ((P0 *)pptr(pid))->track_req.track);
 	printf("	int    direction:	%d\n", ((P0 *)pptr(pid))->track_req.direction);
@@ -15138,10 +15126,10 @@ c_locals(int pid, int tp)
 	printf("	int    track_distance:	%d\n", ((P0 *)pptr(pid))->track_distance);
 	printf("	int    direction:	%d\n", ((P0 *)pptr(pid))->direction);
 	printf("	int    station_distance:	%d\n", ((P0 *)pptr(pid))->station_distance);
-	printf("	int    temp_station:	%d\n", ((P0 *)pptr(pid))->_7_2_temp_station);
-	printf("	int    distance_a:	%d\n", ((P0 *)pptr(pid))->_7_2_1_distance_a);
-	printf("	int    distance_b:	%d\n", ((P0 *)pptr(pid))->_7_2_1_distance_b);
-	printf("	bit    got_track:	%d\n", ((P0 *)pptr(pid))->_7_3_got_track);
+	printf("	int    temp_station:	%d\n", ((P0 *)pptr(pid))->temp_station);
+	printf("	int    distance_a:	%d\n", ((P0 *)pptr(pid))->distance_a);
+	printf("	int    distance_b:	%d\n", ((P0 *)pptr(pid))->distance_b);
+	printf("	bit    got_track:	%d\n", ((P0 *)pptr(pid))->_7_2_got_track);
 		break;
 	}
 }
@@ -15254,7 +15242,7 @@ c_chandump(int from)
 	printf("\n");
 }
 
-Trans *t_id_lkup[226];
+Trans *t_id_lkup[215];
 
 
 #ifdef BFS_PAR

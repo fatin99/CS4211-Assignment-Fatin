@@ -133,24 +133,24 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates3	17	/* :init: */
-#define minseq3	210
-#define maxseq3	225
+#define minseq3	199
+#define maxseq3	214
 #define _endstate3	16
 
-#define _nstates2	71	/* ShuttleManagementSystem */
-#define minseq2	140
-#define maxseq2	209
-#define _endstate2	70
+#define _nstates2	65	/* ShuttleManagementSystem */
+#define minseq2	135
+#define maxseq2	198
+#define _endstate2	64
 
 #define _nstates1	27	/* RailwayNetwork */
-#define minseq1	114
-#define maxseq1	139
+#define minseq1	109
+#define maxseq1	134
 #define _endstate1	26
 
-#define _nstates0	115	/* Shuttle */
+#define _nstates0	110	/* Shuttle */
 #define minseq0	0
-#define maxseq0	113
-#define _endstate0	114
+#define maxseq0	108
+#define _endstate0	109
 
 extern short src_ln3[];
 extern short src_ln2[];
@@ -162,8 +162,8 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned char
-#define _T5	82
-#define _T2	83
+#define _T5	83
+#define _T2	84
 #define WS		4 /* word size in bytes */
 #define SYNC	0
 #define ASYNC	5
@@ -196,8 +196,8 @@ typedef struct P3 { /* :init: */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	struct Order _10_8_first;
-	struct Order _10_8_second;
+	struct Order _10_6_first;
+	struct Order _10_6_second;
 } P3;
 #define Air3	0
 
@@ -209,16 +209,15 @@ typedef struct P2 { /* ShuttleManagementSystem */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	int i;
-	int j;
 	int min_charge;
-	int offer_id;
+	int min_id;
 	int shuttle_id;
 	int shuttle_charge;
+	int j;
+	int _9_5_i;
 	struct Order first;
 	struct Order second;
-	struct Order current;
-	struct Order reject;
+	struct Order _9_5_3_dummy;
 	struct Order orders[2];
 } P2;
 #define Air2	0
@@ -246,7 +245,7 @@ typedef struct P0 { /* Shuttle */
 #endif
 	unsigned isMoving : 1;
 	unsigned isFree : 1;
-	unsigned _7_3_got_track : 1;
+	unsigned _7_2_got_track : 1;
 	uchar order_queue;
 	int max_cap;
 	int charge;
@@ -259,11 +258,11 @@ typedef struct P0 { /* Shuttle */
 	int track_distance;
 	int direction;
 	int station_distance;
-	int _7_2_temp_station;
-	int _7_2_1_distance_a;
-	int _7_2_1_distance_b;
+	int temp_station;
+	int distance_a;
+	int distance_b;
 	struct Order current_order;
-	struct Order recieve_order;
+	struct Order receive_order;
 	struct Request track_req;
 } P0;
 #define Air0	0
@@ -956,7 +955,7 @@ void qsend(int, int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	84
+#define NTRANS	85
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);

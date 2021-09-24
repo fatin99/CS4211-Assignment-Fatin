@@ -31,56 +31,9 @@ typedef Request {
 };
 
 chan shuttleTOrailway = [noShuttles] of {Request};
-chan railwayTOshuttle[noShuttles] = [1] of {bool};
-
-inline get_distance(){
-    int distance_a = get_abs(temp_station, receive_order.start); 
-    int distance_b = noStations - get_max(temp_station, receive_order.start) + get_min(temp_station, receive_order.start);
-    station_distance = get_min(distance_a, distance_b);
-}
-
-inline get_direction(){
-	if
-	:: (current_station + (noStations / 2)) % noStations >= destination -> direction = Clockwise;
-	:: else -> direction = AntiClockwise;
-	fi
-}
-
-inline shuttle_offer(){
-    int temp_station;
-
-	if
-	:: isMoving -> temp_station = next_station;
-	:: else -> temp_station = current_station;
-	fi
-    
-    get_distance();
-
-    if
-    :: current_cap + receive_order.size <= max_cap && station_distance <= minLength -> shuttleTOmanagement!charge,id;
-    :: else -> shuttleTOmanagement!Reject,id;
-    fi
-
-    managementTOshuttle[id]?receive_order;
-
-    if
-    :: receive_order.size != 0 -> order_queue!receive_order;
-    :: else -> skip;
-    fi
-
-}
-
-inline shuttle_process_order(){
-	order_queue?current_order;	
-	isFree = false;
-	destination = current_order.start;
-	printf("[Shuttle %d] Starting new order from station %d to station %d\n", id, current_order.start, current_order.end);
-	get_direction();
-}
-
+chan railwayTOshuttle[noShuttles] = [1] of {bool};    
 
 inline shuttle_move(){
-
 	if
 	:: current_station == destination && destination == current_order.end && !isMoving -> 
 		current_cap = current_cap - current_order.size;
@@ -90,7 +43,10 @@ inline shuttle_move(){
 		goto L2;
 	:: current_station == destination  && destination == current_order.start && !isMoving ->
 		destination = current_order.end;
-		get_direction();
+		if
+		:: (current_station + (noStations / 2)) % noStations >= destination -> direction = Clockwise;
+		:: else -> direction = AntiClockwise;
+		fi
 		current_cap = current_cap + current_order.size;
 		isFree = false;
 		isMoving = false;
@@ -157,9 +113,34 @@ proctype Shuttle(int max_cap; int charge; int init_pos; int id) {
 	track_req.shuttle_id = id;
 
 L0:	do
-    ::  managementTOshuttle[id]?receive_order -> shuttle_offer();
+    ::  managementTOshuttle[id]?receive_order -> 
+		int temp_station;
+		if
+		:: isMoving -> temp_station = next_station;
+		:: else -> temp_station = current_station;
+		fi
+		int distance_a = get_abs(temp_station, receive_order.start); 
+		int distance_b = noStations - get_max(temp_station, receive_order.start) + get_min(temp_station, receive_order.start);
+		station_distance = get_min(distance_a, distance_b);
+		if
+		:: current_cap + receive_order.size <= max_cap && station_distance <= minLength -> shuttleTOmanagement!charge,id;
+		:: else -> shuttleTOmanagement!Reject,id;
+		fi
+		managementTOshuttle[id]?receive_order;
+		if
+		:: receive_order.size != 0 -> order_queue!receive_order;
+		:: else -> skip;
+		fi
     ::  isMoving || !isFree -> shuttle_move();
-    ::  isFree && nempty(order_queue) -> shuttle_process_order();       
+    ::  isFree && nempty(order_queue) -> 
+		order_queue?current_order;	
+		isFree = false;
+		destination = current_order.start;
+		printf("[Shuttle %d] Starting new order from station %d to station %d\n", id, current_order.start, current_order.end);
+		if
+		:: (current_station + (noStations / 2)) % noStations >= destination -> direction = Clockwise;
+		:: else -> direction = AntiClockwise;
+		fi      
     od;
 }
 
@@ -169,19 +150,19 @@ proctype RailwayNetwork() {
 	int shuttle_id;
 	do
 	::  nempty(shuttleTOrailway) ->
-			shuttleTOrailway?req;
+		shuttleTOrailway?req;
+		if
+		:: req.direction == Clockwise ->
 			if
-			:: req.direction == Clockwise ->
-				if
-				:: atomic{ !track_clockwise[req.track] -> track_clockwise[req.track] = true; railwayTOshuttle[req.shuttle_id]!true;}
-				:: else -> railwayTOshuttle[shuttle_id]!false;
-				fi
-			:: req.direction == AntiClockwise ->
-				if
-				:: atomic{ !track_anti_clockwise[req.track] -> track_anti_clockwise[req.track] = true; railwayTOshuttle[req.shuttle_id]!true;}
-				:: else -> railwayTOshuttle[shuttle_id]!false;
-				fi
+			:: atomic{ !track_clockwise[req.track] -> track_clockwise[req.track] = true; railwayTOshuttle[req.shuttle_id]!true;}
+			:: else -> railwayTOshuttle[shuttle_id]!false;
 			fi
+		:: req.direction == AntiClockwise ->
+			if
+			:: atomic{ !track_anti_clockwise[req.track] -> track_anti_clockwise[req.track] = true; railwayTOshuttle[req.shuttle_id]!true;}
+			:: else -> railwayTOshuttle[shuttle_id]!false;
+			fi
+		fi
 	od
 }
 
@@ -189,35 +170,30 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 	Order orders[noOrders];
 	orders[0].start = first.start; orders[0].end = first.end; orders[0].size = first.size;
 	orders[1].start = second.start; orders[1].end = second.end; orders[1].size = second.size;
-	int i;
-	int j;
-	Order current;
-	Order reject;
 	int min_charge = 100;
-	int offer_id;
+	int min_id;
 	int shuttle_id;
 	int shuttle_charge;
+	int j;
 	for (j:0 .. noOrders-1){
 		printf("[Management System]: Broadcasting New Order\n");
-		current.start = orders[j].start; current.end = orders[j].end; current.size = orders[j].size;
+		int i;
 		for (i:0 .. noShuttles-1){
-			managementTOshuttle[i]!current;
+			managementTOshuttle[i]!orders[j];
 		}
-		i = 0;
 		printf("[Management System]: Waiting for replies\n");
 		for (i:0 .. noShuttles-1){
 			shuttleTOmanagement?shuttle_charge,shuttle_id;
 			if
-			:: shuttle_charge < min_charge && shuttle_charge != 0 -> min_charge = shuttle_charge; offer_id = shuttle_id;
+			:: shuttle_charge < min_charge && shuttle_charge != 0 -> min_charge = shuttle_charge; min_id = shuttle_id;
 			:: else -> skip;
 			fi
 		}
-		i = 0;
-		printf("[Management System]: New Order assigned to Shuttle %d\n", offer_id);
+		printf("[Management System]: New Order assigned to Shuttle %d\n", min_id);
 		for (i:0 .. noShuttles-1){				
 			if
-			:: i == offer_id -> managementTOshuttle[i]!current;
-			:: else -> managementTOshuttle[i]!reject;
+			:: i == min_id -> managementTOshuttle[i]!orders[j];
+			:: else -> Order dummy; managementTOshuttle[i]!dummy;
 			fi
 		}
 	}
