@@ -57,11 +57,11 @@ inline shuttle_offer(){
     get_distance();
 
     if
-    :: current_cap + recieve_order.size <= max_cap && station_distance <= minLength -> om_out!charge,id;
-    :: else -> om_out!Reject,id;
+    :: current_cap + recieve_order.size <= max_cap && station_distance <= minLength -> shuttleTOmanagement!charge,id;
+    :: else -> shuttleTOmanagement!Reject,id;
     fi
 
-    om_in?recieve_order;
+    managementTOshuttle[id]?recieve_order;
 
     if
     :: recieve_order.size != 0 -> order_queue!recieve_order;
@@ -116,8 +116,8 @@ L1:	if
 		bool got_track;
 
 		do
-		:: rm_out!track_req; 
-			rm_in?got_track;
+		:: shuttleTOrailway!track_req; 
+			railwayTOshuttle[id]?got_track;
 			if
 			:: got_track -> track_distance = trackLength; isMoving = true; break;
 			:: else -> skip;
@@ -139,7 +139,7 @@ L2:	fi
 
 }
 
-proctype Shuttle(int max_cap; int charge; int init_pos; int id; chan om_out; chan om_in; chan rm_out; chan rm_in) {
+proctype Shuttle(int max_cap; int charge; int init_pos; int id) {
 	chan order_queue = [noOrders] of {Order};
 	Order current_order;
 	Order recieve_order;
@@ -157,7 +157,7 @@ proctype Shuttle(int max_cap; int charge; int init_pos; int id; chan om_out; cha
 	track_req.shuttle_id = id;
 
 L0:	do
-    ::  om_in?recieve_order -> shuttle_offer();
+    ::  managementTOshuttle[id]?recieve_order -> shuttle_offer();
     ::  isMoving || !isFree -> shuttle_move();
     ::  isFree && nempty(order_queue) -> shuttle_process_order();       
     od;
@@ -185,7 +185,7 @@ proctype RailwayNetwork() {
 	od
 }
 
-proctype ManagementSystem(Order first; Order second) {
+proctype ShuttleManagementSystem(Order first; Order second) {
 	chan order_stack = [noOrders] of {Order};
 	order_stack!first;
     order_stack!second;
@@ -227,13 +227,13 @@ proctype ManagementSystem(Order first; Order second) {
 
 init{
 	atomic{
-		run Shuttle(6, 9, 1, 0, shuttleTOmanagement, managementTOshuttle[0], shuttleTOrailway, railwayTOshuttle[0]); 
-		run Shuttle(6, 1, 1, 1, shuttleTOmanagement, managementTOshuttle[1], shuttleTOrailway, railwayTOshuttle[1]); 
-		run Shuttle(6, 9, 2, 2, shuttleTOmanagement, managementTOshuttle[2], shuttleTOrailway, railwayTOshuttle[2]);
-		run Shuttle(6, 9, 3, 3, shuttleTOmanagement, managementTOshuttle[3], shuttleTOrailway, railwayTOshuttle[3]);
+		run Shuttle(4, 2, 1, 0); 
+		run Shuttle(2, 4, 1, 1); 
+		run Shuttle(5, 1, 2, 2);
+		run Shuttle(3, 3, 3, 3);
         run RailwayNetwork();
 		Order first; first.start = 1; first.end = 3; first.size = 4;
         Order second; second.start = 2; second.end = 3; second.size = 2;
-		run ManagementSystem(first, second);
+		run ShuttleManagementSystem(first, second);
 	}
 }

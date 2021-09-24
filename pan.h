@@ -246,10 +246,6 @@ typedef struct P0 { /* Shuttle */
 	unsigned isMoving : 1;
 	unsigned isFree : 1;
 	unsigned _7_3_got_track : 1;
-	uchar om_out;
-	uchar om_in;
-	uchar rm_out;
-	uchar rm_in;
 	uchar order_queue;
 	int max_cap;
 	int charge;
@@ -958,7 +954,7 @@ typedef struct BFS_State {
 
 void qsend(int, int, int, int, int, int);
 
-#define Addproc(x,y)	addproc(256, y, x, 0, 0, 0, 0, 0, 0, 0, 0)
+#define Addproc(x,y)	addproc(256, y, x, 0, 0, 0, 0, 0, 0)
 #define LOCAL	1
 #define Q_FULL_F	2
 #define Q_EMPT_F	3

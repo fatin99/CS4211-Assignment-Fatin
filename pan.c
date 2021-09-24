@@ -771,7 +771,7 @@ bfs_fixmask(int caller)
 }
 #endif
 int
-addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int par3, int par4, int par5, int par6, int par7)
+addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int par3, int par4, int par5)
 {	int j = 0, h = now._nr_pr;
 #ifndef NOCOMP
 	int k;
@@ -1009,10 +1009,6 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		((P0 *)pptr(h))->charge = par1;
 		((P0 *)pptr(h))->init_pos = par2;
 		((P0 *)pptr(h))->id = par3;
-		((P0 *)pptr(h))->om_out = par4;
-		((P0 *)pptr(h))->om_in = par5;
-		((P0 *)pptr(h))->rm_out = par6;
-		((P0 *)pptr(h))->rm_in = par7;
 		/* locals: */
 		((P0 *)pptr(h))->order_queue = addqueue(calling_pid, 2, 0);
 		((P0 *)pptr(h))->current_order.start = 0;
@@ -13781,32 +13777,12 @@ q_cond(short II, Trans *t)
 			 ||      q_len((int) ( now.railwayTOshuttle[2]) )
 			 ||      q_len((int) ( now.railwayTOshuttle[3]) )))
 			    ) return 0; break;
-		case 5: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->om_out) )))
-			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P0 *)_this)->om_out) )))
-			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P0 *)_this)->om_out) )))
-			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P0 *)_this)->om_out) )))
-			    ) return 0; break;
-		case 6: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->om_in) )))
-			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P0 *)_this)->om_in) )))
-			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P0 *)_this)->om_in) )))
-			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P0 *)_this)->om_in) )))
-			    ) return 0; break;
-		case 7: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->rm_out) )))
-			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P0 *)_this)->rm_out) )))
-			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P0 *)_this)->rm_out) )))
-			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P0 *)_this)->rm_out) )))
-			    ) return 0; break;
-		case 8: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->rm_in) )))
-			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P0 *)_this)->rm_in) )))
-			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P0 *)_this)->rm_in) )))
-			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P0 *)_this)->rm_in) )))
-			    ) return 0; break;
-		case 9: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->order_queue) )))
+		case 5: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P0 *)_this)->order_queue) )))
 			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P0 *)_this)->order_queue) )))
 			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P0 *)_this)->order_queue) )))
 			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P0 *)_this)->order_queue) )))
 			    ) return 0; break;
-		case 10: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P2 *)_this)->order_stack) )))
+		case 6: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P2 *)_this)->order_stack) )))
 			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P2 *)_this)->order_stack) )))
 			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P2 *)_this)->order_stack) )))
 			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P2 *)_this)->order_stack) )))
@@ -15198,14 +15174,6 @@ c_locals(int pid, int tp)
 	printf("	int    charge:	%d\n", ((P0 *)pptr(pid))->charge);
 	printf("	int    init_pos:	%d\n", ((P0 *)pptr(pid))->init_pos);
 	printf("	int    id:	%d\n", ((P0 *)pptr(pid))->id);
-	printf("	chan om_out (=%d):	len %d:\t", ((P0 *)pptr(pid))->om_out, q_len(((P0 *)pptr(pid))->om_out));
-	c_chandump(((P0 *)pptr(pid))->om_out);
-	printf("	chan om_in (=%d):	len %d:\t", ((P0 *)pptr(pid))->om_in, q_len(((P0 *)pptr(pid))->om_in));
-	c_chandump(((P0 *)pptr(pid))->om_in);
-	printf("	chan rm_out (=%d):	len %d:\t", ((P0 *)pptr(pid))->rm_out, q_len(((P0 *)pptr(pid))->rm_out));
-	c_chandump(((P0 *)pptr(pid))->rm_out);
-	printf("	chan rm_in (=%d):	len %d:\t", ((P0 *)pptr(pid))->rm_in, q_len(((P0 *)pptr(pid))->rm_in));
-	c_chandump(((P0 *)pptr(pid))->rm_in);
 	printf("	chan order_queue (=%d):	len %d:\t", ((P0 *)pptr(pid))->order_queue, q_len(((P0 *)pptr(pid))->order_queue));
 	c_chandump(((P0 *)pptr(pid))->order_queue);
 		printf("	(struct current_order)\n");

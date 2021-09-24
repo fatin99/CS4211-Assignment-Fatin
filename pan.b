@@ -290,9 +290,9 @@
 	case 46: // STATE 2
 		;
 		XX = 1;
-		unrecv(((P0 *)_this)->om_in, XX-1, 0, ((P0 *)_this)->recieve_order.start, 1);
-		unrecv(((P0 *)_this)->om_in, XX-1, 1, ((P0 *)_this)->recieve_order.end, 0);
-		unrecv(((P0 *)_this)->om_in, XX-1, 2, ((P0 *)_this)->recieve_order.size, 0);
+		unrecv(now.managementTOshuttle[ Index(((P0 *)_this)->id, 4) ], XX-1, 0, ((P0 *)_this)->recieve_order.start, 1);
+		unrecv(now.managementTOshuttle[ Index(((P0 *)_this)->id, 4) ], XX-1, 1, ((P0 *)_this)->recieve_order.end, 0);
+		unrecv(now.managementTOshuttle[ Index(((P0 *)_this)->id, 4) ], XX-1, 2, ((P0 *)_this)->recieve_order.size, 0);
 		((P0 *)_this)->recieve_order.start = trpt->bup.ovals[0];
 		((P0 *)_this)->recieve_order.end = trpt->bup.ovals[1];
 		((P0 *)_this)->recieve_order.size = trpt->bup.ovals[2];
@@ -337,22 +337,22 @@
 
 	case 52: // STATE 15
 		;
-		_m = unsend(((P0 *)_this)->om_out);
+		_m = unsend(now.shuttleTOmanagement);
 		;
 		goto R999;
 
 	case 53: // STATE 17
 		;
-		_m = unsend(((P0 *)_this)->om_out);
+		_m = unsend(now.shuttleTOmanagement);
 		;
 		goto R999;
 
 	case 54: // STATE 20
 		;
 		XX = 1;
-		unrecv(((P0 *)_this)->om_in, XX-1, 0, ((P0 *)_this)->recieve_order.start, 1);
-		unrecv(((P0 *)_this)->om_in, XX-1, 1, ((P0 *)_this)->recieve_order.end, 0);
-		unrecv(((P0 *)_this)->om_in, XX-1, 2, ((P0 *)_this)->recieve_order.size, 0);
+		unrecv(now.managementTOshuttle[ Index(((P0 *)_this)->id, 4) ], XX-1, 0, ((P0 *)_this)->recieve_order.start, 1);
+		unrecv(now.managementTOshuttle[ Index(((P0 *)_this)->id, 4) ], XX-1, 1, ((P0 *)_this)->recieve_order.end, 0);
+		unrecv(now.managementTOshuttle[ Index(((P0 *)_this)->id, 4) ], XX-1, 2, ((P0 *)_this)->recieve_order.size, 0);
 		((P0 *)_this)->recieve_order.start = trpt->bup.ovals[0];
 		((P0 *)_this)->recieve_order.end = trpt->bup.ovals[1];
 		((P0 *)_this)->recieve_order.size = trpt->bup.ovals[2];
@@ -477,14 +477,14 @@
 
 	case 70: // STATE 69
 		;
-		_m = unsend(((P0 *)_this)->rm_out);
+		_m = unsend(now.shuttleTOrailway);
 		;
 		goto R999;
 
 	case 71: // STATE 70
 		;
 		XX = 1;
-		unrecv(((P0 *)_this)->rm_in, XX-1, 0, ((int)((P0 *)_this)->_7_3_got_track), 1);
+		unrecv(now.railwayTOshuttle[ Index(((P0 *)_this)->id, 4) ], XX-1, 0, ((int)((P0 *)_this)->_7_3_got_track), 1);
 		((P0 *)_this)->_7_3_got_track = trpt->bup.oval;
 		;
 		;
