@@ -133,19 +133,19 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates2	16	/* :init: */
-#define minseq2	99
-#define maxseq2	113
+#define minseq2	106
+#define maxseq2	120
 #define _endstate2	15
 
-#define _nstates1	35	/* Shuttle */
-#define minseq1	65
-#define maxseq1	98
-#define _endstate1	34
+#define _nstates1	45	/* Shuttle */
+#define minseq1	62
+#define maxseq1	105
+#define _endstate1	44
 
-#define _nstates0	66	/* ShuttleManagementSystem */
+#define _nstates0	63	/* ShuttleManagementSystem */
 #define minseq0	0
-#define maxseq0	64
-#define _endstate0	65
+#define maxseq0	61
+#define _endstate0	62
 
 extern short src_ln2[];
 extern short src_ln1[];
@@ -155,8 +155,8 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned char
-#define _T5	42
-#define _T2	43
+#define _T5	47
+#define _T2	48
 #define WS		4 /* word size in bytes */
 #define SYNC	0
 #define ASYNC	3
@@ -175,7 +175,6 @@ struct Order { /* user defined type */
 	int start;
 	int end;
 	int size;
-	unsigned reject : 1;
 };
 struct Offer { /* user defined type */
 	int id;
@@ -186,7 +185,7 @@ struct Offer { /* user defined type */
 typedef struct P2 { /* :init: */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 3; /* proctype */
-	unsigned _p   : 8; /* state    */
+	unsigned _p   : 7; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -199,23 +198,21 @@ typedef struct P2 { /* :init: */
 typedef struct P1 { /* Shuttle */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 3; /* proctype */
-	unsigned _p   : 8; /* state    */
+	unsigned _p   : 7; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	unsigned on_track : 1;
+	unsigned onTrack : 1;
 	uchar orders;
-	int max_cap;
+	int capacity;
 	int charge;
-	int init_pos;
+	int initialStation;
 	int id;
-	int current_station;
-	int next_station;
-	int current_load;
-	int temp_station;
-	int distance_a;
-	int distance_b;
-	int station_distance;
+	int currentStation;
+	int nextStation;
+	int currentLoad;
+	int currentPosition;
+	int distance;
 	struct Order order;
 	struct Offer offer;
 } P1;
@@ -225,16 +222,14 @@ typedef struct P1 { /* Shuttle */
 typedef struct P0 { /* ShuttleManagementSystem */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 3; /* proctype */
-	unsigned _p   : 8; /* state    */
+	unsigned _p   : 7; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	int min_charge;
-	int min_id;
-	int shuttle_id;
-	int shuttle_charge;
 	int i;
 	int _5_1_j;
+	int _5_1_minCharge;
+	int _5_1_assignedId;
 	struct Order first;
 	struct Order second;
 	struct Offer _5_1_2_offer;
@@ -246,7 +241,7 @@ typedef struct P0 { /* ShuttleManagementSystem */
 typedef struct P3 { /* np_ */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 3; /* proctype */
-	unsigned _p   : 8; /* state    */
+	unsigned _p   : 7; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -475,7 +470,7 @@ typedef struct TRIX_v6 {
 
 #define _start3	0 /* np_ */
 #define _start2	14
-#define _start1	31
+#define _start1	41
 #define _start0	1
 #ifdef NP
 	#define ACCEPT_LAB	1 /* at least 1 in np_ */
@@ -517,7 +512,6 @@ typedef struct Q6 {
 		int fld0;
 		int fld1;
 		int fld2;
-		unsigned fld3 : 1;
 	} contents[1];
 } Q6;
 typedef struct Q5 {
@@ -527,7 +521,6 @@ typedef struct Q5 {
 		int fld0;
 		int fld1;
 		int fld2;
-		unsigned fld3 : 1;
 	} contents[1];
 } Q5;
 typedef struct Q4 {
@@ -537,7 +530,6 @@ typedef struct Q4 {
 		int fld0;
 		int fld1;
 		int fld2;
-		unsigned fld3 : 1;
 	} contents[1];
 } Q4;
 typedef struct Q3 {
@@ -547,7 +539,6 @@ typedef struct Q3 {
 		int fld0;
 		int fld1;
 		int fld2;
-		unsigned fld3 : 1;
 	} contents[1];
 } Q3;
 typedef struct Q2 {
@@ -566,7 +557,6 @@ typedef struct Q1 {
 		int fld0;
 		int fld1;
 		int fld2;
-		unsigned fld3 : 1;
 	} contents[2];
 } Q1;
 typedef struct Q0 {	/* generic q */
@@ -883,9 +873,9 @@ typedef struct BFS_State {
 } BFS_State;
 #endif
 
-void qsend(int, int, int, int, int, int, int);
+void qsend(int, int, int, int, int, int);
 
-#define Addproc(x,y)	addproc(256, y, x, 0, 0, 0, 0, 0, 0, 0, 0)
+#define Addproc(x,y)	addproc(256, y, x, 0, 0, 0, 0, 0, 0)
 #define LOCAL	1
 #define Q_FULL_F	2
 #define Q_EMPT_F	3
@@ -895,7 +885,7 @@ void qsend(int, int, int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	44
+#define NTRANS	49
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);

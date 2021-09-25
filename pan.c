@@ -486,8 +486,8 @@ int _;	/* predefined write-only variable */
 #endif
 
 short src_ln2 [] = {
-	  0,  93,  94,  95,  96,  97,  97,  97, 
-	 97,  98,  98,  98,  98,  99,  92, 101, 
+	  0,  91,  92,  93,  94,  95,  95,  95, 
+	 95,  96,  96,  96,  96,  97,  90,  99, 
 	  0, };
 S_F_MAP src_file2 [] = {
 	{ "-", 0, 0 },
@@ -501,49 +501,49 @@ uchar reached2 [] = {
 uchar *loopstate2;
 
 short src_ln1 [] = {
-	  0,  66,  68,  69,  69,  70,  70,  68, 
-	 72,  73,  74,  75,  76,  77,  78,  78, 
-	 78,  79,  80,  80,  80,  76,  82,  82, 
-	 83,  85,  85,  86,  86,  84,  88,  65, 
-	 89,  65,  89,   0, };
+	  0,  58,  60,  61,  61,  62,  62,  60, 
+	 64,  65,  66,  66,  67,  67,  65,  69, 
+	 70,  70,  71,  71,  69,  73,  74,  75, 
+	 76,  76,  76,  77,  78,  78,  78,  74, 
+	 80,  80,  81,  83,  83,  84,  84,  82, 
+	 86,  57,  87,  57,  87,   0, };
 S_F_MAP src_file1 [] = {
 	{ "-", 0, 0 },
-	{ "problem1-retry.pml", 1, 34 },
-	{ "-", 35, 36 }
+	{ "problem1-retry.pml", 1, 44 },
+	{ "-", 45, 46 }
 };
 uchar reached1 [] = {
 	  0,   1,   0,   1,   0,   1,   0,   0, 
-	  1,   0,   0,   0,   0,   1,   0,   0, 
-	  0,   1,   0,   0,   0,   0,   1,   0, 
-	  0,   1,   0,   1,   1,   0,   1,   0, 
-	  1,   1,   0,   0, };
+	  1,   0,   1,   0,   1,   0,   0,   1, 
+	  1,   0,   1,   0,   0,   1,   0,   1, 
+	  0,   0,   0,   1,   0,   0,   0,   0, 
+	  1,   0,   0,   1,   0,   1,   1,   0, 
+	  1,   0,   1,   1,   0,   0, };
 uchar *loopstate1;
 
 short src_ln0 [] = {
-	  0,  26,  26,  26,  27,  27,  27,  29, 
-	 30,  31,  32,  33,  33,  33,  34,  36, 
-	 36,  36,  37,  36,  38,  38,  38,  39, 
-	 38,  39,  40,  40,  42,  42,  44,  44, 
-	 44,  45,  45,  43,  47,  40,  47,  47, 
-	 47,  48,  47,  48,  49,  49,  51,  51, 
-	 52,  52,  52,  50,  54,  49,  54,  54, 
-	 54,  55,  54,  33,  55,  55,  55,  56, 
-	 55,  56,   0, };
+	  0,  21,  21,  21,  22,  22,  22,  24, 
+	 24,  24,  25,  27,  27,  27,  28,  27, 
+	 29,  29,  29,  30,  29,  31,  32,  32, 
+	 32,  34,  34,  36,  36,  36,  37,  37, 
+	 35,  39,  32,  39,  39,  39,  40,  39, 
+	 40,  41,  41,  43,  43,  44,  44,  44, 
+	 42,  46,  41,  46,  46,  46,  47,  46, 
+	 24,  47,  47,  47,  48,  47,  48,   0, };
 S_F_MAP src_file0 [] = {
 	{ "-", 0, 0 },
-	{ "problem1-retry.pml", 1, 65 },
-	{ "-", 66, 67 }
+	{ "problem1-retry.pml", 1, 62 },
+	{ "-", 63, 64 }
 };
 uchar reached0 [] = {
 	  0,   0,   0,   0,   0,   0,   0,   0, 
-	  0,   0,   0,   0,   0,   1,   0,   0, 
-	  0,   1,   0,   0,   1,   0,   0,   1, 
+	  0,   1,   0,   0,   0,   1,   0,   0, 
+	  1,   0,   0,   1,   1,   0,   0,   0, 
 	  1,   0,   0,   1,   0,   0,   1,   0, 
-	  0,   1,   0,   0,   1,   0,   1,   0, 
-	  0,   1,   1,   0,   0,   1,   1,   0, 
-	  1,   0,   0,   0,   0,   0,   1,   0, 
-	  0,   1,   1,   0,   1,   1,   0,   1, 
-	  1,   0,   0, };
+	  0,   1,   0,   1,   0,   0,   1,   1, 
+	  0,   0,   1,   1,   0,   1,   0,   0, 
+	  0,   0,   0,   1,   0,   0,   1,   1, 
+	  0,   1,   1,   0,   1,   1,   0,   0, };
 uchar *loopstate0;
 uchar reached3[3];  /* np_ */
 uchar *loopstate3;  /* np_ */
@@ -728,7 +728,7 @@ bfs_fixmask(int caller)
 }
 #endif
 int
-addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int par3, int par4, int par5, int par6, int par7)
+addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int par3, int par4, int par5)
 {	int j = 0, h = now._nr_pr;
 #ifndef NOCOMP
 	int k;
@@ -866,20 +866,16 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		((P2 *)pptr(h))->_7_3_first.start = 0;
 		((P2 *)pptr(h))->_7_3_first.end = 0;
 		((P2 *)pptr(h))->_7_3_first.size = 0;
-		((P2 *)pptr(h))->_7_3_first.reject = 0;
 		((P2 *)pptr(h))->_7_3_second.start = 0;
 		((P2 *)pptr(h))->_7_3_second.end = 0;
 		((P2 *)pptr(h))->_7_3_second.size = 0;
-		((P2 *)pptr(h))->_7_3_second.reject = 0;
 #ifdef VAR_RANGES
 		logval(":init::_7_3_first.start", ((P2 *)pptr(h))->_7_3_first.start);
 		logval(":init::_7_3_first.end", ((P2 *)pptr(h))->_7_3_first.end);
 		logval(":init::_7_3_first.size", ((P2 *)pptr(h))->_7_3_first.size);
-		logval(":init::_7_3_first.reject", ((P2 *)pptr(h))->_7_3_first.reject);
 		logval(":init::_7_3_second.start", ((P2 *)pptr(h))->_7_3_second.start);
 		logval(":init::_7_3_second.end", ((P2 *)pptr(h))->_7_3_second.end);
 		logval(":init::_7_3_second.size", ((P2 *)pptr(h))->_7_3_second.size);
-		logval(":init::_7_3_second.reject", ((P2 *)pptr(h))->_7_3_second.reject);
 #endif
 #ifdef HAS_CODE
 		locinit2(h);
@@ -887,47 +883,44 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		break;
 	case 1:	/* Shuttle */
 		((P1 *)pptr(h))->_t = 1;
-		((P1 *)pptr(h))->_p = 31;
+		((P1 *)pptr(h))->_p = 41;
 #ifdef HAS_PRIORITY
 		((P1 *)pptr(h))->_priority = priority; /* was: 1 */
 #endif
-		reached1[31]=1;
+		reached1[41]=1;
 		/* params: */
-		((P1 *)pptr(h))->max_cap = par0;
+		((P1 *)pptr(h))->capacity = par0;
 		((P1 *)pptr(h))->charge = par1;
-		((P1 *)pptr(h))->init_pos = par2;
+		((P1 *)pptr(h))->initialStation = par2;
 		((P1 *)pptr(h))->id = par3;
 		/* locals: */
 		((P1 *)pptr(h))->order.start = 0;
 		((P1 *)pptr(h))->order.end = 0;
 		((P1 *)pptr(h))->order.size = 0;
-		((P1 *)pptr(h))->order.reject = 0;
-		((P1 *)pptr(h))->on_track = 0;
-		((P1 *)pptr(h))->current_station = ((P1 *)_this)->init_pos;
-		((P1 *)pptr(h))->next_station = 0;
-		((P1 *)pptr(h))->current_load = 0;
+		((P1 *)pptr(h))->onTrack = 0;
+		((P1 *)pptr(h))->currentStation = ((P1 *)_this)->initialStation;
+		((P1 *)pptr(h))->nextStation = 0;
+		((P1 *)pptr(h))->currentLoad = 0;
 		((P1 *)pptr(h))->orders = addqueue(calling_pid, 1, 0);
-		((P1 *)pptr(h))->temp_station = 0;
+		((P1 *)pptr(h))->currentPosition = 0;
+		((P1 *)pptr(h))->distance = 0;
 		((P1 *)pptr(h))->offer.id = 0;
 		((P1 *)pptr(h))->offer.charge = 0;
 		((P1 *)pptr(h))->offer.refuse = 0;
 #ifdef VAR_RANGES
-		logval("Shuttle:on_track", ((P1 *)pptr(h))->on_track);
-		logval("Shuttle:max_cap", ((P1 *)pptr(h))->max_cap);
+		logval("Shuttle:onTrack", ((P1 *)pptr(h))->onTrack);
+		logval("Shuttle:capacity", ((P1 *)pptr(h))->capacity);
 		logval("Shuttle:charge", ((P1 *)pptr(h))->charge);
-		logval("Shuttle:init_pos", ((P1 *)pptr(h))->init_pos);
+		logval("Shuttle:initialStation", ((P1 *)pptr(h))->initialStation);
 		logval("Shuttle:id", ((P1 *)pptr(h))->id);
-		logval("Shuttle:current_station", ((P1 *)pptr(h))->current_station);
-		logval("Shuttle:next_station", ((P1 *)pptr(h))->next_station);
-		logval("Shuttle:current_load", ((P1 *)pptr(h))->current_load);
-		logval("Shuttle:temp_station", ((P1 *)pptr(h))->temp_station);
-		logval("Shuttle:distance_a", ((P1 *)pptr(h))->distance_a);
-		logval("Shuttle:distance_b", ((P1 *)pptr(h))->distance_b);
-		logval("Shuttle:station_distance", ((P1 *)pptr(h))->station_distance);
+		logval("Shuttle:currentStation", ((P1 *)pptr(h))->currentStation);
+		logval("Shuttle:nextStation", ((P1 *)pptr(h))->nextStation);
+		logval("Shuttle:currentLoad", ((P1 *)pptr(h))->currentLoad);
+		logval("Shuttle:currentPosition", ((P1 *)pptr(h))->currentPosition);
+		logval("Shuttle:distance", ((P1 *)pptr(h))->distance);
 		logval("Shuttle:order.start", ((P1 *)pptr(h))->order.start);
 		logval("Shuttle:order.end", ((P1 *)pptr(h))->order.end);
 		logval("Shuttle:order.size", ((P1 *)pptr(h))->order.size);
-		logval("Shuttle:order.reject", ((P1 *)pptr(h))->order.reject);
 		logval("Shuttle:offer.id", ((P1 *)pptr(h))->offer.id);
 		logval("Shuttle:offer.charge", ((P1 *)pptr(h))->offer.charge);
 		logval("Shuttle:offer.refuse", ((P1 *)pptr(h))->offer.refuse);
@@ -947,62 +940,48 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		((P0 *)pptr(h))->first.start = par0;
 		((P0 *)pptr(h))->first.end = par1;
 		((P0 *)pptr(h))->first.size = par2;
-		((P0 *)pptr(h))->first.reject = par3;
-		((P0 *)pptr(h))->second.start = par4;
-		((P0 *)pptr(h))->second.end = par5;
-		((P0 *)pptr(h))->second.size = par6;
-		((P0 *)pptr(h))->second.reject = par7;
+		((P0 *)pptr(h))->second.start = par3;
+		((P0 *)pptr(h))->second.end = par4;
+		((P0 *)pptr(h))->second.size = par5;
 		/* locals: */
 		((P0 *)pptr(h))->orders[0].start = 0;
 		((P0 *)pptr(h))->orders[0].end = 0;
 		((P0 *)pptr(h))->orders[0].size = 0;
-		((P0 *)pptr(h))->orders[0].reject = 0;
 		((P0 *)pptr(h))->orders[1].start = 0;
 		((P0 *)pptr(h))->orders[1].end = 0;
 		((P0 *)pptr(h))->orders[1].size = 0;
-		((P0 *)pptr(h))->orders[1].reject = 0;
-		((P0 *)pptr(h))->min_id = 0;
-		((P0 *)pptr(h))->shuttle_id = 0;
-		((P0 *)pptr(h))->shuttle_charge = 0;
 		((P0 *)pptr(h))->i = 0;
 		((P0 *)pptr(h))->_5_1_j = 0;
+		((P0 *)pptr(h))->_5_1_assignedId = 0;
 		((P0 *)pptr(h))->_5_1_2_offer.id = 0;
 		((P0 *)pptr(h))->_5_1_2_offer.charge = 0;
 		((P0 *)pptr(h))->_5_1_2_offer.refuse = 0;
 		((P0 *)pptr(h))->_5_1_3_dummy.start = 0;
 		((P0 *)pptr(h))->_5_1_3_dummy.end = 0;
 		((P0 *)pptr(h))->_5_1_3_dummy.size = 0;
-		((P0 *)pptr(h))->_5_1_3_dummy.reject = 0;
 #ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:min_charge", ((P0 *)pptr(h))->min_charge);
-		logval("ShuttleManagementSystem:min_id", ((P0 *)pptr(h))->min_id);
-		logval("ShuttleManagementSystem:shuttle_id", ((P0 *)pptr(h))->shuttle_id);
-		logval("ShuttleManagementSystem:shuttle_charge", ((P0 *)pptr(h))->shuttle_charge);
 		logval("ShuttleManagementSystem:i", ((P0 *)pptr(h))->i);
 		logval("ShuttleManagementSystem:j", ((P0 *)pptr(h))->_5_1_j);
+		logval("ShuttleManagementSystem:minCharge", ((P0 *)pptr(h))->_5_1_minCharge);
+		logval("ShuttleManagementSystem:assignedId", ((P0 *)pptr(h))->_5_1_assignedId);
 		logval("ShuttleManagementSystem:first.start", ((P0 *)pptr(h))->first.start);
 		logval("ShuttleManagementSystem:first.end", ((P0 *)pptr(h))->first.end);
 		logval("ShuttleManagementSystem:first.size", ((P0 *)pptr(h))->first.size);
-		logval("ShuttleManagementSystem:first.reject", ((P0 *)pptr(h))->first.reject);
 		logval("ShuttleManagementSystem:second.start", ((P0 *)pptr(h))->second.start);
 		logval("ShuttleManagementSystem:second.end", ((P0 *)pptr(h))->second.end);
 		logval("ShuttleManagementSystem:second.size", ((P0 *)pptr(h))->second.size);
-		logval("ShuttleManagementSystem:second.reject", ((P0 *)pptr(h))->second.reject);
 		logval("ShuttleManagementSystem:_5_1_2_offer.id", ((P0 *)pptr(h))->_5_1_2_offer.id);
 		logval("ShuttleManagementSystem:_5_1_2_offer.charge", ((P0 *)pptr(h))->_5_1_2_offer.charge);
 		logval("ShuttleManagementSystem:_5_1_2_offer.refuse", ((P0 *)pptr(h))->_5_1_2_offer.refuse);
 		logval("ShuttleManagementSystem:_5_1_3_dummy.start", ((P0 *)pptr(h))->_5_1_3_dummy.start);
 		logval("ShuttleManagementSystem:_5_1_3_dummy.end", ((P0 *)pptr(h))->_5_1_3_dummy.end);
 		logval("ShuttleManagementSystem:_5_1_3_dummy.size", ((P0 *)pptr(h))->_5_1_3_dummy.size);
-		logval("ShuttleManagementSystem:_5_1_3_dummy.reject", ((P0 *)pptr(h))->_5_1_3_dummy.reject);
 		logval("ShuttleManagementSystem:orders[0].start", ((P0 *)pptr(h))->orders[0].start);
 		logval("ShuttleManagementSystem:orders[0].end", ((P0 *)pptr(h))->orders[0].end);
 		logval("ShuttleManagementSystem:orders[0].size", ((P0 *)pptr(h))->orders[0].size);
-		logval("ShuttleManagementSystem:orders[0].reject", ((P0 *)pptr(h))->orders[0].reject);
 		logval("ShuttleManagementSystem:orders[1].start", ((P0 *)pptr(h))->orders[1].start);
 		logval("ShuttleManagementSystem:orders[1].end", ((P0 *)pptr(h))->orders[1].end);
 		logval("ShuttleManagementSystem:orders[1].size", ((P0 *)pptr(h))->orders[1].size);
-		logval("ShuttleManagementSystem:orders[1].reject", ((P0 *)pptr(h))->orders[1].reject);
 #endif
 #ifdef HAS_CODE
 		locinit0(h);
@@ -12536,12 +12515,12 @@ addqueue(int calling_pid, int n, int is_rv)
 	printf("%4d: add queue %d\n", depth, i);
 #endif
 	switch (n) {
-	case 6: j = sizeof(Q6); q_flds[6] = 4; q_max[6] = 1; break;
-	case 5: j = sizeof(Q5); q_flds[5] = 4; q_max[5] = 1; break;
-	case 4: j = sizeof(Q4); q_flds[4] = 4; q_max[4] = 1; break;
-	case 3: j = sizeof(Q3); q_flds[3] = 4; q_max[3] = 1; break;
+	case 6: j = sizeof(Q6); q_flds[6] = 3; q_max[6] = 1; break;
+	case 5: j = sizeof(Q5); q_flds[5] = 3; q_max[5] = 1; break;
+	case 4: j = sizeof(Q4); q_flds[4] = 3; q_max[4] = 1; break;
+	case 3: j = sizeof(Q3); q_flds[3] = 3; q_max[3] = 1; break;
 	case 2: j = sizeof(Q2); q_flds[2] = 3; q_max[2] = 4; break;
-	case 1: j = sizeof(Q1); q_flds[1] = 4; q_max[1] = 2; break;
+	case 1: j = sizeof(Q1); q_flds[1] = 3; q_max[1] = 2; break;
 	default: Uerror("bad queue - addqueue");
 	}
 	#ifdef BFS_PAR
@@ -12632,7 +12611,7 @@ what_q_size(int t)
 
 #if NQS>0
 void
-qsend(int into, int sorted, int fld0, int fld1, int fld2, int fld3, int args_given)
+qsend(int into, int sorted, int fld0, int fld1, int fld2, int args_given)
 {	int j; uchar *z;
 
 #ifdef HAS_SORTED
@@ -12666,9 +12645,8 @@ qsend(int into, int sorted, int fld0, int fld1, int fld2, int fld3, int args_giv
 		((Q6 *)z)->contents[j].fld0 = fld0;
 		((Q6 *)z)->contents[j].fld1 = fld1;
 		((Q6 *)z)->contents[j].fld2 = fld2;
-		((Q6 *)z)->contents[j].fld3 = fld3;
-		if (args_given != 4)
-		{	if (args_given > 4)
+		if (args_given != 3)
+		{	if (args_given > 3)
 				uerror("too many parameters in send stmnt");
 			else
 				uerror("too few parameters in send stmnt");
@@ -12682,9 +12660,8 @@ qsend(int into, int sorted, int fld0, int fld1, int fld2, int fld3, int args_giv
 		((Q5 *)z)->contents[j].fld0 = fld0;
 		((Q5 *)z)->contents[j].fld1 = fld1;
 		((Q5 *)z)->contents[j].fld2 = fld2;
-		((Q5 *)z)->contents[j].fld3 = fld3;
-		if (args_given != 4)
-		{	if (args_given > 4)
+		if (args_given != 3)
+		{	if (args_given > 3)
 				uerror("too many parameters in send stmnt");
 			else
 				uerror("too few parameters in send stmnt");
@@ -12698,9 +12675,8 @@ qsend(int into, int sorted, int fld0, int fld1, int fld2, int fld3, int args_giv
 		((Q4 *)z)->contents[j].fld0 = fld0;
 		((Q4 *)z)->contents[j].fld1 = fld1;
 		((Q4 *)z)->contents[j].fld2 = fld2;
-		((Q4 *)z)->contents[j].fld3 = fld3;
-		if (args_given != 4)
-		{	if (args_given > 4)
+		if (args_given != 3)
+		{	if (args_given > 3)
 				uerror("too many parameters in send stmnt");
 			else
 				uerror("too few parameters in send stmnt");
@@ -12714,9 +12690,8 @@ qsend(int into, int sorted, int fld0, int fld1, int fld2, int fld3, int args_giv
 		((Q3 *)z)->contents[j].fld0 = fld0;
 		((Q3 *)z)->contents[j].fld1 = fld1;
 		((Q3 *)z)->contents[j].fld2 = fld2;
-		((Q3 *)z)->contents[j].fld3 = fld3;
-		if (args_given != 4)
-		{	if (args_given > 4)
+		if (args_given != 3)
+		{	if (args_given > 3)
 				uerror("too many parameters in send stmnt");
 			else
 				uerror("too few parameters in send stmnt");
@@ -12745,9 +12720,8 @@ qsend(int into, int sorted, int fld0, int fld1, int fld2, int fld3, int args_giv
 		((Q1 *)z)->contents[j].fld0 = fld0;
 		((Q1 *)z)->contents[j].fld1 = fld1;
 		((Q1 *)z)->contents[j].fld2 = fld2;
-		((Q1 *)z)->contents[j].fld3 = fld3;
-		if (args_given != 4)
-		{	if (args_given > 4)
+		if (args_given != 3)
+		{	if (args_given > 3)
 				uerror("too many parameters in send stmnt");
 			else
 				uerror("too few parameters in send stmnt");
@@ -12931,7 +12905,6 @@ qrecv(int from, int slot, int fld, int done)
 		case 0: r = ((Q6 *)z)->contents[slot].fld0; break;
 		case 1: r = ((Q6 *)z)->contents[slot].fld1; break;
 		case 2: r = ((Q6 *)z)->contents[slot].fld2; break;
-		case 3: r = ((Q6 *)z)->contents[slot].fld3; break;
 		default: Uerror("too many fields in recv");
 		}
 		if (done)
@@ -12945,14 +12918,11 @@ qrecv(int from, int slot, int fld, int done)
 					((Q6 *)z)->contents[k+1].fld1;
 				((Q6 *)z)->contents[k].fld2 = 
 					((Q6 *)z)->contents[k+1].fld2;
-				((Q6 *)z)->contents[k].fld3 = 
-					((Q6 *)z)->contents[k+1].fld3;
 			}
 			((Q6 *)z)->contents[j].fld0 = 0;
 			((Q6 *)z)->contents[j].fld1 = 0;
 			((Q6 *)z)->contents[j].fld2 = 0;
-			((Q6 *)z)->contents[j].fld3 = 0;
-			if (fld+1 != 4)
+			if (fld+1 != 3)
 				uerror("missing pars in receive");
 		}
 		break;
@@ -12961,7 +12931,6 @@ qrecv(int from, int slot, int fld, int done)
 		case 0: r = ((Q5 *)z)->contents[slot].fld0; break;
 		case 1: r = ((Q5 *)z)->contents[slot].fld1; break;
 		case 2: r = ((Q5 *)z)->contents[slot].fld2; break;
-		case 3: r = ((Q5 *)z)->contents[slot].fld3; break;
 		default: Uerror("too many fields in recv");
 		}
 		if (done)
@@ -12975,14 +12944,11 @@ qrecv(int from, int slot, int fld, int done)
 					((Q5 *)z)->contents[k+1].fld1;
 				((Q5 *)z)->contents[k].fld2 = 
 					((Q5 *)z)->contents[k+1].fld2;
-				((Q5 *)z)->contents[k].fld3 = 
-					((Q5 *)z)->contents[k+1].fld3;
 			}
 			((Q5 *)z)->contents[j].fld0 = 0;
 			((Q5 *)z)->contents[j].fld1 = 0;
 			((Q5 *)z)->contents[j].fld2 = 0;
-			((Q5 *)z)->contents[j].fld3 = 0;
-			if (fld+1 != 4)
+			if (fld+1 != 3)
 				uerror("missing pars in receive");
 		}
 		break;
@@ -12991,7 +12957,6 @@ qrecv(int from, int slot, int fld, int done)
 		case 0: r = ((Q4 *)z)->contents[slot].fld0; break;
 		case 1: r = ((Q4 *)z)->contents[slot].fld1; break;
 		case 2: r = ((Q4 *)z)->contents[slot].fld2; break;
-		case 3: r = ((Q4 *)z)->contents[slot].fld3; break;
 		default: Uerror("too many fields in recv");
 		}
 		if (done)
@@ -13005,14 +12970,11 @@ qrecv(int from, int slot, int fld, int done)
 					((Q4 *)z)->contents[k+1].fld1;
 				((Q4 *)z)->contents[k].fld2 = 
 					((Q4 *)z)->contents[k+1].fld2;
-				((Q4 *)z)->contents[k].fld3 = 
-					((Q4 *)z)->contents[k+1].fld3;
 			}
 			((Q4 *)z)->contents[j].fld0 = 0;
 			((Q4 *)z)->contents[j].fld1 = 0;
 			((Q4 *)z)->contents[j].fld2 = 0;
-			((Q4 *)z)->contents[j].fld3 = 0;
-			if (fld+1 != 4)
+			if (fld+1 != 3)
 				uerror("missing pars in receive");
 		}
 		break;
@@ -13021,7 +12983,6 @@ qrecv(int from, int slot, int fld, int done)
 		case 0: r = ((Q3 *)z)->contents[slot].fld0; break;
 		case 1: r = ((Q3 *)z)->contents[slot].fld1; break;
 		case 2: r = ((Q3 *)z)->contents[slot].fld2; break;
-		case 3: r = ((Q3 *)z)->contents[slot].fld3; break;
 		default: Uerror("too many fields in recv");
 		}
 		if (done)
@@ -13035,14 +12996,11 @@ qrecv(int from, int slot, int fld, int done)
 					((Q3 *)z)->contents[k+1].fld1;
 				((Q3 *)z)->contents[k].fld2 = 
 					((Q3 *)z)->contents[k+1].fld2;
-				((Q3 *)z)->contents[k].fld3 = 
-					((Q3 *)z)->contents[k+1].fld3;
 			}
 			((Q3 *)z)->contents[j].fld0 = 0;
 			((Q3 *)z)->contents[j].fld1 = 0;
 			((Q3 *)z)->contents[j].fld2 = 0;
-			((Q3 *)z)->contents[j].fld3 = 0;
-			if (fld+1 != 4)
+			if (fld+1 != 3)
 				uerror("missing pars in receive");
 		}
 		break;
@@ -13077,7 +13035,6 @@ qrecv(int from, int slot, int fld, int done)
 		case 0: r = ((Q1 *)z)->contents[slot].fld0; break;
 		case 1: r = ((Q1 *)z)->contents[slot].fld1; break;
 		case 2: r = ((Q1 *)z)->contents[slot].fld2; break;
-		case 3: r = ((Q1 *)z)->contents[slot].fld3; break;
 		default: Uerror("too many fields in recv");
 		}
 		if (done)
@@ -13091,14 +13048,11 @@ qrecv(int from, int slot, int fld, int done)
 					((Q1 *)z)->contents[k+1].fld1;
 				((Q1 *)z)->contents[k].fld2 = 
 					((Q1 *)z)->contents[k+1].fld2;
-				((Q1 *)z)->contents[k].fld3 = 
-					((Q1 *)z)->contents[k+1].fld3;
 			}
 			((Q1 *)z)->contents[j].fld0 = 0;
 			((Q1 *)z)->contents[j].fld1 = 0;
 			((Q1 *)z)->contents[j].fld2 = 0;
-			((Q1 *)z)->contents[j].fld3 = 0;
-			if (fld+1 != 4)
+			if (fld+1 != 3)
 				uerror("missing pars in receive");
 		}
 		break;
@@ -13178,28 +13132,24 @@ unsend(int into)
 		((Q6 *)z)->contents[j].fld0 = 0;
 		((Q6 *)z)->contents[j].fld1 = 0;
 		((Q6 *)z)->contents[j].fld2 = 0;
-		((Q6 *)z)->contents[j].fld3 = 0;
 		_m = trpt->o_m;
 		break;
 	case 5:
 		((Q5 *)z)->contents[j].fld0 = 0;
 		((Q5 *)z)->contents[j].fld1 = 0;
 		((Q5 *)z)->contents[j].fld2 = 0;
-		((Q5 *)z)->contents[j].fld3 = 0;
 		_m = trpt->o_m;
 		break;
 	case 4:
 		((Q4 *)z)->contents[j].fld0 = 0;
 		((Q4 *)z)->contents[j].fld1 = 0;
 		((Q4 *)z)->contents[j].fld2 = 0;
-		((Q4 *)z)->contents[j].fld3 = 0;
 		_m = trpt->o_m;
 		break;
 	case 3:
 		((Q3 *)z)->contents[j].fld0 = 0;
 		((Q3 *)z)->contents[j].fld1 = 0;
 		((Q3 *)z)->contents[j].fld2 = 0;
-		((Q3 *)z)->contents[j].fld3 = 0;
 		_m = trpt->o_m;
 		break;
 	case 2:
@@ -13212,7 +13162,6 @@ unsend(int into)
 		((Q1 *)z)->contents[j].fld0 = 0;
 		((Q1 *)z)->contents[j].fld1 = 0;
 		((Q1 *)z)->contents[j].fld2 = 0;
-		((Q1 *)z)->contents[j].fld3 = 0;
 		_m = trpt->o_m;
 		break;
 	default: Uerror("bad queue - unsend");
@@ -13249,13 +13198,11 @@ unrecv(int from, int slot, int fld, int fldvar, int strt)
 			((Q6 *)z)->contents[slot].fld0 = 0;
 			((Q6 *)z)->contents[slot].fld1 = 0;
 			((Q6 *)z)->contents[slot].fld2 = 0;
-			((Q6 *)z)->contents[slot].fld3 = 0;
 		}
 		switch (fld) {
 		case 0:	((Q6 *)z)->contents[slot].fld0 = fldvar; break;
 		case 1:	((Q6 *)z)->contents[slot].fld1 = fldvar; break;
 		case 2:	((Q6 *)z)->contents[slot].fld2 = fldvar; break;
-		case 3:	((Q6 *)z)->contents[slot].fld3 = fldvar; break;
 		}
 		break;
 	case 5:
@@ -13263,13 +13210,11 @@ unrecv(int from, int slot, int fld, int fldvar, int strt)
 			((Q5 *)z)->contents[slot].fld0 = 0;
 			((Q5 *)z)->contents[slot].fld1 = 0;
 			((Q5 *)z)->contents[slot].fld2 = 0;
-			((Q5 *)z)->contents[slot].fld3 = 0;
 		}
 		switch (fld) {
 		case 0:	((Q5 *)z)->contents[slot].fld0 = fldvar; break;
 		case 1:	((Q5 *)z)->contents[slot].fld1 = fldvar; break;
 		case 2:	((Q5 *)z)->contents[slot].fld2 = fldvar; break;
-		case 3:	((Q5 *)z)->contents[slot].fld3 = fldvar; break;
 		}
 		break;
 	case 4:
@@ -13277,13 +13222,11 @@ unrecv(int from, int slot, int fld, int fldvar, int strt)
 			((Q4 *)z)->contents[slot].fld0 = 0;
 			((Q4 *)z)->contents[slot].fld1 = 0;
 			((Q4 *)z)->contents[slot].fld2 = 0;
-			((Q4 *)z)->contents[slot].fld3 = 0;
 		}
 		switch (fld) {
 		case 0:	((Q4 *)z)->contents[slot].fld0 = fldvar; break;
 		case 1:	((Q4 *)z)->contents[slot].fld1 = fldvar; break;
 		case 2:	((Q4 *)z)->contents[slot].fld2 = fldvar; break;
-		case 3:	((Q4 *)z)->contents[slot].fld3 = fldvar; break;
 		}
 		break;
 	case 3:
@@ -13291,13 +13234,11 @@ unrecv(int from, int slot, int fld, int fldvar, int strt)
 			((Q3 *)z)->contents[slot].fld0 = 0;
 			((Q3 *)z)->contents[slot].fld1 = 0;
 			((Q3 *)z)->contents[slot].fld2 = 0;
-			((Q3 *)z)->contents[slot].fld3 = 0;
 		}
 		switch (fld) {
 		case 0:	((Q3 *)z)->contents[slot].fld0 = fldvar; break;
 		case 1:	((Q3 *)z)->contents[slot].fld1 = fldvar; break;
 		case 2:	((Q3 *)z)->contents[slot].fld2 = fldvar; break;
-		case 3:	((Q3 *)z)->contents[slot].fld3 = fldvar; break;
 		}
 		break;
 	case 2:
@@ -13331,21 +13272,17 @@ unrecv(int from, int slot, int fld, int fldvar, int strt)
 				((Q1 *)z)->contents[j].fld1;
 				((Q1 *)z)->contents[j+1].fld2 =
 				((Q1 *)z)->contents[j].fld2;
-				((Q1 *)z)->contents[j+1].fld3 =
-				((Q1 *)z)->contents[j].fld3;
 			}
 		}
 		if (strt) {
 			((Q1 *)z)->contents[slot].fld0 = 0;
 			((Q1 *)z)->contents[slot].fld1 = 0;
 			((Q1 *)z)->contents[slot].fld2 = 0;
-			((Q1 *)z)->contents[slot].fld3 = 0;
 		}
 		switch (fld) {
 		case 0:	((Q1 *)z)->contents[slot].fld0 = fldvar; break;
 		case 1:	((Q1 *)z)->contents[slot].fld1 = fldvar; break;
 		case 2:	((Q1 *)z)->contents[slot].fld2 = fldvar; break;
-		case 3:	((Q1 *)z)->contents[slot].fld3 = fldvar; break;
 		}
 		break;
 	default: Uerror("bad queue - qrecv");
@@ -14711,34 +14648,29 @@ c_locals(int pid, int tp)
 	printf("	int    start:	%d\n", ((P2 *)pptr(pid))->_7_3_first.start);
 	printf("	int    end:	%d\n", ((P2 *)pptr(pid))->_7_3_first.end);
 	printf("	int    size:	%d\n", ((P2 *)pptr(pid))->_7_3_first.size);
-	printf("	bit    reject:	%d\n", ((P2 *)pptr(pid))->_7_3_first.reject);
 		printf("	(struct _7_3_second)\n");
 	printf("	int    start:	%d\n", ((P2 *)pptr(pid))->_7_3_second.start);
 	printf("	int    end:	%d\n", ((P2 *)pptr(pid))->_7_3_second.end);
 	printf("	int    size:	%d\n", ((P2 *)pptr(pid))->_7_3_second.size);
-	printf("	bit    reject:	%d\n", ((P2 *)pptr(pid))->_7_3_second.reject);
 		break;
 	case 1:
 		printf("local vars proc %d (Shuttle):\n", pid);
-	printf("	int    max_cap:	%d\n", ((P1 *)pptr(pid))->max_cap);
+	printf("	int    capacity:	%d\n", ((P1 *)pptr(pid))->capacity);
 	printf("	int    charge:	%d\n", ((P1 *)pptr(pid))->charge);
-	printf("	int    init_pos:	%d\n", ((P1 *)pptr(pid))->init_pos);
+	printf("	int    initialStation:	%d\n", ((P1 *)pptr(pid))->initialStation);
 	printf("	int    id:	%d\n", ((P1 *)pptr(pid))->id);
 		printf("	(struct order)\n");
 	printf("	int    start:	%d\n", ((P1 *)pptr(pid))->order.start);
 	printf("	int    end:	%d\n", ((P1 *)pptr(pid))->order.end);
 	printf("	int    size:	%d\n", ((P1 *)pptr(pid))->order.size);
-	printf("	bit    reject:	%d\n", ((P1 *)pptr(pid))->order.reject);
-	printf("	bit    on_track:	%d\n", ((P1 *)pptr(pid))->on_track);
-	printf("	int    current_station:	%d\n", ((P1 *)pptr(pid))->current_station);
-	printf("	int    next_station:	%d\n", ((P1 *)pptr(pid))->next_station);
-	printf("	int    current_load:	%d\n", ((P1 *)pptr(pid))->current_load);
+	printf("	bit    onTrack:	%d\n", ((P1 *)pptr(pid))->onTrack);
+	printf("	int    currentStation:	%d\n", ((P1 *)pptr(pid))->currentStation);
+	printf("	int    nextStation:	%d\n", ((P1 *)pptr(pid))->nextStation);
+	printf("	int    currentLoad:	%d\n", ((P1 *)pptr(pid))->currentLoad);
 	printf("	chan orders (=%d):	len %d:\t", ((P1 *)pptr(pid))->orders, q_len(((P1 *)pptr(pid))->orders));
 	c_chandump(((P1 *)pptr(pid))->orders);
-	printf("	int    temp_station:	%d\n", ((P1 *)pptr(pid))->temp_station);
-	printf("	int    distance_a:	%d\n", ((P1 *)pptr(pid))->distance_a);
-	printf("	int    distance_b:	%d\n", ((P1 *)pptr(pid))->distance_b);
-	printf("	int    station_distance:	%d\n", ((P1 *)pptr(pid))->station_distance);
+	printf("	int    currentPosition:	%d\n", ((P1 *)pptr(pid))->currentPosition);
+	printf("	int    distance:	%d\n", ((P1 *)pptr(pid))->distance);
 		printf("	(struct offer)\n");
 	printf("	int    id:	%d\n", ((P1 *)pptr(pid))->offer.id);
 	printf("	int    charge:	%d\n", ((P1 *)pptr(pid))->offer.charge);
@@ -14750,27 +14682,21 @@ c_locals(int pid, int tp)
 	printf("	int    start:	%d\n", ((P0 *)pptr(pid))->first.start);
 	printf("	int    end:	%d\n", ((P0 *)pptr(pid))->first.end);
 	printf("	int    size:	%d\n", ((P0 *)pptr(pid))->first.size);
-	printf("	bit    reject:	%d\n", ((P0 *)pptr(pid))->first.reject);
 		printf("	(struct second)\n");
 	printf("	int    start:	%d\n", ((P0 *)pptr(pid))->second.start);
 	printf("	int    end:	%d\n", ((P0 *)pptr(pid))->second.end);
 	printf("	int    size:	%d\n", ((P0 *)pptr(pid))->second.size);
-	printf("	bit    reject:	%d\n", ((P0 *)pptr(pid))->second.reject);
 		printf("	(struct orders)\n");
 	printf("	int    start:	%d\n", ((P0 *)pptr(pid))->orders[ 0 ].start);
 	printf("	int    end:	%d\n", ((P0 *)pptr(pid))->orders[ 0 ].end);
 	printf("	int    size:	%d\n", ((P0 *)pptr(pid))->orders[ 0 ].size);
-	printf("	bit    reject:	%d\n", ((P0 *)pptr(pid))->orders[ 0 ].reject);
 	printf("	int    start:	%d\n", ((P0 *)pptr(pid))->orders[ 1 ].start);
 	printf("	int    end:	%d\n", ((P0 *)pptr(pid))->orders[ 1 ].end);
 	printf("	int    size:	%d\n", ((P0 *)pptr(pid))->orders[ 1 ].size);
-	printf("	bit    reject:	%d\n", ((P0 *)pptr(pid))->orders[ 1 ].reject);
-	printf("	int    min_charge:	%d\n", ((P0 *)pptr(pid))->min_charge);
-	printf("	int    min_id:	%d\n", ((P0 *)pptr(pid))->min_id);
-	printf("	int    shuttle_id:	%d\n", ((P0 *)pptr(pid))->shuttle_id);
-	printf("	int    shuttle_charge:	%d\n", ((P0 *)pptr(pid))->shuttle_charge);
 	printf("	int    i:	%d\n", ((P0 *)pptr(pid))->i);
 	printf("	int    j:	%d\n", ((P0 *)pptr(pid))->_5_1_j);
+	printf("	int    minCharge:	%d\n", ((P0 *)pptr(pid))->_5_1_minCharge);
+	printf("	int    assignedId:	%d\n", ((P0 *)pptr(pid))->_5_1_assignedId);
 		printf("	(struct _5_1_2_offer)\n");
 	printf("	int    id:	%d\n", ((P0 *)pptr(pid))->_5_1_2_offer.id);
 	printf("	int    charge:	%d\n", ((P0 *)pptr(pid))->_5_1_2_offer.charge);
@@ -14779,7 +14705,6 @@ c_locals(int pid, int tp)
 	printf("	int    start:	%d\n", ((P0 *)pptr(pid))->_5_1_3_dummy.start);
 	printf("	int    end:	%d\n", ((P0 *)pptr(pid))->_5_1_3_dummy.end);
 	printf("	int    size:	%d\n", ((P0 *)pptr(pid))->_5_1_3_dummy.size);
-	printf("	bit    reject:	%d\n", ((P0 *)pptr(pid))->_5_1_3_dummy.reject);
 		break;
 	}
 }
@@ -14804,7 +14729,6 @@ c_chandump(int from)
 			printf("%d,", ((Q6 *)z)->contents[slot].fld0);
 			printf("%d,", ((Q6 *)z)->contents[slot].fld1);
 			printf("%d,", ((Q6 *)z)->contents[slot].fld2);
-			printf("%d,", ((Q6 *)z)->contents[slot].fld3);
 			printf("],");
 		}
 		break;
@@ -14814,7 +14738,6 @@ c_chandump(int from)
 			printf("%d,", ((Q5 *)z)->contents[slot].fld0);
 			printf("%d,", ((Q5 *)z)->contents[slot].fld1);
 			printf("%d,", ((Q5 *)z)->contents[slot].fld2);
-			printf("%d,", ((Q5 *)z)->contents[slot].fld3);
 			printf("],");
 		}
 		break;
@@ -14824,7 +14747,6 @@ c_chandump(int from)
 			printf("%d,", ((Q4 *)z)->contents[slot].fld0);
 			printf("%d,", ((Q4 *)z)->contents[slot].fld1);
 			printf("%d,", ((Q4 *)z)->contents[slot].fld2);
-			printf("%d,", ((Q4 *)z)->contents[slot].fld3);
 			printf("],");
 		}
 		break;
@@ -14834,7 +14756,6 @@ c_chandump(int from)
 			printf("%d,", ((Q3 *)z)->contents[slot].fld0);
 			printf("%d,", ((Q3 *)z)->contents[slot].fld1);
 			printf("%d,", ((Q3 *)z)->contents[slot].fld2);
-			printf("%d,", ((Q3 *)z)->contents[slot].fld3);
 			printf("],");
 		}
 		break;
@@ -14853,7 +14774,6 @@ c_chandump(int from)
 			printf("%d,", ((Q1 *)z)->contents[slot].fld0);
 			printf("%d,", ((Q1 *)z)->contents[slot].fld1);
 			printf("%d,", ((Q1 *)z)->contents[slot].fld2);
-			printf("%d,", ((Q1 *)z)->contents[slot].fld3);
 			printf("],");
 		}
 		break;
@@ -14861,7 +14781,7 @@ c_chandump(int from)
 	printf("\n");
 }
 
-Trans *t_id_lkup[114];
+Trans *t_id_lkup[121];
 
 
 #ifdef BFS_PAR
