@@ -2,7 +2,7 @@
 #define PAN_H
 
 #define SpinVersion	"Spin Version 6.5.1 -- 3 November 2019"
-#define PanSource	"problem1.pml"
+#define PanSource	"problem1-retry.pml"
 
 #define G_long	4
 #define G_int	4
@@ -120,7 +120,7 @@
 #endif
 #ifdef NP
 	#define HAS_NP	2
-	#define VERI	4	/* np_ */
+	#define VERI	3	/* np_ */
 #endif
 #if defined(NOCLAIM) && defined(NP)
 	#undef NOCLAIM
@@ -132,41 +132,34 @@ typedef struct S_F_MAP {
 	int upto;
 } S_F_MAP;
 
-#define _nstates3	17	/* :init: */
-#define minseq3	206
-#define maxseq3	221
-#define _endstate3	16
+#define _nstates2	16	/* :init: */
+#define minseq2	99
+#define maxseq2	113
+#define _endstate2	15
 
-#define _nstates2	66	/* ShuttleManagementSystem */
-#define minseq2	141
-#define maxseq2	205
-#define _endstate2	65
+#define _nstates1	35	/* Shuttle */
+#define minseq1	65
+#define maxseq1	98
+#define _endstate1	34
 
-#define _nstates1	27	/* RailwayNetwork */
-#define minseq1	115
-#define maxseq1	140
-#define _endstate1	26
-
-#define _nstates0	116	/* Shuttle */
+#define _nstates0	66	/* ShuttleManagementSystem */
 #define minseq0	0
-#define maxseq0	114
-#define _endstate0	115
+#define maxseq0	64
+#define _endstate0	65
 
-extern short src_ln3[];
 extern short src_ln2[];
 extern short src_ln1[];
 extern short src_ln0[];
-extern S_F_MAP src_file3[];
 extern S_F_MAP src_file2[];
 extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned char
-#define _T5	83
-#define _T2	84
+#define _T5	42
+#define _T2	43
 #define WS		4 /* word size in bytes */
 #define SYNC	0
-#define ASYNC	5
+#define ASYNC	3
 
 #ifndef NCORE
 	#ifdef DUAL_CORE
@@ -182,34 +175,56 @@ struct Order { /* user defined type */
 	int start;
 	int end;
 	int size;
+	unsigned reject : 1;
 };
 struct Offer { /* user defined type */
 	int id;
 	int charge;
 	unsigned refuse : 1;
 };
-struct Request { /* user defined type */
-	int track;
-	int direction;
-	int shuttle_id;
-};
-#define Pinit	((P3 *)_this)
-typedef struct P3 { /* :init: */
+#define Pinit	((P2 *)_this)
+typedef struct P2 { /* :init: */
 	unsigned _pid : 8;  /* 0..255 */
-	unsigned _t   : 4; /* proctype */
+	unsigned _t   : 3; /* proctype */
 	unsigned _p   : 8; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	struct Order _11_6_first;
-	struct Order _11_6_second;
-} P3;
-#define Air3	0
+	struct Order _7_3_first;
+	struct Order _7_3_second;
+} P2;
+#define Air2	0
 
-#define PShuttleManagementSystem	((P2 *)_this)
-typedef struct P2 { /* ShuttleManagementSystem */
+#define PShuttle	((P1 *)_this)
+typedef struct P1 { /* Shuttle */
 	unsigned _pid : 8;  /* 0..255 */
-	unsigned _t   : 4; /* proctype */
+	unsigned _t   : 3; /* proctype */
+	unsigned _p   : 8; /* state    */
+#ifdef HAS_PRIORITY
+	unsigned _priority : 8; /* 0..255 */
+#endif
+	unsigned on_track : 1;
+	uchar orders;
+	int max_cap;
+	int charge;
+	int init_pos;
+	int id;
+	int current_station;
+	int next_station;
+	int current_load;
+	int temp_station;
+	int distance_a;
+	int distance_b;
+	int station_distance;
+	struct Order order;
+	struct Offer offer;
+} P1;
+#define Air1	0
+
+#define PShuttleManagementSystem	((P0 *)_this)
+typedef struct P0 { /* ShuttleManagementSystem */
+	unsigned _pid : 8;  /* 0..255 */
+	unsigned _t   : 3; /* proctype */
 	unsigned _p   : 8; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
@@ -219,70 +234,24 @@ typedef struct P2 { /* ShuttleManagementSystem */
 	int shuttle_id;
 	int shuttle_charge;
 	int i;
-	int _10_5_j;
+	int _5_1_j;
 	struct Order first;
 	struct Order second;
-	struct Offer _10_5_2_offer;
-	struct Order _10_5_3_dummy;
+	struct Offer _5_1_2_offer;
+	struct Order _5_1_3_dummy;
 	struct Order orders[2];
-} P2;
-#define Air2	0
-
-#define PRailwayNetwork	((P1 *)_this)
-typedef struct P1 { /* RailwayNetwork */
-	unsigned _pid : 8;  /* 0..255 */
-	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 8; /* state    */
-#ifdef HAS_PRIORITY
-	unsigned _priority : 8; /* 0..255 */
-#endif
-	int shuttle_id;
-	struct Request req;
-} P1;
-#define Air1	0
-
-#define PShuttle	((P0 *)_this)
-typedef struct P0 { /* Shuttle */
-	unsigned _pid : 8;  /* 0..255 */
-	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 8; /* state    */
-#ifdef HAS_PRIORITY
-	unsigned _priority : 8; /* 0..255 */
-#endif
-	unsigned isMoving : 1;
-	unsigned isFree : 1;
-	unsigned _8_2_got_track : 1;
-	uchar order_queue;
-	int max_cap;
-	int charge;
-	int init_pos;
-	int id;
-	int current_cap;
-	int current_station;
-	int next_station;
-	int destination;
-	int track_distance;
-	int direction;
-	int station_distance;
-	int temp_station;
-	int distance_a;
-	int distance_b;
-	struct Order current_order;
-	struct Order receive_order;
-	struct Request track_req;
-	struct Offer offer;
 } P0;
 #define Air0	0
 
-typedef struct P4 { /* np_ */
+typedef struct P3 { /* np_ */
 	unsigned _pid : 8;  /* 0..255 */
-	unsigned _t   : 4; /* proctype */
+	unsigned _t   : 3; /* proctype */
 	unsigned _p   : 8; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-} P4;
-#define Air4	(sizeof(P4) - 3)
+} P3;
+#define Air3	(sizeof(P3) - 3)
 
 #define Pclaim	P0
 #ifndef NCLAIMS
@@ -474,12 +443,8 @@ typedef struct State {
 		unsigned short _event;
 	#endif
 #endif
-	uchar track_clockwise[4];
-	uchar track_anti_clockwise[4];
-	uchar shuttleTOmanagement;
-	uchar managementTOshuttle[4];
-	uchar shuttleTOrailway;
-	uchar railwayTOshuttle[4];
+	uchar shuttleToManagement;
+	uchar managementToShuttle[4];
 #ifdef TRIX
 	/* room for 512 proc+chan ptrs, + safety margin */
 	char *_ids_[MAXPROC+MAXQ+4];
@@ -504,14 +469,13 @@ typedef struct TRIX_v6 {
 #define FORWARD_MOVES	"pan.m"
 #define BACKWARD_MOVES	"pan.b"
 #define TRANSITIONS	"pan.t"
-#define _NP_	4
-#define _nstates4	3 /* np_ */
-#define _endstate4	2 /* np_ */
+#define _NP_	3
+#define _nstates3	3 /* np_ */
+#define _endstate3	2 /* np_ */
 
-#define _start4	0 /* np_ */
-#define _start3	15
-#define _start2	1
-#define _start1	23
+#define _start3	0 /* np_ */
+#define _start2	14
+#define _start1	31
 #define _start0	1
 #ifdef NP
 	#define ACCEPT_LAB	1 /* at least 1 in np_ */
@@ -545,44 +509,7 @@ typedef struct TRIX_v6 {
 	#define MEMLIM	(2048)	/* need a default, using 2 GB */
 #endif
 #define PROG_LAB	0 /* progress labels */
-#define NQS	11
-typedef struct Q11 {
-	uchar Qlen;	/* q_size */
-	uchar _t;	/* q_type */
-	struct {
-		uchar fld0;
-	} contents[1];
-} Q11;
-typedef struct Q10 {
-	uchar Qlen;	/* q_size */
-	uchar _t;	/* q_type */
-	struct {
-		uchar fld0;
-	} contents[1];
-} Q10;
-typedef struct Q9 {
-	uchar Qlen;	/* q_size */
-	uchar _t;	/* q_type */
-	struct {
-		uchar fld0;
-	} contents[1];
-} Q9;
-typedef struct Q8 {
-	uchar Qlen;	/* q_size */
-	uchar _t;	/* q_type */
-	struct {
-		uchar fld0;
-	} contents[1];
-} Q8;
-typedef struct Q7 {
-	uchar Qlen;	/* q_size */
-	uchar _t;	/* q_type */
-	struct {
-		int fld0;
-		int fld1;
-		int fld2;
-	} contents[4];
-} Q7;
+#define NQS	6
 typedef struct Q6 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
@@ -590,6 +517,7 @@ typedef struct Q6 {
 		int fld0;
 		int fld1;
 		int fld2;
+		unsigned fld3 : 1;
 	} contents[1];
 } Q6;
 typedef struct Q5 {
@@ -599,6 +527,7 @@ typedef struct Q5 {
 		int fld0;
 		int fld1;
 		int fld2;
+		unsigned fld3 : 1;
 	} contents[1];
 } Q5;
 typedef struct Q4 {
@@ -608,6 +537,7 @@ typedef struct Q4 {
 		int fld0;
 		int fld1;
 		int fld2;
+		unsigned fld3 : 1;
 	} contents[1];
 } Q4;
 typedef struct Q3 {
@@ -617,6 +547,7 @@ typedef struct Q3 {
 		int fld0;
 		int fld1;
 		int fld2;
+		unsigned fld3 : 1;
 	} contents[1];
 } Q3;
 typedef struct Q2 {
@@ -635,6 +566,7 @@ typedef struct Q1 {
 		int fld0;
 		int fld1;
 		int fld2;
+		unsigned fld3 : 1;
 	} contents[2];
 } Q1;
 typedef struct Q0 {	/* generic q */
@@ -951,9 +883,9 @@ typedef struct BFS_State {
 } BFS_State;
 #endif
 
-void qsend(int, int, int, int, int, int);
+void qsend(int, int, int, int, int, int, int);
 
-#define Addproc(x,y)	addproc(256, y, x, 0, 0, 0, 0, 0, 0)
+#define Addproc(x,y)	addproc(256, y, x, 0, 0, 0, 0, 0, 0, 0, 0)
 #define LOCAL	1
 #define Q_FULL_F	2
 #define Q_EMPT_F	3
@@ -963,7 +895,7 @@ void qsend(int, int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	85
+#define NTRANS	44
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);
