@@ -133,19 +133,19 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates2	16	/* :init: */
-#define minseq2	106
-#define maxseq2	120
+#define minseq2	107
+#define maxseq2	121
 #define _endstate2	15
 
 #define _nstates1	45	/* Shuttle */
-#define minseq1	62
-#define maxseq1	105
+#define minseq1	63
+#define maxseq1	106
 #define _endstate1	44
 
-#define _nstates0	63	/* ShuttleManagementSystem */
+#define _nstates0	64	/* ShuttleManagementSystem */
 #define minseq0	0
-#define maxseq0	61
-#define _endstate0	62
+#define maxseq0	62
+#define _endstate0	63
 
 extern short src_ln2[];
 extern short src_ln1[];

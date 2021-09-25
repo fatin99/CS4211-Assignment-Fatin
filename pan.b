@@ -297,31 +297,32 @@
 		;
 		goto R999;
 
-	case 42: // STATE 46
+	case 42: // STATE 47
 		;
+		((P0 *)_this)->_5_1_3_dummy.size = trpt->bup.oval;
 		;
 		;
 		goto R999;
 
-	case 43: // STATE 47
+	case 43: // STATE 48
 		;
 		_m = unsend(now.managementToShuttle[ Index(((P0 *)_this)->_5_1_j, 4) ]);
 		;
 		goto R999;
 
-	case 44: // STATE 50
+	case 44: // STATE 51
 		;
 		((P0 *)_this)->_5_1_j = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 45: // STATE 56
+	case 45: // STATE 57
 		;
 		((P0 *)_this)->i = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 46: // STATE 62
+	case 46: // STATE 63
 		;
 		p_restor(II);
 		;

@@ -27,9 +27,11 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 		for (j:0 .. noShuttles-1){
 			managementToShuttle[j]!orders[i];
 		}
-        int minCharge = 100; //Assumption: max charge by a shuttle is 100
+        int minCharge = 2147483647; //Assumption: max charge by a shuttle
 	    int assignedId;
-		for (j:0 .. noShuttles-1){
+        //The shuttle having made the lowest oer will receive the assignment. In the event of two equal oers, 
+        // the assignment will go to the shuttle that rst made the oer.
+		for (j:0 .. noShuttles-1){ 
 			Offer offer
 			shuttleToManagement?offer;
 			if
@@ -41,7 +43,7 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 		for (j:0 .. noShuttles-1){				
 			if
 			:: j == assignedId -> managementToShuttle[j]!orders[i];
-			:: else -> Order dummy; managementToShuttle[j]!dummy;
+			:: else -> Order dummy; dummy.size = -1; managementToShuttle[j]!dummy;
 			fi
 		}
 	}
@@ -71,7 +73,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 		:: else -> distance = distance;
 		fi
 		Offer offer;
-		if
+		if //current loaded size plus the order size does not exceed the capacity
 		:: currentLoad + order.size <= capacity && distance <= 2 -> 
 			offer.id = id; offer.charge = charge; offer.refuse = false;
 		:: else -> 
@@ -80,7 +82,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 		shuttleToManagement!offer;
 		managementToShuttle[id]?order;
 		if
-		:: order.size != 0 -> orders!order; //Assumption, orders should have at least one passenger
+		:: order.size >= 0 -> orders!order; 
 		:: else -> skip;
 		fi
     od

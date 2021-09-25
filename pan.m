@@ -20,31 +20,31 @@
 		_m = 3; goto P999;
 
 		 /* PROC :init: */
-	case 3: // STATE 1 - problem1-retry.pml:91 - [(run Shuttle(4,2,1,0))] (0:0:0 - 1)
+	case 3: // STATE 1 - problem1-retry.pml:93 - [(run Shuttle(4,2,1,0))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][1] = 1;
 		if (!(addproc(II, 1, 1, 4, 2, 1, 0, 0, 0)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 4: // STATE 2 - problem1-retry.pml:92 - [(run Shuttle(2,4,1,1))] (0:0:0 - 1)
+	case 4: // STATE 2 - problem1-retry.pml:94 - [(run Shuttle(2,4,1,1))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][2] = 1;
 		if (!(addproc(II, 1, 1, 2, 4, 1, 1, 0, 0)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 5: // STATE 3 - problem1-retry.pml:93 - [(run Shuttle(5,1,2,2))] (0:0:0 - 1)
+	case 5: // STATE 3 - problem1-retry.pml:95 - [(run Shuttle(5,1,2,2))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][3] = 1;
 		if (!(addproc(II, 1, 1, 5, 1, 2, 2, 0, 0)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 6: // STATE 4 - problem1-retry.pml:94 - [(run Shuttle(3,3,3,3))] (0:0:0 - 1)
+	case 6: // STATE 4 - problem1-retry.pml:96 - [(run Shuttle(3,3,3,3))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][4] = 1;
 		if (!(addproc(II, 1, 1, 3, 3, 3, 3, 0, 0)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 7: // STATE 5 - problem1-retry.pml:95 - [] (0:13:6 - 1)
+	case 7: // STATE 5 - problem1-retry.pml:97 - [] (0:13:6 - 1)
 		IfNotBlocked
 		reached[2][5] = 1;
 		;
@@ -101,20 +101,20 @@
 #endif
 		;
 		_m = 3; goto P999; /* 7 */
-	case 8: // STATE 13 - problem1-retry.pml:97 - [(run ShuttleManagementSystem(first.start,first.end,first.size,second.start,second.end,second.size))] (0:0:0 - 1)
+	case 8: // STATE 13 - problem1-retry.pml:99 - [(run ShuttleManagementSystem(first.start,first.end,first.size,second.start,second.end,second.size))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][13] = 1;
 		if (!(addproc(II, 1, 0, ((P2 *)_this)->_7_3_first.start, ((P2 *)_this)->_7_3_first.end, ((P2 *)_this)->_7_3_first.size, ((P2 *)_this)->_7_3_second.start, ((P2 *)_this)->_7_3_second.end, ((P2 *)_this)->_7_3_second.size)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 9: // STATE 15 - problem1-retry.pml:99 - [-end-] (0:0:0 - 1)
+	case 9: // STATE 15 - problem1-retry.pml:101 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][15] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
 		 /* PROC Shuttle */
-	case 10: // STATE 1 - problem1-retry.pml:58 - [managementToShuttle[id]?order.start,order.end,order.size] (0:0:3 - 1)
+	case 10: // STATE 1 - problem1-retry.pml:60 - [managementToShuttle[id]?order.start,order.end,order.size] (0:0:3 - 1)
 		reached[1][1] = 1;
 		if (q_len(now.managementToShuttle[ Index(((P1 *)_this)->id, 4) ]) == 0) continue;
 
@@ -150,7 +150,7 @@
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 11: // STATE 2 - problem1-retry.pml:60 - [currentPosition = 0] (0:0:1 - 1)
+	case 11: // STATE 2 - problem1-retry.pml:62 - [currentPosition = 0] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][2] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->currentPosition;
@@ -160,7 +160,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 12: // STATE 3 - problem1-retry.pml:61 - [(onTrack)] (14:0:2 - 1)
+	case 12: // STATE 3 - problem1-retry.pml:63 - [(onTrack)] (14:0:2 - 1)
 		IfNotBlocked
 		reached[1][3] = 1;
 		if (!(((int)((P1 *)_this)->onTrack)))
@@ -186,7 +186,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 3 */
-	case 13: // STATE 6 - problem1-retry.pml:62 - [currentPosition = currentStation] (0:14:2 - 1)
+	case 13: // STATE 6 - problem1-retry.pml:64 - [currentPosition = currentStation] (0:14:2 - 1)
 		IfNotBlocked
 		reached[1][6] = 1;
 		(trpt+1)->bup.ovals = grab_ints(2);
@@ -208,7 +208,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 2 */
-	case 14: // STATE 9 - problem1-retry.pml:65 - [distance = 0] (0:14:1 - 3)
+	case 14: // STATE 9 - problem1-retry.pml:67 - [distance = 0] (0:14:1 - 3)
 		IfNotBlocked
 		reached[1][9] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->distance;
@@ -218,7 +218,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 15: // STATE 10 - problem1-retry.pml:66 - [((currentPosition>order.start))] (20:0:1 - 1)
+	case 15: // STATE 10 - problem1-retry.pml:68 - [((currentPosition>order.start))] (20:0:1 - 1)
 		IfNotBlocked
 		reached[1][10] = 1;
 		if (!((((P1 *)_this)->currentPosition>((P1 *)_this)->order.start)))
@@ -235,7 +235,7 @@
 		reached[1][15] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 16: // STATE 13 - problem1-retry.pml:67 - [distance = (order.start-currentPosition)] (0:0:1 - 1)
+	case 16: // STATE 13 - problem1-retry.pml:69 - [distance = (order.start-currentPosition)] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][13] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->distance;
@@ -245,7 +245,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 17: // STATE 16 - problem1-retry.pml:70 - [((distance>(4/2)))] (31:0:1 - 1)
+	case 17: // STATE 16 - problem1-retry.pml:72 - [((distance>(4/2)))] (31:0:1 - 1)
 		IfNotBlocked
 		reached[1][16] = 1;
 		if (!((((P1 *)_this)->distance>(4/2))))
@@ -265,7 +265,7 @@
 		reached[1][22] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 18: // STATE 19 - problem1-retry.pml:71 - [distance = distance] (0:31:1 - 1)
+	case 18: // STATE 19 - problem1-retry.pml:73 - [distance = distance] (0:31:1 - 1)
 		IfNotBlocked
 		reached[1][19] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->distance;
@@ -281,12 +281,12 @@
 		reached[1][22] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 19: // STATE 22 - problem1-retry.pml:74 - [] (0:31:0 - 3)
+	case 19: // STATE 22 - problem1-retry.pml:76 - [] (0:31:0 - 3)
 		IfNotBlocked
 		reached[1][22] = 1;
 		;
 		_m = 3; goto P999; /* 0 */
-	case 20: // STATE 23 - problem1-retry.pml:75 - [((((currentLoad+order.size)<=capacity)&&(distance<=2)))] (33:0:4 - 1)
+	case 20: // STATE 23 - problem1-retry.pml:77 - [((((currentLoad+order.size)<=capacity)&&(distance<=2)))] (33:0:4 - 1)
 		IfNotBlocked
 		reached[1][23] = 1;
 		if (!((((((P1 *)_this)->currentLoad+((P1 *)_this)->order.size)<=((P1 *)_this)->capacity)&&(((P1 *)_this)->distance<=2))))
@@ -326,7 +326,7 @@
 		reached[1][32] = 1;
 		;
 		_m = 3; goto P999; /* 4 */
-	case 21: // STATE 28 - problem1-retry.pml:78 - [offer.id = id] (0:33:3 - 1)
+	case 21: // STATE 28 - problem1-retry.pml:80 - [offer.id = id] (0:33:3 - 1)
 		IfNotBlocked
 		reached[1][28] = 1;
 		(trpt+1)->bup.ovals = grab_ints(3);
@@ -356,7 +356,7 @@
 		reached[1][32] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 22: // STATE 33 - problem1-retry.pml:80 - [shuttleToManagement!offer.id,offer.charge,offer.refuse] (0:0:0 - 3)
+	case 22: // STATE 33 - problem1-retry.pml:82 - [shuttleToManagement!offer.id,offer.charge,offer.refuse] (0:0:0 - 3)
 		IfNotBlocked
 		reached[1][33] = 1;
 		if (q_full(now.shuttleToManagement))
@@ -372,7 +372,7 @@
 		
 		qsend(now.shuttleToManagement, 0, ((P1 *)_this)->offer.id, ((P1 *)_this)->offer.charge, ((int)((P1 *)_this)->offer.refuse), 3);
 		_m = 2; goto P999; /* 0 */
-	case 23: // STATE 34 - problem1-retry.pml:81 - [managementToShuttle[id]?order.start,order.end,order.size] (0:0:3 - 1)
+	case 23: // STATE 34 - problem1-retry.pml:83 - [managementToShuttle[id]?order.start,order.end,order.size] (0:0:3 - 1)
 		reached[1][34] = 1;
 		if (q_len(now.managementToShuttle[ Index(((P1 *)_this)->id, 4) ]) == 0) continue;
 
@@ -408,13 +408,13 @@
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 24: // STATE 35 - problem1-retry.pml:83 - [((order.size!=0))] (0:0:0 - 1)
+	case 24: // STATE 35 - problem1-retry.pml:85 - [((order.size>=0))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][35] = 1;
-		if (!((((P1 *)_this)->order.size!=0)))
+		if (!((((P1 *)_this)->order.size>=0)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 25: // STATE 36 - problem1-retry.pml:83 - [orders!order.start,order.end,order.size] (0:0:0 - 1)
+	case 25: // STATE 36 - problem1-retry.pml:85 - [orders!order.start,order.end,order.size] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][36] = 1;
 		if (q_full(((P1 *)_this)->orders))
@@ -430,14 +430,14 @@
 		
 		qsend(((P1 *)_this)->orders, 0, ((P1 *)_this)->order.start, ((P1 *)_this)->order.end, ((P1 *)_this)->order.size, 3);
 		_m = 2; goto P999; /* 0 */
-	case 26: // STATE 44 - problem1-retry.pml:87 - [-end-] (0:0:0 - 1)
+	case 26: // STATE 44 - problem1-retry.pml:89 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][44] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
 		 /* PROC ShuttleManagementSystem */
-	case 27: // STATE 1 - problem1-retry.pml:21 - [orders[0].start = first.start] (0:59:8 - 1)
+	case 27: // STATE 1 - problem1-retry.pml:21 - [orders[0].start = first.start] (0:60:8 - 1)
 		IfNotBlocked
 		reached[0][1] = 1;
 		(trpt+1)->bup.ovals = grab_ints(8);
@@ -447,7 +447,7 @@
 		logval("ShuttleManagementSystem:orders[0].start", ((P0 *)_this)->orders[0].start);
 #endif
 		;
-		/* merge: orders[0].end = first.end(59, 2, 59) */
+		/* merge: orders[0].end = first.end(60, 2, 60) */
 		reached[0][2] = 1;
 		(trpt+1)->bup.ovals[1] = ((P0 *)_this)->orders[0].end;
 		((P0 *)_this)->orders[0].end = ((P0 *)_this)->first.end;
@@ -455,7 +455,7 @@
 		logval("ShuttleManagementSystem:orders[0].end", ((P0 *)_this)->orders[0].end);
 #endif
 		;
-		/* merge: orders[0].size = first.size(59, 3, 59) */
+		/* merge: orders[0].size = first.size(60, 3, 60) */
 		reached[0][3] = 1;
 		(trpt+1)->bup.ovals[2] = ((P0 *)_this)->orders[0].size;
 		((P0 *)_this)->orders[0].size = ((P0 *)_this)->first.size;
@@ -463,7 +463,7 @@
 		logval("ShuttleManagementSystem:orders[0].size", ((P0 *)_this)->orders[0].size);
 #endif
 		;
-		/* merge: orders[1].start = second.start(59, 4, 59) */
+		/* merge: orders[1].start = second.start(60, 4, 60) */
 		reached[0][4] = 1;
 		(trpt+1)->bup.ovals[3] = ((P0 *)_this)->orders[1].start;
 		((P0 *)_this)->orders[1].start = ((P0 *)_this)->second.start;
@@ -471,7 +471,7 @@
 		logval("ShuttleManagementSystem:orders[1].start", ((P0 *)_this)->orders[1].start);
 #endif
 		;
-		/* merge: orders[1].end = second.end(59, 5, 59) */
+		/* merge: orders[1].end = second.end(60, 5, 60) */
 		reached[0][5] = 1;
 		(trpt+1)->bup.ovals[4] = ((P0 *)_this)->orders[1].end;
 		((P0 *)_this)->orders[1].end = ((P0 *)_this)->second.end;
@@ -479,7 +479,7 @@
 		logval("ShuttleManagementSystem:orders[1].end", ((P0 *)_this)->orders[1].end);
 #endif
 		;
-		/* merge: orders[1].size = second.size(59, 6, 59) */
+		/* merge: orders[1].size = second.size(60, 6, 60) */
 		reached[0][6] = 1;
 		(trpt+1)->bup.ovals[5] = ((P0 *)_this)->orders[1].size;
 		((P0 *)_this)->orders[1].size = ((P0 *)_this)->second.size;
@@ -487,7 +487,7 @@
 		logval("ShuttleManagementSystem:orders[1].size", ((P0 *)_this)->orders[1].size);
 #endif
 		;
-		/* merge: i = 0(59, 7, 59) */
+		/* merge: i = 0(60, 7, 60) */
 		reached[0][7] = 1;
 		(trpt+1)->bup.ovals[6] = ((P0 *)_this)->i;
 		((P0 *)_this)->i = 0;
@@ -495,7 +495,7 @@
 		logval("ShuttleManagementSystem:i", ((P0 *)_this)->i);
 #endif
 		;
-		/* merge: i = 0(59, 8, 59) */
+		/* merge: i = 0(60, 8, 60) */
 		reached[0][8] = 1;
 		(trpt+1)->bup.ovals[7] = ((P0 *)_this)->i;
 		((P0 *)_this)->i = 0;
@@ -503,8 +503,8 @@
 		logval("ShuttleManagementSystem:i", ((P0 *)_this)->i);
 #endif
 		;
-		/* merge: .(goto)(0, 60, 59) */
-		reached[0][60] = 1;
+		/* merge: .(goto)(0, 61, 60) */
+		reached[0][61] = 1;
 		;
 		_m = 3; goto P999; /* 8 */
 	case 28: // STATE 9 - problem1-retry.pml:24 - [((i<=(2-1)))] (18:0:2 - 1)
@@ -568,12 +568,12 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 32: // STATE 21 - problem1-retry.pml:31 - [minCharge = 100] (0:37:3 - 3)
+	case 32: // STATE 21 - problem1-retry.pml:31 - [minCharge = 2147483647] (0:37:3 - 3)
 		IfNotBlocked
 		reached[0][21] = 1;
 		(trpt+1)->bup.ovals = grab_ints(3);
 		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->_5_1_minCharge;
-		((P0 *)_this)->_5_1_minCharge = 100;
+		((P0 *)_this)->_5_1_minCharge = 2147483647;
 #ifdef VAR_RANGES
 		logval("ShuttleManagementSystem:minCharge", ((P0 *)_this)->_5_1_minCharge);
 #endif
@@ -598,7 +598,7 @@
 		reached[0][38] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 33: // STATE 24 - problem1-retry.pml:32 - [((j<=(4-1)))] (26:0:0 - 1)
+	case 33: // STATE 24 - problem1-retry.pml:34 - [((j<=(4-1)))] (26:0:0 - 1)
 		IfNotBlocked
 		reached[0][24] = 1;
 		if (!((((P0 *)_this)->_5_1_j<=(4-1))))
@@ -607,7 +607,7 @@
 		reached[0][25] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 34: // STATE 26 - problem1-retry.pml:34 - [shuttleToManagement?offer.id,offer.charge,offer.refuse] (0:0:3 - 1)
+	case 34: // STATE 26 - problem1-retry.pml:36 - [shuttleToManagement?offer.id,offer.charge,offer.refuse] (0:0:3 - 1)
 		reached[0][26] = 1;
 		if (q_len(now.shuttleToManagement) == 0) continue;
 
@@ -643,7 +643,7 @@
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 35: // STATE 27 - problem1-retry.pml:36 - [(((offer.charge<minCharge)&&!(offer.refuse)))] (37:0:4 - 1)
+	case 35: // STATE 27 - problem1-retry.pml:38 - [(((offer.charge<minCharge)&&!(offer.refuse)))] (37:0:4 - 1)
 		IfNotBlocked
 		reached[0][27] = 1;
 		if (!(((((P0 *)_this)->_5_1_2_offer.charge<((P0 *)_this)->_5_1_minCharge)&& !(((int)((P0 *)_this)->_5_1_2_offer.refuse)))))
@@ -686,7 +686,7 @@
 		reached[0][38] = 1;
 		;
 		_m = 3; goto P999; /* 5 */
-	case 36: // STATE 31 - problem1-retry.pml:37 - [(1)] (37:0:1 - 1)
+	case 36: // STATE 31 - problem1-retry.pml:39 - [(1)] (37:0:1 - 1)
 		IfNotBlocked
 		reached[0][31] = 1;
 		if (!(1))
@@ -706,7 +706,7 @@
 		reached[0][38] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 37: // STATE 34 - problem1-retry.pml:32 - [j = (j+1)] (0:37:1 - 3)
+	case 37: // STATE 34 - problem1-retry.pml:34 - [j = (j+1)] (0:37:1 - 3)
 		IfNotBlocked
 		reached[0][34] = 1;
 		(trpt+1)->bup.oval = ((P0 *)_this)->_5_1_j;
@@ -719,11 +719,11 @@
 		reached[0][38] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 38: // STATE 40 - problem1-retry.pml:40 - [printf('[Management System]: Order %d assigned to Shuttle %d\\n',i,assignedId)] (0:53:1 - 3)
+	case 38: // STATE 40 - problem1-retry.pml:42 - [printf('[Management System]: Order %d assigned to Shuttle %d\\n',i,assignedId)] (0:54:1 - 3)
 		IfNotBlocked
 		reached[0][40] = 1;
 		Printf("[Management System]: Order %d assigned to Shuttle %d\n", ((P0 *)_this)->i, ((P0 *)_this)->_5_1_assignedId);
-		/* merge: j = 0(53, 41, 53) */
+		/* merge: j = 0(54, 41, 54) */
 		reached[0][41] = 1;
 		(trpt+1)->bup.oval = ((P0 *)_this)->_5_1_j;
 		((P0 *)_this)->_5_1_j = 0;
@@ -731,23 +731,23 @@
 		logval("ShuttleManagementSystem:j", ((P0 *)_this)->_5_1_j);
 #endif
 		;
-		/* merge: .(goto)(0, 54, 53) */
-		reached[0][54] = 1;
+		/* merge: .(goto)(0, 55, 54) */
+		reached[0][55] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 39: // STATE 42 - problem1-retry.pml:41 - [((j<=(4-1)))] (0:0:0 - 1)
+	case 39: // STATE 42 - problem1-retry.pml:43 - [((j<=(4-1)))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[0][42] = 1;
 		if (!((((P0 *)_this)->_5_1_j<=(4-1))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 40: // STATE 43 - problem1-retry.pml:43 - [((j==assignedId))] (0:0:0 - 1)
+	case 40: // STATE 43 - problem1-retry.pml:45 - [((j==assignedId))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[0][43] = 1;
 		if (!((((P0 *)_this)->_5_1_j==((P0 *)_this)->_5_1_assignedId)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 41: // STATE 44 - problem1-retry.pml:43 - [managementToShuttle[j]!orders[i].start,orders[i].end,orders[i].size] (0:0:0 - 1)
+	case 41: // STATE 44 - problem1-retry.pml:45 - [managementToShuttle[j]!orders[i].start,orders[i].end,orders[i].size] (0:0:0 - 1)
 		IfNotBlocked
 		reached[0][44] = 1;
 		if (q_full(now.managementToShuttle[ Index(((P0 *)_this)->_5_1_j, 4) ]))
@@ -763,14 +763,22 @@
 		
 		qsend(now.managementToShuttle[ Index(((P0 *)_this)->_5_1_j, 4) ], 0, ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].start, ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].end, ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].size, 3);
 		_m = 2; goto P999; /* 0 */
-	case 42: // STATE 46 - problem1-retry.pml:44 - [] (0:0:0 - 1)
+	case 42: // STATE 46 - problem1-retry.pml:46 - [] (0:48:1 - 1)
 		IfNotBlocked
 		reached[0][46] = 1;
 		;
-		_m = 3; goto P999; /* 0 */
-	case 43: // STATE 47 - problem1-retry.pml:44 - [managementToShuttle[j]!dummy.start,dummy.end,dummy.size] (0:0:0 - 1)
-		IfNotBlocked
+		/* merge: dummy.size = -(1)(48, 47, 48) */
 		reached[0][47] = 1;
+		(trpt+1)->bup.oval = ((P0 *)_this)->_5_1_3_dummy.size;
+		((P0 *)_this)->_5_1_3_dummy.size =  -(1);
+#ifdef VAR_RANGES
+		logval("ShuttleManagementSystem:dummy.size", ((P0 *)_this)->_5_1_3_dummy.size);
+#endif
+		;
+		_m = 3; goto P999; /* 1 */
+	case 43: // STATE 48 - problem1-retry.pml:46 - [managementToShuttle[j]!dummy.start,dummy.end,dummy.size] (0:0:0 - 1)
+		IfNotBlocked
+		reached[0][48] = 1;
 		if (q_full(now.managementToShuttle[ Index(((P0 *)_this)->_5_1_j, 4) ]))
 			continue;
 #ifdef HAS_CODE
@@ -784,35 +792,35 @@
 		
 		qsend(now.managementToShuttle[ Index(((P0 *)_this)->_5_1_j, 4) ], 0, ((P0 *)_this)->_5_1_3_dummy.start, ((P0 *)_this)->_5_1_3_dummy.end, ((P0 *)_this)->_5_1_3_dummy.size, 3);
 		_m = 2; goto P999; /* 0 */
-	case 44: // STATE 50 - problem1-retry.pml:41 - [j = (j+1)] (0:53:1 - 3)
+	case 44: // STATE 51 - problem1-retry.pml:43 - [j = (j+1)] (0:54:1 - 3)
 		IfNotBlocked
-		reached[0][50] = 1;
+		reached[0][51] = 1;
 		(trpt+1)->bup.oval = ((P0 *)_this)->_5_1_j;
 		((P0 *)_this)->_5_1_j = (((P0 *)_this)->_5_1_j+1);
 #ifdef VAR_RANGES
 		logval("ShuttleManagementSystem:j", ((P0 *)_this)->_5_1_j);
 #endif
 		;
-		/* merge: .(goto)(0, 54, 53) */
-		reached[0][54] = 1;
+		/* merge: .(goto)(0, 55, 54) */
+		reached[0][55] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 45: // STATE 56 - problem1-retry.pml:24 - [i = (i+1)] (0:59:1 - 3)
+	case 45: // STATE 57 - problem1-retry.pml:24 - [i = (i+1)] (0:60:1 - 3)
 		IfNotBlocked
-		reached[0][56] = 1;
+		reached[0][57] = 1;
 		(trpt+1)->bup.oval = ((P0 *)_this)->i;
 		((P0 *)_this)->i = (((P0 *)_this)->i+1);
 #ifdef VAR_RANGES
 		logval("ShuttleManagementSystem:i", ((P0 *)_this)->i);
 #endif
 		;
-		/* merge: .(goto)(0, 60, 59) */
-		reached[0][60] = 1;
+		/* merge: .(goto)(0, 61, 60) */
+		reached[0][61] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 46: // STATE 62 - problem1-retry.pml:48 - [-end-] (0:0:0 - 3)
+	case 46: // STATE 63 - problem1-retry.pml:50 - [-end-] (0:0:0 - 3)
 		IfNotBlocked
-		reached[0][62] = 1;
+		reached[0][63] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 	case  _T5:	/* np_ */
