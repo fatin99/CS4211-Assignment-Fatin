@@ -133,24 +133,24 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates3	17	/* :init: */
-#define minseq3	199
-#define maxseq3	214
+#define minseq3	206
+#define maxseq3	221
 #define _endstate3	16
 
-#define _nstates2	65	/* ShuttleManagementSystem */
-#define minseq2	135
-#define maxseq2	198
-#define _endstate2	64
+#define _nstates2	66	/* ShuttleManagementSystem */
+#define minseq2	141
+#define maxseq2	205
+#define _endstate2	65
 
 #define _nstates1	27	/* RailwayNetwork */
-#define minseq1	109
-#define maxseq1	134
+#define minseq1	115
+#define maxseq1	140
 #define _endstate1	26
 
-#define _nstates0	110	/* Shuttle */
+#define _nstates0	116	/* Shuttle */
 #define minseq0	0
-#define maxseq0	108
-#define _endstate0	109
+#define maxseq0	114
+#define _endstate0	115
 
 extern short src_ln3[];
 extern short src_ln2[];
@@ -183,6 +183,11 @@ struct Order { /* user defined type */
 	int end;
 	int size;
 };
+struct Offer { /* user defined type */
+	int id;
+	int charge;
+	unsigned refuse : 1;
+};
 struct Request { /* user defined type */
 	int track;
 	int direction;
@@ -196,8 +201,8 @@ typedef struct P3 { /* :init: */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	struct Order _10_6_first;
-	struct Order _10_6_second;
+	struct Order _11_6_first;
+	struct Order _11_6_second;
 } P3;
 #define Air3	0
 
@@ -214,10 +219,11 @@ typedef struct P2 { /* ShuttleManagementSystem */
 	int shuttle_id;
 	int shuttle_charge;
 	int i;
-	int _9_5_j;
+	int _10_5_j;
 	struct Order first;
 	struct Order second;
-	struct Order _9_5_3_dummy;
+	struct Offer _10_5_2_offer;
+	struct Order _10_5_3_dummy;
 	struct Order orders[2];
 } P2;
 #define Air2	0
@@ -245,7 +251,7 @@ typedef struct P0 { /* Shuttle */
 #endif
 	unsigned isMoving : 1;
 	unsigned isFree : 1;
-	unsigned _7_2_got_track : 1;
+	unsigned _8_2_got_track : 1;
 	uchar order_queue;
 	int max_cap;
 	int charge;
@@ -264,6 +270,7 @@ typedef struct P0 { /* Shuttle */
 	struct Order current_order;
 	struct Order receive_order;
 	struct Request track_req;
+	struct Offer offer;
 } P0;
 #define Air0	0
 
@@ -618,6 +625,7 @@ typedef struct Q2 {
 	struct {
 		int fld0;
 		int fld1;
+		unsigned fld2 : 1;
 	} contents[4];
 } Q2;
 typedef struct Q1 {

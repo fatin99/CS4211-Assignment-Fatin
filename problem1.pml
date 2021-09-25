@@ -21,7 +21,13 @@ typedef Order {
 	int size;
 };
 
-chan shuttleTOmanagement = [noShuttles] of {int, int};
+typedef Offer {
+    int id
+    int charge;
+    bool refuse;
+}
+
+chan shuttleTOmanagement = [noShuttles] of {Offer};
 chan managementTOshuttle[noShuttles] = [1] of {Order};
 
 typedef Request {
@@ -112,7 +118,7 @@ proctype Shuttle(int max_cap; int charge; int init_pos; int id) {
 
 	track_req.shuttle_id = id;
 
-L0:	do
+	do
     ::  managementTOshuttle[id]?receive_order -> 
 		int temp_station;
 		if
@@ -122,10 +128,14 @@ L0:	do
 		int distance_a = get_abs(temp_station, receive_order.start); 
 		int distance_b = noStations - get_max(temp_station, receive_order.start) + get_min(temp_station, receive_order.start);
 		station_distance = get_min(distance_a, distance_b);
+		Offer offer;
 		if
-		:: current_cap + receive_order.size <= max_cap && station_distance <= minLength -> shuttleTOmanagement!charge,id;
-		:: else -> shuttleTOmanagement!Reject,id;
+		:: current_cap + receive_order.size <= max_cap && station_distance <= minLength -> 
+			offer.id = id; offer.charge = charge; offer.refuse = false;
+		:: else -> 
+			offer.id = id; offer.charge = charge; offer.refuse = true;
 		fi
+		shuttleTOmanagement!offer;
 		managementTOshuttle[id]?receive_order;
 		if
 		:: receive_order.size != 0 -> order_queue!receive_order;
@@ -183,9 +193,10 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 		}
 		printf("[Management System]: Waiting for replies\n");
 		for (j:0 .. noShuttles-1){
-			shuttleTOmanagement?shuttle_charge,shuttle_id;
+			Offer offer
+			shuttleTOmanagement?offer;
 			if
-			:: shuttle_charge < min_charge && shuttle_charge != 0 -> min_charge = shuttle_charge; min_id = shuttle_id;
+			:: offer.charge < min_charge && !offer.refuse -> min_charge = offer.charge; min_id = offer.id;
 			:: else -> skip;
 			fi
 		}
