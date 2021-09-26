@@ -1,57 +1,53 @@
-#define noShuttles 4
-#define noOrders 2
-#define noStations 4
-
 typedef Order {
 	int start;
 	int end;
 	int size;
 };
-chan managementToShuttle[noShuttles] = [1] of {Order};
+chan managementToShuttle[4] = [1] of {Order};
 
 typedef Offer {
     int id
     int charge;
     bool refuse;
 };
-chan shuttleToManagement = [noShuttles] of {Offer};
+chan shuttleToManagement = [4] of {Offer};
 
 typedef Track { 
     //Track can be traveled upon in one direction only (which is xed). 
     // Two stations are connected bidirectionally, 
     /// while there must only be one track between two stations in each direction.
-    bool trackL2R[noStations]; //if track is occupied, true. 
-    bool trackR2L[noStations];
+    bool trackL2R[4]; //if track is occupied, true. 
+    bool trackR2L[4];
 };
 Track tracks; 
 
 typedef Request {
-	int track; //track that shuttle would like to enter
+	int track;
 	int direction;
 	int id; 
 };
-chan shuttleToRailway = [noShuttles] of {Request};
+chan shuttleToRailway = [4] of {Request};
 
 typedef Reply {
 	bool allowed;
 };
-chan railwayToShuttle[noShuttles] = [1] of {Reply}; 
+chan railwayToShuttle[4] = [1] of {Reply}; 
 
 proctype ShuttleManagementSystem(Order first; Order second) {
-	Order orders[noOrders];
+	Order orders[2];
 	orders[0].start = first.start; orders[0].end = first.end; orders[0].size = first.size;
 	orders[1].start = second.start; orders[1].end = second.end; orders[1].size = second.size;
 	int i;
-	for (i:0 .. noOrders-1){
+	for (i:0 .. 2-1){
 		int j;
-		for (j:0 .. noShuttles-1){
+		for (j:0 .. 4-1){
 			managementToShuttle[j]!orders[i];
 		}
         int minCharge = 2147483647; //Assumption: max charge by a shuttle
 	    int assignedId;
         //The shuttle having made the lowest oer will receive the assignment. In the event of two equal oers, 
         // the assignment will go to the shuttle that rst made the oer.
-		for (j:0 .. noShuttles-1){ 
+		for (j:0 .. 4-1){ 
 			Offer offer
 			shuttleToManagement?offer;
 			if
@@ -59,8 +55,7 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 			:: else -> minCharge = minCharge; assignedId = assignedId;
 			fi
 		}
-        printf("[Management System]: New Order assigned to Shuttle %d\n", assignedId);
-		for (j:0 .. noShuttles-1){				
+		for (j:0 .. 4-1){				
 			if
 			:: j == assignedId -> managementToShuttle[j]!orders[i];
 			:: else -> Order dummy; dummy.size = -1; managementToShuttle[j]!dummy;
@@ -70,15 +65,15 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 }
 
 proctype Shuttle(int capacity; int charge; int initialStation; int id) {
-    Order order;
+    Order order; //order that requires an offer to be sent to management
     bool travelling = false;
     int currentStation = initialStation;
     int currentLoad;
-    chan orders = [noOrders] of {Order};
-    int direction = 1;
+    chan orders = [2] of {Order}; //orders assigned to this shuttle
+    int direction;
     int destination;
     bool processingOrder = false;
-    Order currentOrder;
+    Order currentOrder; //order that is currently being transported
     do
     ::  managementToShuttle[id]?order -> 
 		int currentPosition;
@@ -92,7 +87,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 		:: else -> distance = order.start - currentPosition;
 		fi
         if 
-		:: distance > (noStations/2) -> distance = noStations - distance;
+		:: distance > (4/2) -> distance = 4 - distance;
 		:: else -> distance = distance;
 		fi
 		Offer offer;
@@ -110,12 +105,11 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 		fi
     :: nempty(orders) && !processingOrder->
         orders?currentOrder;
-        printf("[Shuttle %d] Starting new order from station %d to station %d\n", id, currentOrder.start, currentOrder.end);
         processingOrder = true;
         destination = currentOrder.start;
         travelling = true;
         if
-        :: (currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < noStations/2) -> 
+        :: (currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < 4/2) -> 
             direction = 1;
         :: else -> direction = -1;
         fi
@@ -123,17 +117,15 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
         if 
         :: destination == currentOrder.start ->
             currentLoad = currentLoad + currentOrder.size;
-            printf("[Shuttle %d] Loading %d passengers from station %d \n", id, currentOrder.size, currentOrder.start);
             destination = currentOrder.end;
             travelling = true;
             if
-            :: (currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < noStations/2) -> 
+            :: (currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < 4/2) -> 
                 direction = 1;
             :: else -> direction = -1;
             fi
         :: destination == currentOrder.end -> 
             currentLoad = currentLoad - currentOrder.size;
-            printf("[Shuttle %d] Unloading %d passengers at station %d \n", id, currentOrder.size, currentOrder.end);
             processingOrder = false;
         :: else -> skip;
         fi
@@ -141,21 +133,20 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
         int nextStation;
         nextStation = currentStation + direction;
         if 
-        :: nextStation >= noStations -> nextStation = 0;
-        :: nextStation < 0 -> nextStation = noStations - 1;
+        :: nextStation >= 4 -> nextStation = 0;
+        :: nextStation < 0 -> nextStation = 4 - 1;
         :: else -> skip;
         fi
         Request request; request.id = id; request.direction = direction; request.track = nextStation;
+        Reply reply;
 		do
-		:: shuttleToRailway!request;    
-            Reply reply;
+		:: shuttleToRailway!request ->    
 			railwayToShuttle[id]?reply;
 			if
 			:: reply.allowed -> break;
 			:: else -> skip;
 			fi
 		od  
-        printf("[Shuttle %d] Moving from station %d to station %d\n", id, currentStation, nextStation);
         currentStation = nextStation; 		
         if 
         :: direction == 1 -> tracks.trackL2R[request.track] = false; 

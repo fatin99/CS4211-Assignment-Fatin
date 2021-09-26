@@ -133,24 +133,24 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates3	17	/* :init: */
-#define minseq3	205
-#define maxseq3	220
+#define minseq3	200
+#define maxseq3	215
 #define _endstate3	16
 
 #define _nstates2	26	/* RailwayNetwork */
-#define minseq2	180
-#define maxseq2	204
+#define minseq2	175
+#define maxseq2	199
 #define _endstate2	25
 
-#define _nstates1	118	/* Shuttle */
-#define minseq1	63
-#define maxseq1	179
-#define _endstate1	117
+#define _nstates1	114	/* Shuttle */
+#define minseq1	62
+#define maxseq1	174
+#define _endstate1	113
 
-#define _nstates0	64	/* ShuttleManagementSystem */
+#define _nstates0	63	/* ShuttleManagementSystem */
 #define minseq0	0
-#define maxseq0	62
-#define _endstate0	63
+#define maxseq0	61
+#define _endstate0	62
 
 extern short src_ln3[];
 extern short src_ln2[];
@@ -162,8 +162,8 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned char
-#define _T5	87
-#define _T2	88
+#define _T5	86
+#define _T2	87
 #define WS		4 /* word size in bytes */
 #define SYNC	0
 #define ASYNC	5
@@ -512,7 +512,7 @@ typedef struct TRIX_v6 {
 #define _start4	0 /* np_ */
 #define _start3	15
 #define _start2	22
-#define _start1	114
+#define _start1	110
 #define _start0	1
 #ifdef NP
 	#define ACCEPT_LAB	1 /* at least 1 in np_ */
@@ -964,7 +964,7 @@ void qsend(int, int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	89
+#define NTRANS	88
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);
