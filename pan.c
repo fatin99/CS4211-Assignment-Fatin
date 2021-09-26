@@ -490,9 +490,9 @@ int _;	/* predefined write-only variable */
 #endif
 
 short src_ln3 [] = {
-	  0, 195, 196, 197, 198, 199, 199, 199, 
-	199, 200, 200, 200, 200, 201, 202, 194, 
-	204,   0, };
+	  0, 196, 197, 198, 199, 200, 200, 200, 
+	200, 201, 201, 201, 201, 202, 203, 195, 
+	205,   0, };
 S_F_MAP src_file3 [] = {
 	{ "-", 0, 0 },
 	{ "problem1-retry.pml", 1, 16 },
@@ -505,10 +505,10 @@ uchar reached3 [] = {
 uchar *loopstate3;
 
 short src_ln2 [] = {
-	  0, 175, 177, 178, 180, 180, 180, 181, 
-	181, 179, 183, 183, 185, 185, 185, 186, 
-	186, 184, 188, 177, 189, 189, 174, 191, 
-	174, 191,   0, };
+	  0, 176, 178, 179, 181, 181, 181, 182, 
+	182, 180, 184, 184, 186, 186, 186, 187, 
+	187, 185, 189, 178, 190, 190, 175, 192, 
+	175, 192,   0, };
 S_F_MAP src_file2 [] = {
 	{ "-", 0, 0 },
 	{ "problem1-retry.pml", 1, 25 },
@@ -522,18 +522,25 @@ uchar reached2 [] = {
 uchar *loopstate2;
 
 short src_ln1 [] = {
-	  0,  82,  84,  85,  85,  86,  86,  84, 
-	 88,  89,  90,  90,  91,  91,  89,  93, 
-	 94,  94,  95,  95,  93,  97,  98,  99, 
-	100, 100, 100, 101, 102, 102, 102,  98, 
-	104, 104, 105, 107, 107, 108, 108, 106, 
-	110, 110, 111, 112, 113, 114, 115, 117, 
-	118, 119, 119, 116, 167,  81, 168,  81, 
-	168,   0, };
+	  0,  83,  85,  86,  86,  87,  87,  85, 
+	 89,  90,  91,  91,  92,  92,  90,  94, 
+	 95,  95,  96,  96,  94,  98,  99, 100, 
+	101, 101, 101, 102, 103, 103, 103,  99, 
+	105, 105, 106, 108, 108, 109, 109, 107, 
+	111, 111, 112, 113, 114, 115, 116, 118, 
+	119, 120, 120, 117, 122, 122, 124, 125, 
+	126, 127, 128, 130, 131, 132, 132, 129, 
+	134, 134, 135, 136, 137, 138, 138, 123, 
+	140, 140, 142, 142, 144, 144, 145, 145, 
+	146, 146, 143, 148, 148, 148, 148, 148, 
+	150, 152, 152, 154, 154, 155, 155, 153, 
+	157, 149, 158, 149, 158, 159, 161, 161, 
+	162, 162, 160, 164, 165, 165, 166, 166, 
+	164, 168,  82, 169,  82, 169,   0, };
 S_F_MAP src_file1 [] = {
 	{ "-", 0, 0 },
-	{ "problem1-retry.pml", 1, 56 },
-	{ "-", 57, 58 }
+	{ "problem1-retry.pml", 1, 117 },
+	{ "-", 118, 119 }
 };
 uchar reached1 [] = {
 	  0,   1,   0,   1,   0,   1,   0,   0, 
@@ -542,8 +549,15 @@ uchar reached1 [] = {
 	  0,   0,   0,   1,   0,   0,   0,   0, 
 	  1,   0,   0,   1,   0,   1,   1,   0, 
 	  1,   1,   0,   0,   0,   0,   0,   1, 
-	  0,   1,   0,   0,   1,   0,   1,   1, 
-	  0,   0, };
+	  0,   1,   0,   0,   1,   1,   1,   0, 
+	  0,   0,   0,   1,   0,   1,   0,   0, 
+	  1,   1,   0,   0,   0,   1,   1,   0, 
+	  1,   1,   0,   0,   1,   0,   1,   0, 
+	  1,   0,   0,   1,   0,   0,   0,   0, 
+	  1,   0,   0,   1,   1,   1,   1,   0, 
+	  1,   0,   1,   1,   0,   0,   1,   0, 
+	  1,   0,   0,   1,   1,   0,   1,   0, 
+	  0,   1,   0,   1,   1,   0,   0, };
 uchar *loopstate1;
 
 short src_ln0 [] = {
@@ -938,11 +952,11 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		break;
 	case 1:	/* Shuttle */
 		((P1 *)pptr(h))->_t = 1;
-		((P1 *)pptr(h))->_p = 53;
+		((P1 *)pptr(h))->_p = 114;
 #ifdef HAS_PRIORITY
 		((P1 *)pptr(h))->_priority = priority; /* was: 1 */
 #endif
-		reached1[53]=1;
+		reached1[114]=1;
 		/* params: */
 		((P1 *)pptr(h))->capacity = par0;
 		((P1 *)pptr(h))->charge = par1;
@@ -959,11 +973,19 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		((P1 *)pptr(h))->direction = 1;
 		((P1 *)pptr(h))->destination = 0;
 		((P1 *)pptr(h))->processingOrder = 0;
+		((P1 *)pptr(h))->currentOrder.start = 0;
+		((P1 *)pptr(h))->currentOrder.end = 0;
+		((P1 *)pptr(h))->currentOrder.size = 0;
 		((P1 *)pptr(h))->currentPosition = 0;
 		((P1 *)pptr(h))->distance = 0;
 		((P1 *)pptr(h))->offer.id = 0;
 		((P1 *)pptr(h))->offer.charge = 0;
 		((P1 *)pptr(h))->offer.refuse = 0;
+		((P1 *)pptr(h))->nextStation = 0;
+		((P1 *)pptr(h))->request.track = 0;
+		((P1 *)pptr(h))->request.direction = 0;
+		((P1 *)pptr(h))->request.id = 0;
+		((P1 *)pptr(h))->reply.allowed = 0;
 #ifdef VAR_RANGES
 		logval("Shuttle:travelling", ((P1 *)pptr(h))->travelling);
 		logval("Shuttle:processingOrder", ((P1 *)pptr(h))->processingOrder);
@@ -977,12 +999,20 @@ addproc(int calling_pid, int priority, int n, int par0, int par1, int par2, int 
 		logval("Shuttle:destination", ((P1 *)pptr(h))->destination);
 		logval("Shuttle:currentPosition", ((P1 *)pptr(h))->currentPosition);
 		logval("Shuttle:distance", ((P1 *)pptr(h))->distance);
+		logval("Shuttle:nextStation", ((P1 *)pptr(h))->nextStation);
 		logval("Shuttle:order.start", ((P1 *)pptr(h))->order.start);
 		logval("Shuttle:order.end", ((P1 *)pptr(h))->order.end);
 		logval("Shuttle:order.size", ((P1 *)pptr(h))->order.size);
+		logval("Shuttle:currentOrder.start", ((P1 *)pptr(h))->currentOrder.start);
+		logval("Shuttle:currentOrder.end", ((P1 *)pptr(h))->currentOrder.end);
+		logval("Shuttle:currentOrder.size", ((P1 *)pptr(h))->currentOrder.size);
 		logval("Shuttle:offer.id", ((P1 *)pptr(h))->offer.id);
 		logval("Shuttle:offer.charge", ((P1 *)pptr(h))->offer.charge);
 		logval("Shuttle:offer.refuse", ((P1 *)pptr(h))->offer.refuse);
+		logval("Shuttle:request.track", ((P1 *)pptr(h))->request.track);
+		logval("Shuttle:request.direction", ((P1 *)pptr(h))->request.direction);
+		logval("Shuttle:request.id", ((P1 *)pptr(h))->request.id);
+		logval("Shuttle:reply.allowed", ((P1 *)pptr(h))->reply.allowed);
 #endif
 #ifdef HAS_CODE
 		locinit1(h);
@@ -15075,12 +15105,23 @@ c_locals(int pid, int tp)
 	printf("	int    direction:	%d\n", ((P1 *)pptr(pid))->direction);
 	printf("	int    destination:	%d\n", ((P1 *)pptr(pid))->destination);
 	printf("	bit    processingOrder:	%d\n", ((P1 *)pptr(pid))->processingOrder);
+		printf("	(struct currentOrder)\n");
+	printf("	int    start:	%d\n", ((P1 *)pptr(pid))->currentOrder.start);
+	printf("	int    end:	%d\n", ((P1 *)pptr(pid))->currentOrder.end);
+	printf("	int    size:	%d\n", ((P1 *)pptr(pid))->currentOrder.size);
 	printf("	int    currentPosition:	%d\n", ((P1 *)pptr(pid))->currentPosition);
 	printf("	int    distance:	%d\n", ((P1 *)pptr(pid))->distance);
 		printf("	(struct offer)\n");
 	printf("	int    id:	%d\n", ((P1 *)pptr(pid))->offer.id);
 	printf("	int    charge:	%d\n", ((P1 *)pptr(pid))->offer.charge);
 	printf("	bit    refuse:	%d\n", ((P1 *)pptr(pid))->offer.refuse);
+	printf("	int    nextStation:	%d\n", ((P1 *)pptr(pid))->nextStation);
+		printf("	(struct request)\n");
+	printf("	int    track:	%d\n", ((P1 *)pptr(pid))->request.track);
+	printf("	int    direction:	%d\n", ((P1 *)pptr(pid))->request.direction);
+	printf("	int    id:	%d\n", ((P1 *)pptr(pid))->request.id);
+		printf("	(struct reply)\n");
+	printf("	bit    allowed:	%d\n", ((P1 *)pptr(pid))->reply.allowed);
 		break;
 	case 0:
 		printf("local vars proc %d (ShuttleManagementSystem):\n", pid);
@@ -15224,7 +15265,7 @@ c_chandump(int from)
 	printf("\n");
 }
 
-Trans *t_id_lkup[160];
+Trans *t_id_lkup[221];
 
 
 #ifdef BFS_PAR

@@ -282,12 +282,12 @@
 	case 41: // STATE 42
 		;
 		XX = 1;
-		unrecv(((P1 *)_this)->orders, XX-1, 0, ((P1 *)_this)->order.start, 1);
-		unrecv(((P1 *)_this)->orders, XX-1, 1, ((P1 *)_this)->order.end, 0);
-		unrecv(((P1 *)_this)->orders, XX-1, 2, ((P1 *)_this)->order.size, 0);
-		((P1 *)_this)->order.start = trpt->bup.ovals[0];
-		((P1 *)_this)->order.end = trpt->bup.ovals[1];
-		((P1 *)_this)->order.size = trpt->bup.ovals[2];
+		unrecv(((P1 *)_this)->orders, XX-1, 0, ((P1 *)_this)->currentOrder.start, 1);
+		unrecv(((P1 *)_this)->orders, XX-1, 1, ((P1 *)_this)->currentOrder.end, 0);
+		unrecv(((P1 *)_this)->orders, XX-1, 2, ((P1 *)_this)->currentOrder.size, 0);
+		((P1 *)_this)->currentOrder.start = trpt->bup.ovals[0];
+		((P1 *)_this)->currentOrder.end = trpt->bup.ovals[1];
+		((P1 *)_this)->currentOrder.size = trpt->bup.ovals[2];
 		;
 		;
 		ungrab_ints(trpt->bup.ovals, 3);
@@ -299,7 +299,7 @@
 		((P1 *)_this)->destination = trpt->bup.ovals[1];
 		((P1 *)_this)->processingOrder = trpt->bup.ovals[0];
 		;
-		ungrab_ints(trpt->bup.ovals, 4);
+		ungrab_ints(trpt->bup.ovals, 3);
 		goto R999;
 
 	case 43: // STATE 48
@@ -313,8 +313,158 @@
 		((P1 *)_this)->direction = trpt->bup.oval;
 		;
 		goto R999;
+;
+		;
+		
+	case 46: // STATE 58
+		;
+		((P1 *)_this)->travelling = trpt->bup.ovals[3];
+		((P1 *)_this)->destination = trpt->bup.ovals[2];
+		((P1 *)_this)->currentLoad = trpt->bup.ovals[1];
+	/* 0 */	((P1 *)_this)->destination = trpt->bup.ovals[0];
+		;
+		;
+		ungrab_ints(trpt->bup.ovals, 4);
+		goto R999;
 
-	case 45: // STATE 56
+	case 47: // STATE 60
+		;
+		((P1 *)_this)->direction = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 48: // STATE 62
+		;
+		((P1 *)_this)->direction = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 49: // STATE 68
+		;
+		((P1 *)_this)->processingOrder = trpt->bup.ovals[1];
+		((P1 *)_this)->currentLoad = trpt->bup.ovals[0];
+		;
+		ungrab_ints(trpt->bup.ovals, 2);
+		goto R999;
+
+	case 50: // STATE 75
+		;
+		((P1 *)_this)->nextStation = trpt->bup.ovals[2];
+		((P1 *)_this)->nextStation = trpt->bup.ovals[1];
+	/* 0 */	((P1 *)_this)->travelling = trpt->bup.ovals[0];
+		;
+		;
+		ungrab_ints(trpt->bup.ovals, 3);
+		goto R999;
+
+	case 51: // STATE 87
+		;
+		((P1 *)_this)->request.track = trpt->bup.ovals[4];
+		((P1 *)_this)->request.direction = trpt->bup.ovals[3];
+		((P1 *)_this)->request.id = trpt->bup.ovals[2];
+		;
+		((P1 *)_this)->nextStation = trpt->bup.ovals[1];
+	/* 0 */	((P1 *)_this)->nextStation = trpt->bup.ovals[0];
+		;
+		;
+		ungrab_ints(trpt->bup.ovals, 5);
+		goto R999;
+
+	case 52: // STATE 87
+		;
+		((P1 *)_this)->request.track = trpt->bup.ovals[4];
+		((P1 *)_this)->request.direction = trpt->bup.ovals[3];
+		((P1 *)_this)->request.id = trpt->bup.ovals[2];
+		;
+		((P1 *)_this)->nextStation = trpt->bup.ovals[1];
+	/* 0 */	((P1 *)_this)->nextStation = trpt->bup.ovals[0];
+		;
+		;
+		ungrab_ints(trpt->bup.ovals, 5);
+		goto R999;
+
+	case 53: // STATE 87
+		;
+		((P1 *)_this)->request.track = trpt->bup.ovals[2];
+		((P1 *)_this)->request.direction = trpt->bup.ovals[1];
+		((P1 *)_this)->request.id = trpt->bup.ovals[0];
+		;
+		;
+		ungrab_ints(trpt->bup.ovals, 3);
+		goto R999;
+
+	case 54: // STATE 87
+		;
+		((P1 *)_this)->request.track = trpt->bup.ovals[2];
+		((P1 *)_this)->request.direction = trpt->bup.ovals[1];
+		((P1 *)_this)->request.id = trpt->bup.ovals[0];
+		;
+		;
+		ungrab_ints(trpt->bup.ovals, 3);
+		goto R999;
+
+	case 55: // STATE 88
+		;
+		_m = unsend(now.shuttleToRailway);
+		;
+		goto R999;
+
+	case 56: // STATE 89
+		;
+		;
+		;
+		goto R999;
+
+	case 57: // STATE 90
+		;
+		XX = 1;
+		unrecv(now.railwayToShuttle[ Index(((P1 *)_this)->id, 4) ], XX-1, 0, ((int)((P1 *)_this)->reply.allowed), 1);
+		((P1 *)_this)->reply.allowed = trpt->bup.oval;
+		;
+		;
+		goto R999;
+
+	case 58: // STATE 101
+		;
+		((P1 *)_this)->currentStation = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 59: // STATE 101
+		;
+		((P1 *)_this)->currentStation = trpt->bup.oval;
+		;
+		goto R999;
+;
+		;
+		
+	case 61: // STATE 103
+		;
+		now.tracks.trackL2R[ Index(((P1 *)_this)->request.track, 4) ] = trpt->bup.oval;
+		;
+		goto R999;
+;
+		;
+		
+	case 63: // STATE 105
+		;
+		now.tracks.trackR2L[ Index(((P1 *)_this)->request.track, 4) ] = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 64: // STATE 109
+		;
+		((P1 *)_this)->travelling = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 65: // STATE 111
+		;
+		((P1 *)_this)->travelling = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 66: // STATE 117
 		;
 		p_restor(II);
 		;
@@ -323,7 +473,7 @@
 
 		 /* PROC ShuttleManagementSystem */
 
-	case 46: // STATE 8
+	case 67: // STATE 8
 		;
 		((P0 *)_this)->i = trpt->bup.ovals[7];
 		((P0 *)_this)->i = trpt->bup.ovals[6];
@@ -337,7 +487,7 @@
 		ungrab_ints(trpt->bup.ovals, 8);
 		goto R999;
 
-	case 47: // STATE 11
+	case 68: // STATE 11
 		;
 		((P0 *)_this)->_10_1_j = trpt->bup.ovals[1];
 		((P0 *)_this)->_10_1_j = trpt->bup.ovals[0];
@@ -347,19 +497,19 @@
 ;
 		;
 		
-	case 49: // STATE 13
+	case 70: // STATE 13
 		;
 		_m = unsend(now.managementToShuttle[ Index(((P0 *)_this)->_10_1_j, 4) ]);
 		;
 		goto R999;
 
-	case 50: // STATE 14
+	case 71: // STATE 14
 		;
 		((P0 *)_this)->_10_1_j = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 51: // STATE 22
+	case 72: // STATE 22
 		;
 		((P0 *)_this)->_10_1_j = trpt->bup.ovals[2];
 		((P0 *)_this)->_10_1_assignedId = trpt->bup.ovals[1];
@@ -368,13 +518,13 @@
 		ungrab_ints(trpt->bup.ovals, 3);
 		goto R999;
 
-	case 52: // STATE 24
+	case 73: // STATE 24
 		;
 		;
 		;
 		goto R999;
 
-	case 53: // STATE 25
+	case 74: // STATE 25
 		;
 		XX = 1;
 		unrecv(now.shuttleToManagement, XX-1, 0, ((P0 *)_this)->_10_1_2_offer.id, 1);
@@ -388,7 +538,7 @@
 		ungrab_ints(trpt->bup.ovals, 3);
 		goto R999;
 
-	case 54: // STATE 34
+	case 75: // STATE 34
 		;
 		((P0 *)_this)->_10_1_j = trpt->bup.ovals[3];
 		((P0 *)_this)->_10_1_assignedId = trpt->bup.ovals[2];
@@ -399,7 +549,7 @@
 		ungrab_ints(trpt->bup.ovals, 4);
 		goto R999;
 
-	case 55: // STATE 34
+	case 76: // STATE 34
 		;
 		((P0 *)_this)->_10_1_j = trpt->bup.ovals[2];
 		((P0 *)_this)->_10_1_assignedId = trpt->bup.ovals[1];
@@ -408,13 +558,13 @@
 		ungrab_ints(trpt->bup.ovals, 3);
 		goto R999;
 
-	case 56: // STATE 34
+	case 77: // STATE 34
 		;
 		((P0 *)_this)->_10_1_j = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 57: // STATE 41
+	case 78: // STATE 41
 		;
 		((P0 *)_this)->_10_1_j = trpt->bup.oval;
 		;
@@ -424,38 +574,38 @@
 		;
 		;
 		
-	case 60: // STATE 44
+	case 81: // STATE 44
 		;
 		_m = unsend(now.managementToShuttle[ Index(((P0 *)_this)->_10_1_j, 4) ]);
 		;
 		goto R999;
 
-	case 61: // STATE 47
+	case 82: // STATE 47
 		;
 		((P0 *)_this)->_10_1_3_dummy.size = trpt->bup.oval;
 		;
 		;
 		goto R999;
 
-	case 62: // STATE 48
+	case 83: // STATE 48
 		;
 		_m = unsend(now.managementToShuttle[ Index(((P0 *)_this)->_10_1_j, 4) ]);
 		;
 		goto R999;
 
-	case 63: // STATE 51
+	case 84: // STATE 51
 		;
 		((P0 *)_this)->_10_1_j = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 64: // STATE 57
+	case 85: // STATE 57
 		;
 		((P0 *)_this)->i = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 65: // STATE 63
+	case 86: // STATE 63
 		;
 		p_restor(II);
 		;

@@ -78,6 +78,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
     int direction = 1;
     int destination;
     bool processingOrder = false;
+    Order currentOrder;
     do
     ::  managementToShuttle[id]?order -> 
 		int currentPosition;
@@ -108,62 +109,62 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 		:: else -> skip;
 		fi
     :: nempty(orders) && !processingOrder->
-        orders?order;
-        printf("[Shuttle %d] Starting new order from station %d to station %d\n", id, order.start, order.end);
+        orders?currentOrder;
+        printf("[Shuttle %d] Starting new order from station %d to station %d\n", id, currentOrder.start, currentOrder.end);
         processingOrder = true;
-        destination = order.start;
+        destination = currentOrder.start;
         travelling = true;
         if
-        :: (order.start >= currentStation) && ((order.start - currentStation) < noStations/2) -> 
+        :: (currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < noStations/2) -> 
             direction = 1;
         :: else -> direction = -1;
         fi
-    // :: !travelling && processingOrder ->
-    //     if 
-    //     :: destination == order.start ->
-    //         currentLoad = currentLoad + order.size;
-    //         printf("[Shuttle %d] Loading %d passengers from station %d \n", id, order.size, order.start);
-    //         destination = order.end;
-    //         travelling = true;
-    //         if
-    //         :: (order.start >= currentStation) && ((order.start - currentStation) < noStations/2) -> 
-    //             direction = 1;
-    //         :: else -> direction = -1;
-    //         fi
-    //     :: destination == order.end -> 
-    //         currentLoad = currentLoad - order.size;
-    //         printf("[Shuttle %d] Unloading %d passengers at station %d \n", id, order.size, order.end);
-    //         processingOrder = false;
-    //     :: else -> skip;
-    //     fi
-    // :: travelling && processingOrder -> 
-    //     int nextStation;
-    //     nextStation = currentStation + direction;
-    //     if 
-    //     :: nextStation >= noStations -> nextStation = 0;
-    //     :: nextStation < 0 -> nextStation = noStations - 1;
-    //     :: else -> skip;
-    //     fi
-    //     Request request; request.id = id; request.direction = direction; request.track = nextStation;
-	// 	do
-	// 	:: shuttleToRailway!request;    
-    //         Reply reply;
-	// 		railwayToShuttle[id]?reply;
-	// 		if
-	// 		:: reply.allowed -> break;
-	// 		:: else -> skip;
-	// 		fi
-	// 	od  
-    //     printf("[Shuttle %d] Moving from station %d to station %d\n", id, currentStation, nextStation);
-    //     currentStation = nextStation; 		
-    //     if 
-    //     :: direction == 1 -> tracks.trackL2R[request.track] = false; 
-    //     :: direction == -1 -> tracks.trackR2L[request.track] = false; 
-    //     fi
-    //     if 
-    //     :: currentStation == destination -> travelling = false; 
-    //     :: else -> travelling = true;
-    //     fi	
+    :: !travelling && processingOrder ->
+        if 
+        :: destination == currentOrder.start ->
+            currentLoad = currentLoad + currentOrder.size;
+            printf("[Shuttle %d] Loading %d passengers from station %d \n", id, currentOrder.size, currentOrder.start);
+            destination = currentOrder.end;
+            travelling = true;
+            if
+            :: (currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < noStations/2) -> 
+                direction = 1;
+            :: else -> direction = -1;
+            fi
+        :: destination == currentOrder.end -> 
+            currentLoad = currentLoad - currentOrder.size;
+            printf("[Shuttle %d] Unloading %d passengers at station %d \n", id, currentOrder.size, currentOrder.end);
+            processingOrder = false;
+        :: else -> skip;
+        fi
+    :: travelling && processingOrder -> 
+        int nextStation;
+        nextStation = currentStation + direction;
+        if 
+        :: nextStation >= noStations -> nextStation = 0;
+        :: nextStation < 0 -> nextStation = noStations - 1;
+        :: else -> skip;
+        fi
+        Request request; request.id = id; request.direction = direction; request.track = nextStation;
+		do
+		:: shuttleToRailway!request;    
+            Reply reply;
+			railwayToShuttle[id]?reply;
+			if
+			:: reply.allowed -> break;
+			:: else -> skip;
+			fi
+		od  
+        printf("[Shuttle %d] Moving from station %d to station %d\n", id, currentStation, nextStation);
+        currentStation = nextStation; 		
+        if 
+        :: direction == 1 -> tracks.trackL2R[request.track] = false; 
+        :: direction == -1 -> tracks.trackR2L[request.track] = false; 
+        fi
+        if 
+        :: currentStation == destination -> travelling = false; 
+        :: else -> travelling = true;
+        fi	
     od
 }
 

@@ -133,19 +133,19 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates3	17	/* :init: */
-#define minseq3	144
-#define maxseq3	159
+#define minseq3	205
+#define maxseq3	220
 #define _endstate3	16
 
 #define _nstates2	26	/* RailwayNetwork */
-#define minseq2	119
-#define maxseq2	143
+#define minseq2	180
+#define maxseq2	204
 #define _endstate2	25
 
-#define _nstates1	57	/* Shuttle */
+#define _nstates1	118	/* Shuttle */
 #define minseq1	63
-#define maxseq1	118
-#define _endstate1	56
+#define maxseq1	179
+#define _endstate1	117
 
 #define _nstates0	64	/* ShuttleManagementSystem */
 #define minseq0	0
@@ -162,8 +162,8 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned char
-#define _T5	66
-#define _T2	67
+#define _T5	87
+#define _T2	88
 #define WS		4 /* word size in bytes */
 #define SYNC	0
 #define ASYNC	5
@@ -204,7 +204,7 @@ struct Reply { /* user defined type */
 typedef struct P3 { /* :init: */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 7; /* state    */
+	unsigned _p   : 8; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -217,7 +217,7 @@ typedef struct P3 { /* :init: */
 typedef struct P2 { /* RailwayNetwork */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 7; /* state    */
+	unsigned _p   : 8; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -230,7 +230,7 @@ typedef struct P2 { /* RailwayNetwork */
 typedef struct P1 { /* Shuttle */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 7; /* state    */
+	unsigned _p   : 8; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -247,8 +247,12 @@ typedef struct P1 { /* Shuttle */
 	int destination;
 	int currentPosition;
 	int distance;
+	int nextStation;
 	struct Order order;
+	struct Order currentOrder;
 	struct Offer offer;
+	struct Request request;
+	struct Reply reply;
 } P1;
 #define Air1	0
 
@@ -256,7 +260,7 @@ typedef struct P1 { /* Shuttle */
 typedef struct P0 { /* ShuttleManagementSystem */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 7; /* state    */
+	unsigned _p   : 8; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -275,7 +279,7 @@ typedef struct P0 { /* ShuttleManagementSystem */
 typedef struct P4 { /* np_ */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 7; /* state    */
+	unsigned _p   : 8; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -508,7 +512,7 @@ typedef struct TRIX_v6 {
 #define _start4	0 /* np_ */
 #define _start3	15
 #define _start2	22
-#define _start1	53
+#define _start1	114
 #define _start0	1
 #ifdef NP
 	#define ACCEPT_LAB	1 /* at least 1 in np_ */
@@ -960,7 +964,7 @@ void qsend(int, int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	68
+#define NTRANS	89
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);
