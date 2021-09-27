@@ -3,14 +3,14 @@ typedef Order {
 	int end;
 	int size;
 };
-chan managementToShuttle[4] = [1] of {Order};
+chan managementOrders[4] = [1] of {Order};
 
 typedef Offer {
     int id
     int charge;
     bool refuse;
 };
-chan shuttleToManagement = [4] of {Offer};
+chan shuttleOffers = [4] of {Offer};
 
 typedef Track { 
     //Track can be traveled upon in one direction only (which is xed). 
@@ -26,12 +26,12 @@ typedef Request {
 	int direction;
 	int id; 
 };
-chan shuttleToRailway = [4] of {Request};
+chan shuttleRequests = [4] of {Request};
 
 typedef Reply {
 	bool allowed;
 };
-chan railwayToShuttle[4] = [1] of {Reply}; 
+chan railwayReplies[4] = [1] of {Reply}; 
 
 proctype ShuttleManagementSystem(Order first; Order second) {
 	Order orders[2];
@@ -41,7 +41,7 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 	for (i:0 .. 2-1){
 		int j;
 		for (j:0 .. 4-1){
-			managementToShuttle[j]!orders[i];
+			managementOrders[j]!orders[i];
 		}
         int minCharge = 2147483647; //Assumption: max charge by a shuttle
 	    int assignedId;
@@ -49,7 +49,7 @@ proctype ShuttleManagementSystem(Order first; Order second) {
         // the assignment will go to the shuttle that rst made the oer.
 		for (j:0 .. 4-1){ 
 			Offer offer
-			shuttleToManagement?offer;
+			shuttleOffers?offer;
 			if
 			:: offer.charge < minCharge && !offer.refuse -> minCharge = offer.charge; assignedId = offer.id;
 			:: else -> minCharge = minCharge; assignedId = assignedId;
@@ -57,8 +57,8 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 		}
 		for (j:0 .. 4-1){				
 			if
-			:: j == assignedId -> managementToShuttle[j]!orders[i];
-			:: else -> Order dummy; dummy.size = -1; managementToShuttle[j]!dummy;
+			:: j == assignedId -> managementOrders[j]!orders[i];
+			:: else -> Order dummy; dummy.size = -1; managementOrders[j]!dummy;
 			fi
 		}
 	}
@@ -66,16 +66,18 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 
 proctype Shuttle(int capacity; int charge; int initialStation; int id) {
     Order order; //order that requires an offer to be sent to management
-    bool travelling = false;
-    int currentStation = initialStation;
+	chan orders = [2] of {Order}; //orders assigned to this shuttle
+	Order currentOrder; //order that is currently being transported
+    
+	int currentStation = initialStation;
     int currentLoad;
-    chan orders = [2] of {Order}; //orders assigned to this shuttle
     int direction;
     int destination;
-    bool processingOrder = false;
-    Order currentOrder; //order that is currently being transported
+	
+	bool processingOrder = false;
+	bool travelling = false;
     do
-    ::  managementToShuttle[id]?order -> 
+    ::  managementOrders[id]?order -> 
 		int currentPosition;
 		if // the start destination of the order is within two stations away from its current position
 		:: travelling -> currentPosition = currentStation + direction; //if it is on a track, its current position is its arriving station
@@ -97,8 +99,8 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 		:: else -> 
 			offer.id = id; offer.charge = charge; offer.refuse = true;
 		fi
-		shuttleToManagement!offer;
-		managementToShuttle[id]?order;
+		shuttleOffers!offer;
+		managementOrders[id]?order;
 		if
 		:: order.size >= 0 -> orders!order; 
 		:: else -> skip;
@@ -137,11 +139,12 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
         :: nextStation < 0 -> nextStation = 4 - 1;
         :: else -> skip;
         fi
-        Request request; request.id = id; request.direction = direction; request.track = nextStation;
+        Request request; 
+		request.id = id; request.direction = direction; request.track = nextStation;
         Reply reply;
 		do
-		:: shuttleToRailway!request ->    
-			railwayToShuttle[id]?reply;
+		:: shuttleRequests!request ->    
+			railwayReplies[id]?reply;
 			if
 			:: reply.allowed -> break;
 			:: else -> skip;
@@ -164,7 +167,7 @@ proctype RailwayNetwork() {
     // Any number of shuttles can be present at a station at the same time.
     Request request;
 	do
-	::  shuttleToRailway?request ->
+	::  shuttleRequests?request ->
         Reply reply;
 		if
 		:: request.direction = 1 ->
@@ -178,7 +181,7 @@ proctype RailwayNetwork() {
 			:: else -> reply.allowed = false;
 			fi
 		fi
-        railwayToShuttle[request.id]!reply;
+        railwayReplies[request.id]!reply;
 	od
 }
 
