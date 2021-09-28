@@ -29,7 +29,7 @@ typedef Request {
 chan shuttleRequests = [4] of {Request};
 
 typedef Reply {
-	bool allowed;
+	bool granted;
 };
 chan railwayReplies[4] = [1] of {Reply}; 
 
@@ -146,7 +146,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 		:: shuttleRequests!request ->    
 			railwayReplies[id]?reply;
 			if
-			:: reply.allowed -> break;
+			:: reply.granted -> break;
 			:: else -> skip;
 			fi
 		od  
@@ -172,13 +172,13 @@ proctype RailwayNetwork() {
 		if
 		:: request.direction = 1 ->
 			if // A track can only be occupied by one shuttle at a time. 
-			:: !tracks.trackL2R[request.track] -> tracks.trackL2R[request.track] = true; reply.allowed = true;
-			:: else -> reply.allowed = false; //Shuttles willing to travel along the occupied track have to wait until the track is free.
+			:: !tracks.trackL2R[request.track] -> tracks.trackL2R[request.track] = true; reply.granted = true;
+			:: else -> reply.granted = false; //Shuttles willing to travel along the occupied track have to wait until the track is free.
 			fi
 		:: else ->
 			if
-			:: !tracks.trackR2L[request.track] ->tracks.trackL2R[request.track] = true;  reply.allowed = true;
-			:: else -> reply.allowed = false;
+			:: !tracks.trackR2L[request.track] ->tracks.trackL2R[request.track] = true;  reply.granted = true;
+			:: else -> reply.granted = false;
 			fi
 		fi
         railwayReplies[request.id]!reply;
