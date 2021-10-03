@@ -133,24 +133,24 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates3	9	/* :init: */
-#define minseq3	90
-#define maxseq3	97
+#define minseq3	235
+#define maxseq3	242
 #define _endstate3	8
 
-#define _nstates2	12	/* ControlPanel */
-#define minseq2	79
-#define maxseq2	89
-#define _endstate2	11
+#define _nstates2	15	/* ControlPanel */
+#define minseq2	221
+#define maxseq2	234
+#define _endstate2	14
 
-#define _nstates1	45	/* CommsManager */
-#define minseq1	35
-#define maxseq1	78
-#define _endstate1	44
+#define _nstates1	148	/* CommsManager */
+#define minseq1	74
+#define maxseq1	220
+#define _endstate1	147
 
-#define _nstates0	36	/* Client */
+#define _nstates0	75	/* Client */
 #define minseq0	0
-#define maxseq0	34
-#define _endstate0	35
+#define maxseq0	73
+#define _endstate0	74
 
 extern short src_ln3[];
 extern short src_ln2[];
@@ -162,11 +162,11 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned char
-#define _T5	62
-#define _T2	63
+#define _T5	135
+#define _T2	136
 #define WS		4 /* word size in bytes */
 #define SYNC	0
-#define ASYNC	7
+#define ASYNC	8
 
 #ifndef NCORE
 	#ifdef DUAL_CORE
@@ -182,7 +182,7 @@ extern S_F_MAP src_file0[];
 typedef struct P3 { /* :init: */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 7; /* state    */
+	unsigned _p   : 9; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -193,44 +193,48 @@ typedef struct P3 { /* :init: */
 typedef struct P2 { /* ControlPanel */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 7; /* state    */
+	unsigned _p   : 9; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
 	unsigned disabled : 1;
 	uchar ability;
+	uchar button;
 } P2;
-#define Air2	(sizeof(P2) - Offsetof(P2, ability) - 1*sizeof(uchar))
+#define Air2	(sizeof(P2) - Offsetof(P2, button) - 1*sizeof(uchar))
 
 #define PCommsManager	((P1 *)_this)
 typedef struct P1 { /* CommsManager */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 7; /* state    */
+	unsigned _p   : 9; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
+	unsigned hasFail : 1;
 	uchar connectedClients;
-	uchar initStatus;
+	uchar currStatus;
 	uchar reportStatus;
+	uchar button;
 	uchar reply;
-	uchar ability;
 	int id;
+	int i;
 } P1;
-#define Air1	(sizeof(P1) - Offsetof(P1, id) - 1*sizeof(int))
+#define Air1	(sizeof(P1) - Offsetof(P1, i) - 1*sizeof(int))
 
 #define PClient	((P0 *)_this)
 typedef struct P0 { /* Client */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 7; /* state    */
+	unsigned _p   : 9; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
 	unsigned connected : 1;
 	unsigned getInfoSuccess : 1;
-	unsigned useInfoSuccess : 1;
-	uchar initStatus;
+	unsigned useNewInfoSuccess : 1;
+	unsigned useOldInfoSuccess : 1;
+	uchar currStatus;
 	uchar reply;
 	int id;
 } P0;
@@ -239,7 +243,7 @@ typedef struct P0 { /* Client */
 typedef struct P4 { /* np_ */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 7; /* state    */
+	unsigned _p   : 9; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -442,7 +446,7 @@ typedef struct State {
 	uchar clientReport;
 	uchar wcpRequest;
 	uchar cmAbleWcp;
-	uchar able;
+	uchar cmStatus[4];
 #ifdef TRIX
 	/* room for 512 proc+chan ptrs, + safety margin */
 	char *_ids_[MAXPROC+MAXQ+4];
@@ -473,9 +477,9 @@ typedef struct TRIX_v6 {
 
 #define _start4	0 /* np_ */
 #define _start3	7
-#define _start2	8
-#define _start1	41
-#define _start0	32
+#define _start2	11
+#define _start1	144
+#define _start0	71
 #ifdef NP
 	#define ACCEPT_LAB	1 /* at least 1 in np_ */
 #else
@@ -508,7 +512,35 @@ typedef struct TRIX_v6 {
 	#define MEMLIM	(2048)	/* need a default, using 2 GB */
 #endif
 #define PROG_LAB	0 /* progress labels */
-#define NQS	13
+#define NQS	17
+typedef struct Q17 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q17;
+typedef struct Q16 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q16;
+typedef struct Q15 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q15;
+typedef struct Q14 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q14;
 typedef struct Q13 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
@@ -927,7 +959,7 @@ void qsend(int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	64
+#define NTRANS	137
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);

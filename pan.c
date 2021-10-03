@@ -490,8 +490,8 @@ int _;	/* predefined write-only variable */
 #endif
 
 short src_ln3 [] = {
-	  0, 106, 107, 108, 109, 110, 111, 105, 
-	113,   0, };
+	  0, 204, 205, 206, 207, 208, 209, 203, 
+	211,   0, };
 S_F_MAP src_file3 [] = {
 	{ "-", 0, 0 },
 	{ "problem2.pml", 1, 8 },
@@ -503,56 +503,92 @@ uchar reached3 [] = {
 uchar *loopstate3;
 
 short src_ln2 [] = {
-	  0,  96,  98,  98,  99,  99,  97, 101, 
-	 95, 102,  95, 102,   0, };
+	  0, 191, 193, 193, 194, 194, 192, 196, 
+	196, 197, 198, 190, 200, 190, 200,   0, };
 S_F_MAP src_file2 [] = {
 	{ "-", 0, 0 },
-	{ "problem2.pml", 1, 11 },
-	{ "-", 12, 13 }
+	{ "problem2.pml", 1, 14 },
+	{ "-", 15, 16 }
 };
 uchar reached2 [] = {
 	  0,   1,   1,   0,   1,   0,   0,   1, 
-	  0,   1,   1,   0,   0, };
+	  1,   0,   0,   0,   1,   1,   0,   0, };
 uchar *loopstate2;
 
 short src_ln1 [] = {
-	  0,  59,  61,  62,  62,  63,  63,  64, 
-	 64,  65,  65,  61,  67,  67,  68,  69, 
-	 70,  71,  72,  74,  74,  75,  76,  76, 
-	 77,  73,  79,  79,  80,  82,  83,  83, 
-	 84,  84,  85,  85,  86,  87,  87,  82, 
-	 89,  58,  90,  58,  90,   0, };
+	  0,  93,  94,  96,  97,  97,  98,  98, 
+	 99, 100, 100,  96, 102, 102, 103, 104, 
+	105, 106, 107, 109, 109, 110, 111, 111, 
+	112, 108, 114, 114, 115, 117, 117, 118, 
+	119, 119, 120, 121, 116, 123, 123, 124, 
+	125, 126, 127, 128, 128, 129, 128, 130, 
+	130, 130, 131, 130, 131, 132, 133, 134, 
+	134, 135, 137, 137, 138, 138, 136, 140, 
+	134, 140, 140, 140, 141, 140, 142, 143, 
+	143, 144, 143, 145, 145, 145, 146, 145, 
+	146, 147, 148, 148, 149, 148, 150, 150, 
+	150, 151, 150, 151, 141, 153, 153, 154, 
+	155, 155, 156, 158, 158, 159, 159, 157, 
+	161, 155, 161, 161, 161, 162, 161, 163, 
+	163, 164, 165, 165, 166, 162, 168, 168, 
+	169, 170, 170, 171, 173, 173, 174, 174, 
+	172, 176, 170, 176, 176, 176, 177, 176, 
+	178, 178, 179, 180, 180, 181, 177, 183, 
+	 92, 184,  92, 184,   0, };
 S_F_MAP src_file1 [] = {
 	{ "-", 0, 0 },
-	{ "problem2.pml", 1, 44 },
-	{ "-", 45, 46 }
+	{ "problem2.pml", 1, 147 },
+	{ "-", 148, 149 }
 };
 uchar reached1 [] = {
-	  0,   1,   0,   1,   0,   0,   0,   0, 
+	  0,   1,   0,   0,   1,   0,   0,   0, 
 	  0,   1,   0,   0,   1,   0,   1,   0, 
 	  0,   1,   0,   1,   0,   0,   1,   0, 
-	  0,   0,   1,   1,   0,   0,   1,   0, 
-	  0,   0,   1,   0,   0,   0,   0,   0, 
-	  1,   0,   1,   1,   0,   0, };
+	  0,   0,   1,   1,   0,   1,   0,   0, 
+	  1,   0,   0,   0,   0,   1,   1,   0, 
+	  0,   0,   1,   0,   1,   0,   0,   1, 
+	  0,   0,   1,   1,   0,   1,   0,   0, 
+	  1,   0,   1,   0,   1,   0,   0,   1, 
+	  0,   1,   1,   0,   1,   1,   1,   0, 
+	  1,   0,   0,   1,   0,   0,   1,   1, 
+	  0,   1,   0,   1,   0,   0,   1,   0, 
+	  0,   1,   1,   0,   0,   1,   1,   0, 
+	  0,   1,   0,   1,   0,   1,   0,   0, 
+	  1,   0,   1,   1,   0,   1,   1,   1, 
+	  0,   0,   1,   0,   0,   0,   1,   1, 
+	  0,   0,   1,   0,   1,   0,   1,   0, 
+	  0,   1,   0,   1,   1,   0,   1,   1, 
+	  1,   0,   0,   1,   0,   0,   0,   1, 
+	  0,   1,   1,   0,   0, };
 uchar *loopstate1;
 
 short src_ln0 [] = {
-	  0,  27,  28,  30,  30,  30,  31,  31, 
-	 29,  33,  33,  34,  35,  36,  38,  38, 
-	 39,  39,  40,  40,  41,  37,  43,  43, 
-	 45,  45,  46,  47,  47,  48,  44,  50, 
-	 26,  51,  26,  51,   0, };
+	  0,  31,  32,  33,  35,  35,  35,  36, 
+	 36,  34,  38,  38,  39,  40,  41,  43, 
+	 43,  44,  44,  45,  45,  46,  46,  42, 
+	 48,  48,  50,  50,  51,  52,  52,  53, 
+	 53,  49,  55,  55,  56,  57,  58,  59, 
+	 60,  62,  62,  63,  63,  64,  64,  65, 
+	 65,  61,  67,  67,  69,  69,  70,  71, 
+	 71,  72,  72,  68,  74,  74,  76,  76, 
+	 77,  78,  78,  79,  79,  75,  81,  30, 
+	 82,  30,  82,   0, };
 S_F_MAP src_file0 [] = {
 	{ "-", 0, 0 },
-	{ "problem2.pml", 1, 35 },
-	{ "-", 36, 37 }
+	{ "problem2.pml", 1, 74 },
+	{ "-", 75, 76 }
 };
 uchar reached0 [] = {
-	  0,   1,   0,   1,   0,   0,   1,   1, 
-	  0,   1,   1,   0,   0,   1,   1,   0, 
-	  0,   0,   1,   0,   0,   0,   1,   1, 
-	  1,   0,   0,   1,   0,   0,   0,   1, 
-	  0,   1,   1,   0,   0, };
+	  0,   1,   0,   0,   1,   0,   0,   1, 
+	  1,   0,   1,   1,   0,   0,   1,   1, 
+	  0,   0,   0,   1,   0,   0,   0,   0, 
+	  1,   1,   1,   0,   0,   1,   0,   0, 
+	  0,   0,   1,   1,   0,   1,   0,   0, 
+	  1,   1,   0,   0,   0,   1,   0,   0, 
+	  0,   0,   1,   1,   1,   0,   0,   1, 
+	  0,   0,   0,   0,   1,   1,   1,   0, 
+	  0,   1,   0,   0,   0,   0,   1,   0, 
+	  1,   1,   0,   0, };
 uchar *loopstate0;
 uchar reached4[3];  /* np_ */
 uchar *loopstate4;  /* np_ */
@@ -883,18 +919,20 @@ addproc(int calling_pid, int priority, int n, int par0)
 		break;
 	case 2:	/* ControlPanel */
 		((P2 *)pptr(h))->_t = 2;
-		((P2 *)pptr(h))->_p = 8;
+		((P2 *)pptr(h))->_p = 11;
 #ifdef HAS_PRIORITY
 		((P2 *)pptr(h))->_priority = priority; /* was: 1 */
 #endif
-		reached2[8]=1;
+		reached2[11]=1;
 		/* params: */
 		/* locals: */
 		((P2 *)pptr(h))->disabled = 0;
 		((P2 *)pptr(h))->ability = 0;
+		((P2 *)pptr(h))->button = 0;
 #ifdef VAR_RANGES
 		logval("ControlPanel:disabled", ((P2 *)pptr(h))->disabled);
 		logval("ControlPanel:ability", ((P2 *)pptr(h))->ability);
+		logval("ControlPanel:button", ((P2 *)pptr(h))->button);
 #endif
 #ifdef HAS_CODE
 		locinit2(h);
@@ -902,25 +940,29 @@ addproc(int calling_pid, int priority, int n, int par0)
 		break;
 	case 1:	/* CommsManager */
 		((P1 *)pptr(h))->_t = 1;
-		((P1 *)pptr(h))->_p = 41;
+		((P1 *)pptr(h))->_p = 144;
 #ifdef HAS_PRIORITY
 		((P1 *)pptr(h))->_priority = priority; /* was: 1 */
 #endif
-		reached1[41]=1;
+		reached1[144]=1;
 		/* params: */
 		/* locals: */
-		((P1 *)pptr(h))->id = 0;
-		((P1 *)pptr(h))->initStatus = 4;
 		((P1 *)pptr(h))->connectedClients = addqueue(calling_pid, 1, 0);
+		((P1 *)pptr(h))->currStatus = 8;
 		((P1 *)pptr(h))->reportStatus = 0;
+		((P1 *)pptr(h))->button = 0;
+		((P1 *)pptr(h))->id = 0;
+		((P1 *)pptr(h))->i = 0;
+		((P1 *)pptr(h))->hasFail = 0;
 		((P1 *)pptr(h))->reply = 0;
-		((P1 *)pptr(h))->ability = 0;
 #ifdef VAR_RANGES
-		logval("CommsManager:initStatus", ((P1 *)pptr(h))->initStatus);
+		logval("CommsManager:hasFail", ((P1 *)pptr(h))->hasFail);
+		logval("CommsManager:currStatus", ((P1 *)pptr(h))->currStatus);
 		logval("CommsManager:reportStatus", ((P1 *)pptr(h))->reportStatus);
+		logval("CommsManager:button", ((P1 *)pptr(h))->button);
 		logval("CommsManager:reply", ((P1 *)pptr(h))->reply);
-		logval("CommsManager:ability", ((P1 *)pptr(h))->ability);
 		logval("CommsManager:id", ((P1 *)pptr(h))->id);
+		logval("CommsManager:i", ((P1 *)pptr(h))->i);
 #endif
 #ifdef HAS_CODE
 		locinit1(h);
@@ -928,24 +970,26 @@ addproc(int calling_pid, int priority, int n, int par0)
 		break;
 	case 0:	/* Client */
 		((P0 *)pptr(h))->_t = 0;
-		((P0 *)pptr(h))->_p = 32;
+		((P0 *)pptr(h))->_p = 71;
 #ifdef HAS_PRIORITY
 		((P0 *)pptr(h))->_priority = priority; /* was: 1 */
 #endif
-		reached0[32]=1;
+		reached0[71]=1;
 		/* params: */
 		((P0 *)pptr(h))->id = par0;
 		/* locals: */
-		((P0 *)pptr(h))->initStatus = 4;
+		((P0 *)pptr(h))->currStatus = 8;
 		((P0 *)pptr(h))->reply = 0;
 		((P0 *)pptr(h))->connected = 0;
 		((P0 *)pptr(h))->getInfoSuccess = 1;
-		((P0 *)pptr(h))->useInfoSuccess = 1;
+		((P0 *)pptr(h))->useNewInfoSuccess = 1;
+		((P0 *)pptr(h))->useOldInfoSuccess = 1;
 #ifdef VAR_RANGES
 		logval("Client:connected", ((P0 *)pptr(h))->connected);
 		logval("Client:getInfoSuccess", ((P0 *)pptr(h))->getInfoSuccess);
-		logval("Client:useInfoSuccess", ((P0 *)pptr(h))->useInfoSuccess);
-		logval("Client:initStatus", ((P0 *)pptr(h))->initStatus);
+		logval("Client:useNewInfoSuccess", ((P0 *)pptr(h))->useNewInfoSuccess);
+		logval("Client:useOldInfoSuccess", ((P0 *)pptr(h))->useOldInfoSuccess);
+		logval("Client:currStatus", ((P0 *)pptr(h))->currStatus);
 		logval("Client:reply", ((P0 *)pptr(h))->reply);
 		logval("Client:id", ((P0 *)pptr(h))->id);
 #endif
@@ -1120,6 +1164,7 @@ run(void)
 	Maxbody = max(Maxbody, ((int) sizeof(Q5)));
 	Maxbody = max(Maxbody, ((int) sizeof(Q6)));
 	Maxbody = max(Maxbody, ((int) sizeof(Q7)));
+	Maxbody = max(Maxbody, ((int) sizeof(Q8)));
 	Maxbody = max(Maxbody, sizeof(State)-VECTORSZ);
 	if ((Maxbody % WS) != 0)
 		Maxbody += WS - (Maxbody % WS);
@@ -12488,8 +12533,11 @@ iniglobals(int calling_pid)
 		now.clientReport = addqueue(calling_pid, 11, 0);
 		now.wcpRequest = addqueue(calling_pid, 12, 0);
 		now.cmAbleWcp = addqueue(calling_pid, 13, 0);
+		now.cmStatus[0] = addqueue(calling_pid, 14, 0);
+		now.cmStatus[1] = addqueue(calling_pid, 15, 0);
+		now.cmStatus[2] = addqueue(calling_pid, 16, 0);
+		now.cmStatus[3] = addqueue(calling_pid, 17, 0);
 #ifdef VAR_RANGES
-		logval("able", now.able);
 #endif
 }
 
@@ -12506,6 +12554,10 @@ addqueue(int calling_pid, int n, int is_rv)
 	printf("%4d: add queue %d\n", depth, i);
 #endif
 	switch (n) {
+	case 17: j = sizeof(Q17); q_flds[17] = 1; q_max[17] = 1; break;
+	case 16: j = sizeof(Q16); q_flds[16] = 1; q_max[16] = 1; break;
+	case 15: j = sizeof(Q15); q_flds[15] = 1; q_max[15] = 1; break;
+	case 14: j = sizeof(Q14); q_flds[14] = 1; q_max[14] = 1; break;
 	case 13: j = sizeof(Q13); q_flds[13] = 1; q_max[13] = 1; break;
 	case 12: j = sizeof(Q12); q_flds[12] = 1; q_max[12] = 1; break;
 	case 11: j = sizeof(Q11); q_flds[11] = 2; q_max[11] = 4; break;
@@ -12609,6 +12661,10 @@ what_q_size(int t)
 	case 11: j = sizeof(Q11); break;
 	case 12: j = sizeof(Q12); break;
 	case 13: j = sizeof(Q13); break;
+	case 14: j = sizeof(Q14); break;
+	case 15: j = sizeof(Q15); break;
+	case 16: j = sizeof(Q16); break;
+	case 17: j = sizeof(Q17); break;
 	default: Uerror("bad qtype");
 	}
 	return j;
@@ -12643,6 +12699,58 @@ qsend(int into, int sorted, int fld0, int fld1, int args_given)
 	z = qptr(into);
 	j = ((Q0 *)qptr(into))->Qlen;
 	switch (((Q0 *)qptr(into))->_t) {
+	case 17:
+#ifdef HAS_SORTED
+		(trpt+1)->ipt = j;
+#endif
+		((Q17 *)z)->Qlen = ((Q17 *)z)->Qlen + 1;
+		((Q17 *)z)->contents[j].fld0 = fld0;	/* mtype status */
+		if (args_given != 1)
+		{	if (args_given > 1)
+				uerror("too many parameters in send stmnt");
+			else
+				uerror("too few parameters in send stmnt");
+		}
+		break;
+	case 16:
+#ifdef HAS_SORTED
+		(trpt+1)->ipt = j;
+#endif
+		((Q16 *)z)->Qlen = ((Q16 *)z)->Qlen + 1;
+		((Q16 *)z)->contents[j].fld0 = fld0;	/* mtype status */
+		if (args_given != 1)
+		{	if (args_given > 1)
+				uerror("too many parameters in send stmnt");
+			else
+				uerror("too few parameters in send stmnt");
+		}
+		break;
+	case 15:
+#ifdef HAS_SORTED
+		(trpt+1)->ipt = j;
+#endif
+		((Q15 *)z)->Qlen = ((Q15 *)z)->Qlen + 1;
+		((Q15 *)z)->contents[j].fld0 = fld0;	/* mtype status */
+		if (args_given != 1)
+		{	if (args_given > 1)
+				uerror("too many parameters in send stmnt");
+			else
+				uerror("too few parameters in send stmnt");
+		}
+		break;
+	case 14:
+#ifdef HAS_SORTED
+		(trpt+1)->ipt = j;
+#endif
+		((Q14 *)z)->Qlen = ((Q14 *)z)->Qlen + 1;
+		((Q14 *)z)->contents[j].fld0 = fld0;	/* mtype status */
+		if (args_given != 1)
+		{	if (args_given > 1)
+				uerror("too many parameters in send stmnt");
+			else
+				uerror("too few parameters in send stmnt");
+		}
+		break;
 	case 13:
 #ifdef HAS_SORTED
 		(trpt+1)->ipt = j;
@@ -12831,6 +12939,10 @@ q_zero(int from)
 		return 0;
 	}
 	switch(((Q0 *)qptr(from))->_t) {
+	case 17: return 0;
+	case 16: return 0;
+	case 15: return 0;
+	case 14: return 0;
 	case 13: return 0;
 	case 12: return 0;
 	case 11: return 0;
@@ -12945,6 +13057,10 @@ q_full(int from)
 {	if (!from--)
 	uerror("ref to uninitialized chan name (qfull)");
 	switch(((Q0 *)qptr(from))->_t) {
+	case 17: return (q_sz(from) == 1);
+	case 16: return (q_sz(from) == 1);
+	case 15: return (q_sz(from) == 1);
+	case 14: return (q_sz(from) == 1);
 	case 13: return (q_sz(from) == 1);
 	case 12: return (q_sz(from) == 1);
 	case 11: return (q_sz(from) == 4);
@@ -13000,6 +13116,66 @@ qrecv(int from, int slot, int fld, int done)
 		require('r', from);
 #endif
 	switch (((Q0 *)qptr(from))->_t) {
+	case 17:
+		if (fld == 0) r = ((Q17 *)z)->contents[slot].fld0;
+		if (done)
+		{	j = ((Q17 *)z)->Qlen;
+			((Q17 *)z)->Qlen = --j;
+			for (k=slot; k<j; k++)
+			{
+				((Q17 *)z)->contents[k].fld0 = 
+					((Q17 *)z)->contents[k+1].fld0;
+			}
+			((Q17 *)z)->contents[j].fld0 = 0;
+			if (fld+1 != 1)
+				uerror("missing pars in receive");
+		}
+		break;
+	case 16:
+		if (fld == 0) r = ((Q16 *)z)->contents[slot].fld0;
+		if (done)
+		{	j = ((Q16 *)z)->Qlen;
+			((Q16 *)z)->Qlen = --j;
+			for (k=slot; k<j; k++)
+			{
+				((Q16 *)z)->contents[k].fld0 = 
+					((Q16 *)z)->contents[k+1].fld0;
+			}
+			((Q16 *)z)->contents[j].fld0 = 0;
+			if (fld+1 != 1)
+				uerror("missing pars in receive");
+		}
+		break;
+	case 15:
+		if (fld == 0) r = ((Q15 *)z)->contents[slot].fld0;
+		if (done)
+		{	j = ((Q15 *)z)->Qlen;
+			((Q15 *)z)->Qlen = --j;
+			for (k=slot; k<j; k++)
+			{
+				((Q15 *)z)->contents[k].fld0 = 
+					((Q15 *)z)->contents[k+1].fld0;
+			}
+			((Q15 *)z)->contents[j].fld0 = 0;
+			if (fld+1 != 1)
+				uerror("missing pars in receive");
+		}
+		break;
+	case 14:
+		if (fld == 0) r = ((Q14 *)z)->contents[slot].fld0;
+		if (done)
+		{	j = ((Q14 *)z)->Qlen;
+			((Q14 *)z)->Qlen = --j;
+			for (k=slot; k<j; k++)
+			{
+				((Q14 *)z)->contents[k].fld0 = 
+					((Q14 *)z)->contents[k+1].fld0;
+			}
+			((Q14 *)z)->contents[j].fld0 = 0;
+			if (fld+1 != 1)
+				uerror("missing pars in receive");
+		}
+		break;
 	case 13:
 		if (fld == 0) r = ((Q13 *)z)->contents[slot].fld0;
 		if (done)
@@ -13217,6 +13393,10 @@ col_q(int i, char *z)
 	char *x, *y;
 	Q0 *ptr = (Q0 *) qptr(i);
 	switch (ptr->_t) {
+	case 17: j = sizeof(Q17); break;
+	case 16: j = sizeof(Q16); break;
+	case 15: j = sizeof(Q15); break;
+	case 14: j = sizeof(Q14); break;
 	case 13: j = sizeof(Q13); break;
 	case 12: j = sizeof(Q12); break;
 	case 11: j = sizeof(Q11); break;
@@ -13281,6 +13461,22 @@ unsend(int into)
 	j = ((Q0 *)z)->Qlen;
 	((Q0 *)z)->Qlen = --j;
 	switch (((Q0 *)qptr(into))->_t) {
+	case 17:
+		((Q17 *)z)->contents[j].fld0 = 0;
+		_m = trpt->o_m;
+		break;
+	case 16:
+		((Q16 *)z)->contents[j].fld0 = 0;
+		_m = trpt->o_m;
+		break;
+	case 15:
+		((Q15 *)z)->contents[j].fld0 = 0;
+		_m = trpt->o_m;
+		break;
+	case 14:
+		((Q14 *)z)->contents[j].fld0 = 0;
+		_m = trpt->o_m;
+		break;
 	case 13:
 		((Q13 *)z)->contents[j].fld0 = 0;
 		_m = trpt->o_m;
@@ -13363,6 +13559,30 @@ unrecv(int from, int slot, int fld, int fldvar, int strt)
 	j = ((Q0 *)z)->Qlen;
 	if (strt) ((Q0 *)z)->Qlen = j+1;
 	switch (((Q0 *)qptr(from))->_t) {
+	case 17:
+		if (strt) {
+			((Q17 *)z)->contents[slot].fld0 = 0;
+		}
+		if (fld == 0) ((Q17 *)z)->contents[slot].fld0 = fldvar;
+		break;
+	case 16:
+		if (strt) {
+			((Q16 *)z)->contents[slot].fld0 = 0;
+		}
+		if (fld == 0) ((Q16 *)z)->contents[slot].fld0 = fldvar;
+		break;
+	case 15:
+		if (strt) {
+			((Q15 *)z)->contents[slot].fld0 = 0;
+		}
+		if (fld == 0) ((Q15 *)z)->contents[slot].fld0 = fldvar;
+		break;
+	case 14:
+		if (strt) {
+			((Q14 *)z)->contents[slot].fld0 = 0;
+		}
+		if (fld == 0) ((Q14 *)z)->contents[slot].fld0 = fldvar;
+		break;
 	case 13:
 		if (strt) {
 			((Q13 *)z)->contents[slot].fld0 = 0;
@@ -13535,7 +13755,24 @@ q_cond(short II, Trans *t)
 			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( now.cmAbleWcp) )))
 			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( now.cmAbleWcp) )))
 			    ) return 0; break;
-		case 7: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P1 *)_this)->connectedClients) )))
+		case 7: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( now.cmStatus[0]) )
+			 ||     q_full((int) ( now.cmStatus[1]) )
+			 ||     q_full((int) ( now.cmStatus[2]) )
+			 ||     q_full((int) ( now.cmStatus[3]) )))
+			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( now.cmStatus[0]) )
+			 ||    !q_full((int) ( now.cmStatus[1]) )
+			 ||    !q_full((int) ( now.cmStatus[2]) )
+			 ||    !q_full((int) ( now.cmStatus[3]) )))
+			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( now.cmStatus[0]) )
+			 ||     !q_len((int) ( now.cmStatus[1]) )
+			 ||     !q_len((int) ( now.cmStatus[2]) )
+			 ||     !q_len((int) ( now.cmStatus[3]) )))
+			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( now.cmStatus[0]) )
+			 ||      q_len((int) ( now.cmStatus[1]) )
+			 ||      q_len((int) ( now.cmStatus[2]) )
+			 ||      q_len((int) ( now.cmStatus[3]) )))
+			    ) return 0; break;
+		case 8: if (	(t->ty[i] == Q_FULL_F && ( q_full((int) ( ((P1 *)_this)->connectedClients) )))
 			 || 	(t->ty[i] == Q_FULL_T && (!q_full((int) ( ((P1 *)_this)->connectedClients) )))
 			 || 	(t->ty[i] == Q_EMPT_F && ( !q_len((int) ( ((P1 *)_this)->connectedClients) )))
 			 || 	(t->ty[i] == Q_EMPT_T && (  q_len((int) ( ((P1 *)_this)->connectedClients) )))
@@ -14851,8 +15088,9 @@ c_globals(void)
 	c_chandump(now.cmConnectReply[2]);
 	printf("	chan cmConnectReply[3] (=%d):	len %d:\t", now.cmConnectReply[3], q_len(now.cmConnectReply[3]));
 	c_chandump(now.cmConnectReply[3]);
-	printf("	mtype  getInfo:	2\n");
-	printf("	mtype  useNewInfo:	1\n");
+	printf("	mtype  getInfo:	3\n");
+	printf("	mtype  useNewInfo:	2\n");
+	printf("	mtype  useOldInfo:	1\n");
 	printf("	chan cmCommand[0] (=%d):	len %d:\t", now.cmCommand[0], q_len(now.cmCommand[0]));
 	c_chandump(now.cmCommand[0]);
 	printf("	chan cmCommand[1] (=%d):	len %d:\t", now.cmCommand[1], q_len(now.cmCommand[1]));
@@ -14868,15 +15106,26 @@ c_globals(void)
 	printf("	mtype  manualUpdate:	1\n");
 	printf("	chan wcpRequest (=%d):	len %d:\t", now.wcpRequest, q_len(now.wcpRequest));
 	c_chandump(now.wcpRequest);
-	printf("	mtype  able:	%d\n", now.able);
 	printf("	mtype  enable:	2\n");
 	printf("	mtype  disable:	1\n");
 	printf("	chan cmAbleWcp (=%d):	len %d:\t", now.cmAbleWcp, q_len(now.cmAbleWcp));
 	c_chandump(now.cmAbleWcp);
-	printf("	mtype  idle:	4\n");
-	printf("	mtype  preInit:	3\n");
-	printf("	mtype  initializing:	2\n");
-	printf("	mtype  postInit:	1\n");
+	printf("	mtype  idle:	8\n");
+	printf("	mtype  preInit:	7\n");
+	printf("	mtype  initializing:	6\n");
+	printf("	mtype  postInit:	5\n");
+	printf("	mtype  preUpdate:	4\n");
+	printf("	mtype  updating:	3\n");
+	printf("	mtype  postUpdate:	2\n");
+	printf("	mtype  postRevert:	1\n");
+	printf("	chan cmStatus[0] (=%d):	len %d:\t", now.cmStatus[0], q_len(now.cmStatus[0]));
+	c_chandump(now.cmStatus[0]);
+	printf("	chan cmStatus[1] (=%d):	len %d:\t", now.cmStatus[1], q_len(now.cmStatus[1]));
+	c_chandump(now.cmStatus[1]);
+	printf("	chan cmStatus[2] (=%d):	len %d:\t", now.cmStatus[2], q_len(now.cmStatus[2]));
+	c_chandump(now.cmStatus[2]);
+	printf("	chan cmStatus[3] (=%d):	len %d:\t", now.cmStatus[3], q_len(now.cmStatus[3]));
+	c_chandump(now.cmStatus[3]);
 }
 void
 c_locals(int pid, int tp)
@@ -14889,25 +15138,29 @@ c_locals(int pid, int tp)
 		printf("local vars proc %d (ControlPanel):\n", pid);
 	printf("	bit    disabled:	%d\n", ((P2 *)pptr(pid))->disabled);
 	printf("	mtype  ability:	%d\n", ((P2 *)pptr(pid))->ability);
+	printf("	mtype  button:	%d\n", ((P2 *)pptr(pid))->button);
 		break;
 	case 1:
 		printf("local vars proc %d (CommsManager):\n", pid);
-	printf("	int    id:	%d\n", ((P1 *)pptr(pid))->id);
-	printf("	mtype  initStatus:	%d\n", ((P1 *)pptr(pid))->initStatus);
 	printf("	chan connectedClients (=%d):	len %d:\t", ((P1 *)pptr(pid))->connectedClients, q_len(((P1 *)pptr(pid))->connectedClients));
 	c_chandump(((P1 *)pptr(pid))->connectedClients);
+	printf("	mtype  currStatus:	%d\n", ((P1 *)pptr(pid))->currStatus);
 	printf("	mtype  reportStatus:	%d\n", ((P1 *)pptr(pid))->reportStatus);
+	printf("	mtype  button:	%d\n", ((P1 *)pptr(pid))->button);
+	printf("	int    id:	%d\n", ((P1 *)pptr(pid))->id);
+	printf("	int    i:	%d\n", ((P1 *)pptr(pid))->i);
+	printf("	bit    hasFail:	%d\n", ((P1 *)pptr(pid))->hasFail);
 	printf("	mtype  reply:	%d\n", ((P1 *)pptr(pid))->reply);
-	printf("	mtype  ability:	%d\n", ((P1 *)pptr(pid))->ability);
 		break;
 	case 0:
 		printf("local vars proc %d (Client):\n", pid);
 	printf("	int    id:	%d\n", ((P0 *)pptr(pid))->id);
-	printf("	mtype  initStatus:	%d\n", ((P0 *)pptr(pid))->initStatus);
+	printf("	mtype  currStatus:	%d\n", ((P0 *)pptr(pid))->currStatus);
 	printf("	mtype  reply:	%d\n", ((P0 *)pptr(pid))->reply);
 	printf("	bit    connected:	%d\n", ((P0 *)pptr(pid))->connected);
 	printf("	bit    getInfoSuccess:	%d\n", ((P0 *)pptr(pid))->getInfoSuccess);
-	printf("	bit    useInfoSuccess:	%d\n", ((P0 *)pptr(pid))->useInfoSuccess);
+	printf("	bit    useNewInfoSuccess:	%d\n", ((P0 *)pptr(pid))->useNewInfoSuccess);
+	printf("	bit    useOldInfoSuccess:	%d\n", ((P0 *)pptr(pid))->useOldInfoSuccess);
 		break;
 	}
 }
@@ -14919,12 +15172,16 @@ printm(int x, char *s)
 	switch (x) {
 	default: Printf("%d", x); return;
 	}
-	if (strcmp(s, "initialization") == 0)
+	if (strcmp(s, "status") == 0)
 	switch (x) {
-	case 1: Printf("postInit"); return;
-	case 2: Printf("initializing"); return;
-	case 3: Printf("preInit"); return;
-	case 4: Printf("idle"); return;
+	case 1: Printf("postRevert"); return;
+	case 2: Printf("postUpdate"); return;
+	case 3: Printf("updating"); return;
+	case 4: Printf("preUpdate"); return;
+	case 5: Printf("postInit"); return;
+	case 6: Printf("initializing"); return;
+	case 7: Printf("preInit"); return;
+	case 8: Printf("idle"); return;
 	default: Printf("%d", x); return;
 	}
 	if (strcmp(s, "able") == 0)
@@ -14946,8 +15203,9 @@ printm(int x, char *s)
 	}
 	if (strcmp(s, "command") == 0)
 	switch (x) {
-	case 1: Printf("useNewInfo"); return;
-	case 2: Printf("getInfo"); return;
+	case 1: Printf("useOldInfo"); return;
+	case 2: Printf("useNewInfo"); return;
+	case 3: Printf("getInfo"); return;
 	default: Printf("%d", x); return;
 	}
 	if (strcmp(s, "connectReply") == 0)
@@ -14967,6 +15225,34 @@ c_chandump(int from)
 	}
 	z = qptr(from);
 	switch (((Q0 *)z)->_t) {
+	case 17:
+		for (slot = 0; slot < ((Q17 *)z)->Qlen; slot++)
+		{	printf(" [");
+			printm(((Q17 *)z)->contents[slot].fld0, "status");
+			printf("],");
+		}
+		break;
+	case 16:
+		for (slot = 0; slot < ((Q16 *)z)->Qlen; slot++)
+		{	printf(" [");
+			printm(((Q16 *)z)->contents[slot].fld0, "status");
+			printf("],");
+		}
+		break;
+	case 15:
+		for (slot = 0; slot < ((Q15 *)z)->Qlen; slot++)
+		{	printf(" [");
+			printm(((Q15 *)z)->contents[slot].fld0, "status");
+			printf("],");
+		}
+		break;
+	case 14:
+		for (slot = 0; slot < ((Q14 *)z)->Qlen; slot++)
+		{	printf(" [");
+			printm(((Q14 *)z)->contents[slot].fld0, "status");
+			printf("],");
+		}
+		break;
 	case 13:
 		for (slot = 0; slot < ((Q13 *)z)->Qlen; slot++)
 		{	printf(" [");
@@ -15063,7 +15349,7 @@ c_chandump(int from)
 	printf("\n");
 }
 
-Trans *t_id_lkup[98];
+Trans *t_id_lkup[243];
 
 
 #ifdef BFS_PAR

@@ -3,7 +3,7 @@ chan cmConnectRequest = [4] of {int};
 mtype:connectReply = {accept, refuse};
 chan cmConnectReply[4] = [1] of {mtype:connectReply};
 
-mtype:command = {getInfo, useNewInfo};
+mtype:command = {getInfo, useNewInfo, useOldInfo};
 chan cmCommand[4] = [1] of {mtype:command};
 
 mtype:report = {success, failure};
@@ -15,89 +15,187 @@ chan wcpRequest = [1] of {mtype:update};
 mtype:able = {enable, disable};
 chan cmAbleWcp = [1] of {mtype:able};
 
-mtype:initialization = {idle, preInit, initializing, postInit};
+mtype:status = {idle, 
+                preInit, initializing, postInit, //initialization status
+                preUpdate, updating, postUpdate, postRevert}; //update status
+chan cmStatus[4] = [1] of {mtype:status};
 
 proctype Client(int id) {
-    mtype:initialization initStatus = idle;
+    mtype:status currStatus = idle;
     mtype:connectReply reply;
     bool connected = false;
     bool getInfoSuccess = true; //switch this variable to test code
-    bool useInfoSuccess = true; //switch this variable to test code
+    bool useNewInfoSuccess = true; //switch this variable to test code
+    bool useOldInfoSuccess = true; //switch this variable to test code
     do
-    ::  cmConnectRequest!id;
+    ::  !connected -> 
+        cmConnectRequest!id;
         cmConnectReply[id]?reply ->
         if
-        :: reply == accept -> initStatus = preInit; connected = true;
+        :: reply == accept -> currStatus = preInit; connected = true;
         :: else -> skip;
         fi
-    ::  initStatus = preInit ->
+    ::  currStatus == preInit ->
         cmCommand[id]?getInfo;
-        initStatus = initializing;
-    ::  initStatus = initializing ->
+        currStatus = initializing;
+    ::  currStatus == initializing ->
         if 
         ::  getInfoSuccess -> clientReport!success, id;
-            cmCommand[id]?useNewInfo; initStatus = postInit;
-        :: else -> connected = false;
-            initStatus = idle;
+            cmCommand[id]?useNewInfo; currStatus = postInit;
+        :: else -> clientReport!failure, id;
+            currStatus = idle; connected = false;
         fi
-    ::  initStatus = postInit ->
+    ::  currStatus == postInit ->
         if 
-        ::  useInfoSuccess -> clientReport!success, id;
-            initStatus = idle;
-        ::  else -> connected = false;
-            initStatus = idle;
+        ::  useNewInfoSuccess -> clientReport!success, id;
+            currStatus = idle;
+        ::  else -> clientReport!failure, id;
+            connected = false; currStatus = idle;
+        fi
+    ::  (nempty(wcpRequest) && currStatus == idle && connected) ->
+        currStatus = preUpdate;
+    ::  (currStatus == preUpdate && connected) ->
+        cmCommand[id]?getInfo;
+        currStatus = updating;
+    ::  (currStatus == updating && connected) ->
+        if 
+        ::  getInfoSuccess -> clientReport!success, id;
+            cmCommand[id]?useNewInfo; currStatus = postUpdate;
+        :: else -> clientReport!failure, id; 
+            cmCommand[id]?useOldInfo; currStatus = postRevert;
+        fi
+    ::  (currStatus == postUpdate && connected) ->
+        if 
+        ::  useNewInfoSuccess -> clientReport!success, id;
+            currStatus = idle;
+        ::  else -> clientReport!failure, id;
+            connected = false; currStatus = idle;
+        fi
+    ::  (currStatus == postRevert && connected) ->
+        if 
+        ::  useOldInfoSuccess -> clientReport!success, id;
+            currStatus = idle;
+        ::  else -> clientReport!failure, id;
+            connected = false; currStatus = idle;
         fi
     od
 }
 
 proctype CommsManager() {
-    int id;
-    mtype:initialization initStatus = idle;
     chan connectedClients = [4] of {int}; //id of clients currently connected
-    mtype reportStatus;
+    mtype:status currStatus = idle;
+    mtype:report reportStatus;
+    mtype:update button;
+    int id;
+    int i;
+    bool hasFail;
     do
-    ::  cmConnectRequest?id ->
+    ::  nempty(cmConnectRequest) ->
+        cmConnectRequest?id;
         mtype:connectReply reply;
         if
-        :: idle -> reply = accept;
-            initStatus = preInit; connectedClients!id; 
-            mtype:able able = disable; cmAbleWcp!able;
+        :: currStatus == idle -> reply = accept;
+            currStatus = preInit; connectedClients!id; 
+            cmAbleWcp!disable;
         :: else -> reply = refuse;
         fi
         cmConnectReply[id]!reply;
-    ::  initStatus = preInit ->
+    ::  currStatus == preInit ->
         cmCommand[id]!getInfo;
-        initStatus = initializing;
-    ::  initStatus = initializing ->
+        currStatus = initializing;
+    ::  currStatus == initializing ->
         clientReport?reportStatus, id;
         if 
         ::  reportStatus == success -> cmCommand[id]!useNewInfo; 
-            initStatus = postInit;
+            currStatus = postInit;
         ::  reportStatus == failure -> connectedClients?id;
-            initStatus = idle;
+            currStatus = idle;
         fi
-    ::  initStatus = postInit ->
+    ::  currStatus == postInit ->
         clientReport?reportStatus, id;
-        mtype:able ability;
         if 
-        ::  reportStatus == success -> initStatus = idle;
-            ability = enable; cmAbleWcp!able;
+        ::  reportStatus == success -> currStatus = idle;
+            cmAbleWcp!enable;
         ::  reportStatus == failure -> connectedClients?id;
-            initStatus = idle;  
-            ability = enable; cmAbleWcp!able;
+            currStatus = idle;  
+            cmAbleWcp!enable;
+        fi
+    ::  (nempty(wcpRequest) && currStatus == idle) ->
+        wcpRequest?button;
+        currStatus = preUpdate;
+        cmAbleWcp!disable;
+    ::  currStatus == preUpdate ->
+        for (i:0 .. 4-1){
+			cmCommand[i]!getInfo;
+		}
+        currStatus = updating;
+    ::  currStatus == updating ->
+        hasFail = false;
+        for (i:0 .. 4-1) {
+			clientReport?reportStatus, id;
+            if 
+            :: reportStatus == failure -> hasFail = true;
+            :: else -> skip;
+            fi
+		}
+        if 
+        ::  hasFail -> 
+            for (i:0 .. 4-1){
+                cmCommand[i]!useNewInfo;
+            }
+            currStatus = postRevert;
+        ::  else -> 
+            for (i:0 .. 4-1){
+                cmCommand[i]!useNewInfo;
+            }
+            currStatus = postUpdate;
+        fi
+    ::  currStatus == postUpdate ->
+        hasFail = false;
+        for (i:0 .. 4-1){
+			clientReport?reportStatus, id;
+            if 
+            :: reportStatus == failure -> hasFail = true;
+            :: else -> skip;
+            fi
+		}
+        if 
+        ::  hasFail -> currStatus = idle;
+            cmAbleWcp!enable;
+        ::  else -> currStatus = idle; //disconnect all clients
+            cmAbleWcp!enable;
+        fi
+    ::  currStatus == postRevert ->
+        hasFail = false;
+        for (i:0 .. 4-1){
+			clientReport?reportStatus, id;
+            if 
+            :: reportStatus == failure -> hasFail = true;
+            :: else -> skip;
+            fi
+		}
+        if 
+        ::  hasFail -> currStatus = idle; 
+            cmAbleWcp!enable;
+        ::  else -> currStatus = idle; //disconnect all clients
+            cmAbleWcp!enable;
         fi
     od
 }
 
 proctype ControlPanel() {
-    bool disabled;
+    bool disabled = false;
     mtype:able ability;
+    mtype:update button;
     do
-    :: cmAbleWcp?able ->
+    ::  cmAbleWcp?ability ->
         if
-        :: able == enable -> disabled = false;
+        :: ability == enable -> disabled = false;
         :: else -> disabled = true;
         fi
+    ::  !disabled ->
+        button = manualUpdate;
+        wcpRequest!button;
     od
 }
 
