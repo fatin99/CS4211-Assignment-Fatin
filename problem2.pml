@@ -122,6 +122,7 @@ proctype CommsManager() {
     mtype:report reportStatus;
     mtype:update button;
     do
+    //client initialization
     ::  nempty(cmConnectRequest) ->
         cmConnectRequest?id;
         mtype:connectReply reply;
@@ -152,6 +153,8 @@ proctype CommsManager() {
             currStatus = idle;  
             cmAbleWcp!enable;
         fi
+
+    //weather update
     ::  (nempty(wcpRequest) && currStatus == idle) ->
         wcpRequest?button;
         currStatus = preUpdate;

@@ -20,50 +20,50 @@
 		_m = 3; goto P999;
 
 		 /* PROC :init: */
-	case 3: // STATE 1 - problem2.pml:242 - [(run Client(0))] (0:0:0 - 1)
+	case 3: // STATE 1 - problem2.pml:245 - [(run Client(0))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[3][1] = 1;
 		if (!(addproc(II, 1, 0, 0)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 4: // STATE 2 - problem2.pml:243 - [(run Client(1))] (0:0:0 - 1)
+	case 4: // STATE 2 - problem2.pml:246 - [(run Client(1))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[3][2] = 1;
 		if (!(addproc(II, 1, 0, 1)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 5: // STATE 3 - problem2.pml:244 - [(run Client(2))] (0:0:0 - 1)
+	case 5: // STATE 3 - problem2.pml:247 - [(run Client(2))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[3][3] = 1;
 		if (!(addproc(II, 1, 0, 2)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 6: // STATE 4 - problem2.pml:245 - [(run Client(3))] (0:0:0 - 1)
+	case 6: // STATE 4 - problem2.pml:248 - [(run Client(3))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[3][4] = 1;
 		if (!(addproc(II, 1, 0, 3)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 7: // STATE 5 - problem2.pml:246 - [(run CommsManager())] (0:0:0 - 1)
+	case 7: // STATE 5 - problem2.pml:249 - [(run CommsManager())] (0:0:0 - 1)
 		IfNotBlocked
 		reached[3][5] = 1;
 		if (!(addproc(II, 1, 1, 0)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 8: // STATE 6 - problem2.pml:247 - [(run ControlPanel())] (0:0:0 - 1)
+	case 8: // STATE 6 - problem2.pml:250 - [(run ControlPanel())] (0:0:0 - 1)
 		IfNotBlocked
 		reached[3][6] = 1;
 		if (!(addproc(II, 1, 2, 0)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 9: // STATE 8 - problem2.pml:249 - [-end-] (0:0:0 - 1)
+	case 9: // STATE 8 - problem2.pml:252 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
 		reached[3][8] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
 		 /* PROC ControlPanel */
-	case 10: // STATE 1 - problem2.pml:229 - [cmAbleWcp?ability] (0:0:1 - 1)
+	case 10: // STATE 1 - problem2.pml:232 - [cmAbleWcp?ability] (0:0:1 - 1)
 		reached[2][1] = 1;
 		if (q_len(now.cmAbleWcp) == 0) continue;
 
@@ -84,7 +84,7 @@
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 11: // STATE 2 - problem2.pml:231 - [((ability==2))] (11:0:2 - 1)
+	case 11: // STATE 2 - problem2.pml:234 - [((ability==2))] (11:0:2 - 1)
 		IfNotBlocked
 		reached[2][2] = 1;
 		if (!((((P2 *)_this)->ability==2)))
@@ -111,7 +111,7 @@
 		reached[2][12] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 12: // STATE 5 - problem2.pml:232 - [disabled = 1] (0:0:1 - 1)
+	case 12: // STATE 5 - problem2.pml:235 - [disabled = 1] (0:0:1 - 1)
 		IfNotBlocked
 		reached[2][5] = 1;
 		(trpt+1)->bup.oval = ((int)((P2 *)_this)->disabled);
@@ -121,7 +121,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 13: // STATE 8 - problem2.pml:234 - [(!(disabled))] (10:0:1 - 1)
+	case 13: // STATE 8 - problem2.pml:237 - [(!(disabled))] (10:0:1 - 1)
 		IfNotBlocked
 		reached[2][8] = 1;
 		if (!( !(((int)((P2 *)_this)->disabled))))
@@ -135,7 +135,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 1 */
-	case 14: // STATE 10 - problem2.pml:236 - [wcpRequest!button] (0:0:0 - 1)
+	case 14: // STATE 10 - problem2.pml:239 - [wcpRequest!button] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][10] = 1;
 		if (q_full(now.wcpRequest))
@@ -149,7 +149,7 @@
 		
 		qsend(now.wcpRequest, 0, ((P2 *)_this)->button, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 15: // STATE 14 - problem2.pml:238 - [-end-] (0:0:0 - 1)
+	case 15: // STATE 14 - problem2.pml:241 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][14] = 1;
 		if (!delproc(1, II)) continue;
@@ -222,13 +222,13 @@
 		reached[1][175] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 19: // STATE 13 - problem2.pml:125 - [(nempty(cmConnectRequest))] (0:0:0 - 1)
+	case 19: // STATE 13 - problem2.pml:126 - [(nempty(cmConnectRequest))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][13] = 1;
 		if (!((q_len(now.cmConnectRequest)>0)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 20: // STATE 14 - problem2.pml:126 - [cmConnectRequest?id] (0:0:1 - 1)
+	case 20: // STATE 14 - problem2.pml:127 - [cmConnectRequest?id] (0:0:1 - 1)
 		reached[1][14] = 1;
 		if (q_len(now.cmConnectRequest) == 0) continue;
 
@@ -249,7 +249,7 @@
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 21: // STATE 15 - problem2.pml:128 - [reply = 0] (0:0:1 - 1)
+	case 21: // STATE 15 - problem2.pml:129 - [reply = 0] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][15] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->reply;
@@ -259,7 +259,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 22: // STATE 16 - problem2.pml:129 - [((currStatus==8))] (20:0:4 - 1)
+	case 22: // STATE 16 - problem2.pml:130 - [((currStatus==8))] (20:0:4 - 1)
 		IfNotBlocked
 		reached[1][16] = 1;
 		if (!((((P1 *)_this)->currStatus==8)))
@@ -296,7 +296,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 3 */
-	case 23: // STATE 20 - problem2.pml:131 - [cmAbleWcp!1] (0:0:0 - 1)
+	case 23: // STATE 20 - problem2.pml:132 - [cmAbleWcp!1] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][20] = 1;
 		if (q_full(now.cmAbleWcp))
@@ -310,7 +310,7 @@
 		
 		qsend(now.cmAbleWcp, 0, 1, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 24: // STATE 22 - problem2.pml:132 - [reply = 1] (0:0:1 - 1)
+	case 24: // STATE 22 - problem2.pml:133 - [reply = 1] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][22] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->reply;
@@ -320,7 +320,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 25: // STATE 25 - problem2.pml:134 - [cmConnectReply[id]!reply] (0:0:0 - 3)
+	case 25: // STATE 25 - problem2.pml:135 - [cmConnectReply[id]!reply] (0:0:0 - 3)
 		IfNotBlocked
 		reached[1][25] = 1;
 		if (q_full(now.cmConnectReply[ Index(((P1 *)_this)->id, 4) ]))
@@ -334,7 +334,7 @@
 		
 		qsend(now.cmConnectReply[ Index(((P1 *)_this)->id, 4) ], 0, ((P1 *)_this)->reply, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 26: // STATE 26 - problem2.pml:135 - [((currStatus==7))] (0:0:1 - 1)
+	case 26: // STATE 26 - problem2.pml:136 - [((currStatus==7))] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][26] = 1;
 		if (!((((P1 *)_this)->currStatus==7)))
@@ -346,7 +346,7 @@
 #endif
 			((P1 *)_this)->currStatus = 0;
 		_m = 3; goto P999; /* 0 */
-	case 27: // STATE 27 - problem2.pml:136 - [cmCommand[id]!4] (0:0:0 - 1)
+	case 27: // STATE 27 - problem2.pml:137 - [cmCommand[id]!4] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][27] = 1;
 		if (q_full(now.cmCommand[ Index(((P1 *)_this)->id, 4) ]))
@@ -360,7 +360,7 @@
 		
 		qsend(now.cmCommand[ Index(((P1 *)_this)->id, 4) ], 0, 4, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 28: // STATE 28 - problem2.pml:137 - [currStatus = 6] (0:0:1 - 1)
+	case 28: // STATE 28 - problem2.pml:138 - [currStatus = 6] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][28] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->currStatus;
@@ -370,7 +370,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 29: // STATE 29 - problem2.pml:138 - [((currStatus==6))] (0:0:1 - 1)
+	case 29: // STATE 29 - problem2.pml:139 - [((currStatus==6))] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][29] = 1;
 		if (!((((P1 *)_this)->currStatus==6)))
@@ -382,7 +382,7 @@
 #endif
 			((P1 *)_this)->currStatus = 0;
 		_m = 3; goto P999; /* 0 */
-	case 30: // STATE 30 - problem2.pml:139 - [clientReport?reportStatus,id] (0:0:2 - 1)
+	case 30: // STATE 30 - problem2.pml:140 - [clientReport?reportStatus,id] (0:0:2 - 1)
 		reached[1][30] = 1;
 		if (q_len(now.clientReport) == 0) continue;
 
@@ -411,7 +411,7 @@
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 31: // STATE 31 - problem2.pml:141 - [((reportStatus==2))] (0:0:1 - 1)
+	case 31: // STATE 31 - problem2.pml:142 - [((reportStatus==2))] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][31] = 1;
 		if (!((((P1 *)_this)->reportStatus==2)))
@@ -423,7 +423,7 @@
 #endif
 			((P1 *)_this)->reportStatus = 0;
 		_m = 3; goto P999; /* 0 */
-	case 32: // STATE 32 - problem2.pml:141 - [cmCommand[id]!3] (0:0:0 - 1)
+	case 32: // STATE 32 - problem2.pml:142 - [cmCommand[id]!3] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][32] = 1;
 		if (q_full(now.cmCommand[ Index(((P1 *)_this)->id, 4) ]))
@@ -437,7 +437,7 @@
 		
 		qsend(now.cmCommand[ Index(((P1 *)_this)->id, 4) ], 0, 3, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 33: // STATE 33 - problem2.pml:142 - [currStatus = 5] (0:0:1 - 1)
+	case 33: // STATE 33 - problem2.pml:143 - [currStatus = 5] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][33] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->currStatus;
@@ -447,7 +447,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 34: // STATE 34 - problem2.pml:143 - [((reportStatus==1))] (174:0:3 - 1)
+	case 34: // STATE 34 - problem2.pml:144 - [((reportStatus==1))] (174:0:3 - 1)
 		IfNotBlocked
 		reached[1][34] = 1;
 		if (!((((P1 *)_this)->reportStatus==1)))
@@ -482,7 +482,7 @@
 		reached[1][175] = 1;
 		;
 		_m = 3; goto P999; /* 4 */
-	case 35: // STATE 39 - problem2.pml:146 - [((currStatus==5))] (0:0:1 - 1)
+	case 35: // STATE 39 - problem2.pml:147 - [((currStatus==5))] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][39] = 1;
 		if (!((((P1 *)_this)->currStatus==5)))
@@ -494,7 +494,7 @@
 #endif
 			((P1 *)_this)->currStatus = 0;
 		_m = 3; goto P999; /* 0 */
-	case 36: // STATE 40 - problem2.pml:147 - [clientReport?reportStatus,id] (0:0:2 - 1)
+	case 36: // STATE 40 - problem2.pml:148 - [clientReport?reportStatus,id] (0:0:2 - 1)
 		reached[1][40] = 1;
 		if (q_len(now.clientReport) == 0) continue;
 
@@ -523,7 +523,7 @@
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 37: // STATE 41 - problem2.pml:149 - [((reportStatus==2))] (43:0:2 - 1)
+	case 37: // STATE 41 - problem2.pml:150 - [((reportStatus==2))] (43:0:2 - 1)
 		IfNotBlocked
 		reached[1][41] = 1;
 		if (!((((P1 *)_this)->reportStatus==2)))
@@ -544,7 +544,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 1 */
-	case 38: // STATE 43 - problem2.pml:150 - [cmAbleWcp!2] (0:0:0 - 1)
+	case 38: // STATE 43 - problem2.pml:151 - [cmAbleWcp!2] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][43] = 1;
 		if (q_full(now.cmAbleWcp))
@@ -558,7 +558,7 @@
 		
 		qsend(now.cmAbleWcp, 0, 2, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 39: // STATE 44 - problem2.pml:151 - [((reportStatus==1))] (47:0:3 - 1)
+	case 39: // STATE 44 - problem2.pml:152 - [((reportStatus==1))] (47:0:3 - 1)
 		IfNotBlocked
 		reached[1][44] = 1;
 		if (!((((P1 *)_this)->reportStatus==1)))
@@ -587,7 +587,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 2 */
-	case 40: // STATE 47 - problem2.pml:153 - [cmAbleWcp!2] (0:0:0 - 1)
+	case 40: // STATE 47 - problem2.pml:154 - [cmAbleWcp!2] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][47] = 1;
 		if (q_full(now.cmAbleWcp))
@@ -601,7 +601,7 @@
 		
 		qsend(now.cmAbleWcp, 0, 2, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 41: // STATE 50 - problem2.pml:155 - [((nempty(wcpRequest)&&(currStatus==8)))] (0:0:1 - 1)
+	case 41: // STATE 50 - problem2.pml:158 - [((nempty(wcpRequest)&&(currStatus==8)))] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][50] = 1;
 		if (!(((q_len(now.wcpRequest)>0)&&(((P1 *)_this)->currStatus==8))))
@@ -613,7 +613,7 @@
 #endif
 			((P1 *)_this)->currStatus = 0;
 		_m = 3; goto P999; /* 0 */
-	case 42: // STATE 51 - problem2.pml:156 - [wcpRequest?button] (0:0:2 - 1)
+	case 42: // STATE 51 - problem2.pml:159 - [wcpRequest?button] (0:0:2 - 1)
 		reached[1][51] = 1;
 		if (q_len(now.wcpRequest) == 0) continue;
 
@@ -641,7 +641,7 @@
 #endif
 			((P1 *)_this)->button = 0;
 		_m = 4; goto P999; /* 0 */
-	case 43: // STATE 52 - problem2.pml:157 - [currStatus = 4] (0:0:1 - 1)
+	case 43: // STATE 52 - problem2.pml:160 - [currStatus = 4] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][52] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->currStatus;
@@ -651,7 +651,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 44: // STATE 53 - problem2.pml:158 - [cmAbleWcp!1] (0:0:0 - 1)
+	case 44: // STATE 53 - problem2.pml:161 - [cmAbleWcp!1] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][53] = 1;
 		if (q_full(now.cmAbleWcp))
@@ -665,7 +665,7 @@
 		
 		qsend(now.cmAbleWcp, 0, 1, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 45: // STATE 54 - problem2.pml:159 - [((currStatus==4))] (61:0:2 - 1)
+	case 45: // STATE 54 - problem2.pml:162 - [((currStatus==4))] (61:0:2 - 1)
 		IfNotBlocked
 		reached[1][54] = 1;
 		if (!((((P1 *)_this)->currStatus==4)))
@@ -689,13 +689,13 @@
 		reached[1][62] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 46: // STATE 56 - problem2.pml:160 - [((i<=(4-1)))] (0:0:0 - 1)
+	case 46: // STATE 56 - problem2.pml:163 - [((i<=(4-1)))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][56] = 1;
 		if (!((((P1 *)_this)->i<=(4-1))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 47: // STATE 57 - problem2.pml:161 - [cmCommand[i]!4] (0:0:0 - 1)
+	case 47: // STATE 57 - problem2.pml:164 - [cmCommand[i]!4] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][57] = 1;
 		if (q_full(now.cmCommand[ Index(((P1 *)_this)->i, 4) ]))
@@ -709,7 +709,7 @@
 		
 		qsend(now.cmCommand[ Index(((P1 *)_this)->i, 4) ], 0, 4, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 48: // STATE 58 - problem2.pml:160 - [i = (i+1)] (0:0:1 - 1)
+	case 48: // STATE 58 - problem2.pml:163 - [i = (i+1)] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][58] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
@@ -719,7 +719,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 49: // STATE 64 - problem2.pml:163 - [currStatus = 3] (0:174:1 - 3)
+	case 49: // STATE 64 - problem2.pml:166 - [currStatus = 3] (0:174:1 - 3)
 		IfNotBlocked
 		reached[1][64] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->currStatus;
@@ -732,7 +732,7 @@
 		reached[1][175] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 50: // STATE 65 - problem2.pml:164 - [((currStatus==3))] (79:0:3 - 1)
+	case 50: // STATE 65 - problem2.pml:167 - [((currStatus==3))] (79:0:3 - 1)
 		IfNotBlocked
 		reached[1][65] = 1;
 		if (!((((P1 *)_this)->currStatus==3)))
@@ -764,13 +764,13 @@
 		reached[1][80] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 51: // STATE 68 - problem2.pml:166 - [((i<=(4-1)))] (0:0:0 - 1)
+	case 51: // STATE 68 - problem2.pml:169 - [((i<=(4-1)))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][68] = 1;
 		if (!((((P1 *)_this)->i<=(4-1))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 52: // STATE 69 - problem2.pml:167 - [clientReport?reportStatus,id] (0:0:2 - 1)
+	case 52: // STATE 69 - problem2.pml:170 - [clientReport?reportStatus,id] (0:0:2 - 1)
 		reached[1][69] = 1;
 		if (q_len(now.clientReport) == 0) continue;
 
@@ -799,7 +799,7 @@
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 53: // STATE 70 - problem2.pml:169 - [((reportStatus==1))] (79:0:3 - 1)
+	case 53: // STATE 70 - problem2.pml:172 - [((reportStatus==1))] (79:0:3 - 1)
 		IfNotBlocked
 		reached[1][70] = 1;
 		if (!((((P1 *)_this)->reportStatus==1)))
@@ -834,7 +834,7 @@
 		reached[1][80] = 1;
 		;
 		_m = 3; goto P999; /* 4 */
-	case 54: // STATE 73 - problem2.pml:170 - [(1)] (79:0:1 - 1)
+	case 54: // STATE 73 - problem2.pml:173 - [(1)] (79:0:1 - 1)
 		IfNotBlocked
 		reached[1][73] = 1;
 		if (!(1))
@@ -854,7 +854,7 @@
 		reached[1][80] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 55: // STATE 76 - problem2.pml:166 - [i = (i+1)] (0:79:1 - 3)
+	case 55: // STATE 76 - problem2.pml:169 - [i = (i+1)] (0:79:1 - 3)
 		IfNotBlocked
 		reached[1][76] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
@@ -867,7 +867,7 @@
 		reached[1][80] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 56: // STATE 82 - problem2.pml:174 - [(hasFail)] (89:0:2 - 1)
+	case 56: // STATE 82 - problem2.pml:177 - [(hasFail)] (89:0:2 - 1)
 		IfNotBlocked
 		reached[1][82] = 1;
 		if (!(((int)((P1 *)_this)->hasFail)))
@@ -891,13 +891,13 @@
 		reached[1][90] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 57: // STATE 84 - problem2.pml:175 - [((i<=(4-1)))] (0:0:0 - 1)
+	case 57: // STATE 84 - problem2.pml:178 - [((i<=(4-1)))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][84] = 1;
 		if (!((((P1 *)_this)->i<=(4-1))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 58: // STATE 85 - problem2.pml:176 - [cmCommand[i]!3] (0:0:0 - 1)
+	case 58: // STATE 85 - problem2.pml:179 - [cmCommand[i]!3] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][85] = 1;
 		if (q_full(now.cmCommand[ Index(((P1 *)_this)->i, 4) ]))
@@ -911,7 +911,7 @@
 		
 		qsend(now.cmCommand[ Index(((P1 *)_this)->i, 4) ], 0, 3, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 59: // STATE 86 - problem2.pml:175 - [i = (i+1)] (0:0:1 - 1)
+	case 59: // STATE 86 - problem2.pml:178 - [i = (i+1)] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][86] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
@@ -921,7 +921,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 60: // STATE 92 - problem2.pml:178 - [currStatus = 1] (0:174:1 - 3)
+	case 60: // STATE 92 - problem2.pml:181 - [currStatus = 1] (0:174:1 - 3)
 		IfNotBlocked
 		reached[1][92] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->currStatus;
@@ -937,7 +937,7 @@
 		reached[1][175] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 61: // STATE 94 - problem2.pml:180 - [i = 0] (0:0:1 - 1)
+	case 61: // STATE 94 - problem2.pml:183 - [i = 0] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][94] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
@@ -947,13 +947,13 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 62: // STATE 95 - problem2.pml:180 - [((i<=(4-1)))] (0:0:0 - 1)
+	case 62: // STATE 95 - problem2.pml:183 - [((i<=(4-1)))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][95] = 1;
 		if (!((((P1 *)_this)->i<=(4-1))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 63: // STATE 96 - problem2.pml:181 - [cmCommand[i]!3] (0:0:0 - 1)
+	case 63: // STATE 96 - problem2.pml:184 - [cmCommand[i]!3] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][96] = 1;
 		if (q_full(now.cmCommand[ Index(((P1 *)_this)->i, 4) ]))
@@ -967,7 +967,7 @@
 		
 		qsend(now.cmCommand[ Index(((P1 *)_this)->i, 4) ], 0, 3, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 64: // STATE 97 - problem2.pml:180 - [i = (i+1)] (0:0:1 - 1)
+	case 64: // STATE 97 - problem2.pml:183 - [i = (i+1)] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][97] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
@@ -977,7 +977,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 65: // STATE 103 - problem2.pml:183 - [currStatus = 2] (0:174:1 - 3)
+	case 65: // STATE 103 - problem2.pml:186 - [currStatus = 2] (0:174:1 - 3)
 		IfNotBlocked
 		reached[1][103] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->currStatus;
@@ -993,7 +993,7 @@
 		reached[1][175] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 66: // STATE 106 - problem2.pml:185 - [((currStatus==2))] (120:0:3 - 1)
+	case 66: // STATE 106 - problem2.pml:188 - [((currStatus==2))] (120:0:3 - 1)
 		IfNotBlocked
 		reached[1][106] = 1;
 		if (!((((P1 *)_this)->currStatus==2)))
@@ -1025,13 +1025,13 @@
 		reached[1][121] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 67: // STATE 109 - problem2.pml:187 - [((i<=(4-1)))] (0:0:0 - 1)
+	case 67: // STATE 109 - problem2.pml:190 - [((i<=(4-1)))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][109] = 1;
 		if (!((((P1 *)_this)->i<=(4-1))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 68: // STATE 110 - problem2.pml:188 - [clientReport?reportStatus,id] (0:0:2 - 1)
+	case 68: // STATE 110 - problem2.pml:191 - [clientReport?reportStatus,id] (0:0:2 - 1)
 		reached[1][110] = 1;
 		if (q_len(now.clientReport) == 0) continue;
 
@@ -1060,7 +1060,7 @@
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 69: // STATE 111 - problem2.pml:190 - [((reportStatus==1))] (120:0:3 - 1)
+	case 69: // STATE 111 - problem2.pml:193 - [((reportStatus==1))] (120:0:3 - 1)
 		IfNotBlocked
 		reached[1][111] = 1;
 		if (!((((P1 *)_this)->reportStatus==1)))
@@ -1095,7 +1095,7 @@
 		reached[1][121] = 1;
 		;
 		_m = 3; goto P999; /* 4 */
-	case 70: // STATE 114 - problem2.pml:191 - [(1)] (120:0:1 - 1)
+	case 70: // STATE 114 - problem2.pml:194 - [(1)] (120:0:1 - 1)
 		IfNotBlocked
 		reached[1][114] = 1;
 		if (!(1))
@@ -1115,7 +1115,7 @@
 		reached[1][121] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 71: // STATE 117 - problem2.pml:187 - [i = (i+1)] (0:120:1 - 3)
+	case 71: // STATE 117 - problem2.pml:190 - [i = (i+1)] (0:120:1 - 3)
 		IfNotBlocked
 		reached[1][117] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
@@ -1128,7 +1128,7 @@
 		reached[1][121] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 72: // STATE 123 - problem2.pml:195 - [(hasFail)] (125:0:2 - 1)
+	case 72: // STATE 123 - problem2.pml:198 - [(hasFail)] (125:0:2 - 1)
 		IfNotBlocked
 		reached[1][123] = 1;
 		if (!(((int)((P1 *)_this)->hasFail)))
@@ -1149,7 +1149,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 1 */
-	case 73: // STATE 125 - problem2.pml:196 - [cmAbleWcp!2] (0:0:0 - 1)
+	case 73: // STATE 125 - problem2.pml:199 - [cmAbleWcp!2] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][125] = 1;
 		if (q_full(now.cmAbleWcp))
@@ -1163,7 +1163,7 @@
 		
 		qsend(now.cmAbleWcp, 0, 2, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 74: // STATE 127 - problem2.pml:197 - [currStatus = 8] (0:134:2 - 1)
+	case 74: // STATE 127 - problem2.pml:200 - [currStatus = 8] (0:134:2 - 1)
 		IfNotBlocked
 		reached[1][127] = 1;
 		(trpt+1)->bup.ovals = grab_ints(2);
@@ -1185,13 +1185,13 @@
 		reached[1][135] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 75: // STATE 129 - problem2.pml:198 - [((i<=(4-1)))] (0:0:0 - 1)
+	case 75: // STATE 129 - problem2.pml:201 - [((i<=(4-1)))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][129] = 1;
 		if (!((((P1 *)_this)->i<=(4-1))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 76: // STATE 130 - problem2.pml:199 - [cmCommand[i]!1] (0:0:0 - 1)
+	case 76: // STATE 130 - problem2.pml:202 - [cmCommand[i]!1] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][130] = 1;
 		if (q_full(now.cmCommand[ Index(((P1 *)_this)->i, 4) ]))
@@ -1205,7 +1205,7 @@
 		
 		qsend(now.cmCommand[ Index(((P1 *)_this)->i, 4) ], 0, 1, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 77: // STATE 131 - problem2.pml:198 - [i = (i+1)] (0:0:1 - 1)
+	case 77: // STATE 131 - problem2.pml:201 - [i = (i+1)] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][131] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
@@ -1215,7 +1215,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 78: // STATE 137 - problem2.pml:201 - [cmAbleWcp!2] (0:0:0 - 3)
+	case 78: // STATE 137 - problem2.pml:204 - [cmAbleWcp!2] (0:0:0 - 3)
 		IfNotBlocked
 		reached[1][137] = 1;
 		if (q_full(now.cmAbleWcp))
@@ -1229,7 +1229,7 @@
 		
 		qsend(now.cmAbleWcp, 0, 2, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 79: // STATE 140 - problem2.pml:203 - [((currStatus==1))] (154:0:3 - 1)
+	case 79: // STATE 140 - problem2.pml:206 - [((currStatus==1))] (154:0:3 - 1)
 		IfNotBlocked
 		reached[1][140] = 1;
 		if (!((((P1 *)_this)->currStatus==1)))
@@ -1261,13 +1261,13 @@
 		reached[1][155] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 80: // STATE 143 - problem2.pml:205 - [((i<=(4-1)))] (0:0:0 - 1)
+	case 80: // STATE 143 - problem2.pml:208 - [((i<=(4-1)))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][143] = 1;
 		if (!((((P1 *)_this)->i<=(4-1))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 81: // STATE 144 - problem2.pml:206 - [clientReport?reportStatus,id] (0:0:2 - 1)
+	case 81: // STATE 144 - problem2.pml:209 - [clientReport?reportStatus,id] (0:0:2 - 1)
 		reached[1][144] = 1;
 		if (q_len(now.clientReport) == 0) continue;
 
@@ -1296,7 +1296,7 @@
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 82: // STATE 145 - problem2.pml:208 - [((reportStatus==1))] (154:0:3 - 1)
+	case 82: // STATE 145 - problem2.pml:211 - [((reportStatus==1))] (154:0:3 - 1)
 		IfNotBlocked
 		reached[1][145] = 1;
 		if (!((((P1 *)_this)->reportStatus==1)))
@@ -1331,7 +1331,7 @@
 		reached[1][155] = 1;
 		;
 		_m = 3; goto P999; /* 4 */
-	case 83: // STATE 148 - problem2.pml:209 - [(1)] (154:0:1 - 1)
+	case 83: // STATE 148 - problem2.pml:212 - [(1)] (154:0:1 - 1)
 		IfNotBlocked
 		reached[1][148] = 1;
 		if (!(1))
@@ -1351,7 +1351,7 @@
 		reached[1][155] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 84: // STATE 151 - problem2.pml:205 - [i = (i+1)] (0:154:1 - 3)
+	case 84: // STATE 151 - problem2.pml:208 - [i = (i+1)] (0:154:1 - 3)
 		IfNotBlocked
 		reached[1][151] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
@@ -1364,7 +1364,7 @@
 		reached[1][155] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 85: // STATE 157 - problem2.pml:213 - [(hasFail)] (159:0:2 - 1)
+	case 85: // STATE 157 - problem2.pml:216 - [(hasFail)] (159:0:2 - 1)
 		IfNotBlocked
 		reached[1][157] = 1;
 		if (!(((int)((P1 *)_this)->hasFail)))
@@ -1385,7 +1385,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 1 */
-	case 86: // STATE 159 - problem2.pml:214 - [cmAbleWcp!2] (0:0:0 - 1)
+	case 86: // STATE 159 - problem2.pml:217 - [cmAbleWcp!2] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][159] = 1;
 		if (q_full(now.cmAbleWcp))
@@ -1399,7 +1399,7 @@
 		
 		qsend(now.cmAbleWcp, 0, 2, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 87: // STATE 161 - problem2.pml:215 - [currStatus = 8] (0:168:2 - 1)
+	case 87: // STATE 161 - problem2.pml:218 - [currStatus = 8] (0:168:2 - 1)
 		IfNotBlocked
 		reached[1][161] = 1;
 		(trpt+1)->bup.ovals = grab_ints(2);
@@ -1421,13 +1421,13 @@
 		reached[1][169] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 88: // STATE 163 - problem2.pml:216 - [((i<=(4-1)))] (0:0:0 - 1)
+	case 88: // STATE 163 - problem2.pml:219 - [((i<=(4-1)))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][163] = 1;
 		if (!((((P1 *)_this)->i<=(4-1))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 89: // STATE 164 - problem2.pml:217 - [cmCommand[i]!1] (0:0:0 - 1)
+	case 89: // STATE 164 - problem2.pml:220 - [cmCommand[i]!1] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][164] = 1;
 		if (q_full(now.cmCommand[ Index(((P1 *)_this)->i, 4) ]))
@@ -1441,7 +1441,7 @@
 		
 		qsend(now.cmCommand[ Index(((P1 *)_this)->i, 4) ], 0, 1, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 90: // STATE 165 - problem2.pml:216 - [i = (i+1)] (0:0:1 - 1)
+	case 90: // STATE 165 - problem2.pml:219 - [i = (i+1)] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][165] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
@@ -1451,7 +1451,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 91: // STATE 171 - problem2.pml:219 - [cmAbleWcp!2] (0:0:0 - 3)
+	case 91: // STATE 171 - problem2.pml:222 - [cmAbleWcp!2] (0:0:0 - 3)
 		IfNotBlocked
 		reached[1][171] = 1;
 		if (q_full(now.cmAbleWcp))
@@ -1465,7 +1465,7 @@
 		
 		qsend(now.cmAbleWcp, 0, 2, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 92: // STATE 177 - problem2.pml:222 - [-end-] (0:0:0 - 1)
+	case 92: // STATE 177 - problem2.pml:225 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][177] = 1;
 		if (!delproc(1, II)) continue;
