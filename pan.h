@@ -133,24 +133,24 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates3	9	/* :init: */
-#define minseq3	235
-#define maxseq3	242
+#define minseq3	304
+#define maxseq3	311
 #define _endstate3	8
 
 #define _nstates2	15	/* ControlPanel */
-#define minseq2	221
-#define maxseq2	234
+#define minseq2	290
+#define maxseq2	303
 #define _endstate2	14
 
-#define _nstates1	148	/* CommsManager */
-#define minseq1	74
-#define maxseq1	220
-#define _endstate1	147
+#define _nstates1	178	/* CommsManager */
+#define minseq1	113
+#define maxseq1	289
+#define _endstate1	177
 
-#define _nstates0	75	/* Client */
+#define _nstates0	114	/* Client */
 #define minseq0	0
-#define maxseq0	73
-#define _endstate0	74
+#define maxseq0	112
+#define _endstate0	113
 
 extern short src_ln3[];
 extern short src_ln2[];
@@ -161,12 +161,12 @@ extern S_F_MAP src_file2[];
 extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
-#define T_ID	unsigned char
-#define _T5	135
-#define _T2	136
+#define T_ID	unsigned short
+#define _T5	143
+#define _T2	144
 #define WS		4 /* word size in bytes */
 #define SYNC	0
-#define ASYNC	8
+#define ASYNC	7
 
 #ifndef NCORE
 	#ifdef DUAL_CORE
@@ -212,7 +212,7 @@ typedef struct P1 { /* CommsManager */
 	unsigned _priority : 8; /* 0..255 */
 #endif
 	unsigned hasFail : 1;
-	uchar connectedClients;
+	uchar connectedClients[4];
 	uchar currStatus;
 	uchar reportStatus;
 	uchar button;
@@ -236,6 +236,7 @@ typedef struct P0 { /* Client */
 	unsigned useOldInfoSuccess : 1;
 	uchar currStatus;
 	uchar reply;
+	uchar currCommand;
 	int id;
 } P0;
 #define Air0	(sizeof(P0) - Offsetof(P0, id) - 1*sizeof(int))
@@ -478,8 +479,8 @@ typedef struct TRIX_v6 {
 #define _start4	0 /* np_ */
 #define _start3	7
 #define _start2	11
-#define _start1	144
-#define _start0	71
+#define _start1	1
+#define _start0	110
 #ifdef NP
 	#define ACCEPT_LAB	1 /* at least 1 in np_ */
 #else
@@ -512,14 +513,7 @@ typedef struct TRIX_v6 {
 	#define MEMLIM	(2048)	/* need a default, using 2 GB */
 #endif
 #define PROG_LAB	0 /* progress labels */
-#define NQS	17
-typedef struct Q17 {
-	uchar Qlen;	/* q_size */
-	uchar _t;	/* q_type */
-	struct {
-		uchar fld0;
-	} contents[1];
-} Q17;
+#define NQS	16
 typedef struct Q16 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
@@ -560,15 +554,15 @@ typedef struct Q11 {
 	uchar _t;	/* q_type */
 	struct {
 		uchar fld0;
-		int fld1;
-	} contents[4];
+	} contents[1];
 } Q11;
 typedef struct Q10 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
 		uchar fld0;
-	} contents[1];
+		int fld1;
+	} contents[4];
 } Q10;
 typedef struct Q9 {
 	uchar Qlen;	/* q_size */
@@ -623,8 +617,8 @@ typedef struct Q2 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-	} contents[4];
+		uchar fld0;
+	} contents[1];
 } Q2;
 typedef struct Q1 {
 	uchar Qlen;	/* q_size */
@@ -959,7 +953,7 @@ void qsend(int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	137
+#define NTRANS	145
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);
