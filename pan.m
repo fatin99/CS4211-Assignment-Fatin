@@ -20,1522 +20,950 @@
 		_m = 3; goto P999;
 
 		 /* PROC :init: */
-	case 3: // STATE 1 - problem1-retry.pml:187 - [(run Shuttle(4,2,1,0))] (0:0:0 - 1)
+	case 3: // STATE 1 - problem2.pml:106 - [(run Client(0))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[3][1] = 1;
-		if (!(addproc(II, 1, 1, 4, 2, 1, 0, 0, 0)))
+		if (!(addproc(II, 1, 0, 0)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 4: // STATE 2 - problem1-retry.pml:188 - [(run Shuttle(2,4,1,1))] (0:0:0 - 1)
+	case 4: // STATE 2 - problem2.pml:107 - [(run Client(1))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[3][2] = 1;
-		if (!(addproc(II, 1, 1, 2, 4, 1, 1, 0, 0)))
+		if (!(addproc(II, 1, 0, 1)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 5: // STATE 3 - problem1-retry.pml:189 - [(run Shuttle(5,1,2,2))] (0:0:0 - 1)
+	case 5: // STATE 3 - problem2.pml:108 - [(run Client(2))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[3][3] = 1;
-		if (!(addproc(II, 1, 1, 5, 1, 2, 2, 0, 0)))
+		if (!(addproc(II, 1, 0, 2)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 6: // STATE 4 - problem1-retry.pml:190 - [(run Shuttle(3,3,3,3))] (0:0:0 - 1)
+	case 6: // STATE 4 - problem2.pml:109 - [(run Client(3))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[3][4] = 1;
-		if (!(addproc(II, 1, 1, 3, 3, 3, 3, 0, 0)))
+		if (!(addproc(II, 1, 0, 3)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 7: // STATE 5 - problem1-retry.pml:191 - [] (0:13:6 - 1)
+	case 7: // STATE 5 - problem2.pml:110 - [(run CommsManager())] (0:0:0 - 1)
 		IfNotBlocked
 		reached[3][5] = 1;
-		;
-		/* merge: first.size = 4(13, 6, 13) */
+		if (!(addproc(II, 1, 1, 0)))
+			continue;
+		_m = 3; goto P999; /* 0 */
+	case 8: // STATE 6 - problem2.pml:111 - [(run ControlPanel())] (0:0:0 - 1)
+		IfNotBlocked
 		reached[3][6] = 1;
-		(trpt+1)->bup.ovals = grab_ints(6);
-		(trpt+1)->bup.ovals[0] = ((P3 *)_this)->_13_3_first.size;
-		((P3 *)_this)->_13_3_first.size = 4;
-#ifdef VAR_RANGES
-		logval(":init::first.size", ((P3 *)_this)->_13_3_first.size);
-#endif
-		;
-		/* merge: first.start = 1(13, 7, 13) */
-		reached[3][7] = 1;
-		(trpt+1)->bup.ovals[1] = ((P3 *)_this)->_13_3_first.start;
-		((P3 *)_this)->_13_3_first.start = 1;
-#ifdef VAR_RANGES
-		logval(":init::first.start", ((P3 *)_this)->_13_3_first.start);
-#endif
-		;
-		/* merge: first.end = 3(13, 8, 13) */
+		if (!(addproc(II, 1, 2, 0)))
+			continue;
+		_m = 3; goto P999; /* 0 */
+	case 9: // STATE 8 - problem2.pml:113 - [-end-] (0:0:0 - 1)
+		IfNotBlocked
 		reached[3][8] = 1;
-		(trpt+1)->bup.ovals[2] = ((P3 *)_this)->_13_3_first.end;
-		((P3 *)_this)->_13_3_first.end = 3;
-#ifdef VAR_RANGES
-		logval(":init::first.end", ((P3 *)_this)->_13_3_first.end);
-#endif
-		;
-		/* merge: (13, 9, 13) */
-		reached[3][9] = 1;
-		;
-		/* merge: second.size = 2(13, 10, 13) */
-		reached[3][10] = 1;
-		(trpt+1)->bup.ovals[3] = ((P3 *)_this)->_13_3_second.size;
-		((P3 *)_this)->_13_3_second.size = 2;
-#ifdef VAR_RANGES
-		logval(":init::second.size", ((P3 *)_this)->_13_3_second.size);
-#endif
-		;
-		/* merge: second.start = 2(13, 11, 13) */
-		reached[3][11] = 1;
-		(trpt+1)->bup.ovals[4] = ((P3 *)_this)->_13_3_second.start;
-		((P3 *)_this)->_13_3_second.start = 2;
-#ifdef VAR_RANGES
-		logval(":init::second.start", ((P3 *)_this)->_13_3_second.start);
-#endif
-		;
-		/* merge: second.end = 3(13, 12, 13) */
-		reached[3][12] = 1;
-		(trpt+1)->bup.ovals[5] = ((P3 *)_this)->_13_3_second.end;
-		((P3 *)_this)->_13_3_second.end = 3;
-#ifdef VAR_RANGES
-		logval(":init::second.end", ((P3 *)_this)->_13_3_second.end);
-#endif
-		;
-		_m = 3; goto P999; /* 7 */
-	case 8: // STATE 13 - problem1-retry.pml:193 - [(run ShuttleManagementSystem(first.start,first.end,first.size,second.start,second.end,second.size))] (0:0:0 - 1)
-		IfNotBlocked
-		reached[3][13] = 1;
-		if (!(addproc(II, 1, 0, ((P3 *)_this)->_13_3_first.start, ((P3 *)_this)->_13_3_first.end, ((P3 *)_this)->_13_3_first.size, ((P3 *)_this)->_13_3_second.start, ((P3 *)_this)->_13_3_second.end, ((P3 *)_this)->_13_3_second.size)))
-			continue;
-		_m = 3; goto P999; /* 0 */
-	case 9: // STATE 14 - problem1-retry.pml:194 - [(run RailwayNetwork())] (0:0:0 - 1)
-		IfNotBlocked
-		reached[3][14] = 1;
-		if (!(addproc(II, 1, 2, 0, 0, 0, 0, 0, 0)))
-			continue;
-		_m = 3; goto P999; /* 0 */
-	case 10: // STATE 16 - problem1-retry.pml:196 - [-end-] (0:0:0 - 1)
-		IfNotBlocked
-		reached[3][16] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
-		 /* PROC RailwayNetwork */
-	case 11: // STATE 1 - problem1-retry.pml:167 - [shuttleToRailway?request.track,request.direction,request.id] (0:0:3 - 1)
+		 /* PROC ControlPanel */
+	case 10: // STATE 1 - problem2.pml:96 - [cmAbleWcp?able] (0:0:1 - 1)
 		reached[2][1] = 1;
-		if (q_len(now.shuttleToRailway) == 0) continue;
+		if (q_len(now.cmAbleWcp) == 0) continue;
 
 		XX=1;
-		(trpt+1)->bup.ovals = grab_ints(3);
-		(trpt+1)->bup.ovals[0] = ((P2 *)_this)->request.track;
-		(trpt+1)->bup.ovals[1] = ((P2 *)_this)->request.direction;
-		(trpt+1)->bup.ovals[2] = ((P2 *)_this)->request.id;
+		(trpt+1)->bup.oval = now.able;
 		;
-		((P2 *)_this)->request.track = qrecv(now.shuttleToRailway, XX-1, 0, 0);
+		now.able = qrecv(now.cmAbleWcp, XX-1, 0, 1);
 #ifdef VAR_RANGES
-		logval("RailwayNetwork:request.track", ((P2 *)_this)->request.track);
-#endif
-		;
-		((P2 *)_this)->request.direction = qrecv(now.shuttleToRailway, XX-1, 1, 0);
-#ifdef VAR_RANGES
-		logval("RailwayNetwork:request.direction", ((P2 *)_this)->request.direction);
-#endif
-		;
-		((P2 *)_this)->request.id = qrecv(now.shuttleToRailway, XX-1, 2, 1);
-#ifdef VAR_RANGES
-		logval("RailwayNetwork:request.id", ((P2 *)_this)->request.id);
+		logval("able", now.able);
 #endif
 		;
 		
 #ifdef HAS_CODE
 		if (readtrail && gui) {
 			char simtmp[32];
-			sprintf(simvals, "%d?", now.shuttleToRailway);
-		sprintf(simtmp, "%d", ((P2 *)_this)->request.track); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P2 *)_this)->request.direction); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P2 *)_this)->request.id); strcat(simvals, simtmp);		}
+			sprintf(simvals, "%d?", now.cmAbleWcp);
+		sprintf(simtmp, "%d", now.able); strcat(simvals, simtmp);		}
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 12: // STATE 2 - problem1-retry.pml:169 - [] (0:0:0 - 1)
+	case 11: // STATE 2 - problem2.pml:98 - [((able==2))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][2] = 1;
-		;
+		if (!((now.able==2)))
+			continue;
 		_m = 3; goto P999; /* 0 */
-	case 13: // STATE 3 - problem1-retry.pml:170 - [request.direction = 1] (0:0:1 - 1)
+	case 12: // STATE 3 - problem2.pml:98 - [disabled = 0] (0:0:1 - 1)
 		IfNotBlocked
 		reached[2][3] = 1;
-		(trpt+1)->bup.oval = ((P2 *)_this)->request.direction;
-		((P2 *)_this)->request.direction = 1;
+		(trpt+1)->bup.oval = ((int)((P2 *)_this)->disabled);
+		((P2 *)_this)->disabled = 0;
 #ifdef VAR_RANGES
-		logval("RailwayNetwork:request.direction", ((P2 *)_this)->request.direction);
+		logval("ControlPanel:disabled", ((int)((P2 *)_this)->disabled));
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 14: // STATE 4 - problem1-retry.pml:172 - [(!(tracks.trackL2R[request.track]))] (0:0:0 - 1)
-		IfNotBlocked
-		reached[2][4] = 1;
-		if (!( !(((int)now.tracks.trackL2R[ Index(((P2 *)_this)->request.track, 4) ]))))
-			continue;
-		_m = 3; goto P999; /* 0 */
-	case 15: // STATE 5 - problem1-retry.pml:172 - [tracks.trackL2R[request.track] = 1] (0:0:1 - 1)
+	case 13: // STATE 5 - problem2.pml:99 - [disabled = 1] (0:0:2 - 1)
 		IfNotBlocked
 		reached[2][5] = 1;
-		(trpt+1)->bup.oval = ((int)now.tracks.trackL2R[ Index(((P2 *)_this)->request.track, 4) ]);
-		now.tracks.trackL2R[ Index(((P2 *)_this)->request.track, 4) ] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((int)((P2 *)_this)->disabled);
+		((P2 *)_this)->disabled = 1;
 #ifdef VAR_RANGES
-		logval("tracks.trackL2R[RailwayNetwork:request.track]", ((int)now.tracks.trackL2R[ Index(((P2 *)_this)->request.track, 4) ]));
+		logval("ControlPanel:disabled", ((int)((P2 *)_this)->disabled));
 #endif
 		;
-		_m = 3; goto P999; /* 0 */
-	case 16: // STATE 6 - problem1-retry.pml:172 - [reply.allowed = 1] (0:0:1 - 1)
-		IfNotBlocked
-		reached[2][6] = 1;
-		(trpt+1)->bup.oval = ((int)((P2 *)_this)->reply.allowed);
-		((P2 *)_this)->reply.allowed = 1;
-#ifdef VAR_RANGES
-		logval("RailwayNetwork:reply.allowed", ((int)((P2 *)_this)->reply.allowed));
-#endif
-		;
-		_m = 3; goto P999; /* 0 */
-	case 17: // STATE 8 - problem1-retry.pml:173 - [reply.allowed = 0] (0:0:1 - 1)
-		IfNotBlocked
-		reached[2][8] = 1;
-		(trpt+1)->bup.oval = ((int)((P2 *)_this)->reply.allowed);
-		((P2 *)_this)->reply.allowed = 0;
-#ifdef VAR_RANGES
-		logval("RailwayNetwork:reply.allowed", ((int)((P2 *)_this)->reply.allowed));
-#endif
-		;
-		_m = 3; goto P999; /* 0 */
-	case 18: // STATE 12 - problem1-retry.pml:177 - [(!(tracks.trackR2L[request.track]))] (0:0:0 - 1)
-		IfNotBlocked
-		reached[2][12] = 1;
-		if (!( !(((int)now.tracks.trackR2L[ Index(((P2 *)_this)->request.track, 4) ]))))
-			continue;
-		_m = 3; goto P999; /* 0 */
-	case 19: // STATE 13 - problem1-retry.pml:177 - [tracks.trackL2R[request.track] = 1] (0:0:1 - 1)
-		IfNotBlocked
-		reached[2][13] = 1;
-		(trpt+1)->bup.oval = ((int)now.tracks.trackL2R[ Index(((P2 *)_this)->request.track, 4) ]);
-		now.tracks.trackL2R[ Index(((P2 *)_this)->request.track, 4) ] = 1;
-#ifdef VAR_RANGES
-		logval("tracks.trackL2R[RailwayNetwork:request.track]", ((int)now.tracks.trackL2R[ Index(((P2 *)_this)->request.track, 4) ]));
-#endif
-		;
-		_m = 3; goto P999; /* 0 */
-	case 20: // STATE 14 - problem1-retry.pml:177 - [reply.allowed = 1] (0:0:1 - 1)
-		IfNotBlocked
-		reached[2][14] = 1;
-		(trpt+1)->bup.oval = ((int)((P2 *)_this)->reply.allowed);
-		((P2 *)_this)->reply.allowed = 1;
-#ifdef VAR_RANGES
-		logval("RailwayNetwork:reply.allowed", ((int)((P2 *)_this)->reply.allowed));
-#endif
-		;
-		_m = 3; goto P999; /* 0 */
-	case 21: // STATE 16 - problem1-retry.pml:178 - [reply.allowed = 0] (0:0:1 - 1)
-		IfNotBlocked
-		reached[2][16] = 1;
-		(trpt+1)->bup.oval = ((int)((P2 *)_this)->reply.allowed);
-		((P2 *)_this)->reply.allowed = 0;
-#ifdef VAR_RANGES
-		logval("RailwayNetwork:reply.allowed", ((int)((P2 *)_this)->reply.allowed));
-#endif
-		;
-		_m = 3; goto P999; /* 0 */
-	case 22: // STATE 21 - problem1-retry.pml:181 - [railwayToShuttle[request.id]!reply.allowed] (0:0:0 - 7)
-		IfNotBlocked
-		reached[2][21] = 1;
-		if (q_full(now.railwayToShuttle[ Index(((P2 *)_this)->request.id, 4) ]))
-			continue;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: disabled */  
 #ifdef HAS_CODE
-		if (readtrail && gui) {
-			char simtmp[64];
-			sprintf(simvals, "%d!", now.railwayToShuttle[ Index(((P2 *)_this)->request.id, 4) ]);
-		sprintf(simtmp, "%d", ((int)((P2 *)_this)->reply.allowed)); strcat(simvals, simtmp);		}
+		if (!readtrail)
 #endif
-		
-		qsend(now.railwayToShuttle[ Index(((P2 *)_this)->request.id, 4) ], 0, ((int)((P2 *)_this)->reply.allowed), 0, 0, 1);
-		_m = 2; goto P999; /* 0 */
-	case 23: // STATE 25 - problem1-retry.pml:183 - [-end-] (0:0:0 - 1)
+			((P2 *)_this)->disabled = 0;
+		_m = 3; goto P999; /* 0 */
+	case 14: // STATE 11 - problem2.pml:102 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
-		reached[2][25] = 1;
+		reached[2][11] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
-		 /* PROC Shuttle */
-	case 24: // STATE 1 - problem1-retry.pml:78 - [managementToShuttle[id]?order.start,order.end,order.size] (0:0:3 - 1)
+		 /* PROC CommsManager */
+	case 15: // STATE 1 - problem2.pml:59 - [cmConnectRequest?id] (0:0:1 - 1)
 		reached[1][1] = 1;
-		if (q_len(now.managementToShuttle[ Index(((P1 *)_this)->id, 4) ]) == 0) continue;
+		if (q_len(now.cmConnectRequest) == 0) continue;
 
 		XX=1;
-		(trpt+1)->bup.ovals = grab_ints(3);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->order.start;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->order.end;
-		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->order.size;
+		(trpt+1)->bup.oval = ((P1 *)_this)->id;
 		;
-		((P1 *)_this)->order.start = qrecv(now.managementToShuttle[ Index(((P1 *)_this)->id, 4) ], XX-1, 0, 0);
+		((P1 *)_this)->id = qrecv(now.cmConnectRequest, XX-1, 0, 1);
 #ifdef VAR_RANGES
-		logval("Shuttle:order.start", ((P1 *)_this)->order.start);
-#endif
-		;
-		((P1 *)_this)->order.end = qrecv(now.managementToShuttle[ Index(((P1 *)_this)->id, 4) ], XX-1, 1, 0);
-#ifdef VAR_RANGES
-		logval("Shuttle:order.end", ((P1 *)_this)->order.end);
-#endif
-		;
-		((P1 *)_this)->order.size = qrecv(now.managementToShuttle[ Index(((P1 *)_this)->id, 4) ], XX-1, 2, 1);
-#ifdef VAR_RANGES
-		logval("Shuttle:order.size", ((P1 *)_this)->order.size);
+		logval("CommsManager:id", ((P1 *)_this)->id);
 #endif
 		;
 		
 #ifdef HAS_CODE
 		if (readtrail && gui) {
 			char simtmp[32];
-			sprintf(simvals, "%d?", now.managementToShuttle[ Index(((P1 *)_this)->id, 4) ]);
-		sprintf(simtmp, "%d", ((P1 *)_this)->order.start); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P1 *)_this)->order.end); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P1 *)_this)->order.size); strcat(simvals, simtmp);		}
+			sprintf(simvals, "%d?", now.cmConnectRequest);
+		sprintf(simtmp, "%d", ((P1 *)_this)->id); strcat(simvals, simtmp);		}
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 25: // STATE 2 - problem1-retry.pml:80 - [currentPosition = 0] (0:0:1 - 1)
+	case 16: // STATE 2 - problem2.pml:61 - [reply = 0] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][2] = 1;
-		(trpt+1)->bup.oval = ((P1 *)_this)->currentPosition;
-		((P1 *)_this)->currentPosition = 0;
+		(trpt+1)->bup.oval = ((P1 *)_this)->reply;
+		((P1 *)_this)->reply = 0;
 #ifdef VAR_RANGES
-		logval("Shuttle:currentPosition", ((P1 *)_this)->currentPosition);
+		logval("CommsManager:reply", ((P1 *)_this)->reply);
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 26: // STATE 3 - problem1-retry.pml:81 - [(travelling)] (14:0:2 - 1)
+	case 17: // STATE 3 - problem2.pml:62 - [(4)] (6:0:3 - 1)
 		IfNotBlocked
 		reached[1][3] = 1;
-		if (!(((int)((P1 *)_this)->travelling)))
+		if (!(4))
 			continue;
-		/* merge: currentPosition = (currentStation+direction)(14, 4, 14) */
+		/* merge: reply = 2(6, 4, 6) */
 		reached[1][4] = 1;
-		(trpt+1)->bup.ovals = grab_ints(2);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->currentPosition;
-		((P1 *)_this)->currentPosition = (((P1 *)_this)->currentStation+((P1 *)_this)->direction);
+		(trpt+1)->bup.ovals = grab_ints(3);
+		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->reply;
+		((P1 *)_this)->reply = 2;
 #ifdef VAR_RANGES
-		logval("Shuttle:currentPosition", ((P1 *)_this)->currentPosition);
+		logval("CommsManager:reply", ((P1 *)_this)->reply);
 #endif
 		;
-		/* merge: .(goto)(14, 8, 14) */
-		reached[1][8] = 1;
-		;
-		/* merge: distance = 0(14, 9, 14) */
-		reached[1][9] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->distance;
-		((P1 *)_this)->distance = 0;
+		/* merge: initStatus = 3(6, 5, 6) */
+		reached[1][5] = 1;
+		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->initStatus;
+		((P1 *)_this)->initStatus = 3;
 #ifdef VAR_RANGES
-		logval("Shuttle:distance", ((P1 *)_this)->distance);
+		logval("CommsManager:initStatus", ((P1 *)_this)->initStatus);
 #endif
 		;
-		_m = 3; goto P999; /* 3 */
-	case 27: // STATE 6 - problem1-retry.pml:82 - [currentPosition = currentStation] (0:14:2 - 1)
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->initStatus = 0;
+		_m = 3; goto P999; /* 2 */
+	case 18: // STATE 6 - problem2.pml:63 - [connectedClients!id] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][6] = 1;
-		(trpt+1)->bup.ovals = grab_ints(2);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->currentPosition;
-		((P1 *)_this)->currentPosition = ((P1 *)_this)->currentStation;
-#ifdef VAR_RANGES
-		logval("Shuttle:currentPosition", ((P1 *)_this)->currentPosition);
+		if (q_full(((P1 *)_this)->connectedClients))
+			continue;
+#ifdef HAS_CODE
+		if (readtrail && gui) {
+			char simtmp[64];
+			sprintf(simvals, "%d!", ((P1 *)_this)->connectedClients);
+		sprintf(simtmp, "%d", ((P1 *)_this)->id); strcat(simvals, simtmp);		}
 #endif
-		;
-		/* merge: .(goto)(14, 8, 14) */
-		reached[1][8] = 1;
-		;
-		/* merge: distance = 0(14, 9, 14) */
-		reached[1][9] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->distance;
-		((P1 *)_this)->distance = 0;
-#ifdef VAR_RANGES
-		logval("Shuttle:distance", ((P1 *)_this)->distance);
-#endif
-		;
-		_m = 3; goto P999; /* 2 */
-	case 28: // STATE 9 - problem1-retry.pml:85 - [distance = 0] (0:14:1 - 3)
+		
+		qsend(((P1 *)_this)->connectedClients, 0, ((P1 *)_this)->id, 0, 1);
+		_m = 2; goto P999; /* 0 */
+	case 19: // STATE 7 - problem2.pml:64 - [able = 1] (0:0:1 - 1)
 		IfNotBlocked
-		reached[1][9] = 1;
-		(trpt+1)->bup.oval = ((P1 *)_this)->distance;
-		((P1 *)_this)->distance = 0;
+		reached[1][7] = 1;
+		(trpt+1)->bup.oval = now.able;
+		now.able = 1;
 #ifdef VAR_RANGES
-		logval("Shuttle:distance", ((P1 *)_this)->distance);
+		logval("able", now.able);
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 29: // STATE 10 - problem1-retry.pml:86 - [((currentPosition>order.start))] (20:0:1 - 1)
+	case 20: // STATE 8 - problem2.pml:64 - [cmAbleWcp!able] (0:0:0 - 1)
+		IfNotBlocked
+		reached[1][8] = 1;
+		if (q_full(now.cmAbleWcp))
+			continue;
+#ifdef HAS_CODE
+		if (readtrail && gui) {
+			char simtmp[64];
+			sprintf(simvals, "%d!", now.cmAbleWcp);
+		sprintf(simtmp, "%d", now.able); strcat(simvals, simtmp);		}
+#endif
+		
+		qsend(now.cmAbleWcp, 0, now.able, 0, 1);
+		_m = 2; goto P999; /* 0 */
+	case 21: // STATE 10 - problem2.pml:65 - [reply = 1] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][10] = 1;
-		if (!((((P1 *)_this)->currentPosition>((P1 *)_this)->order.start)))
-			continue;
-		/* merge: distance = (currentPosition-order.start)(0, 11, 20) */
-		reached[1][11] = 1;
-		(trpt+1)->bup.oval = ((P1 *)_this)->distance;
-		((P1 *)_this)->distance = (((P1 *)_this)->currentPosition-((P1 *)_this)->order.start);
+		(trpt+1)->bup.oval = ((P1 *)_this)->reply;
+		((P1 *)_this)->reply = 1;
 #ifdef VAR_RANGES
-		logval("Shuttle:distance", ((P1 *)_this)->distance);
+		logval("CommsManager:reply", ((P1 *)_this)->reply);
 #endif
 		;
-		/* merge: .(goto)(0, 15, 20) */
-		reached[1][15] = 1;
-		;
-		_m = 3; goto P999; /* 2 */
-	case 30: // STATE 13 - problem1-retry.pml:87 - [distance = (order.start-currentPosition)] (0:0:1 - 1)
+		_m = 3; goto P999; /* 0 */
+	case 22: // STATE 13 - problem2.pml:67 - [cmConnectReply[id]!reply] (0:0:0 - 3)
 		IfNotBlocked
 		reached[1][13] = 1;
-		(trpt+1)->bup.oval = ((P1 *)_this)->distance;
-		((P1 *)_this)->distance = (((P1 *)_this)->order.start-((P1 *)_this)->currentPosition);
+		if (q_full(now.cmConnectReply[ Index(((P1 *)_this)->id, 4) ]))
+			continue;
+#ifdef HAS_CODE
+		if (readtrail && gui) {
+			char simtmp[64];
+			sprintf(simvals, "%d!", now.cmConnectReply[ Index(((P1 *)_this)->id, 4) ]);
+		sprintf(simtmp, "%d", ((P1 *)_this)->reply); strcat(simvals, simtmp);		}
+#endif
+		
+		qsend(now.cmConnectReply[ Index(((P1 *)_this)->id, 4) ], 0, ((P1 *)_this)->reply, 0, 1);
+		_m = 2; goto P999; /* 0 */
+	case 23: // STATE 14 - problem2.pml:68 - [initStatus = 3] (0:0:2 - 1)
+		IfNotBlocked
+		reached[1][14] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->initStatus;
+		((P1 *)_this)->initStatus = 3;
 #ifdef VAR_RANGES
-		logval("Shuttle:distance", ((P1 *)_this)->distance);
+		logval("CommsManager:initStatus", ((P1 *)_this)->initStatus);
 #endif
 		;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->initStatus = 0;
 		_m = 3; goto P999; /* 0 */
-	case 31: // STATE 16 - problem1-retry.pml:90 - [((distance>(4/2)))] (31:0:1 - 1)
+	case 24: // STATE 15 - problem2.pml:69 - [cmCommand[id]!2] (0:0:0 - 1)
+		IfNotBlocked
+		reached[1][15] = 1;
+		if (q_full(now.cmCommand[ Index(((P1 *)_this)->id, 4) ]))
+			continue;
+#ifdef HAS_CODE
+		if (readtrail && gui) {
+			char simtmp[64];
+			sprintf(simvals, "%d!", now.cmCommand[ Index(((P1 *)_this)->id, 4) ]);
+		sprintf(simtmp, "%d", 2); strcat(simvals, simtmp);		}
+#endif
+		
+		qsend(now.cmCommand[ Index(((P1 *)_this)->id, 4) ], 0, 2, 0, 1);
+		_m = 2; goto P999; /* 0 */
+	case 25: // STATE 16 - problem2.pml:70 - [initStatus = 2] (0:0:2 - 1)
 		IfNotBlocked
 		reached[1][16] = 1;
-		if (!((((P1 *)_this)->distance>(4/2))))
-			continue;
-		/* merge: distance = (4-distance)(31, 17, 31) */
-		reached[1][17] = 1;
-		(trpt+1)->bup.oval = ((P1 *)_this)->distance;
-		((P1 *)_this)->distance = (4-((P1 *)_this)->distance);
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->initStatus;
+		((P1 *)_this)->initStatus = 2;
 #ifdef VAR_RANGES
-		logval("Shuttle:distance", ((P1 *)_this)->distance);
+		logval("CommsManager:initStatus", ((P1 *)_this)->initStatus);
 #endif
 		;
-		/* merge: .(goto)(31, 21, 31) */
-		reached[1][21] = 1;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->initStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 26: // STATE 17 - problem2.pml:71 - [initStatus = 2] (0:0:2 - 1)
+		IfNotBlocked
+		reached[1][17] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->initStatus;
+		((P1 *)_this)->initStatus = 2;
+#ifdef VAR_RANGES
+		logval("CommsManager:initStatus", ((P1 *)_this)->initStatus);
+#endif
 		;
-		/* merge: (31, 22, 31) */
-		reached[1][22] = 1;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->initStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 27: // STATE 18 - problem2.pml:72 - [clientReport?reportStatus,id] (0:0:2 - 1)
+		reached[1][18] = 1;
+		if (q_len(now.clientReport) == 0) continue;
+
+		XX=1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->reportStatus;
+		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->id;
 		;
-		_m = 3; goto P999; /* 3 */
-	case 32: // STATE 19 - problem1-retry.pml:91 - [distance = distance] (0:31:1 - 1)
+		((P1 *)_this)->reportStatus = qrecv(now.clientReport, XX-1, 0, 0);
+#ifdef VAR_RANGES
+		logval("CommsManager:reportStatus", ((P1 *)_this)->reportStatus);
+#endif
+		;
+		((P1 *)_this)->id = qrecv(now.clientReport, XX-1, 1, 1);
+#ifdef VAR_RANGES
+		logval("CommsManager:id", ((P1 *)_this)->id);
+#endif
+		;
+		
+#ifdef HAS_CODE
+		if (readtrail && gui) {
+			char simtmp[32];
+			sprintf(simvals, "%d?", now.clientReport);
+		sprintf(simtmp, "%d", ((P1 *)_this)->reportStatus); strcat(simvals, simtmp);		strcat(simvals, ",");
+		sprintf(simtmp, "%d", ((P1 *)_this)->id); strcat(simvals, simtmp);		}
+#endif
+		;
+		_m = 4; goto P999; /* 0 */
+	case 28: // STATE 19 - problem2.pml:74 - [((reportStatus==2))] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][19] = 1;
-		(trpt+1)->bup.oval = ((P1 *)_this)->distance;
-		((P1 *)_this)->distance = ((P1 *)_this)->distance;
-#ifdef VAR_RANGES
-		logval("Shuttle:distance", ((P1 *)_this)->distance);
-#endif
-		;
-		/* merge: .(goto)(31, 21, 31) */
-		reached[1][21] = 1;
-		;
-		/* merge: (31, 22, 31) */
-		reached[1][22] = 1;
-		;
-		_m = 3; goto P999; /* 2 */
-	case 33: // STATE 22 - problem1-retry.pml:94 - [] (0:31:0 - 3)
-		IfNotBlocked
-		reached[1][22] = 1;
-		;
-		_m = 3; goto P999; /* 0 */
-	case 34: // STATE 23 - problem1-retry.pml:95 - [((((currentLoad+order.size)<=capacity)&&(distance<=2)))] (33:0:4 - 1)
-		IfNotBlocked
-		reached[1][23] = 1;
-		if (!((((((P1 *)_this)->currentLoad+((P1 *)_this)->order.size)<=((P1 *)_this)->capacity)&&(((P1 *)_this)->distance<=2))))
+		if (!((((P1 *)_this)->reportStatus==2)))
 			continue;
 		if (TstOnly) return 1; /* TT */
-		/* dead 1: distance */  (trpt+1)->bup.ovals = grab_ints(4);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->distance;
+		/* dead 1: reportStatus */  (trpt+1)->bup.oval = ((P1 *)_this)->reportStatus;
 #ifdef HAS_CODE
 		if (!readtrail)
 #endif
-			((P1 *)_this)->distance = 0;
-		/* merge: offer.id = id(33, 24, 33) */
-		reached[1][24] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->offer.id;
-		((P1 *)_this)->offer.id = ((P1 *)_this)->id;
-#ifdef VAR_RANGES
-		logval("Shuttle:offer.id", ((P1 *)_this)->offer.id);
-#endif
-		;
-		/* merge: offer.charge = charge(33, 25, 33) */
-		reached[1][25] = 1;
-		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->offer.charge;
-		((P1 *)_this)->offer.charge = ((P1 *)_this)->charge;
-#ifdef VAR_RANGES
-		logval("Shuttle:offer.charge", ((P1 *)_this)->offer.charge);
-#endif
-		;
-		/* merge: offer.refuse = 0(33, 26, 33) */
-		reached[1][26] = 1;
-		(trpt+1)->bup.ovals[3] = ((int)((P1 *)_this)->offer.refuse);
-		((P1 *)_this)->offer.refuse = 0;
-#ifdef VAR_RANGES
-		logval("Shuttle:offer.refuse", ((int)((P1 *)_this)->offer.refuse));
-#endif
-		;
-		/* merge: .(goto)(0, 32, 33) */
-		reached[1][32] = 1;
-		;
-		_m = 3; goto P999; /* 4 */
-	case 35: // STATE 28 - problem1-retry.pml:98 - [offer.id = id] (0:33:3 - 1)
+			((P1 *)_this)->reportStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 29: // STATE 20 - problem2.pml:74 - [cmCommand[id]!1] (0:0:0 - 1)
 		IfNotBlocked
+		reached[1][20] = 1;
+		if (q_full(now.cmCommand[ Index(((P1 *)_this)->id, 4) ]))
+			continue;
+#ifdef HAS_CODE
+		if (readtrail && gui) {
+			char simtmp[64];
+			sprintf(simvals, "%d!", now.cmCommand[ Index(((P1 *)_this)->id, 4) ]);
+		sprintf(simtmp, "%d", 1); strcat(simvals, simtmp);		}
+#endif
+		
+		qsend(now.cmCommand[ Index(((P1 *)_this)->id, 4) ], 0, 1, 0, 1);
+		_m = 2; goto P999; /* 0 */
+	case 30: // STATE 21 - problem2.pml:75 - [initStatus = 1] (0:0:2 - 1)
+		IfNotBlocked
+		reached[1][21] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->initStatus;
+		((P1 *)_this)->initStatus = 1;
+#ifdef VAR_RANGES
+		logval("CommsManager:initStatus", ((P1 *)_this)->initStatus);
+#endif
+		;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->initStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 31: // STATE 22 - problem2.pml:76 - [((reportStatus==1))] (0:0:1 - 1)
+		IfNotBlocked
+		reached[1][22] = 1;
+		if (!((((P1 *)_this)->reportStatus==1)))
+			continue;
+		if (TstOnly) return 1; /* TT */
+		/* dead 1: reportStatus */  (trpt+1)->bup.oval = ((P1 *)_this)->reportStatus;
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->reportStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 32: // STATE 23 - problem2.pml:76 - [connectedClients?id] (0:0:1 - 1)
+		reached[1][23] = 1;
+		if (q_len(((P1 *)_this)->connectedClients) == 0) continue;
+
+		XX=1;
+		(trpt+1)->bup.oval = ((P1 *)_this)->id;
+		;
+		((P1 *)_this)->id = qrecv(((P1 *)_this)->connectedClients, XX-1, 0, 1);
+#ifdef VAR_RANGES
+		logval("CommsManager:id", ((P1 *)_this)->id);
+#endif
+		;
+		
+#ifdef HAS_CODE
+		if (readtrail && gui) {
+			char simtmp[32];
+			sprintf(simvals, "%d?", ((P1 *)_this)->connectedClients);
+		sprintf(simtmp, "%d", ((P1 *)_this)->id); strcat(simvals, simtmp);		}
+#endif
+		;
+		_m = 4; goto P999; /* 0 */
+	case 33: // STATE 24 - problem2.pml:77 - [initStatus = 4] (0:0:2 - 1)
+		IfNotBlocked
+		reached[1][24] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->initStatus;
+		((P1 *)_this)->initStatus = 4;
+#ifdef VAR_RANGES
+		logval("CommsManager:initStatus", ((P1 *)_this)->initStatus);
+#endif
+		;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->initStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 34: // STATE 27 - problem2.pml:79 - [initStatus = 1] (0:0:2 - 1)
+		IfNotBlocked
+		reached[1][27] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->initStatus;
+		((P1 *)_this)->initStatus = 1;
+#ifdef VAR_RANGES
+		logval("CommsManager:initStatus", ((P1 *)_this)->initStatus);
+#endif
+		;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->initStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 35: // STATE 28 - problem2.pml:80 - [clientReport?reportStatus,id] (0:0:2 - 1)
 		reached[1][28] = 1;
-		(trpt+1)->bup.ovals = grab_ints(3);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->offer.id;
-		((P1 *)_this)->offer.id = ((P1 *)_this)->id;
+		if (q_len(now.clientReport) == 0) continue;
+
+		XX=1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->reportStatus;
+		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->id;
+		;
+		((P1 *)_this)->reportStatus = qrecv(now.clientReport, XX-1, 0, 0);
 #ifdef VAR_RANGES
-		logval("Shuttle:offer.id", ((P1 *)_this)->offer.id);
+		logval("CommsManager:reportStatus", ((P1 *)_this)->reportStatus);
 #endif
 		;
-		/* merge: offer.charge = charge(33, 29, 33) */
+		((P1 *)_this)->id = qrecv(now.clientReport, XX-1, 1, 1);
+#ifdef VAR_RANGES
+		logval("CommsManager:id", ((P1 *)_this)->id);
+#endif
+		;
+		
+#ifdef HAS_CODE
+		if (readtrail && gui) {
+			char simtmp[32];
+			sprintf(simvals, "%d?", now.clientReport);
+		sprintf(simtmp, "%d", ((P1 *)_this)->reportStatus); strcat(simvals, simtmp);		strcat(simvals, ",");
+		sprintf(simtmp, "%d", ((P1 *)_this)->id); strcat(simvals, simtmp);		}
+#endif
+		;
+		_m = 4; goto P999; /* 0 */
+	case 36: // STATE 29 - problem2.pml:82 - [ability = 0] (0:0:1 - 1)
+		IfNotBlocked
 		reached[1][29] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->offer.charge;
-		((P1 *)_this)->offer.charge = ((P1 *)_this)->charge;
+		(trpt+1)->bup.oval = ((P1 *)_this)->ability;
+		((P1 *)_this)->ability = 0;
 #ifdef VAR_RANGES
-		logval("Shuttle:offer.charge", ((P1 *)_this)->offer.charge);
+		logval("CommsManager:ability", ((P1 *)_this)->ability);
 #endif
 		;
-		/* merge: offer.refuse = 1(33, 30, 33) */
+		_m = 3; goto P999; /* 0 */
+	case 37: // STATE 30 - problem2.pml:83 - [((reportStatus==2))] (33:0:5 - 1)
+		IfNotBlocked
 		reached[1][30] = 1;
-		(trpt+1)->bup.ovals[2] = ((int)((P1 *)_this)->offer.refuse);
-		((P1 *)_this)->offer.refuse = 1;
+		if (!((((P1 *)_this)->reportStatus==2)))
+			continue;
+		if (TstOnly) return 1; /* TT */
+		/* dead 1: reportStatus */  (trpt+1)->bup.ovals = grab_ints(5);
+		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->reportStatus;
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->reportStatus = 0;
+		/* merge: initStatus = 4(33, 31, 33) */
+		reached[1][31] = 1;
+		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->initStatus;
+		((P1 *)_this)->initStatus = 4;
 #ifdef VAR_RANGES
-		logval("Shuttle:offer.refuse", ((int)((P1 *)_this)->offer.refuse));
+		logval("CommsManager:initStatus", ((P1 *)_this)->initStatus);
 #endif
 		;
-		/* merge: .(goto)(0, 32, 33) */
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->initStatus = 0;
+		/* merge: ability = 2(33, 32, 33) */
 		reached[1][32] = 1;
+		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->ability;
+		((P1 *)_this)->ability = 2;
+#ifdef VAR_RANGES
+		logval("CommsManager:ability", ((P1 *)_this)->ability);
+#endif
 		;
-		_m = 3; goto P999; /* 3 */
-	case 36: // STATE 33 - problem1-retry.pml:100 - [shuttleToManagement!offer.id,offer.charge,offer.refuse] (0:0:0 - 3)
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: ability */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->ability = 0;
+		_m = 3; goto P999; /* 2 */
+	case 38: // STATE 33 - problem2.pml:84 - [cmAbleWcp!able] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][33] = 1;
-		if (q_full(now.shuttleToManagement))
+		if (q_full(now.cmAbleWcp))
 			continue;
 #ifdef HAS_CODE
 		if (readtrail && gui) {
 			char simtmp[64];
-			sprintf(simvals, "%d!", now.shuttleToManagement);
-		sprintf(simtmp, "%d", ((P1 *)_this)->offer.id); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P1 *)_this)->offer.charge); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((int)((P1 *)_this)->offer.refuse)); strcat(simvals, simtmp);		}
+			sprintf(simvals, "%d!", now.cmAbleWcp);
+		sprintf(simtmp, "%d", now.able); strcat(simvals, simtmp);		}
 #endif
 		
-		qsend(now.shuttleToManagement, 0, ((P1 *)_this)->offer.id, ((P1 *)_this)->offer.charge, ((int)((P1 *)_this)->offer.refuse), 3);
+		qsend(now.cmAbleWcp, 0, now.able, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 37: // STATE 34 - problem1-retry.pml:101 - [managementToShuttle[id]?order.start,order.end,order.size] (0:0:3 - 1)
+	case 39: // STATE 34 - problem2.pml:85 - [((reportStatus==1))] (0:0:1 - 1)
+		IfNotBlocked
 		reached[1][34] = 1;
-		if (q_len(now.managementToShuttle[ Index(((P1 *)_this)->id, 4) ]) == 0) continue;
+		if (!((((P1 *)_this)->reportStatus==1)))
+			continue;
+		if (TstOnly) return 1; /* TT */
+		/* dead 1: reportStatus */  (trpt+1)->bup.oval = ((P1 *)_this)->reportStatus;
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->reportStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 40: // STATE 35 - problem2.pml:85 - [connectedClients?id] (0:0:1 - 1)
+		reached[1][35] = 1;
+		if (q_len(((P1 *)_this)->connectedClients) == 0) continue;
 
 		XX=1;
-		(trpt+1)->bup.ovals = grab_ints(3);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->order.start;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->order.end;
-		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->order.size;
+		(trpt+1)->bup.oval = ((P1 *)_this)->id;
 		;
-		((P1 *)_this)->order.start = qrecv(now.managementToShuttle[ Index(((P1 *)_this)->id, 4) ], XX-1, 0, 0);
+		((P1 *)_this)->id = qrecv(((P1 *)_this)->connectedClients, XX-1, 0, 1);
 #ifdef VAR_RANGES
-		logval("Shuttle:order.start", ((P1 *)_this)->order.start);
-#endif
-		;
-		((P1 *)_this)->order.end = qrecv(now.managementToShuttle[ Index(((P1 *)_this)->id, 4) ], XX-1, 1, 0);
-#ifdef VAR_RANGES
-		logval("Shuttle:order.end", ((P1 *)_this)->order.end);
-#endif
-		;
-		((P1 *)_this)->order.size = qrecv(now.managementToShuttle[ Index(((P1 *)_this)->id, 4) ], XX-1, 2, 1);
-#ifdef VAR_RANGES
-		logval("Shuttle:order.size", ((P1 *)_this)->order.size);
+		logval("CommsManager:id", ((P1 *)_this)->id);
 #endif
 		;
 		
 #ifdef HAS_CODE
 		if (readtrail && gui) {
 			char simtmp[32];
-			sprintf(simvals, "%d?", now.managementToShuttle[ Index(((P1 *)_this)->id, 4) ]);
-		sprintf(simtmp, "%d", ((P1 *)_this)->order.start); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P1 *)_this)->order.end); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P1 *)_this)->order.size); strcat(simvals, simtmp);		}
+			sprintf(simvals, "%d?", ((P1 *)_this)->connectedClients);
+		sprintf(simtmp, "%d", ((P1 *)_this)->id); strcat(simvals, simtmp);		}
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 38: // STATE 35 - problem1-retry.pml:103 - [((order.size>=0))] (0:0:0 - 1)
-		IfNotBlocked
-		reached[1][35] = 1;
-		if (!((((P1 *)_this)->order.size>=0)))
-			continue;
-		_m = 3; goto P999; /* 0 */
-	case 39: // STATE 36 - problem1-retry.pml:103 - [orders!order.start,order.end,order.size] (0:0:0 - 1)
+	case 41: // STATE 36 - problem2.pml:86 - [initStatus = 4] (0:38:4 - 1)
 		IfNotBlocked
 		reached[1][36] = 1;
-		if (q_full(((P1 *)_this)->orders))
+		(trpt+1)->bup.ovals = grab_ints(4);
+		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->initStatus;
+		((P1 *)_this)->initStatus = 4;
+#ifdef VAR_RANGES
+		logval("CommsManager:initStatus", ((P1 *)_this)->initStatus);
+#endif
+		;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->initStatus = 0;
+		/* merge: ability = 2(38, 37, 38) */
+		reached[1][37] = 1;
+		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->ability;
+		((P1 *)_this)->ability = 2;
+#ifdef VAR_RANGES
+		logval("CommsManager:ability", ((P1 *)_this)->ability);
+#endif
+		;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: ability */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P1 *)_this)->ability = 0;
+		_m = 3; goto P999; /* 1 */
+	case 42: // STATE 38 - problem2.pml:87 - [cmAbleWcp!able] (0:0:0 - 1)
+		IfNotBlocked
+		reached[1][38] = 1;
+		if (q_full(now.cmAbleWcp))
 			continue;
 #ifdef HAS_CODE
 		if (readtrail && gui) {
 			char simtmp[64];
-			sprintf(simvals, "%d!", ((P1 *)_this)->orders);
-		sprintf(simtmp, "%d", ((P1 *)_this)->order.start); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P1 *)_this)->order.end); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P1 *)_this)->order.size); strcat(simvals, simtmp);		}
+			sprintf(simvals, "%d!", now.cmAbleWcp);
+		sprintf(simtmp, "%d", now.able); strcat(simvals, simtmp);		}
 #endif
 		
-		qsend(((P1 *)_this)->orders, 0, ((P1 *)_this)->order.start, ((P1 *)_this)->order.end, ((P1 *)_this)->order.size, 3);
+		qsend(now.cmAbleWcp, 0, now.able, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 40: // STATE 41 - problem1-retry.pml:106 - [((nempty(orders)&&!(processingOrder)))] (0:0:1 - 1)
+	case 43: // STATE 44 - problem2.pml:90 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
-		reached[1][41] = 1;
-		if (!(((q_len(((P1 *)_this)->orders)>0)&& !(((int)((P1 *)_this)->processingOrder)))))
-			continue;
-		if (TstOnly) return 1; /* TT */
-		/* dead 1: processingOrder */  (trpt+1)->bup.oval = ((P1 *)_this)->processingOrder;
-#ifdef HAS_CODE
-		if (!readtrail)
-#endif
-			((P1 *)_this)->processingOrder = 0;
-		_m = 3; goto P999; /* 0 */
-	case 41: // STATE 42 - problem1-retry.pml:107 - [orders?currentOrder.start,currentOrder.end,currentOrder.size] (0:0:3 - 1)
-		reached[1][42] = 1;
-		if (q_len(((P1 *)_this)->orders) == 0) continue;
-
-		XX=1;
-		(trpt+1)->bup.ovals = grab_ints(3);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->currentOrder.start;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->currentOrder.end;
-		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->currentOrder.size;
-		;
-		((P1 *)_this)->currentOrder.start = qrecv(((P1 *)_this)->orders, XX-1, 0, 0);
-#ifdef VAR_RANGES
-		logval("Shuttle:currentOrder.start", ((P1 *)_this)->currentOrder.start);
-#endif
-		;
-		((P1 *)_this)->currentOrder.end = qrecv(((P1 *)_this)->orders, XX-1, 1, 0);
-#ifdef VAR_RANGES
-		logval("Shuttle:currentOrder.end", ((P1 *)_this)->currentOrder.end);
-#endif
-		;
-		((P1 *)_this)->currentOrder.size = qrecv(((P1 *)_this)->orders, XX-1, 2, 1);
-#ifdef VAR_RANGES
-		logval("Shuttle:currentOrder.size", ((P1 *)_this)->currentOrder.size);
-#endif
-		;
-		
-#ifdef HAS_CODE
-		if (readtrail && gui) {
-			char simtmp[32];
-			sprintf(simvals, "%d?", ((P1 *)_this)->orders);
-		sprintf(simtmp, "%d", ((P1 *)_this)->currentOrder.start); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P1 *)_this)->currentOrder.end); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P1 *)_this)->currentOrder.size); strcat(simvals, simtmp);		}
-#endif
-		;
-		_m = 4; goto P999; /* 0 */
-	case 42: // STATE 43 - problem1-retry.pml:108 - [processingOrder = 1] (0:50:3 - 1)
-		IfNotBlocked
-		reached[1][43] = 1;
-		(trpt+1)->bup.ovals = grab_ints(3);
-		(trpt+1)->bup.ovals[0] = ((int)((P1 *)_this)->processingOrder);
-		((P1 *)_this)->processingOrder = 1;
-#ifdef VAR_RANGES
-		logval("Shuttle:processingOrder", ((int)((P1 *)_this)->processingOrder));
-#endif
-		;
-		/* merge: destination = currentOrder.start(50, 44, 50) */
 		reached[1][44] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->destination;
-		((P1 *)_this)->destination = ((P1 *)_this)->currentOrder.start;
-#ifdef VAR_RANGES
-		logval("Shuttle:destination", ((P1 *)_this)->destination);
-#endif
-		;
-		/* merge: travelling = 1(50, 45, 50) */
-		reached[1][45] = 1;
-		(trpt+1)->bup.ovals[2] = ((int)((P1 *)_this)->travelling);
-		((P1 *)_this)->travelling = 1;
-#ifdef VAR_RANGES
-		logval("Shuttle:travelling", ((int)((P1 *)_this)->travelling));
-#endif
-		;
-		_m = 3; goto P999; /* 2 */
-	case 43: // STATE 46 - problem1-retry.pml:112 - [(((currentOrder.start>=currentStation)&&((currentOrder.start-currentStation)<(4/2))))] (110:0:1 - 1)
-		IfNotBlocked
-		reached[1][46] = 1;
-		if (!(((((P1 *)_this)->currentOrder.start>=((P1 *)_this)->currentStation)&&((((P1 *)_this)->currentOrder.start-((P1 *)_this)->currentStation)<(4/2)))))
-			continue;
-		/* merge: direction = 1(0, 47, 110) */
-		reached[1][47] = 1;
-		(trpt+1)->bup.oval = ((P1 *)_this)->direction;
-		((P1 *)_this)->direction = 1;
-#ifdef VAR_RANGES
-		logval("Shuttle:direction", ((P1 *)_this)->direction);
-#endif
-		;
-		/* merge: .(goto)(0, 51, 110) */
-		reached[1][51] = 1;
-		;
-		/* merge: .(goto)(0, 111, 110) */
-		reached[1][111] = 1;
-		;
-		_m = 3; goto P999; /* 3 */
-	case 44: // STATE 49 - problem1-retry.pml:114 - [direction = -(1)] (0:0:1 - 1)
-		IfNotBlocked
-		reached[1][49] = 1;
-		(trpt+1)->bup.oval = ((P1 *)_this)->direction;
-		((P1 *)_this)->direction =  -(1);
-#ifdef VAR_RANGES
-		logval("Shuttle:direction", ((P1 *)_this)->direction);
-#endif
-		;
-		_m = 3; goto P999; /* 0 */
-	case 45: // STATE 52 - problem1-retry.pml:116 - [((!(travelling)&&processingOrder))] (0:0:0 - 1)
-		IfNotBlocked
-		reached[1][52] = 1;
-		if (!(( !(((int)((P1 *)_this)->travelling))&&((int)((P1 *)_this)->processingOrder))))
-			continue;
-		_m = 3; goto P999; /* 0 */
-	case 46: // STATE 53 - problem1-retry.pml:118 - [((destination==currentOrder.start))] (61:0:4 - 1)
-		IfNotBlocked
-		reached[1][53] = 1;
-		if (!((((P1 *)_this)->destination==((P1 *)_this)->currentOrder.start)))
-			continue;
-		if (TstOnly) return 1; /* TT */
-		/* dead 1: destination */  (trpt+1)->bup.ovals = grab_ints(4);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->destination;
-#ifdef HAS_CODE
-		if (!readtrail)
-#endif
-			((P1 *)_this)->destination = 0;
-		/* merge: currentLoad = (currentLoad+currentOrder.size)(61, 54, 61) */
-		reached[1][54] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->currentLoad;
-		((P1 *)_this)->currentLoad = (((P1 *)_this)->currentLoad+((P1 *)_this)->currentOrder.size);
-#ifdef VAR_RANGES
-		logval("Shuttle:currentLoad", ((P1 *)_this)->currentLoad);
-#endif
-		;
-		/* merge: destination = currentOrder.end(61, 55, 61) */
-		reached[1][55] = 1;
-		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->destination;
-		((P1 *)_this)->destination = ((P1 *)_this)->currentOrder.end;
-#ifdef VAR_RANGES
-		logval("Shuttle:destination", ((P1 *)_this)->destination);
-#endif
-		;
-		/* merge: travelling = 1(61, 56, 61) */
-		reached[1][56] = 1;
-		(trpt+1)->bup.ovals[3] = ((int)((P1 *)_this)->travelling);
-		((P1 *)_this)->travelling = 1;
-#ifdef VAR_RANGES
-		logval("Shuttle:travelling", ((int)((P1 *)_this)->travelling));
-#endif
-		;
-		_m = 3; goto P999; /* 3 */
-	case 47: // STATE 57 - problem1-retry.pml:123 - [(((currentOrder.start>=currentStation)&&((currentOrder.start-currentStation)<(4/2))))] (110:0:1 - 1)
-		IfNotBlocked
-		reached[1][57] = 1;
-		if (!(((((P1 *)_this)->currentOrder.start>=((P1 *)_this)->currentStation)&&((((P1 *)_this)->currentOrder.start-((P1 *)_this)->currentStation)<(4/2)))))
-			continue;
-		/* merge: direction = 1(0, 58, 110) */
-		reached[1][58] = 1;
-		(trpt+1)->bup.oval = ((P1 *)_this)->direction;
-		((P1 *)_this)->direction = 1;
-#ifdef VAR_RANGES
-		logval("Shuttle:direction", ((P1 *)_this)->direction);
-#endif
-		;
-		/* merge: .(goto)(0, 62, 110) */
-		reached[1][62] = 1;
-		;
-		/* merge: .(goto)(0, 69, 110) */
-		reached[1][69] = 1;
-		;
-		/* merge: .(goto)(0, 111, 110) */
-		reached[1][111] = 1;
-		;
-		_m = 3; goto P999; /* 4 */
-	case 48: // STATE 60 - problem1-retry.pml:125 - [direction = -(1)] (0:0:1 - 1)
-		IfNotBlocked
-		reached[1][60] = 1;
-		(trpt+1)->bup.oval = ((P1 *)_this)->direction;
-		((P1 *)_this)->direction =  -(1);
-#ifdef VAR_RANGES
-		logval("Shuttle:direction", ((P1 *)_this)->direction);
-#endif
-		;
-		_m = 3; goto P999; /* 0 */
-	case 49: // STATE 63 - problem1-retry.pml:127 - [((destination==currentOrder.end))] (110:0:2 - 1)
-		IfNotBlocked
-		reached[1][63] = 1;
-		if (!((((P1 *)_this)->destination==((P1 *)_this)->currentOrder.end)))
-			continue;
-		/* merge: currentLoad = (currentLoad-currentOrder.size)(110, 64, 110) */
-		reached[1][64] = 1;
-		(trpt+1)->bup.ovals = grab_ints(2);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->currentLoad;
-		((P1 *)_this)->currentLoad = (((P1 *)_this)->currentLoad-((P1 *)_this)->currentOrder.size);
-#ifdef VAR_RANGES
-		logval("Shuttle:currentLoad", ((P1 *)_this)->currentLoad);
-#endif
-		;
-		/* merge: processingOrder = 0(110, 65, 110) */
-		reached[1][65] = 1;
-		(trpt+1)->bup.ovals[1] = ((int)((P1 *)_this)->processingOrder);
-		((P1 *)_this)->processingOrder = 0;
-#ifdef VAR_RANGES
-		logval("Shuttle:processingOrder", ((int)((P1 *)_this)->processingOrder));
-#endif
-		;
-		/* merge: .(goto)(0, 69, 110) */
-		reached[1][69] = 1;
-		;
-		/* merge: .(goto)(0, 111, 110) */
-		reached[1][111] = 1;
-		;
-		_m = 3; goto P999; /* 4 */
-	case 50: // STATE 70 - problem1-retry.pml:132 - [((travelling&&processingOrder))] (79:0:3 - 1)
-		IfNotBlocked
-		reached[1][70] = 1;
-		if (!((((int)((P1 *)_this)->travelling)&&((int)((P1 *)_this)->processingOrder))))
-			continue;
-		if (TstOnly) return 1; /* TT */
-		/* dead 1: travelling */  (trpt+1)->bup.ovals = grab_ints(3);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->travelling;
-#ifdef HAS_CODE
-		if (!readtrail)
-#endif
-			((P1 *)_this)->travelling = 0;
-		/* merge: nextStation = 0(79, 71, 79) */
-		reached[1][71] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->nextStation;
-		((P1 *)_this)->nextStation = 0;
-#ifdef VAR_RANGES
-		logval("Shuttle:nextStation", ((P1 *)_this)->nextStation);
-#endif
-		;
-		/* merge: nextStation = (currentStation+direction)(79, 72, 79) */
-		reached[1][72] = 1;
-		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->nextStation;
-		((P1 *)_this)->nextStation = (((P1 *)_this)->currentStation+((P1 *)_this)->direction);
-#ifdef VAR_RANGES
-		logval("Shuttle:nextStation", ((P1 *)_this)->nextStation);
-#endif
-		;
-		_m = 3; goto P999; /* 2 */
-	case 51: // STATE 73 - problem1-retry.pml:136 - [((nextStation>=4))] (94:0:5 - 1)
-		IfNotBlocked
-		reached[1][73] = 1;
-		if (!((((P1 *)_this)->nextStation>=4)))
-			continue;
-		if (TstOnly) return 1; /* TT */
-		/* dead 1: nextStation */  (trpt+1)->bup.ovals = grab_ints(5);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->nextStation;
-#ifdef HAS_CODE
-		if (!readtrail)
-#endif
-			((P1 *)_this)->nextStation = 0;
-		/* merge: nextStation = 0(94, 74, 94) */
-		reached[1][74] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->nextStation;
-		((P1 *)_this)->nextStation = 0;
-#ifdef VAR_RANGES
-		logval("Shuttle:nextStation", ((P1 *)_this)->nextStation);
-#endif
-		;
-		/* merge: .(goto)(94, 80, 94) */
-		reached[1][80] = 1;
-		;
-		/* merge: (94, 81, 94) */
-		reached[1][81] = 1;
-		;
-		/* merge: request.id = id(94, 82, 94) */
-		reached[1][82] = 1;
-		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->request.id;
-		((P1 *)_this)->request.id = ((P1 *)_this)->id;
-#ifdef VAR_RANGES
-		logval("Shuttle:request.id", ((P1 *)_this)->request.id);
-#endif
-		;
-		/* merge: request.direction = direction(94, 83, 94) */
-		reached[1][83] = 1;
-		(trpt+1)->bup.ovals[3] = ((P1 *)_this)->request.direction;
-		((P1 *)_this)->request.direction = ((P1 *)_this)->direction;
-#ifdef VAR_RANGES
-		logval("Shuttle:request.direction", ((P1 *)_this)->request.direction);
-#endif
-		;
-		/* merge: request.track = nextStation(94, 84, 94) */
-		reached[1][84] = 1;
-		(trpt+1)->bup.ovals[4] = ((P1 *)_this)->request.track;
-		((P1 *)_this)->request.track = ((P1 *)_this)->nextStation;
-#ifdef VAR_RANGES
-		logval("Shuttle:request.track", ((P1 *)_this)->request.track);
-#endif
-		;
-		/* merge: (94, 85, 94) */
-		reached[1][85] = 1;
-		;
-		/* merge: .(goto)(0, 95, 94) */
-		reached[1][95] = 1;
-		;
-		_m = 3; goto P999; /* 8 */
-	case 52: // STATE 75 - problem1-retry.pml:137 - [((nextStation<0))] (94:0:5 - 1)
-		IfNotBlocked
-		reached[1][75] = 1;
-		if (!((((P1 *)_this)->nextStation<0)))
-			continue;
-		if (TstOnly) return 1; /* TT */
-		/* dead 1: nextStation */  (trpt+1)->bup.ovals = grab_ints(5);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->nextStation;
-#ifdef HAS_CODE
-		if (!readtrail)
-#endif
-			((P1 *)_this)->nextStation = 0;
-		/* merge: nextStation = (4-1)(94, 76, 94) */
-		reached[1][76] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->nextStation;
-		((P1 *)_this)->nextStation = (4-1);
-#ifdef VAR_RANGES
-		logval("Shuttle:nextStation", ((P1 *)_this)->nextStation);
-#endif
-		;
-		/* merge: .(goto)(94, 80, 94) */
-		reached[1][80] = 1;
-		;
-		/* merge: (94, 81, 94) */
-		reached[1][81] = 1;
-		;
-		/* merge: request.id = id(94, 82, 94) */
-		reached[1][82] = 1;
-		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->request.id;
-		((P1 *)_this)->request.id = ((P1 *)_this)->id;
-#ifdef VAR_RANGES
-		logval("Shuttle:request.id", ((P1 *)_this)->request.id);
-#endif
-		;
-		/* merge: request.direction = direction(94, 83, 94) */
-		reached[1][83] = 1;
-		(trpt+1)->bup.ovals[3] = ((P1 *)_this)->request.direction;
-		((P1 *)_this)->request.direction = ((P1 *)_this)->direction;
-#ifdef VAR_RANGES
-		logval("Shuttle:request.direction", ((P1 *)_this)->request.direction);
-#endif
-		;
-		/* merge: request.track = nextStation(94, 84, 94) */
-		reached[1][84] = 1;
-		(trpt+1)->bup.ovals[4] = ((P1 *)_this)->request.track;
-		((P1 *)_this)->request.track = ((P1 *)_this)->nextStation;
-#ifdef VAR_RANGES
-		logval("Shuttle:request.track", ((P1 *)_this)->request.track);
-#endif
-		;
-		/* merge: (94, 85, 94) */
-		reached[1][85] = 1;
-		;
-		/* merge: .(goto)(0, 95, 94) */
-		reached[1][95] = 1;
-		;
-		_m = 3; goto P999; /* 8 */
-	case 53: // STATE 78 - problem1-retry.pml:138 - [(1)] (94:0:3 - 1)
-		IfNotBlocked
-		reached[1][78] = 1;
-		if (!(1))
-			continue;
-		/* merge: .(goto)(94, 80, 94) */
-		reached[1][80] = 1;
-		;
-		/* merge: (94, 81, 94) */
-		reached[1][81] = 1;
-		;
-		/* merge: request.id = id(94, 82, 94) */
-		reached[1][82] = 1;
-		(trpt+1)->bup.ovals = grab_ints(3);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->request.id;
-		((P1 *)_this)->request.id = ((P1 *)_this)->id;
-#ifdef VAR_RANGES
-		logval("Shuttle:request.id", ((P1 *)_this)->request.id);
-#endif
-		;
-		/* merge: request.direction = direction(94, 83, 94) */
-		reached[1][83] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->request.direction;
-		((P1 *)_this)->request.direction = ((P1 *)_this)->direction;
-#ifdef VAR_RANGES
-		logval("Shuttle:request.direction", ((P1 *)_this)->request.direction);
-#endif
-		;
-		/* merge: request.track = nextStation(94, 84, 94) */
-		reached[1][84] = 1;
-		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->request.track;
-		((P1 *)_this)->request.track = ((P1 *)_this)->nextStation;
-#ifdef VAR_RANGES
-		logval("Shuttle:request.track", ((P1 *)_this)->request.track);
-#endif
-		;
-		/* merge: (94, 85, 94) */
-		reached[1][85] = 1;
-		;
-		/* merge: .(goto)(0, 95, 94) */
-		reached[1][95] = 1;
-		;
-		_m = 3; goto P999; /* 7 */
-	case 54: // STATE 81 - problem1-retry.pml:140 - [] (0:94:3 - 4)
-		IfNotBlocked
-		reached[1][81] = 1;
-		;
-		/* merge: request.id = id(94, 82, 94) */
-		reached[1][82] = 1;
-		(trpt+1)->bup.ovals = grab_ints(3);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->request.id;
-		((P1 *)_this)->request.id = ((P1 *)_this)->id;
-#ifdef VAR_RANGES
-		logval("Shuttle:request.id", ((P1 *)_this)->request.id);
-#endif
-		;
-		/* merge: request.direction = direction(94, 83, 94) */
-		reached[1][83] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->request.direction;
-		((P1 *)_this)->request.direction = ((P1 *)_this)->direction;
-#ifdef VAR_RANGES
-		logval("Shuttle:request.direction", ((P1 *)_this)->request.direction);
-#endif
-		;
-		/* merge: request.track = nextStation(94, 84, 94) */
-		reached[1][84] = 1;
-		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->request.track;
-		((P1 *)_this)->request.track = ((P1 *)_this)->nextStation;
-#ifdef VAR_RANGES
-		logval("Shuttle:request.track", ((P1 *)_this)->request.track);
-#endif
-		;
-		/* merge: (94, 85, 94) */
-		reached[1][85] = 1;
-		;
-		/* merge: .(goto)(0, 95, 94) */
-		reached[1][95] = 1;
-		;
-		_m = 3; goto P999; /* 5 */
-	case 55: // STATE 86 - problem1-retry.pml:143 - [shuttleToRailway!request.track,request.direction,request.id] (0:0:0 - 1)
-		IfNotBlocked
-		reached[1][86] = 1;
-		if (q_full(now.shuttleToRailway))
-			continue;
-#ifdef HAS_CODE
-		if (readtrail && gui) {
-			char simtmp[64];
-			sprintf(simvals, "%d!", now.shuttleToRailway);
-		sprintf(simtmp, "%d", ((P1 *)_this)->request.track); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P1 *)_this)->request.direction); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P1 *)_this)->request.id); strcat(simvals, simtmp);		}
-#endif
-		
-		qsend(now.shuttleToRailway, 0, ((P1 *)_this)->request.track, ((P1 *)_this)->request.direction, ((P1 *)_this)->request.id, 3);
-		_m = 2; goto P999; /* 0 */
-	case 56: // STATE 87 - problem1-retry.pml:144 - [railwayToShuttle[id]?reply.allowed] (0:0:1 - 1)
-		reached[1][87] = 1;
-		if (q_len(now.railwayToShuttle[ Index(((P1 *)_this)->id, 4) ]) == 0) continue;
-
-		XX=1;
-		(trpt+1)->bup.oval = ((int)((P1 *)_this)->reply.allowed);
-		;
-		((P1 *)_this)->reply.allowed = qrecv(now.railwayToShuttle[ Index(((P1 *)_this)->id, 4) ], XX-1, 0, 1);
-#ifdef VAR_RANGES
-		logval("Shuttle:reply.allowed", ((int)((P1 *)_this)->reply.allowed));
-#endif
-		;
-		
-#ifdef HAS_CODE
-		if (readtrail && gui) {
-			char simtmp[32];
-			sprintf(simvals, "%d?", now.railwayToShuttle[ Index(((P1 *)_this)->id, 4) ]);
-		sprintf(simtmp, "%d", ((int)((P1 *)_this)->reply.allowed)); strcat(simvals, simtmp);		}
-#endif
-		;
-		_m = 4; goto P999; /* 0 */
-	case 57: // STATE 88 - problem1-retry.pml:146 - [(reply.allowed)] (102:0:1 - 1)
-		IfNotBlocked
-		reached[1][88] = 1;
-		if (!(((int)((P1 *)_this)->reply.allowed)))
-			continue;
-		/* merge: goto :b5(102, 89, 102) */
-		reached[1][89] = 1;
-		;
-		/* merge: currentStation = nextStation(102, 97, 102) */
-		reached[1][97] = 1;
-		(trpt+1)->bup.oval = ((P1 *)_this)->currentStation;
-		((P1 *)_this)->currentStation = ((P1 *)_this)->nextStation;
-#ifdef VAR_RANGES
-		logval("Shuttle:currentStation", ((P1 *)_this)->currentStation);
-#endif
-		;
-		_m = 3; goto P999; /* 2 */
-	case 58: // STATE 97 - problem1-retry.pml:150 - [currentStation = nextStation] (0:102:1 - 3)
-		IfNotBlocked
-		reached[1][97] = 1;
-		(trpt+1)->bup.oval = ((P1 *)_this)->currentStation;
-		((P1 *)_this)->currentStation = ((P1 *)_this)->nextStation;
-#ifdef VAR_RANGES
-		logval("Shuttle:currentStation", ((P1 *)_this)->currentStation);
-#endif
-		;
-		_m = 3; goto P999; /* 0 */
-	case 59: // STATE 98 - problem1-retry.pml:152 - [((direction==1))] (0:0:0 - 1)
-		IfNotBlocked
-		reached[1][98] = 1;
-		if (!((((P1 *)_this)->direction==1)))
-			continue;
-		_m = 3; goto P999; /* 0 */
-	case 60: // STATE 99 - problem1-retry.pml:152 - [tracks.trackL2R[request.track] = 0] (0:0:1 - 1)
-		IfNotBlocked
-		reached[1][99] = 1;
-		(trpt+1)->bup.oval = ((int)now.tracks.trackL2R[ Index(((P1 *)_this)->request.track, 4) ]);
-		now.tracks.trackL2R[ Index(((P1 *)_this)->request.track, 4) ] = 0;
-#ifdef VAR_RANGES
-		logval("tracks.trackL2R[Shuttle:request.track]", ((int)now.tracks.trackL2R[ Index(((P1 *)_this)->request.track, 4) ]));
-#endif
-		;
-		_m = 3; goto P999; /* 0 */
-	case 61: // STATE 100 - problem1-retry.pml:153 - [((direction==-(1)))] (0:0:0 - 1)
-		IfNotBlocked
-		reached[1][100] = 1;
-		if (!((((P1 *)_this)->direction== -(1))))
-			continue;
-		_m = 3; goto P999; /* 0 */
-	case 62: // STATE 101 - problem1-retry.pml:153 - [tracks.trackR2L[request.track] = 0] (0:0:1 - 1)
-		IfNotBlocked
-		reached[1][101] = 1;
-		(trpt+1)->bup.oval = ((int)now.tracks.trackR2L[ Index(((P1 *)_this)->request.track, 4) ]);
-		now.tracks.trackR2L[ Index(((P1 *)_this)->request.track, 4) ] = 0;
-#ifdef VAR_RANGES
-		logval("tracks.trackR2L[Shuttle:request.track]", ((int)now.tracks.trackR2L[ Index(((P1 *)_this)->request.track, 4) ]));
-#endif
-		;
-		_m = 3; goto P999; /* 0 */
-	case 63: // STATE 104 - problem1-retry.pml:156 - [((currentStation==destination))] (110:0:1 - 1)
-		IfNotBlocked
-		reached[1][104] = 1;
-		if (!((((P1 *)_this)->currentStation==((P1 *)_this)->destination)))
-			continue;
-		/* merge: travelling = 0(0, 105, 110) */
-		reached[1][105] = 1;
-		(trpt+1)->bup.oval = ((int)((P1 *)_this)->travelling);
-		((P1 *)_this)->travelling = 0;
-#ifdef VAR_RANGES
-		logval("Shuttle:travelling", ((int)((P1 *)_this)->travelling));
-#endif
-		;
-		/* merge: .(goto)(0, 109, 110) */
-		reached[1][109] = 1;
-		;
-		/* merge: .(goto)(0, 111, 110) */
-		reached[1][111] = 1;
-		;
-		_m = 3; goto P999; /* 3 */
-	case 64: // STATE 107 - problem1-retry.pml:157 - [travelling = 1] (0:0:1 - 1)
-		IfNotBlocked
-		reached[1][107] = 1;
-		(trpt+1)->bup.oval = ((int)((P1 *)_this)->travelling);
-		((P1 *)_this)->travelling = 1;
-#ifdef VAR_RANGES
-		logval("Shuttle:travelling", ((int)((P1 *)_this)->travelling));
-#endif
-		;
-		_m = 3; goto P999; /* 0 */
-	case 65: // STATE 113 - problem1-retry.pml:160 - [-end-] (0:0:0 - 1)
-		IfNotBlocked
-		reached[1][113] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
-		 /* PROC ShuttleManagementSystem */
-	case 66: // STATE 1 - problem1-retry.pml:38 - [orders[0].start = first.start] (0:59:8 - 1)
+		 /* PROC Client */
+	case 44: // STATE 1 - problem2.pml:27 - [cmConnectRequest!id] (0:0:0 - 1)
 		IfNotBlocked
 		reached[0][1] = 1;
-		(trpt+1)->bup.ovals = grab_ints(8);
-		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->orders[0].start;
-		((P0 *)_this)->orders[0].start = ((P0 *)_this)->first.start;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:orders[0].start", ((P0 *)_this)->orders[0].start);
-#endif
-		;
-		/* merge: orders[0].end = first.end(59, 2, 59) */
-		reached[0][2] = 1;
-		(trpt+1)->bup.ovals[1] = ((P0 *)_this)->orders[0].end;
-		((P0 *)_this)->orders[0].end = ((P0 *)_this)->first.end;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:orders[0].end", ((P0 *)_this)->orders[0].end);
-#endif
-		;
-		/* merge: orders[0].size = first.size(59, 3, 59) */
-		reached[0][3] = 1;
-		(trpt+1)->bup.ovals[2] = ((P0 *)_this)->orders[0].size;
-		((P0 *)_this)->orders[0].size = ((P0 *)_this)->first.size;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:orders[0].size", ((P0 *)_this)->orders[0].size);
-#endif
-		;
-		/* merge: orders[1].start = second.start(59, 4, 59) */
-		reached[0][4] = 1;
-		(trpt+1)->bup.ovals[3] = ((P0 *)_this)->orders[1].start;
-		((P0 *)_this)->orders[1].start = ((P0 *)_this)->second.start;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:orders[1].start", ((P0 *)_this)->orders[1].start);
-#endif
-		;
-		/* merge: orders[1].end = second.end(59, 5, 59) */
-		reached[0][5] = 1;
-		(trpt+1)->bup.ovals[4] = ((P0 *)_this)->orders[1].end;
-		((P0 *)_this)->orders[1].end = ((P0 *)_this)->second.end;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:orders[1].end", ((P0 *)_this)->orders[1].end);
-#endif
-		;
-		/* merge: orders[1].size = second.size(59, 6, 59) */
-		reached[0][6] = 1;
-		(trpt+1)->bup.ovals[5] = ((P0 *)_this)->orders[1].size;
-		((P0 *)_this)->orders[1].size = ((P0 *)_this)->second.size;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:orders[1].size", ((P0 *)_this)->orders[1].size);
-#endif
-		;
-		/* merge: i = 0(59, 7, 59) */
-		reached[0][7] = 1;
-		(trpt+1)->bup.ovals[6] = ((P0 *)_this)->i;
-		((P0 *)_this)->i = 0;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:i", ((P0 *)_this)->i);
-#endif
-		;
-		/* merge: i = 0(59, 8, 59) */
-		reached[0][8] = 1;
-		(trpt+1)->bup.ovals[7] = ((P0 *)_this)->i;
-		((P0 *)_this)->i = 0;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:i", ((P0 *)_this)->i);
-#endif
-		;
-		/* merge: .(goto)(0, 60, 59) */
-		reached[0][60] = 1;
-		;
-		_m = 3; goto P999; /* 8 */
-	case 67: // STATE 9 - problem1-retry.pml:41 - [((i<=(2-1)))] (17:0:2 - 1)
-		IfNotBlocked
-		reached[0][9] = 1;
-		if (!((((P0 *)_this)->i<=(2-1))))
-			continue;
-		/* merge: j = 0(17, 10, 17) */
-		reached[0][10] = 1;
-		(trpt+1)->bup.ovals = grab_ints(2);
-		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->_10_1_j;
-		((P0 *)_this)->_10_1_j = 0;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:j", ((P0 *)_this)->_10_1_j);
-#endif
-		;
-		/* merge: j = 0(17, 11, 17) */
-		reached[0][11] = 1;
-		(trpt+1)->bup.ovals[1] = ((P0 *)_this)->_10_1_j;
-		((P0 *)_this)->_10_1_j = 0;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:j", ((P0 *)_this)->_10_1_j);
-#endif
-		;
-		/* merge: .(goto)(0, 18, 17) */
-		reached[0][18] = 1;
-		;
-		_m = 3; goto P999; /* 3 */
-	case 68: // STATE 12 - problem1-retry.pml:43 - [((j<=(4-1)))] (0:0:0 - 1)
-		IfNotBlocked
-		reached[0][12] = 1;
-		if (!((((P0 *)_this)->_10_1_j<=(4-1))))
-			continue;
-		_m = 3; goto P999; /* 0 */
-	case 69: // STATE 13 - problem1-retry.pml:44 - [managementToShuttle[j]!orders[i].start,orders[i].end,orders[i].size] (0:0:0 - 1)
-		IfNotBlocked
-		reached[0][13] = 1;
-		if (q_full(now.managementToShuttle[ Index(((P0 *)_this)->_10_1_j, 4) ]))
+		if (q_full(now.cmConnectRequest))
 			continue;
 #ifdef HAS_CODE
 		if (readtrail && gui) {
 			char simtmp[64];
-			sprintf(simvals, "%d!", now.managementToShuttle[ Index(((P0 *)_this)->_10_1_j, 4) ]);
-		sprintf(simtmp, "%d", ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].start); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].end); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].size); strcat(simvals, simtmp);		}
+			sprintf(simvals, "%d!", now.cmConnectRequest);
+		sprintf(simtmp, "%d", ((P0 *)_this)->id); strcat(simvals, simtmp);		}
 #endif
 		
-		qsend(now.managementToShuttle[ Index(((P0 *)_this)->_10_1_j, 4) ], 0, ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].start, ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].end, ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].size, 3);
+		qsend(now.cmConnectRequest, 0, ((P0 *)_this)->id, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 70: // STATE 14 - problem1-retry.pml:43 - [j = (j+1)] (0:0:1 - 1)
-		IfNotBlocked
-		reached[0][14] = 1;
-		(trpt+1)->bup.oval = ((P0 *)_this)->_10_1_j;
-		((P0 *)_this)->_10_1_j = (((P0 *)_this)->_10_1_j+1);
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:j", ((P0 *)_this)->_10_1_j);
-#endif
-		;
-		_m = 3; goto P999; /* 0 */
-	case 71: // STATE 20 - problem1-retry.pml:47 - [minCharge = 2147483647] (0:37:3 - 3)
-		IfNotBlocked
-		reached[0][20] = 1;
-		(trpt+1)->bup.ovals = grab_ints(3);
-		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->_10_1_minCharge;
-		((P0 *)_this)->_10_1_minCharge = 2147483647;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:minCharge", ((P0 *)_this)->_10_1_minCharge);
-#endif
-		;
-		/* merge: assignedId = 0(37, 21, 37) */
-		reached[0][21] = 1;
-		(trpt+1)->bup.ovals[1] = ((P0 *)_this)->_10_1_assignedId;
-		((P0 *)_this)->_10_1_assignedId = 0;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:assignedId", ((P0 *)_this)->_10_1_assignedId);
-#endif
-		;
-		/* merge: j = 0(37, 22, 37) */
-		reached[0][22] = 1;
-		(trpt+1)->bup.ovals[2] = ((P0 *)_this)->_10_1_j;
-		((P0 *)_this)->_10_1_j = 0;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:j", ((P0 *)_this)->_10_1_j);
-#endif
-		;
-		/* merge: .(goto)(0, 38, 37) */
-		reached[0][38] = 1;
-		;
-		_m = 3; goto P999; /* 3 */
-	case 72: // STATE 23 - problem1-retry.pml:50 - [((j<=(4-1)))] (25:0:0 - 1)
-		IfNotBlocked
-		reached[0][23] = 1;
-		if (!((((P0 *)_this)->_10_1_j<=(4-1))))
-			continue;
-		/* merge: (0, 24, 25) */
-		reached[0][24] = 1;
-		;
-		_m = 3; goto P999; /* 1 */
-	case 73: // STATE 25 - problem1-retry.pml:52 - [shuttleToManagement?offer.id,offer.charge,offer.refuse] (0:0:3 - 1)
-		reached[0][25] = 1;
-		if (q_len(now.shuttleToManagement) == 0) continue;
+	case 45: // STATE 2 - problem2.pml:28 - [cmConnectReply[id]?reply] (0:0:1 - 1)
+		reached[0][2] = 1;
+		if (q_len(now.cmConnectReply[ Index(((P0 *)_this)->id, 4) ]) == 0) continue;
 
 		XX=1;
-		(trpt+1)->bup.ovals = grab_ints(3);
-		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->_10_1_2_offer.id;
-		(trpt+1)->bup.ovals[1] = ((P0 *)_this)->_10_1_2_offer.charge;
-		(trpt+1)->bup.ovals[2] = ((int)((P0 *)_this)->_10_1_2_offer.refuse);
+		(trpt+1)->bup.oval = ((P0 *)_this)->reply;
 		;
-		((P0 *)_this)->_10_1_2_offer.id = qrecv(now.shuttleToManagement, XX-1, 0, 0);
+		((P0 *)_this)->reply = qrecv(now.cmConnectReply[ Index(((P0 *)_this)->id, 4) ], XX-1, 0, 1);
 #ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:offer.id", ((P0 *)_this)->_10_1_2_offer.id);
-#endif
-		;
-		((P0 *)_this)->_10_1_2_offer.charge = qrecv(now.shuttleToManagement, XX-1, 1, 0);
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:offer.charge", ((P0 *)_this)->_10_1_2_offer.charge);
-#endif
-		;
-		((P0 *)_this)->_10_1_2_offer.refuse = qrecv(now.shuttleToManagement, XX-1, 2, 1);
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:offer.refuse", ((int)((P0 *)_this)->_10_1_2_offer.refuse));
+		logval("Client:reply", ((P0 *)_this)->reply);
 #endif
 		;
 		
 #ifdef HAS_CODE
 		if (readtrail && gui) {
 			char simtmp[32];
-			sprintf(simvals, "%d?", now.shuttleToManagement);
-		sprintf(simtmp, "%d", ((P0 *)_this)->_10_1_2_offer.id); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P0 *)_this)->_10_1_2_offer.charge); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((int)((P0 *)_this)->_10_1_2_offer.refuse)); strcat(simvals, simtmp);		}
+			sprintf(simvals, "%d?", now.cmConnectReply[ Index(((P0 *)_this)->id, 4) ]);
+		sprintf(simtmp, "%d", ((P0 *)_this)->reply); strcat(simvals, simtmp);		}
 #endif
 		;
 		_m = 4; goto P999; /* 0 */
-	case 74: // STATE 26 - problem1-retry.pml:54 - [(((offer.charge<minCharge)&&!(offer.refuse)))] (37:0:4 - 1)
+	case 46: // STATE 3 - problem2.pml:30 - [((reply==2))] (32:0:5 - 1)
 		IfNotBlocked
-		reached[0][26] = 1;
-		if (!(((((P0 *)_this)->_10_1_2_offer.charge<((P0 *)_this)->_10_1_minCharge)&& !(((int)((P0 *)_this)->_10_1_2_offer.refuse)))))
+		reached[0][3] = 1;
+		if (!((((P0 *)_this)->reply==2)))
 			continue;
 		if (TstOnly) return 1; /* TT */
-		/* dead 1: _10_1_minCharge */  (trpt+1)->bup.ovals = grab_ints(4);
-		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->_10_1_minCharge;
+		/* dead 1: reply */  (trpt+1)->bup.ovals = grab_ints(5);
+		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->reply;
 #ifdef HAS_CODE
 		if (!readtrail)
 #endif
-			((P0 *)_this)->_10_1_minCharge = 0;
-		/* merge: minCharge = offer.charge(37, 27, 37) */
-		reached[0][27] = 1;
-		(trpt+1)->bup.ovals[1] = ((P0 *)_this)->_10_1_minCharge;
-		((P0 *)_this)->_10_1_minCharge = ((P0 *)_this)->_10_1_2_offer.charge;
+			((P0 *)_this)->reply = 0;
+		/* merge: initStatus = 3(32, 4, 32) */
+		reached[0][4] = 1;
+		(trpt+1)->bup.ovals[1] = ((P0 *)_this)->initStatus;
+		((P0 *)_this)->initStatus = 3;
 #ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:minCharge", ((P0 *)_this)->_10_1_minCharge);
+		logval("Client:initStatus", ((P0 *)_this)->initStatus);
 #endif
 		;
-		/* merge: assignedId = offer.id(37, 28, 37) */
-		reached[0][28] = 1;
-		(trpt+1)->bup.ovals[2] = ((P0 *)_this)->_10_1_assignedId;
-		((P0 *)_this)->_10_1_assignedId = ((P0 *)_this)->_10_1_2_offer.id;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P0 *)_this)->initStatus = 0;
+		/* merge: connected = 1(32, 5, 32) */
+		reached[0][5] = 1;
+		(trpt+1)->bup.ovals[2] = ((int)((P0 *)_this)->connected);
+		((P0 *)_this)->connected = 1;
 #ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:assignedId", ((P0 *)_this)->_10_1_assignedId);
+		logval("Client:connected", ((int)((P0 *)_this)->connected));
 #endif
 		;
-		/* merge: .(goto)(37, 33, 37) */
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: connected */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P0 *)_this)->connected = 0;
+		/* merge: .(goto)(0, 9, 32) */
+		reached[0][9] = 1;
+		;
+		/* merge: .(goto)(0, 33, 32) */
 		reached[0][33] = 1;
-		;
-		/* merge: j = (j+1)(37, 34, 37) */
-		reached[0][34] = 1;
-		(trpt+1)->bup.ovals[3] = ((P0 *)_this)->_10_1_j;
-		((P0 *)_this)->_10_1_j = (((P0 *)_this)->_10_1_j+1);
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:j", ((P0 *)_this)->_10_1_j);
-#endif
-		;
-		/* merge: .(goto)(0, 38, 37) */
-		reached[0][38] = 1;
-		;
-		_m = 3; goto P999; /* 5 */
-	case 75: // STATE 30 - problem1-retry.pml:55 - [minCharge = minCharge] (0:37:3 - 1)
-		IfNotBlocked
-		reached[0][30] = 1;
-		(trpt+1)->bup.ovals = grab_ints(3);
-		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->_10_1_minCharge;
-		((P0 *)_this)->_10_1_minCharge = ((P0 *)_this)->_10_1_minCharge;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:minCharge", ((P0 *)_this)->_10_1_minCharge);
-#endif
-		;
-		/* merge: assignedId = assignedId(37, 31, 37) */
-		reached[0][31] = 1;
-		(trpt+1)->bup.ovals[1] = ((P0 *)_this)->_10_1_assignedId;
-		((P0 *)_this)->_10_1_assignedId = ((P0 *)_this)->_10_1_assignedId;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:assignedId", ((P0 *)_this)->_10_1_assignedId);
-#endif
-		;
-		/* merge: .(goto)(37, 33, 37) */
-		reached[0][33] = 1;
-		;
-		/* merge: j = (j+1)(37, 34, 37) */
-		reached[0][34] = 1;
-		(trpt+1)->bup.ovals[2] = ((P0 *)_this)->_10_1_j;
-		((P0 *)_this)->_10_1_j = (((P0 *)_this)->_10_1_j+1);
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:j", ((P0 *)_this)->_10_1_j);
-#endif
-		;
-		/* merge: .(goto)(0, 38, 37) */
-		reached[0][38] = 1;
 		;
 		_m = 3; goto P999; /* 4 */
-	case 76: // STATE 34 - problem1-retry.pml:50 - [j = (j+1)] (0:37:1 - 3)
+	case 47: // STATE 10 - problem2.pml:33 - [initStatus = 3] (0:0:2 - 1)
 		IfNotBlocked
-		reached[0][34] = 1;
-		(trpt+1)->bup.oval = ((P0 *)_this)->_10_1_j;
-		((P0 *)_this)->_10_1_j = (((P0 *)_this)->_10_1_j+1);
+		reached[0][10] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->initStatus;
+		((P0 *)_this)->initStatus = 3;
 #ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:j", ((P0 *)_this)->_10_1_j);
+		logval("Client:initStatus", ((P0 *)_this)->initStatus);
 #endif
 		;
-		/* merge: .(goto)(0, 38, 37) */
-		reached[0][38] = 1;
-		;
-		_m = 3; goto P999; /* 1 */
-	case 77: // STATE 40 - problem1-retry.pml:58 - [j = 0] (0:53:1 - 3)
-		IfNotBlocked
-		reached[0][40] = 1;
-		(trpt+1)->bup.oval = ((P0 *)_this)->_10_1_j;
-		((P0 *)_this)->_10_1_j = 0;
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:j", ((P0 *)_this)->_10_1_j);
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P0 *)_this)->initStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 48: // STATE 11 - problem2.pml:34 - [cmCommand[id]?2] (0:0:0 - 1)
+		reached[0][11] = 1;
+		if (q_len(now.cmCommand[ Index(((P0 *)_this)->id, 4) ]) == 0) continue;
+
+		XX=1;
+		if (2 != qrecv(now.cmCommand[ Index(((P0 *)_this)->id, 4) ], 0, 0, 0)) continue;
+		
+#ifndef BFS_PAR
+		if (q_flds[((Q0 *)qptr(now.cmCommand[ Index(((P0 *)_this)->id, 4) ]-1))->_t] != 1)
+			Uerror("wrong nr of msg fields in rcv");
 #endif
 		;
-		/* merge: .(goto)(0, 54, 53) */
-		reached[0][54] = 1;
+		qrecv(now.cmCommand[ Index(((P0 *)_this)->id, 4) ], XX-1, 0, 1);
+		
+#ifdef HAS_CODE
+		if (readtrail && gui) {
+			char simtmp[32];
+			sprintf(simvals, "%d?", now.cmCommand[ Index(((P0 *)_this)->id, 4) ]);
+		sprintf(simtmp, "%d", 2); strcat(simvals, simtmp);		}
+#endif
 		;
-		_m = 3; goto P999; /* 1 */
-	case 78: // STATE 41 - problem1-retry.pml:58 - [((j<=(4-1)))] (0:0:0 - 1)
+		_m = 4; goto P999; /* 0 */
+	case 49: // STATE 12 - problem2.pml:35 - [initStatus = 2] (0:0:2 - 1)
 		IfNotBlocked
-		reached[0][41] = 1;
-		if (!((((P0 *)_this)->_10_1_j<=(4-1))))
+		reached[0][12] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->initStatus;
+		((P0 *)_this)->initStatus = 2;
+#ifdef VAR_RANGES
+		logval("Client:initStatus", ((P0 *)_this)->initStatus);
+#endif
+		;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P0 *)_this)->initStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 50: // STATE 13 - problem2.pml:36 - [initStatus = 2] (0:0:2 - 1)
+		IfNotBlocked
+		reached[0][13] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->initStatus;
+		((P0 *)_this)->initStatus = 2;
+#ifdef VAR_RANGES
+		logval("Client:initStatus", ((P0 *)_this)->initStatus);
+#endif
+		;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P0 *)_this)->initStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 51: // STATE 14 - problem2.pml:38 - [(getInfoSuccess)] (0:0:0 - 1)
+		IfNotBlocked
+		reached[0][14] = 1;
+		if (!(((int)((P0 *)_this)->getInfoSuccess)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 79: // STATE 42 - problem1-retry.pml:60 - [((j==assignedId))] (0:0:0 - 1)
+	case 52: // STATE 15 - problem2.pml:38 - [clientReport!2,id] (0:0:0 - 1)
 		IfNotBlocked
-		reached[0][42] = 1;
-		if (!((((P0 *)_this)->_10_1_j==((P0 *)_this)->_10_1_assignedId)))
-			continue;
-		_m = 3; goto P999; /* 0 */
-	case 80: // STATE 43 - problem1-retry.pml:60 - [managementToShuttle[j]!orders[i].start,orders[i].end,orders[i].size] (0:0:0 - 1)
-		IfNotBlocked
-		reached[0][43] = 1;
-		if (q_full(now.managementToShuttle[ Index(((P0 *)_this)->_10_1_j, 4) ]))
+		reached[0][15] = 1;
+		if (q_full(now.clientReport))
 			continue;
 #ifdef HAS_CODE
 		if (readtrail && gui) {
 			char simtmp[64];
-			sprintf(simvals, "%d!", now.managementToShuttle[ Index(((P0 *)_this)->_10_1_j, 4) ]);
-		sprintf(simtmp, "%d", ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].start); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].end); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].size); strcat(simvals, simtmp);		}
+			sprintf(simvals, "%d!", now.clientReport);
+		sprintf(simtmp, "%d", 2); strcat(simvals, simtmp);		strcat(simvals, ",");
+		sprintf(simtmp, "%d", ((P0 *)_this)->id); strcat(simvals, simtmp);		}
 #endif
 		
-		qsend(now.managementToShuttle[ Index(((P0 *)_this)->_10_1_j, 4) ], 0, ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].start, ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].end, ((P0 *)_this)->orders[ Index(((P0 *)_this)->i, 2) ].size, 3);
+		qsend(now.clientReport, 0, 2, ((P0 *)_this)->id, 2);
 		_m = 2; goto P999; /* 0 */
-	case 81: // STATE 45 - problem1-retry.pml:61 - [] (0:47:1 - 1)
-		IfNotBlocked
-		reached[0][45] = 1;
-		;
-		/* merge: dummy.size = -(1)(47, 46, 47) */
-		reached[0][46] = 1;
-		(trpt+1)->bup.oval = ((P0 *)_this)->_10_1_3_dummy.size;
-		((P0 *)_this)->_10_1_3_dummy.size =  -(1);
-#ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:dummy.size", ((P0 *)_this)->_10_1_3_dummy.size);
+	case 53: // STATE 16 - problem2.pml:39 - [cmCommand[id]?1] (0:0:0 - 1)
+		reached[0][16] = 1;
+		if (q_len(now.cmCommand[ Index(((P0 *)_this)->id, 4) ]) == 0) continue;
+
+		XX=1;
+		if (1 != qrecv(now.cmCommand[ Index(((P0 *)_this)->id, 4) ], 0, 0, 0)) continue;
+		
+#ifndef BFS_PAR
+		if (q_flds[((Q0 *)qptr(now.cmCommand[ Index(((P0 *)_this)->id, 4) ]-1))->_t] != 1)
+			Uerror("wrong nr of msg fields in rcv");
 #endif
 		;
-		_m = 3; goto P999; /* 1 */
-	case 82: // STATE 47 - problem1-retry.pml:61 - [managementToShuttle[j]!dummy.start,dummy.end,dummy.size] (0:0:0 - 1)
+		qrecv(now.cmCommand[ Index(((P0 *)_this)->id, 4) ], XX-1, 0, 1);
+		
+#ifdef HAS_CODE
+		if (readtrail && gui) {
+			char simtmp[32];
+			sprintf(simvals, "%d?", now.cmCommand[ Index(((P0 *)_this)->id, 4) ]);
+		sprintf(simtmp, "%d", 1); strcat(simvals, simtmp);		}
+#endif
+		;
+		_m = 4; goto P999; /* 0 */
+	case 54: // STATE 17 - problem2.pml:39 - [initStatus = 1] (0:0:2 - 1)
 		IfNotBlocked
-		reached[0][47] = 1;
-		if (q_full(now.managementToShuttle[ Index(((P0 *)_this)->_10_1_j, 4) ]))
+		reached[0][17] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->initStatus;
+		((P0 *)_this)->initStatus = 1;
+#ifdef VAR_RANGES
+		logval("Client:initStatus", ((P0 *)_this)->initStatus);
+#endif
+		;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P0 *)_this)->initStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 55: // STATE 19 - problem2.pml:40 - [connected = 0] (0:32:3 - 1)
+		IfNotBlocked
+		reached[0][19] = 1;
+		(trpt+1)->bup.ovals = grab_ints(3);
+		(trpt+1)->bup.ovals[0] = ((int)((P0 *)_this)->connected);
+		((P0 *)_this)->connected = 0;
+#ifdef VAR_RANGES
+		logval("Client:connected", ((int)((P0 *)_this)->connected));
+#endif
+		;
+		/* merge: initStatus = 4(32, 20, 32) */
+		reached[0][20] = 1;
+		(trpt+1)->bup.ovals[1] = ((P0 *)_this)->initStatus;
+		((P0 *)_this)->initStatus = 4;
+#ifdef VAR_RANGES
+		logval("Client:initStatus", ((P0 *)_this)->initStatus);
+#endif
+		;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P0 *)_this)->initStatus = 0;
+		/* merge: .(goto)(0, 22, 32) */
+		reached[0][22] = 1;
+		;
+		/* merge: .(goto)(0, 33, 32) */
+		reached[0][33] = 1;
+		;
+		_m = 3; goto P999; /* 3 */
+	case 56: // STATE 23 - problem2.pml:43 - [initStatus = 1] (0:0:2 - 1)
+		IfNotBlocked
+		reached[0][23] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->initStatus;
+		((P0 *)_this)->initStatus = 1;
+#ifdef VAR_RANGES
+		logval("Client:initStatus", ((P0 *)_this)->initStatus);
+#endif
+		;
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P0 *)_this)->initStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 57: // STATE 24 - problem2.pml:45 - [(useInfoSuccess)] (0:0:0 - 1)
+		IfNotBlocked
+		reached[0][24] = 1;
+		if (!(((int)((P0 *)_this)->useInfoSuccess)))
+			continue;
+		_m = 3; goto P999; /* 0 */
+	case 58: // STATE 25 - problem2.pml:45 - [clientReport!2,id] (0:0:0 - 1)
+		IfNotBlocked
+		reached[0][25] = 1;
+		if (q_full(now.clientReport))
 			continue;
 #ifdef HAS_CODE
 		if (readtrail && gui) {
 			char simtmp[64];
-			sprintf(simvals, "%d!", now.managementToShuttle[ Index(((P0 *)_this)->_10_1_j, 4) ]);
-		sprintf(simtmp, "%d", ((P0 *)_this)->_10_1_3_dummy.start); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P0 *)_this)->_10_1_3_dummy.end); strcat(simvals, simtmp);		strcat(simvals, ",");
-		sprintf(simtmp, "%d", ((P0 *)_this)->_10_1_3_dummy.size); strcat(simvals, simtmp);		}
+			sprintf(simvals, "%d!", now.clientReport);
+		sprintf(simtmp, "%d", 2); strcat(simvals, simtmp);		strcat(simvals, ",");
+		sprintf(simtmp, "%d", ((P0 *)_this)->id); strcat(simvals, simtmp);		}
 #endif
 		
-		qsend(now.managementToShuttle[ Index(((P0 *)_this)->_10_1_j, 4) ], 0, ((P0 *)_this)->_10_1_3_dummy.start, ((P0 *)_this)->_10_1_3_dummy.end, ((P0 *)_this)->_10_1_3_dummy.size, 3);
+		qsend(now.clientReport, 0, 2, ((P0 *)_this)->id, 2);
 		_m = 2; goto P999; /* 0 */
-	case 83: // STATE 50 - problem1-retry.pml:58 - [j = (j+1)] (0:53:1 - 3)
+	case 59: // STATE 26 - problem2.pml:46 - [initStatus = 4] (0:0:2 - 1)
 		IfNotBlocked
-		reached[0][50] = 1;
-		(trpt+1)->bup.oval = ((P0 *)_this)->_10_1_j;
-		((P0 *)_this)->_10_1_j = (((P0 *)_this)->_10_1_j+1);
+		reached[0][26] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = ((P0 *)_this)->initStatus;
+		((P0 *)_this)->initStatus = 4;
 #ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:j", ((P0 *)_this)->_10_1_j);
+		logval("Client:initStatus", ((P0 *)_this)->initStatus);
 #endif
 		;
-		/* merge: .(goto)(0, 54, 53) */
-		reached[0][54] = 1;
-		;
-		_m = 3; goto P999; /* 1 */
-	case 84: // STATE 56 - problem1-retry.pml:41 - [i = (i+1)] (0:59:1 - 3)
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P0 *)_this)->initStatus = 0;
+		_m = 3; goto P999; /* 0 */
+	case 60: // STATE 28 - problem2.pml:47 - [connected = 0] (0:32:3 - 1)
 		IfNotBlocked
-		reached[0][56] = 1;
-		(trpt+1)->bup.oval = ((P0 *)_this)->i;
-		((P0 *)_this)->i = (((P0 *)_this)->i+1);
+		reached[0][28] = 1;
+		(trpt+1)->bup.ovals = grab_ints(3);
+		(trpt+1)->bup.ovals[0] = ((int)((P0 *)_this)->connected);
+		((P0 *)_this)->connected = 0;
 #ifdef VAR_RANGES
-		logval("ShuttleManagementSystem:i", ((P0 *)_this)->i);
+		logval("Client:connected", ((int)((P0 *)_this)->connected));
 #endif
 		;
-		/* merge: .(goto)(0, 60, 59) */
-		reached[0][60] = 1;
+		/* merge: initStatus = 4(32, 29, 32) */
+		reached[0][29] = 1;
+		(trpt+1)->bup.ovals[1] = ((P0 *)_this)->initStatus;
+		((P0 *)_this)->initStatus = 4;
+#ifdef VAR_RANGES
+		logval("Client:initStatus", ((P0 *)_this)->initStatus);
+#endif
 		;
-		_m = 3; goto P999; /* 1 */
-	case 85: // STATE 62 - problem1-retry.pml:65 - [-end-] (0:0:0 - 3)
+		if (TstOnly) return 1; /* TT */
+		/* dead 2: initStatus */  
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P0 *)_this)->initStatus = 0;
+		/* merge: .(goto)(0, 31, 32) */
+		reached[0][31] = 1;
+		;
+		/* merge: .(goto)(0, 33, 32) */
+		reached[0][33] = 1;
+		;
+		_m = 3; goto P999; /* 3 */
+	case 61: // STATE 35 - problem2.pml:51 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
-		reached[0][62] = 1;
+		reached[0][35] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 	case  _T5:	/* np_ */

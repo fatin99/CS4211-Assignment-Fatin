@@ -2,7 +2,7 @@
 #define PAN_H
 
 #define SpinVersion	"Spin Version 6.5.1 -- 3 November 2019"
-#define PanSource	"problem1-retry.pml"
+#define PanSource	"problem2.pml"
 
 #define G_long	4
 #define G_int	4
@@ -132,25 +132,25 @@ typedef struct S_F_MAP {
 	int upto;
 } S_F_MAP;
 
-#define _nstates3	17	/* :init: */
-#define minseq3	200
-#define maxseq3	215
-#define _endstate3	16
+#define _nstates3	9	/* :init: */
+#define minseq3	90
+#define maxseq3	97
+#define _endstate3	8
 
-#define _nstates2	26	/* RailwayNetwork */
-#define minseq2	175
-#define maxseq2	199
-#define _endstate2	25
+#define _nstates2	12	/* ControlPanel */
+#define minseq2	79
+#define maxseq2	89
+#define _endstate2	11
 
-#define _nstates1	114	/* Shuttle */
-#define minseq1	62
-#define maxseq1	174
-#define _endstate1	113
+#define _nstates1	45	/* CommsManager */
+#define minseq1	35
+#define maxseq1	78
+#define _endstate1	44
 
-#define _nstates0	63	/* ShuttleManagementSystem */
+#define _nstates0	36	/* Client */
 #define minseq0	0
-#define maxseq0	61
-#define _endstate0	62
+#define maxseq0	34
+#define _endstate0	35
 
 extern short src_ln3[];
 extern short src_ln2[];
@@ -162,11 +162,11 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned char
-#define _T5	86
-#define _T2	87
+#define _T5	62
+#define _T2	63
 #define WS		4 /* word size in bytes */
 #define SYNC	0
-#define ASYNC	5
+#define ASYNC	7
 
 #ifndef NCORE
 	#ifdef DUAL_CORE
@@ -178,108 +178,68 @@ extern S_F_MAP src_file0[];
 	#endif
 #endif
 
-struct Order { /* user defined type */
-	int start;
-	int end;
-	int size;
-};
-struct Offer { /* user defined type */
-	int id;
-	int charge;
-	unsigned refuse : 1;
-};
-struct Track { /* user defined type */
-	uchar trackL2R[4];
-	uchar trackR2L[4];
-};
-struct Request { /* user defined type */
-	int track;
-	int direction;
-	int id;
-};
-struct Reply { /* user defined type */
-	unsigned allowed : 1;
-};
 #define Pinit	((P3 *)_this)
 typedef struct P3 { /* :init: */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 8; /* state    */
+	unsigned _p   : 7; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	struct Order _13_3_first;
-	struct Order _13_3_second;
 } P3;
-#define Air3	0
+#define Air3	(sizeof(P3) - 3)
 
-#define PRailwayNetwork	((P2 *)_this)
-typedef struct P2 { /* RailwayNetwork */
+#define PControlPanel	((P2 *)_this)
+typedef struct P2 { /* ControlPanel */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 8; /* state    */
+	unsigned _p   : 7; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	struct Request request;
-	struct Reply reply;
+	unsigned disabled : 1;
+	uchar ability;
 } P2;
-#define Air2	0
+#define Air2	(sizeof(P2) - Offsetof(P2, ability) - 1*sizeof(uchar))
 
-#define PShuttle	((P1 *)_this)
-typedef struct P1 { /* Shuttle */
+#define PCommsManager	((P1 *)_this)
+typedef struct P1 { /* CommsManager */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 8; /* state    */
+	unsigned _p   : 7; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	unsigned travelling : 1;
-	unsigned processingOrder : 1;
-	uchar orders;
-	int capacity;
-	int charge;
-	int initialStation;
+	uchar connectedClients;
+	uchar initStatus;
+	uchar reportStatus;
+	uchar reply;
+	uchar ability;
 	int id;
-	int currentStation;
-	int currentLoad;
-	int direction;
-	int destination;
-	int currentPosition;
-	int distance;
-	int nextStation;
-	struct Order order;
-	struct Order currentOrder;
-	struct Offer offer;
-	struct Request request;
-	struct Reply reply;
 } P1;
-#define Air1	0
+#define Air1	(sizeof(P1) - Offsetof(P1, id) - 1*sizeof(int))
 
-#define PShuttleManagementSystem	((P0 *)_this)
-typedef struct P0 { /* ShuttleManagementSystem */
+#define PClient	((P0 *)_this)
+typedef struct P0 { /* Client */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 8; /* state    */
+	unsigned _p   : 7; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	int i;
-	int _10_1_j;
-	int _10_1_minCharge;
-	int _10_1_assignedId;
-	struct Order first;
-	struct Order second;
-	struct Offer _10_1_2_offer;
-	struct Order _10_1_3_dummy;
-	struct Order orders[2];
+	unsigned connected : 1;
+	unsigned getInfoSuccess : 1;
+	unsigned useInfoSuccess : 1;
+	uchar initStatus;
+	uchar reply;
+	int id;
 } P0;
-#define Air0	0
+#define Air0	(sizeof(P0) - Offsetof(P0, id) - 1*sizeof(int))
 
 typedef struct P4 { /* np_ */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 8; /* state    */
+	unsigned _p   : 7; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -476,11 +436,13 @@ typedef struct State {
 		unsigned short _event;
 	#endif
 #endif
-	uchar managementToShuttle[4];
-	uchar shuttleToManagement;
-	uchar shuttleToRailway;
-	uchar railwayToShuttle[4];
-	struct Track tracks;
+	uchar cmConnectRequest;
+	uchar cmConnectReply[4];
+	uchar cmCommand[4];
+	uchar clientReport;
+	uchar wcpRequest;
+	uchar cmAbleWcp;
+	uchar able;
 #ifdef TRIX
 	/* room for 512 proc+chan ptrs, + safety margin */
 	char *_ids_[MAXPROC+MAXQ+4];
@@ -510,10 +472,10 @@ typedef struct TRIX_v6 {
 #define _endstate4	2 /* np_ */
 
 #define _start4	0 /* np_ */
-#define _start3	15
-#define _start2	22
-#define _start1	110
-#define _start0	1
+#define _start3	7
+#define _start2	8
+#define _start1	41
+#define _start0	32
 #ifdef NP
 	#define ACCEPT_LAB	1 /* at least 1 in np_ */
 #else
@@ -546,13 +508,28 @@ typedef struct TRIX_v6 {
 	#define MEMLIM	(2048)	/* need a default, using 2 GB */
 #endif
 #define PROG_LAB	0 /* progress labels */
-#define NQS	11
-typedef struct Q11 {
+#define NQS	13
+typedef struct Q13 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
 		uchar fld0;
 	} contents[1];
+} Q13;
+typedef struct Q12 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q12;
+typedef struct Q11 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+		int fld1;
+	} contents[4];
 } Q11;
 typedef struct Q10 {
 	uchar Qlen;	/* q_size */
@@ -579,45 +556,35 @@ typedef struct Q7 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-		int fld1;
-		int fld2;
-	} contents[4];
+		uchar fld0;
+	} contents[1];
 } Q7;
 typedef struct Q6 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-		int fld1;
-		unsigned fld2 : 1;
-	} contents[4];
+		uchar fld0;
+	} contents[1];
 } Q6;
 typedef struct Q5 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-		int fld1;
-		int fld2;
+		uchar fld0;
 	} contents[1];
 } Q5;
 typedef struct Q4 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-		int fld1;
-		int fld2;
+		uchar fld0;
 	} contents[1];
 } Q4;
 typedef struct Q3 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-		int fld1;
-		int fld2;
+		uchar fld0;
 	} contents[1];
 } Q3;
 typedef struct Q2 {
@@ -625,18 +592,14 @@ typedef struct Q2 {
 	uchar _t;	/* q_type */
 	struct {
 		int fld0;
-		int fld1;
-		int fld2;
-	} contents[1];
+	} contents[4];
 } Q2;
 typedef struct Q1 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
 		int fld0;
-		int fld1;
-		int fld2;
-	} contents[2];
+	} contents[4];
 } Q1;
 typedef struct Q0 {	/* generic q */
 	uchar Qlen;	/* q_size */
@@ -952,9 +915,9 @@ typedef struct BFS_State {
 } BFS_State;
 #endif
 
-void qsend(int, int, int, int, int, int);
+void qsend(int, int, int, int, int);
 
-#define Addproc(x,y)	addproc(256, y, x, 0, 0, 0, 0, 0, 0)
+#define Addproc(x,y)	addproc(256, y, x, 0)
 #define LOCAL	1
 #define Q_FULL_F	2
 #define Q_EMPT_F	3
@@ -964,7 +927,7 @@ void qsend(int, int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	88
+#define NTRANS	64
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);
