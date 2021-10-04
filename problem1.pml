@@ -16,7 +16,10 @@ typedef Track {
     //Track can be traveled upon in one direction only (which is xed). 
     //Two stations are connected bidirectionally, 
     //while there must only be one track between two stations in each direction.
+	//index of array represents destination of the track
+	// 3->0, 0->1, 1->2, 2->3
     bool trackL2R[4]; //if track is occupied, true. 
+	// 1->0, 2->1, 3->2, 0->3
     bool trackR2L[4];
 };
 Track tracks; 
@@ -183,7 +186,7 @@ proctype RailwayNetwork() {
 	::  shuttleRequests?request ->
         Reply reply;
 		if
-		:: 	request.direction = 1 ->
+		:: 	request.direction == 1 ->
 			if // A track can only be occupied by one shuttle at a time. 
 			:: 	!tracks.trackL2R[request.track] -> tracks.trackL2R[request.track] = true; reply.granted = true; 
 				//printf("Railway Network: granting access to track from station %d to station %d", request.track, (request.track+1)%4);
