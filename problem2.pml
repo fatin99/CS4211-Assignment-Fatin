@@ -29,6 +29,8 @@ proctype Client(int id) {
     bool useNewInfoSuccess = true; //switch this variable to test code
     bool useOldInfoSuccess = true; //switch this variable to test code
     do
+
+    //client initialization
     ::  !connected -> 
         cmConnectRequest!id;
         cmConnectReply[id]?reply ->
@@ -60,6 +62,8 @@ proctype Client(int id) {
         ::  else -> clientReport!failure, id;
             connected = false; currStatus = idle;
         fi
+
+    //weather update
     ::  (nempty(wcpRequest) && currStatus == idle && connected) ->
         currStatus = preUpdate;
     ::  (currStatus == preUpdate && connected) ->
@@ -122,12 +126,13 @@ proctype CommsManager() {
     mtype:report reportStatus;
     mtype:update button;
     do
+
     //client initialization
     ::  nempty(cmConnectRequest) ->
         cmConnectRequest?id;
         mtype:connectReply reply;
         if
-        :: currStatus == idle -> reply = accept;
+        :: currStatus == idle -> reply = accept; 
             currStatus = preInit; connectedClients[id] = true;
             cmAbleWcp!disable;
         :: else -> reply = refuse;
@@ -141,7 +146,7 @@ proctype CommsManager() {
         if 
         ::  reportStatus == success -> cmCommand[id]!useNewInfo; 
             currStatus = postInit;
-        ::  reportStatus == failure -> connectedClients[id] = false;
+        ::  reportStatus == failure -> connectedClients[id] = false; 
             currStatus = idle;
         fi
     ::  currStatus == postInit ->
