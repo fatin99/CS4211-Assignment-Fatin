@@ -261,7 +261,7 @@ settable(void)
 	trans[1][104]	= settr(168,0,105,2,0,"else", 0, 2, 0);
 	trans[1][105]	= settr(169,0,108,1,0,"(1)", 0, 2, 0);
 	trans[1][110]	= settr(174,0,111,1,0,"break", 0, 2, 0);
-	trans[1][111]	= settr(175,0,117,59,59,"printf('Shuttle %d: travelling from station %d to statiod %d\\n',id,currentStation,nextStation)", 0, 2, 0); /* m: 112 -> 0,117 */
+	trans[1][111]	= settr(175,0,117,59,59,"printf('Shuttle %d: travelling from station %d to station %d\\n',id,currentStation,nextStation)", 0, 2, 0); /* m: 112 -> 0,117 */
 	reached1[112] = 1;
 	trans[1][112]	= settr(0,0,0,0,0,"currentStation = nextStation",0,0,0);
 	T = trans[1][117] = settr(181,0,0,0,0,"IF", 0, 2, 0);

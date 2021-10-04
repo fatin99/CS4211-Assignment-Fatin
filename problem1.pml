@@ -40,7 +40,7 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 	for (i:0 .. 2-1){
 		int j;
 		for (j:0 .. 4-1){
-			printf("Shuttle Management System: sending order %d to shuttle %d\n", i, j);
+			printf("Shuttle Management System: sending order %d to shuttle %d\n", i+1, j+1);
 			managementOrders[j]!orders[i];
 		}
         int minCharge = 2147483647; //Assumption: max charge by a shuttle
@@ -49,14 +49,14 @@ proctype ShuttleManagementSystem(Order first; Order second) {
         // the assignment will go to the shuttle that rst made the oer.
 		for (j:0 .. 4-1){ 
 			Offer offer
-			printf("Shuttle Management System: waiting for offer for order %d from shuttle %d\n", i, j);
+			printf("Shuttle Management System: waiting for offer for order %d from shuttle %d\n", i+1, j+1);
 			shuttleOffers?offer;
 			if
 			:: offer.charge < minCharge && !offer.refuse -> minCharge = offer.charge; assignedId = offer.id;
 			:: else -> minCharge = minCharge; assignedId = assignedId;
 			fi
 		}
-		printf("Shuttle Management System: order %d assigned to shuttle %d\n", i, assignedId);
+		printf("Shuttle Management System: order %d assigned to shuttle %d\n", i+1, assignedId+1);
 		for (j:0 .. 4-1){				
 			if
 			:: 	j == assignedId -> managementOrders[j]!orders[i];
@@ -80,7 +80,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 	bool travelling = false;
     do
     ::  managementOrders[id]?order -> 
-		printf("Shuttle %d: processing offer for newly received order\n", id);
+		printf("Shuttle %d: processing offer for newly received order\n", id+1);
 		int currentPosition;
 		if 	// the start destination of the order is within two stations away from its current position
 		:: 	travelling -> currentPosition = currentStation + direction; //if it is on a track, its current position is its arriving station
@@ -95,21 +95,21 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 		:: 	distance > (4/2) -> distance = 4 - distance;
 		:: 	else -> distance = distance;
 		fi
-		printf("Shuttle %d: start destination of the order is %d station(s) away from its current position\n", id, distance);
-		printf("Shuttle %d: current load is %d, order size is %d, capacity is %d\n", id, currentLoad, order.size, capacity);
+		printf("Shuttle %d: start destination of the order is %d station(s) away from its current position\n", id+1, distance);
+		printf("Shuttle %d: current load is %d, order size is %d, capacity is %d\n", id+1, currentLoad, order.size, capacity);
 		Offer offer;
 		if 	//current loaded size plus the order size does not exceed the capacity
 		:: 	currentLoad + order.size <= capacity && distance <= 2 -> 
 			offer.id = id; offer.charge = charge; offer.refuse = false;
-			printf("Shuttle %d: order accepted\n", id);
+			printf("Shuttle %d: order accepted\n", id+1);
 		:: 	else -> 
 			offer.id = id; offer.charge = charge; offer.refuse = true;
-			printf("Shuttle %d: order refused\n", id);
+			printf("Shuttle %d: order refused\n", id+1);
 		fi
 		shuttleOffers!offer;
 		managementOrders[id]?order;
 		if
-		:: 	order.size >= 0 -> orders!order; printf("Shuttle %d: offer accepted by management\n", id);
+		:: 	order.size >= 0 -> orders!order; printf("Shuttle %d: offer accepted by management\n", id+1);
 		:: 	else -> skip;
 		fi
     :: nempty(orders) && !processingOrder->
@@ -117,26 +117,26 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
         processingOrder = true;
         destination = currentOrder.start;
         travelling = true;
-		printf("Shuttle %d: beginning new order from station %d to station %d with size %d\n", id, currentOrder.start, currentOrder.end, currentOrder.size);
+		printf("Shuttle %d: beginning new order from station %d to station %d with size %d\n", id+1, currentOrder.start+1, currentOrder.end+1, currentOrder.size);
         if
         :: 	(currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < 4/2) -> 
-            direction = 1; printf("Shuttle %d: travelling left to right\n", id);
-        :: 	else -> direction = -1; printf("Shuttle %d: travelling right to left\n", id);
+            direction = 1; printf("Shuttle %d: travelling left to right\n", id+1);
+        :: 	else -> direction = -1; printf("Shuttle %d: travelling right to left\n", id+1);
         fi
     :: !travelling && processingOrder ->
         if 
         :: 	destination == currentOrder.start ->
-			printf("Shuttle %d: loading %d people at station %d\n", id, currentOrder.size, currentOrder.start);
+			printf("Shuttle %d: loading %d people at station %d\n", id+1, currentOrder.size, currentOrder.start+1);
             currentLoad = currentLoad + currentOrder.size;
             destination = currentOrder.end;
             travelling = true;
             if
             :: 	(currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < 4/2) -> 
-                direction = 1; printf("Shuttle %d: travelling left to right\n", id);
-            :: 	else -> direction = -1; printf("Shuttle %d: travelling right to left\n", id);
+                direction = 1; printf("Shuttle %d: travelling left to right\n", id+1);
+            :: 	else -> direction = -1; printf("Shuttle %d: travelling right to left\n", id+1);
             fi
         :: 	destination == currentOrder.end -> 
-			printf("Shuttle %d: unloading %d people at station %d\n", id, currentOrder.size, currentOrder.end);
+			printf("Shuttle %d: unloading %d people at station %d\n", id+1, currentOrder.size, currentOrder.end+1);
             currentLoad = currentLoad - currentOrder.size;
             processingOrder = false;
         :: 	else -> skip;
@@ -152,7 +152,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
         Request request; 
 		request.id = id; request.direction = direction; request.track = nextStation;
         Reply reply;
-		printf("Shuttle %d: requesting access to travel from station %d to station %d\n", id, currentStation, nextStation);
+		printf("Shuttle %d: requesting access to travel from station %d to station %d\n", id+1, currentStation+1, nextStation+1);
 		do
 		:: 	shuttleRequests!request ->    
 			railwayReplies[id]?reply;
@@ -161,7 +161,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 			:: 	else -> skip;
 			fi
 		od  
-		printf("Shuttle %d: travelling from station %d to station %d\n", id, currentStation, nextStation);
+		printf("Shuttle %d: travelling from station %d to station %d\n", id+1, currentStation+1, nextStation+1);
         currentStation = nextStation; 		
         if 
         :: 	direction == 1 -> tracks.trackL2R[request.track] = false; 
@@ -185,16 +185,16 @@ proctype RailwayNetwork() {
 		:: 	request.direction == 1 ->
 			if // A track can only be occupied by one shuttle at a time. 
 			:: 	!tracks.trackL2R[request.track] -> tracks.trackL2R[request.track] = true; reply.granted = true; 
-				printf("Railway Network: granting access to track from station %d to station %d\n", request.track-1, request.track);
+				printf("Railway Network: granting access to track from station %d to station %d\n", request.track, (request.track+1)%4);
 			:: 	else -> reply.granted = false; //Shuttles willing to travel along the occupied track have to wait until the track is free.
-				printf("Railway Network: rejecting access to track from station %d to station %d\n", request.track-1, request.track);
+				printf("Railway Network: rejecting access to track from station %d to station %d\n", request.track, (request.track+1)&4);
 			fi
 		:: 	else ->
 			if
 			:: 	!tracks.trackR2L[request.track] ->tracks.trackL2R[request.track] = true;  reply.granted = true;
-				printf("Railway Network: granting access to track from station %d to station %d\n", request.track+1, request.track);
+				printf("Railway Network: granting access to track from station %d to station %d\n", (request.track+1)%4, (request.track+1+1)&4);
 			:: 	else -> reply.granted = false;
-				printf("Railway Network: rejecting access to track from station %d to station %d\n", request.track+1, request.track);
+				printf("Railway Network: rejecting access to track from station %d to station %d\n", (request.track+1)%4, (request.track+1+1)%4);
 			fi
 		fi
         railwayReplies[request.id]!reply;
@@ -203,12 +203,12 @@ proctype RailwayNetwork() {
 
 init{
 	atomic{
-		run Shuttle(4, 2, 1, 0); 
-		run Shuttle(2, 4, 1, 1); 
-		run Shuttle(5, 1, 2, 2);
-		run Shuttle(3, 3, 3, 3);
-		Order first; first.size = 4; first.start = 1; first.end = 3; 
-        Order second; second.size = 2; second.start = 2; second.end = 3; 
+		run Shuttle(4, 2, 1-1, 0); 
+		run Shuttle(2, 4, 1-1, 1); 
+		run Shuttle(5, 1, 2-1, 2);
+		run Shuttle(3, 3, 3-1, 3);
+		Order first; first.size = 4; first.start = 1-1; first.end = 3-1; 
+        Order second; second.size = 2; second.start = 2-1; second.end = 3-1; 
 		run ShuttleManagementSystem(first, second);
         run RailwayNetwork();
 	}
