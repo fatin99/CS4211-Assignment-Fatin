@@ -1,0 +1,17 @@
+never p1 {    /* !([] (<> ([] ((! (travelling)) && ((currentLoad==0)))))) */
+T0_init:
+	do
+	:: (! (((! (travelling)) && ((currentLoad==0))))) -> goto accept_S3
+	:: (1) -> goto T0_S3
+	:: (1) -> goto T0_init
+	od;
+accept_S3:
+	do
+	:: (1) -> goto T0_S3
+	od;
+T0_S3:
+	do
+	:: (! (((! (travelling)) && ((currentLoad==0))))) -> goto accept_S3
+	:: (1) -> goto T0_S3
+	od;
+}

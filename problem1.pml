@@ -32,6 +32,10 @@ typedef Reply {
 };
 chan railwayReplies[4] = [1] of {Reply}; 
 
+//for ltl checking
+bool travelling;
+int currentLoad;
+
 proctype ShuttleManagementSystem(Order first; Order second) {
 	Order orders[2];
 	orders[0].start = first.start; orders[0].end = first.end; orders[0].size = first.size;
@@ -72,12 +76,12 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 	Order currentOrder; //order that is currently being transported
     
 	int currentStation = initialStation;
-    int currentLoad;
+	currentLoad = 0;
     int direction;
     int destination;
 	
 	bool processingOrder = false;
-	bool travelling = false;
+	travelling = false;
     do
     ::  managementOrders[id]?order -> 
 		printf("Shuttle %d: processing offer for newly received order\n", id+1);
@@ -213,3 +217,7 @@ init{
         run RailwayNetwork();
 	}
 }
+
+#define p (!travelling)
+#define q (currentLoad == 0)
+ltl p1 { always eventually always (p && q) }
