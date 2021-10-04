@@ -88,13 +88,9 @@
 		;
 		;
 		goto R999;
-
-	case 13: // STATE 3
-		;
-		((P2 *)_this)->request.direction = trpt->bup.oval;
-		;
-		goto R999;
 ;
+		;
+		;
 		;
 		
 	case 15: // STATE 5

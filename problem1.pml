@@ -53,7 +53,7 @@ proctype ShuttleManagementSystem(Order first; Order second) {
         // the assignment will go to the shuttle that rst made the oer.
 		for (j:0 .. 4-1){ 
 			Offer offer
-			printf("Shuttle Management System: receiving offer for order %d from shuttle %d\n", i, j);
+			printf("Shuttle Management System: waiting for offer for order %d from shuttle %d\n", i, j);
 			shuttleOffers?offer;
 			if
 			:: offer.charge < minCharge && !offer.refuse -> minCharge = offer.charge; assignedId = offer.id;
