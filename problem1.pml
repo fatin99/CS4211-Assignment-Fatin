@@ -121,7 +121,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
         processingOrder = true;
         destination = currentOrder.start;
         travelling = true;
-		printf("Shuttle %d: beggining new order from station %d to station %d with size &d\n", id, currentOrder.start, currentOrder.end, currentOrder.size);
+		printf("Shuttle %d: beginning new order from station %d to station %d with size %d\n", id, currentOrder.start, currentOrder.end, currentOrder.size);
         if
         :: 	(currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < 4/2) -> 
             direction = 1; printf("Shuttle %d: travelling left to right\n", id);
