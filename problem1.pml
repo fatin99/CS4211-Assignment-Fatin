@@ -123,24 +123,6 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
             direction = 1; printf("Shuttle %d: travelling left to right\n", id+1);
         :: 	else -> direction = -1; printf("Shuttle %d: travelling right to left\n", id+1);
         fi
-	:: !travelling && processingOrder ->
-        if 
-        :: 	destination == currentOrder.start ->
-			printf("Shuttle %d: loading %d people at station %d\n", id+1, currentOrder.size, currentOrder.start+1);
-            currentLoad = currentLoad + currentOrder.size;
-            destination = currentOrder.end;
-            travelling = true;
-            if
-            :: 	(currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < 4/2) -> 
-                direction = 1; printf("Shuttle %d: travelling left to right\n", id+1);
-            :: 	else -> direction = -1; printf("Shuttle %d: travelling right to left\n", id+1);
-            fi
-        :: 	destination == currentOrder.end -> 
-			printf("Shuttle %d: unloading %d people at station %d\n", id+1, currentOrder.size, currentOrder.end+1);
-            currentLoad = currentLoad - currentOrder.size;
-            processingOrder = false;
-        :: 	else -> skip;
-        fi
 	:: travelling && processingOrder -> 
         int nextStation;
         nextStation = currentStation + direction;
@@ -171,6 +153,24 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
         :: 	currentStation == destination -> travelling = false; 
         :: 	else -> travelling = true;
         fi	
+	:: !travelling && processingOrder ->
+        if 
+        :: 	destination == currentOrder.start ->
+			printf("Shuttle %d: loading %d people at station %d\n", id+1, currentOrder.size, currentOrder.start+1);
+            currentLoad = currentLoad + currentOrder.size;
+            destination = currentOrder.end;
+            travelling = true;
+            if
+            :: 	(currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < 4/2) -> 
+                direction = 1; printf("Shuttle %d: travelling left to right\n", id+1);
+            :: 	else -> direction = -1; printf("Shuttle %d: travelling right to left\n", id+1);
+            fi
+        :: 	destination == currentOrder.end -> 
+			printf("Shuttle %d: unloading %d people at station %d\n", id+1, currentOrder.size, currentOrder.end+1);
+            currentLoad = currentLoad - currentOrder.size;
+            processingOrder = false;
+        :: 	else -> skip;
+        fi
     od
 }
 
