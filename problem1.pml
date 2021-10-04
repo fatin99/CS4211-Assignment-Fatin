@@ -156,7 +156,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
         Request request; 
 		request.id = id; request.direction = direction; request.track = nextStation;
         Reply reply;
-		printf("Shuttle %d: requesting access to travel from station %d to statiod %d\n", id, currentStation, nextStation);
+		printf("Shuttle %d: requesting access to travel from station %d to station %d\n", id, currentStation, nextStation);
 		do
 		:: 	shuttleRequests!request ->    
 			railwayReplies[id]?reply;
