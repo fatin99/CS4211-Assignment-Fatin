@@ -29,6 +29,5 @@ Stats on memory usage (in Megabytes):
 
 
 
-pan: elapsed time 1.03 seconds
-pan: rate 355008.77 states/second
-warning: only one claim defined, -N ignored
+pan: elapsed time 1.08 seconds
+pan: rate  337570.9 states/second
