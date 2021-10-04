@@ -189,16 +189,16 @@ proctype RailwayNetwork() {
 		:: 	request.direction == 1 ->
 			if // A track can only be occupied by one shuttle at a time. 
 			:: 	!tracks.trackL2R[request.track] -> tracks.trackL2R[request.track] = true; reply.granted = true; 
-				printf("Railway Network: granting access to track from station %d to station %d\n", request.track, (request.track+1)%4);
+				printf("Railway Network: granting access to track from station %d to station %d\n", request.track-1, request.track);
 			:: 	else -> reply.granted = false; //Shuttles willing to travel along the occupied track have to wait until the track is free.
-				printf("Railway Network: rejecting access to track from station %d to station %d\n", request.track, (request.track+1)%4);
+				printf("Railway Network: rejecting access to track from station %d to station %d\n", request.track-1, request.track);
 			fi
 		:: 	else ->
 			if
 			:: 	!tracks.trackR2L[request.track] ->tracks.trackL2R[request.track] = true;  reply.granted = true;
-				printf("Railway Network: granting access to track from station %d to station %d\n", request.track, (request.track-1)%4);
+				printf("Railway Network: granting access to track from station %d to station %d\n", request.track+1, request.track);
 			:: 	else -> reply.granted = false;
-				printf("Railway Network: rejecting access to track from station %d to station %d\n", request.track, (request.track-1)%4);
+				printf("Railway Network: rejecting access to track from station %d to station %d\n", request.track+1, request.track);
 			fi
 		fi
         railwayReplies[request.id]!reply;
