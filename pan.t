@@ -329,7 +329,7 @@ settable(void)
 	trans[0][24]	= settr(23,0,27,73,73,"((j<=(4-1)))", 0, 2, 0); /* m: 25 -> 27,0 */
 	reached0[25] = 1;
 	trans[0][25]	= settr(0,0,0,0,0,"",0,0,0);
-	trans[0][26]	= settr(0,0,0,0,0,"printf('Shuttle Management System: receiving offer for order %d from shuttle %d\\n',i,j)",0,0,0);
+	trans[0][26]	= settr(0,0,0,0,0,"printf('Shuttle Management System: waiting for offer for order %d from shuttle %d\\n',i,j)",0,0,0);
 	trans[0][27]	= settr(26,0,34,74,74,"shuttleOffers?offer.id,offer.charge,offer.refuse", 1, 504, 0);
 	T = trans[0][34] = settr(33,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(33,0,28,0,0,"IF", 0, 2, 0);

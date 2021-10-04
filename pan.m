@@ -1432,9 +1432,9 @@
 		/* merge: (27, 25, 27) */
 		reached[0][25] = 1;
 		;
-		/* merge: printf('Shuttle Management System: receiving offer for order %d from shuttle %d\\n',i,j)(27, 26, 27) */
+		/* merge: printf('Shuttle Management System: waiting for offer for order %d from shuttle %d\\n',i,j)(27, 26, 27) */
 		reached[0][26] = 1;
-		Printf("Shuttle Management System: receiving offer for order %d from shuttle %d\n", ((P0 *)_this)->i, ((P0 *)_this)->_10_1_j);
+		Printf("Shuttle Management System: waiting for offer for order %d from shuttle %d\n", ((P0 *)_this)->i, ((P0 *)_this)->_10_1_j);
 		_m = 3; goto P999; /* 2 */
 	case 74: // STATE 27 - problem1.pml:57 - [shuttleOffers?offer.id,offer.charge,offer.refuse] (0:0:3 - 1)
 		reached[0][27] = 1;
