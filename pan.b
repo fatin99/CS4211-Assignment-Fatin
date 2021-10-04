@@ -115,7 +115,7 @@
 		
 	case 19: // STATE 15
 		;
-		now.tracks.trackL2R[ Index(((P2 *)_this)->request.track, 4) ] = trpt->bup.oval;
+		now.tracks.trackR2L[ Index(((P2 *)_this)->request.track, 4) ] = trpt->bup.oval;
 		;
 		goto R999;
 

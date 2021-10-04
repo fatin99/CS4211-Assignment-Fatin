@@ -123,7 +123,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
             direction = 1; printf("Shuttle %d: travelling left to right\n", id+1);
         :: 	else -> direction = -1; printf("Shuttle %d: travelling right to left\n", id+1);
         fi
-    :: !travelling && processingOrder ->
+	:: !travelling && processingOrder ->
         if 
         :: 	destination == currentOrder.start ->
 			printf("Shuttle %d: loading %d people at station %d\n", id+1, currentOrder.size, currentOrder.start+1);
@@ -141,7 +141,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
             processingOrder = false;
         :: 	else -> skip;
         fi
-    :: travelling && processingOrder -> 
+	:: travelling && processingOrder -> 
         int nextStation;
         nextStation = currentStation + direction;
         if 
@@ -187,14 +187,14 @@ proctype RailwayNetwork() {
 			:: 	!tracks.trackL2R[request.track] -> tracks.trackL2R[request.track] = true; reply.granted = true; 
 				printf("Railway Network: granting access to track from station %d to station %d\n", request.track, (request.track+1)%4);
 			:: 	else -> reply.granted = false; //Shuttles willing to travel along the occupied track have to wait until the track is free.
-				printf("Railway Network: rejecting access to track from station %d to station %d\n", request.track, (request.track+1)&4);
+				printf("Railway Network: rejecting access to track from station %d to station %d\n", request.track, (request.track+1)%4);
 			fi
 		:: 	else ->
 			if
-			:: 	!tracks.trackR2L[request.track] ->tracks.trackL2R[request.track] = true;  reply.granted = true;
-				printf("Railway Network: granting access to track from station %d to station %d\n", (request.track+1)%4, (request.track+1+1)&4);
+			:: 	!tracks.trackR2L[request.track] ->tracks.trackR2L[request.track] = true;  reply.granted = true;
+				printf("Railway Network: granting access to track from station %d to station %d\n", (request.track+1+1)%4, (request.track+1)%4);
 			:: 	else -> reply.granted = false;
-				printf("Railway Network: rejecting access to track from station %d to station %d\n", (request.track+1)%4, (request.track+1+1)%4);
+				printf("Railway Network: rejecting access to track from station %d to station %d\n", (request.track+1+1)%4, (request.track+1)%4);
 			fi
 		fi
         railwayReplies[request.id]!reply;
