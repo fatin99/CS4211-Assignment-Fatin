@@ -67,12 +67,12 @@ settable(void)
 	trans[2][5]	= settr(197,0,6,15,15,"tracks.trackL2R[request.track] = 1", 1, 2, 0);
 	trans[2][6]	= settr(198,0,25,16,16,"reply.granted = 1", 0, 2, 0); /* m: 7 -> 0,25 */
 	reached2[7] = 1;
-	trans[2][7]	= settr(0,0,0,0,0,"printf('Railway Network: granting access to track from station %d to station %d\\n',request.track,((request.track+1)%4))",0,0,0);
+	trans[2][7]	= settr(0,0,0,0,0,"printf('Railway Network: granting access to track from station %d to station %d\\n',(request.track-1),request.track)",0,0,0);
 	trans[2][12]	= settr(204,0,25,1,0,".(goto)", 0, 2, 0);
 	trans[2][8]	= settr(200,0,9,2,0,"else", 0, 2, 0);
 	trans[2][9]	= settr(201,0,25,17,17,"reply.granted = 0", 0, 2, 0); /* m: 10 -> 0,25 */
 	reached2[10] = 1;
-	trans[2][10]	= settr(0,0,0,0,0,"printf('Railway Network: rejecting access to track from station %d to station %d\\n',request.track,((request.track+1)%4))",0,0,0);
+	trans[2][10]	= settr(0,0,0,0,0,"printf('Railway Network: rejecting access to track from station %d to station %d\\n',(request.track-1),request.track)",0,0,0);
 	trans[2][24]	= settr(216,0,25,1,0,".(goto)", 0, 2, 0);
 	trans[2][13]	= settr(205,0,21,2,0,"else", 0, 2, 0);
 	T = trans[2][21] = settr(213,0,0,0,0,"IF", 0, 2, 0);
@@ -82,12 +82,12 @@ settable(void)
 	trans[2][15]	= settr(207,0,16,19,19,"tracks.trackL2R[request.track] = 1", 1, 2, 0);
 	trans[2][16]	= settr(208,0,25,20,20,"reply.granted = 1", 0, 2, 0); /* m: 17 -> 0,25 */
 	reached2[17] = 1;
-	trans[2][17]	= settr(0,0,0,0,0,"printf('Railway Network: granting access to track from station %d to station %d\\n',request.track,((request.track-1)%4))",0,0,0);
+	trans[2][17]	= settr(0,0,0,0,0,"printf('Railway Network: granting access to track from station %d to station %d\\n',(request.track+1),request.track)",0,0,0);
 	trans[2][22]	= settr(214,0,25,1,0,".(goto)", 0, 2, 0);
 	trans[2][18]	= settr(210,0,19,2,0,"else", 0, 2, 0);
 	trans[2][19]	= settr(211,0,25,21,21,"reply.granted = 0", 0, 2, 0); /* m: 20 -> 0,25 */
 	reached2[20] = 1;
-	trans[2][20]	= settr(0,0,0,0,0,"printf('Railway Network: rejecting access to track from station %d to station %d\\n',request.track,((request.track-1)%4))",0,0,0);
+	trans[2][20]	= settr(0,0,0,0,0,"printf('Railway Network: rejecting access to track from station %d to station %d\\n',(request.track+1),request.track)",0,0,0);
 	trans[2][25]	= settr(217,0,26,22,22,"railwayReplies[request.id]!reply.granted", 1, 6, 0);
 	trans[2][28]	= settr(220,0,29,1,0,"break", 0, 2, 0);
 	trans[2][29]	= settr(221,0,0,23,23,"-end-", 0, 3500, 0);
@@ -175,7 +175,7 @@ settable(void)
 	reached1[50] = 1;
 	trans[1][50]	= settr(0,0,0,0,0,"destination = currentOrder.start",0,0,0);
 	trans[1][51]	= settr(0,0,0,0,0,"travelling = 1",0,0,0);
-	trans[1][52]	= settr(0,0,0,0,0,"printf('Shuttle %d: beggining new order from station %d to station %d with size &d\\n',id,currentOrder.start,currentOrder.end,currentOrder.size)",0,0,0);
+	trans[1][52]	= settr(0,0,0,0,0,"printf('Shuttle %d: beginning new order from station %d to station %d with size %d\\n',id,currentOrder.start,currentOrder.end,currentOrder.size)",0,0,0);
 	T = trans[1][59] = settr(123,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(123,0,53,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(123,0,56,0,0,"IF", 0, 2, 0);
@@ -244,7 +244,7 @@ settable(void)
 	trans[1][96]	= settr(0,0,0,0,0,"request.direction = direction",0,0,0);
 	trans[1][97]	= settr(0,0,0,0,0,"request.track = nextStation",0,0,0);
 	trans[1][98]	= settr(0,0,0,0,0,"",0,0,0);
-	trans[1][99]	= settr(0,0,0,0,0,"printf('Shuttle %d: requesting access to travel from station %d to statiod %d\\n',id,currentStation,nextStation)",0,0,0);
+	trans[1][99]	= settr(0,0,0,0,0,"printf('Shuttle %d: requesting access to travel from station %d to station %d\\n',id,currentStation,nextStation)",0,0,0);
 	trans[1][109]	= settr(173,0,108,1,0,".(goto)", 0, 2, 0);
 	T = trans[1][108] = settr(172,0,0,0,0,"DO", 0, 2, 0);
 	    T->nxt	= settr(172,0,100,0,0,"DO", 0, 2, 0);

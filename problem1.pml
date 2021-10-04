@@ -13,12 +13,8 @@ typedef Offer {
 chan shuttleOffers = [4] of {Offer};
 
 typedef Track { 
-    //Track can be traveled upon in one direction only (which is xed). 
-    //Two stations are connected bidirectionally, 
-    //while there must only be one track between two stations in each direction.
-	//index of array represents destination of the track
 	// 3->0, 0->1, 1->2, 2->3
-    bool trackL2R[4]; //if track is occupied, true. 
+    bool trackL2R[4]; 
 	// 1->0, 2->1, 3->2, 0->3
     bool trackR2L[4];
 };
@@ -165,7 +161,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 			:: 	else -> skip;
 			fi
 		od  
-		printf("Shuttle %d: travelling from station %d to statiod %d\n", id, currentStation, nextStation);
+		printf("Shuttle %d: travelling from station %d to station %d\n", id, currentStation, nextStation);
         currentStation = nextStation; 		
         if 
         :: 	direction == 1 -> tracks.trackL2R[request.track] = false; 

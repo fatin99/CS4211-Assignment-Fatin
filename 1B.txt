@@ -232,8 +232,8 @@ Shuttle 2: offer accepted by management
 240:	proc  3 (Shuttle:1) problem1.pml:123 (state 51)	[travelling = 1]
 241:	proc  4 (Shuttle:1) problem1.pml:117 (state 43)	[else]
 242:	proc  5 (ShuttleManagementSystem:1) problem1.pml:64 (state 53)	[j = (j+1)]
-Shuttle 2: beggining new order from station 1 to station 3 with size &d
-243:	proc  3 (Shuttle:1) problem1.pml:124 (state 52)	[printf('Shuttle %d: beggining new order from station %d to station %d with size &d\\n',id,currentOrder.start,currentOrder.end,currentOrder.size)]
+Shuttle 2: beginning new order from station 1 to station 3 with size 4
+243:	proc  3 (Shuttle:1) problem1.pml:124 (state 52)	[printf('Shuttle %d: beginning new order from station %d to station %d with size %d\\n',id,currentOrder.start,currentOrder.end,currentOrder.size)]
 245:	proc  3 (Shuttle:1) problem1.pml:128 (state 56)	[else]
 246:	proc  5 (ShuttleManagementSystem:1) problem1.pml:69 (state 54)	[else]
 248:	proc  5 (ShuttleManagementSystem:1) problem1.pml:44 (state 59)	[i = (i+1)]
@@ -278,8 +278,8 @@ Shuttle Management System: sending order 1 to shuttle 2
 290:	proc  1 (Shuttle:1) problem1.pml:91 (state 6)	[else]
 291:	proc  1 (Shuttle:1) problem1.pml:91 (state 7)	[currentPosition = currentStation]
 292:	proc  3 (Shuttle:1) problem1.pml:159 (state 98)	[]
-Shuttle 2: requesting access to travel from station 2 to statiod 1
-293:	proc  3 (Shuttle:1) problem1.pml:159 (state 99)	[printf('Shuttle %d: requesting access to travel from station %d to statiod %d\\n',id,currentStation,nextStation)]
+Shuttle 2: requesting access to travel from station 2 to station 1
+293:	proc  3 (Shuttle:1) problem1.pml:159 (state 99)	[printf('Shuttle %d: requesting access to travel from station %d to station %d\\n',id,currentStation,nextStation)]
 294:	proc  5 (ShuttleManagementSystem:1) problem1.pml:48 (state 14)	[managementOrders[j]!orders[i].start,orders[i].end,orders[i].size]
 296:	proc  1 (Shuttle:1) problem1.pml:94 (state 10)	[distance = 0]
 297:	proc  1 (Shuttle:1) problem1.pml:96 (state 13)	[else]
@@ -320,8 +320,8 @@ Shuttle 0: current load is 0, order size is 2, capacity is 4
 336:	proc  4 (Shuttle:1) problem1.pml:91 (state 6)	[else]
 337:	proc  5 (ShuttleManagementSystem:1) problem1.pml:54 (state 22)	[assignedId = 0]
 338:	proc  5 (ShuttleManagementSystem:1) problem1.pml:54 (state 23)	[j = 0]
-Railway Network: granting access to track from station 1 to station 0
-339:	proc  6 (RailwayNetwork:1) problem1.pml:199 (state 17)	[printf('Railway Network: granting access to track from station %d to station %d\\n',request.track,((request.track-1)%4))]
+Railway Network: granting access to track from station 2 to station 1
+339:	proc  6 (RailwayNetwork:1) problem1.pml:199 (state 17)	[printf('Railway Network: granting access to track from station %d to station %d\\n',(request.track+1),request.track)]
 340:	proc  4 (Shuttle:1) problem1.pml:91 (state 7)	[currentPosition = currentStation]
 343:	proc  2 (Shuttle:1) problem1.pml:100 (state 20)	[distance = distance]
 347:	proc  5 (ShuttleManagementSystem:1) problem1.pml:54 (state 24)	[((j<=(4-1)))]
@@ -491,8 +491,8 @@ Shuttle 2: travelling left to right
 538:	proc  3 (Shuttle:1) problem1.pml:157 (state 96)	[request.direction = direction]
 539:	proc  3 (Shuttle:1) problem1.pml:157 (state 97)	[request.track = nextStation]
 540:	proc  3 (Shuttle:1) problem1.pml:159 (state 98)	[]
-Shuttle 2: requesting access to travel from station 1 to statiod 2
-541:	proc  3 (Shuttle:1) problem1.pml:159 (state 99)	[printf('Shuttle %d: requesting access to travel from station %d to statiod %d\\n',id,currentStation,nextStation)]
+Shuttle 2: requesting access to travel from station 1 to station 2
+541:	proc  3 (Shuttle:1) problem1.pml:159 (state 99)	[printf('Shuttle %d: requesting access to travel from station %d to station %d\\n',id,currentStation,nextStation)]
 543:	proc  3 (Shuttle:1) problem1.pml:161 (state 100)	[shuttleRequests!request.track,request.direction,request.id]
 544:	proc  6 (RailwayNetwork:1) problem1.pml:186 (state 1)	[shuttleRequests?request.track,request.direction,request.id]
 545:	proc  6 (RailwayNetwork:1) problem1.pml:188 (state 2)	[]
@@ -500,8 +500,8 @@ Shuttle 2: requesting access to travel from station 1 to statiod 2
 547:	proc  6 (RailwayNetwork:1) problem1.pml:191 (state 4)	[(!(tracks.trackL2R[request.track]))]
 548:	proc  6 (RailwayNetwork:1) problem1.pml:191 (state 5)	[tracks.trackL2R[request.track] = 1]
 549:	proc  6 (RailwayNetwork:1) problem1.pml:191 (state 6)	[reply.granted = 1]
-Railway Network: granting access to track from station 2 to station 3
-550:	proc  6 (RailwayNetwork:1) problem1.pml:192 (state 7)	[printf('Railway Network: granting access to track from station %d to station %d\\n',request.track,((request.track+1)%4))]
+Railway Network: granting access to track from station 1 to station 2
+550:	proc  6 (RailwayNetwork:1) problem1.pml:192 (state 7)	[printf('Railway Network: granting access to track from station %d to station %d\\n',(request.track-1),request.track)]
 553:	proc  6 (RailwayNetwork:1) problem1.pml:204 (state 25)	[railwayReplies[request.id]!reply.granted]
 555:	proc  3 (Shuttle:1) problem1.pml:162 (state 101)	[railwayReplies[id]?reply.granted]
 556:	proc  3 (Shuttle:1) problem1.pml:164 (state 102)	[(reply.granted)]
@@ -522,8 +522,8 @@ Shuttle 2: travelling from station 1 to statiod 2
 575:	proc  3 (Shuttle:1) problem1.pml:157 (state 96)	[request.direction = direction]
 576:	proc  3 (Shuttle:1) problem1.pml:157 (state 97)	[request.track = nextStation]
 577:	proc  3 (Shuttle:1) problem1.pml:159 (state 98)	[]
-Shuttle 2: requesting access to travel from station 2 to statiod 3
-578:	proc  3 (Shuttle:1) problem1.pml:159 (state 99)	[printf('Shuttle %d: requesting access to travel from station %d to statiod %d\\n',id,currentStation,nextStation)]
+Shuttle 2: requesting access to travel from station 2 to station 3
+578:	proc  3 (Shuttle:1) problem1.pml:159 (state 99)	[printf('Shuttle %d: requesting access to travel from station %d to station %d\\n',id,currentStation,nextStation)]
 580:	proc  3 (Shuttle:1) problem1.pml:161 (state 100)	[shuttleRequests!request.track,request.direction,request.id]
 581:	proc  6 (RailwayNetwork:1) problem1.pml:186 (state 1)	[shuttleRequests?request.track,request.direction,request.id]
 582:	proc  6 (RailwayNetwork:1) problem1.pml:188 (state 2)	[]
@@ -531,8 +531,8 @@ Shuttle 2: requesting access to travel from station 2 to statiod 3
 584:	proc  6 (RailwayNetwork:1) problem1.pml:191 (state 4)	[(!(tracks.trackL2R[request.track]))]
 585:	proc  6 (RailwayNetwork:1) problem1.pml:191 (state 5)	[tracks.trackL2R[request.track] = 1]
 586:	proc  6 (RailwayNetwork:1) problem1.pml:191 (state 6)	[reply.granted = 1]
-Railway Network: granting access to track from station 3 to station 0
-587:	proc  6 (RailwayNetwork:1) problem1.pml:192 (state 7)	[printf('Railway Network: granting access to track from station %d to station %d\\n',request.track,((request.track+1)%4))]
+Railway Network: granting access to track from station 2 to station 3
+587:	proc  6 (RailwayNetwork:1) problem1.pml:192 (state 7)	[printf('Railway Network: granting access to track from station %d to station %d\\n',(request.track-1),request.track)]
 590:	proc  6 (RailwayNetwork:1) problem1.pml:204 (state 25)	[railwayReplies[request.id]!reply.granted]
 592:	proc  3 (Shuttle:1) problem1.pml:162 (state 101)	[railwayReplies[id]?reply.granted]
 593:	proc  3 (Shuttle:1) problem1.pml:164 (state 102)	[(reply.granted)]
@@ -554,8 +554,8 @@ Shuttle 2: unloading 4 people at station 3
 613:	proc  3 (Shuttle:1) problem1.pml:121 (state 49)	[processingOrder = 1]
 614:	proc  3 (Shuttle:1) problem1.pml:122 (state 50)	[destination = currentOrder.start]
 615:	proc  3 (Shuttle:1) problem1.pml:123 (state 51)	[travelling = 1]
-Shuttle 2: beggining new order from station 2 to station 3 with size &d
-616:	proc  3 (Shuttle:1) problem1.pml:124 (state 52)	[printf('Shuttle %d: beggining new order from station %d to station %d with size &d\\n',id,currentOrder.start,currentOrder.end,currentOrder.size)]
+Shuttle 2: beginning new order from station 2 to station 3 with size 2
+616:	proc  3 (Shuttle:1) problem1.pml:124 (state 52)	[printf('Shuttle %d: beginning new order from station %d to station %d with size %d\\n',id,currentOrder.start,currentOrder.end,currentOrder.size)]
 617:	proc  3 (Shuttle:1) problem1.pml:128 (state 56)	[else]
 618:	proc  3 (Shuttle:1) problem1.pml:128 (state 57)	[direction = -(1)]
 Shuttle 2: travelling right to left
@@ -570,8 +570,8 @@ Shuttle 2: travelling right to left
 630:	proc  3 (Shuttle:1) problem1.pml:157 (state 96)	[request.direction = direction]
 631:	proc  3 (Shuttle:1) problem1.pml:157 (state 97)	[request.track = nextStation]
 632:	proc  3 (Shuttle:1) problem1.pml:159 (state 98)	[]
-Shuttle 2: requesting access to travel from station 3 to statiod 2
-633:	proc  3 (Shuttle:1) problem1.pml:159 (state 99)	[printf('Shuttle %d: requesting access to travel from station %d to statiod %d\\n',id,currentStation,nextStation)]
+Shuttle 2: requesting access to travel from station 3 to station 2
+633:	proc  3 (Shuttle:1) problem1.pml:159 (state 99)	[printf('Shuttle %d: requesting access to travel from station %d to station %d\\n',id,currentStation,nextStation)]
 635:	proc  3 (Shuttle:1) problem1.pml:161 (state 100)	[shuttleRequests!request.track,request.direction,request.id]
 636:	proc  6 (RailwayNetwork:1) problem1.pml:186 (state 1)	[shuttleRequests?request.track,request.direction,request.id]
 637:	proc  6 (RailwayNetwork:1) problem1.pml:188 (state 2)	[]
@@ -579,8 +579,8 @@ Shuttle 2: requesting access to travel from station 3 to statiod 2
 639:	proc  6 (RailwayNetwork:1) problem1.pml:198 (state 14)	[(!(tracks.trackR2L[request.track]))]
 640:	proc  6 (RailwayNetwork:1) problem1.pml:198 (state 15)	[tracks.trackL2R[request.track] = 1]
 641:	proc  6 (RailwayNetwork:1) problem1.pml:198 (state 16)	[reply.granted = 1]
-Railway Network: granting access to track from station 2 to station 1
-642:	proc  6 (RailwayNetwork:1) problem1.pml:199 (state 17)	[printf('Railway Network: granting access to track from station %d to station %d\\n',request.track,((request.track-1)%4))]
+Railway Network: granting access to track from station 3 to station 2
+642:	proc  6 (RailwayNetwork:1) problem1.pml:199 (state 17)	[printf('Railway Network: granting access to track from station %d to station %d\\n',(request.track+1),request.track)]
 645:	proc  6 (RailwayNetwork:1) problem1.pml:204 (state 25)	[railwayReplies[request.id]!reply.granted]
 646:	proc  3 (Shuttle:1) problem1.pml:162 (state 101)	[railwayReplies[id]?reply.granted]
 647:	proc  3 (Shuttle:1) problem1.pml:164 (state 102)	[(reply.granted)]
@@ -612,8 +612,8 @@ Shuttle 2: travelling left to right
 679:	proc  3 (Shuttle:1) problem1.pml:157 (state 96)	[request.direction = direction]
 680:	proc  3 (Shuttle:1) problem1.pml:157 (state 97)	[request.track = nextStation]
 681:	proc  3 (Shuttle:1) problem1.pml:159 (state 98)	[]
-Shuttle 2: requesting access to travel from station 2 to statiod 3
-682:	proc  3 (Shuttle:1) problem1.pml:159 (state 99)	[printf('Shuttle %d: requesting access to travel from station %d to statiod %d\\n',id,currentStation,nextStation)]
+Shuttle 2: requesting access to travel from station 2 to station 3
+682:	proc  3 (Shuttle:1) problem1.pml:159 (state 99)	[printf('Shuttle %d: requesting access to travel from station %d to station %d\\n',id,currentStation,nextStation)]
 684:	proc  3 (Shuttle:1) problem1.pml:161 (state 100)	[shuttleRequests!request.track,request.direction,request.id]
 685:	proc  6 (RailwayNetwork:1) problem1.pml:186 (state 1)	[shuttleRequests?request.track,request.direction,request.id]
 686:	proc  6 (RailwayNetwork:1) problem1.pml:188 (state 2)	[]
@@ -621,8 +621,8 @@ Shuttle 2: requesting access to travel from station 2 to statiod 3
 688:	proc  6 (RailwayNetwork:1) problem1.pml:191 (state 4)	[(!(tracks.trackL2R[request.track]))]
 689:	proc  6 (RailwayNetwork:1) problem1.pml:191 (state 5)	[tracks.trackL2R[request.track] = 1]
 690:	proc  6 (RailwayNetwork:1) problem1.pml:191 (state 6)	[reply.granted = 1]
-Railway Network: granting access to track from station 3 to station 0
-691:	proc  6 (RailwayNetwork:1) problem1.pml:192 (state 7)	[printf('Railway Network: granting access to track from station %d to station %d\\n',request.track,((request.track+1)%4))]
+Railway Network: granting access to track from station 2 to station 3
+691:	proc  6 (RailwayNetwork:1) problem1.pml:192 (state 7)	[printf('Railway Network: granting access to track from station %d to station %d\\n',(request.track-1),request.track)]
 694:	proc  6 (RailwayNetwork:1) problem1.pml:204 (state 25)	[railwayReplies[request.id]!reply.granted]
 695:	proc  3 (Shuttle:1) problem1.pml:162 (state 101)	[railwayReplies[id]?reply.granted]
 696:	proc  3 (Shuttle:1) problem1.pml:164 (state 102)	[(reply.granted)]

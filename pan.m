@@ -192,9 +192,9 @@
 		logval("RailwayNetwork:reply.granted", ((int)((P2 *)_this)->reply.granted));
 #endif
 		;
-		/* merge: printf('Railway Network: granting access to track from station %d to station %d\\n',request.track,((request.track+1)%4))(25, 7, 25) */
+		/* merge: printf('Railway Network: granting access to track from station %d to station %d\\n',(request.track-1),request.track)(25, 7, 25) */
 		reached[2][7] = 1;
-		Printf("Railway Network: granting access to track from station %d to station %d\n", ((P2 *)_this)->request.track, ((((P2 *)_this)->request.track+1)%4));
+		Printf("Railway Network: granting access to track from station %d to station %d\n", (((P2 *)_this)->request.track-1), ((P2 *)_this)->request.track);
 		/* merge: .(goto)(0, 12, 25) */
 		reached[2][12] = 1;
 		;
@@ -211,9 +211,9 @@
 		logval("RailwayNetwork:reply.granted", ((int)((P2 *)_this)->reply.granted));
 #endif
 		;
-		/* merge: printf('Railway Network: rejecting access to track from station %d to station %d\\n',request.track,((request.track+1)%4))(25, 10, 25) */
+		/* merge: printf('Railway Network: rejecting access to track from station %d to station %d\\n',(request.track-1),request.track)(25, 10, 25) */
 		reached[2][10] = 1;
-		Printf("Railway Network: rejecting access to track from station %d to station %d\n", ((P2 *)_this)->request.track, ((((P2 *)_this)->request.track+1)%4));
+		Printf("Railway Network: rejecting access to track from station %d to station %d\n", (((P2 *)_this)->request.track-1), ((P2 *)_this)->request.track);
 		/* merge: .(goto)(0, 12, 25) */
 		reached[2][12] = 1;
 		;
@@ -246,9 +246,9 @@
 		logval("RailwayNetwork:reply.granted", ((int)((P2 *)_this)->reply.granted));
 #endif
 		;
-		/* merge: printf('Railway Network: granting access to track from station %d to station %d\\n',request.track,((request.track-1)%4))(25, 17, 25) */
+		/* merge: printf('Railway Network: granting access to track from station %d to station %d\\n',(request.track+1),request.track)(25, 17, 25) */
 		reached[2][17] = 1;
-		Printf("Railway Network: granting access to track from station %d to station %d\n", ((P2 *)_this)->request.track, ((((P2 *)_this)->request.track-1)%4));
+		Printf("Railway Network: granting access to track from station %d to station %d\n", (((P2 *)_this)->request.track+1), ((P2 *)_this)->request.track);
 		/* merge: .(goto)(0, 22, 25) */
 		reached[2][22] = 1;
 		;
@@ -265,9 +265,9 @@
 		logval("RailwayNetwork:reply.granted", ((int)((P2 *)_this)->reply.granted));
 #endif
 		;
-		/* merge: printf('Railway Network: rejecting access to track from station %d to station %d\\n',request.track,((request.track-1)%4))(25, 20, 25) */
+		/* merge: printf('Railway Network: rejecting access to track from station %d to station %d\\n',(request.track+1),request.track)(25, 20, 25) */
 		reached[2][20] = 1;
-		Printf("Railway Network: rejecting access to track from station %d to station %d\n", ((P2 *)_this)->request.track, ((((P2 *)_this)->request.track-1)%4));
+		Printf("Railway Network: rejecting access to track from station %d to station %d\n", (((P2 *)_this)->request.track+1), ((P2 *)_this)->request.track);
 		/* merge: .(goto)(0, 22, 25) */
 		reached[2][22] = 1;
 		;
@@ -718,9 +718,9 @@
 		logval("Shuttle:travelling", ((int)((P1 *)_this)->travelling));
 #endif
 		;
-		/* merge: printf('Shuttle %d: beggining new order from station %d to station %d with size &d\\n',id,currentOrder.start,currentOrder.end,currentOrder.size)(59, 52, 59) */
+		/* merge: printf('Shuttle %d: beginning new order from station %d to station %d with size %d\\n',id,currentOrder.start,currentOrder.end,currentOrder.size)(59, 52, 59) */
 		reached[1][52] = 1;
-		Printf("Shuttle %d: beggining new order from station %d to station %d with size &d\n", ((P1 *)_this)->id, ((P1 *)_this)->currentOrder.start, ((P1 *)_this)->currentOrder.end, ((P1 *)_this)->currentOrder.size);
+		Printf("Shuttle %d: beginning new order from station %d to station %d with size %d\n", ((P1 *)_this)->id, ((P1 *)_this)->currentOrder.start, ((P1 *)_this)->currentOrder.end, ((P1 *)_this)->currentOrder.size);
 		_m = 3; goto P999; /* 3 */
 	case 44: // STATE 53 - problem1.pml:126 - [(((currentOrder.start>=currentStation)&&((currentOrder.start-currentStation)<(4/2))))] (125:0:1 - 1)
 		IfNotBlocked
@@ -972,9 +972,9 @@
 		/* merge: (108, 98, 108) */
 		reached[1][98] = 1;
 		;
-		/* merge: printf('Shuttle %d: requesting access to travel from station %d to statiod %d\\n',id,currentStation,nextStation)(108, 99, 108) */
+		/* merge: printf('Shuttle %d: requesting access to travel from station %d to station %d\\n',id,currentStation,nextStation)(108, 99, 108) */
 		reached[1][99] = 1;
-		Printf("Shuttle %d: requesting access to travel from station %d to statiod %d\n", ((P1 *)_this)->id, ((P1 *)_this)->currentStation, ((P1 *)_this)->nextStation);
+		Printf("Shuttle %d: requesting access to travel from station %d to station %d\n", ((P1 *)_this)->id, ((P1 *)_this)->currentStation, ((P1 *)_this)->nextStation);
 		/* merge: .(goto)(0, 109, 108) */
 		reached[1][109] = 1;
 		;
@@ -1032,9 +1032,9 @@
 		/* merge: (108, 98, 108) */
 		reached[1][98] = 1;
 		;
-		/* merge: printf('Shuttle %d: requesting access to travel from station %d to statiod %d\\n',id,currentStation,nextStation)(108, 99, 108) */
+		/* merge: printf('Shuttle %d: requesting access to travel from station %d to station %d\\n',id,currentStation,nextStation)(108, 99, 108) */
 		reached[1][99] = 1;
-		Printf("Shuttle %d: requesting access to travel from station %d to statiod %d\n", ((P1 *)_this)->id, ((P1 *)_this)->currentStation, ((P1 *)_this)->nextStation);
+		Printf("Shuttle %d: requesting access to travel from station %d to station %d\n", ((P1 *)_this)->id, ((P1 *)_this)->currentStation, ((P1 *)_this)->nextStation);
 		/* merge: .(goto)(0, 109, 108) */
 		reached[1][109] = 1;
 		;
@@ -1078,9 +1078,9 @@
 		/* merge: (108, 98, 108) */
 		reached[1][98] = 1;
 		;
-		/* merge: printf('Shuttle %d: requesting access to travel from station %d to statiod %d\\n',id,currentStation,nextStation)(108, 99, 108) */
+		/* merge: printf('Shuttle %d: requesting access to travel from station %d to station %d\\n',id,currentStation,nextStation)(108, 99, 108) */
 		reached[1][99] = 1;
-		Printf("Shuttle %d: requesting access to travel from station %d to statiod %d\n", ((P1 *)_this)->id, ((P1 *)_this)->currentStation, ((P1 *)_this)->nextStation);
+		Printf("Shuttle %d: requesting access to travel from station %d to station %d\n", ((P1 *)_this)->id, ((P1 *)_this)->currentStation, ((P1 *)_this)->nextStation);
 		/* merge: .(goto)(0, 109, 108) */
 		reached[1][109] = 1;
 		;
@@ -1117,9 +1117,9 @@
 		/* merge: (108, 98, 108) */
 		reached[1][98] = 1;
 		;
-		/* merge: printf('Shuttle %d: requesting access to travel from station %d to statiod %d\\n',id,currentStation,nextStation)(108, 99, 108) */
+		/* merge: printf('Shuttle %d: requesting access to travel from station %d to station %d\\n',id,currentStation,nextStation)(108, 99, 108) */
 		reached[1][99] = 1;
-		Printf("Shuttle %d: requesting access to travel from station %d to statiod %d\n", ((P1 *)_this)->id, ((P1 *)_this)->currentStation, ((P1 *)_this)->nextStation);
+		Printf("Shuttle %d: requesting access to travel from station %d to station %d\n", ((P1 *)_this)->id, ((P1 *)_this)->currentStation, ((P1 *)_this)->nextStation);
 		/* merge: .(goto)(0, 109, 108) */
 		reached[1][109] = 1;
 		;
