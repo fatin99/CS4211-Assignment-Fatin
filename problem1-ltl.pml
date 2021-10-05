@@ -32,6 +32,11 @@ typedef Reply {
 };
 chan railwayReplies[4] = [1] of {Reply}; 
 
+//for ltl checking
+bool travelling[4];
+int currentLoad[4];
+int capacity[4];
+
 proctype ShuttleManagementSystem(Order first; Order second) {
 	Order orders[2];
 	orders[0].start = first.start; orders[0].end = first.end; orders[0].size = first.size;
@@ -66,24 +71,25 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 	}
 }
 
-proctype Shuttle(int capacity; int charge; int initialStation; int id) {
+proctype Shuttle(int shuttleCapacity; int charge; int initialStation; int id) {
     Order order; //order that requires an offer to be sent to management
 	chan orders = [2] of {Order}; //orders assigned to this shuttle
 	Order currentOrder; //order that is currently being transported
     
 	int currentStation = initialStation;
-	int currentLoad = 0;
+	currentLoad[id] = 0;
+    capacity[id] = shuttleCapacity;
     int direction;
     int destination;
 	
 	bool processingOrder = false;
-	bool travelling = false;
+	travelling[id] = false;
     do
     ::  managementOrders[id]?order -> 
 		printf("Shuttle %d: processing offer for newly received order\n", id+1);
 		int currentPosition;
 		if 	// the start destination of the order is within two stations away from its current position
-		:: 	travelling -> currentPosition = currentStation + direction; //if it is on a track, its current position is its arriving station
+		:: 	travelling[id] -> currentPosition = currentStation + direction; //if it is on a track, its current position is its arriving station
 		:: 	else -> currentPosition = currentStation;
 		fi
         int distance;
@@ -96,10 +102,10 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
 		:: 	else -> distance = distance;
 		fi
 		printf("Shuttle %d: start destination of the order is %d station(s) away from its current position\n", id+1, distance);
-		printf("Shuttle %d: current load is %d, order size is %d, capacity is %d\n", id+1, currentLoad, order.size, capacity);
+		printf("Shuttle %d: current load is %d, order size is %d, capacity is %d\n", id+1, currentLoad[id], order.size, capacity[id]);
 		Offer offer;
 		if 	//current loaded size plus the order size does not exceed the capacity
-		:: 	currentLoad + order.size <= capacity && distance <= 2 -> 
+		:: 	currentLoad[id] + order.size <= capacity[id] && distance <= 2 -> 
 			offer.id = id; offer.charge = charge; offer.refuse = false;
 			printf("Shuttle %d: order accepted\n", id+1);
 		:: 	else -> 
@@ -116,14 +122,14 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
         orders?currentOrder;
         processingOrder = true;
         destination = currentOrder.start;
-        travelling = true;
+        travelling[id] = true;
 		printf("Shuttle %d: beginning new order from station %d to station %d with size %d\n", id+1, currentOrder.start+1, currentOrder.end+1, currentOrder.size);
         if
         :: 	(currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < 4/2) -> 
             direction = 1; printf("Shuttle %d: travelling left to right\n", id+1);
         :: 	else -> direction = -1; printf("Shuttle %d: travelling right to left\n", id+1);
         fi
-	:: travelling && processingOrder -> 
+	:: travelling[id] && processingOrder -> 
         int nextStation;
         nextStation = currentStation + direction;
         if 
@@ -150,16 +156,16 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
         :: 	direction == -1 -> tracks.trackR2L[request.track] = false; 
         fi
         if 
-        :: 	currentStation == destination -> travelling = false; 
-        :: 	else -> travelling = true;
+        :: 	currentStation == destination -> travelling[id] = false; 
+        :: 	else -> travelling[id] = true;
         fi	
-	:: !travelling && processingOrder ->
+	:: !travelling[id] && processingOrder ->
         if 
         :: 	destination == currentOrder.start ->
 			printf("Shuttle %d: loading %d people at station %d\n", id+1, currentOrder.size, currentOrder.start+1);
-            currentLoad = currentLoad + currentOrder.size;
+            currentLoad[id] = currentLoad[id] + currentOrder.size;
             destination = currentOrder.end;
-            travelling = true;
+            travelling[id] = true;
             if
             :: 	(currentOrder.start >= currentStation) && ((currentOrder.start - currentStation) < 4/2) -> 
                 direction = 1; printf("Shuttle %d: travelling left to right\n", id+1);
@@ -167,7 +173,7 @@ proctype Shuttle(int capacity; int charge; int initialStation; int id) {
             fi
         :: 	destination == currentOrder.end -> 
 			printf("Shuttle %d: unloading %d people at station %d\n", id+1, currentOrder.size, currentOrder.end+1);
-            currentLoad = currentLoad - currentOrder.size;
+            currentLoad[id] = currentLoad[id] - currentOrder.size;
             processingOrder = false;
         :: 	else -> skip;
         fi
@@ -213,3 +219,9 @@ init{
         run RailwayNetwork();
 	}
 }
+
+#define p (!travelling[0] && !travelling[1] && !travelling[2] && !travelling[3])
+#define q (currentLoad[0] == 0 && currentLoad[1] == 0 && currentLoad[2] == 0 && currentLoad[3] == 0)
+#define r (currentLoad[0] <= capacity[0] && currentLoad[1] <= capacity[1] && currentLoad[2] <= capacity[2] && currentLoad[3] <= capacity[3])
+ltl p1 { always eventually always (p && q) }
+//ltl p2 { always r}

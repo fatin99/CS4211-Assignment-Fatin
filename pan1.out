@@ -1,46 +1,11 @@
 verification result:
-spin -a  problem2.pml
-gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
-./pan -m10000 
-Pid: 5116
-pan:1: invalid end state (at depth 46)
-pan: wrote problem2.pml.trail
-
-(Spin Version 6.5.1 -- 3 November 2019)
-Warning: Search not completed
-	+ Partial Order Reduction
-
-Full statespace search for:
-	never claim         	- (not selected)
-	assertion violations	+
-	cycle checks       	- (disabled by -DSAFETY)
-	invalid end states	+
-
-State-vector 216 byte, depth reached 47, errors: 1
-       43 states, stored
-        0 states, matched
-       43 transitions (= stored+matched)
-        5 atomic steps
-hash conflicts:         0 (resolved)
-
-Stats on memory usage (in Megabytes):
-    0.009	equivalent memory usage for states (stored*(State-vector + overhead))
-    0.266	actual memory usage for states
-   64.000	memory used for hash table (-w24)
-    0.343	memory used for DFS stack (-m10000)
-   64.539	total actual memory usage
-
-
-
-pan: elapsed time 0.003 seconds
-To replay the error-trail, goto Simulate/Replay and select "Run"
-spin -a  problem1.pml
-ltl p1: [] (<> ([] ((! (travelling)) && ((currentLoad==0)))))
+spin -a  problem1-ltl.pml
+ltl p1: [] (<> ([] (((((! (travelling[0])) && (! (travelling[1]))) && (! (travelling[2]))) && (! (travelling[3]))) && (((((currentLoad[0]==0)) && ((currentLoad[1]==0))) && ((currentLoad[2]==0))) && ((currentLoad[3]==0))))))
 gcc -DMEMLIM=1024 -O2 -DXUSAFE -w -o pan pan.c
-./pan -m10000  -a
-Pid: 28548
-pan:1: acceptance cycle (at depth 1140)
-pan: wrote problem1.pml.trail
+./pan -m10000  -a -N p1
+Pid: 17516
+pan:1: acceptance cycle (at depth 710)
+pan: wrote problem1-ltl.pml.trail
 
 (Spin Version 6.5.1 -- 3 November 2019)
 Warning: Search not completed
@@ -52,25 +17,24 @@ Full statespace search for:
 	acceptance   cycles 	+ (fairness disabled)
 	invalid end states	- (disabled by never claim)
 
-State-vector 876 byte, depth reached 1175, errors: 1
-   182414 states, stored (364239 visited)
-   295538 states, matched
-   659777 transitions (= visited+matched)
+State-vector 888 byte, depth reached 749, errors: 1
+   164876 states, stored (329381 visited)
+   375266 states, matched
+   704647 transitions (= visited+matched)
         6 atomic steps
-hash conflicts:      1215 (resolved)
+hash conflicts:       995 (resolved)
 
 Stats on memory usage (in Megabytes):
-  155.175	equivalent memory usage for states (stored*(State-vector + overhead))
-  154.961	actual memory usage for states (compression: 99.86%)
-         	state-vector as stored = 875 byte + 16 byte overhead
+  142.143	equivalent memory usage for states (stored*(State-vector + overhead))
+  140.596	actual memory usage for states (compression: 98.91%)
+         	state-vector as stored = 878 byte + 16 byte overhead
    64.000	memory used for hash table (-w24)
     0.343	memory used for DFS stack (-m10000)
-    1.250	memory lost to fragmentation
-  218.054	total actual memory usage
+  204.480	total actual memory usage
 
 
 
-pan: elapsed time 1.08 seconds
+pan: elapsed time 1.17 seconds
 To replay the error-trail, goto Simulate/Replay and select "Run"
 
 

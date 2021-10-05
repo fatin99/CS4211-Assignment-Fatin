@@ -1,7 +1,7 @@
-never p1 {    /* !([] (<> ([] ((! (travelling)) && ((currentLoad==0)))))) */
+never p1 {    /* !([] (<> ([] (((((! (travelling[0])) && (! (travelling[1]))) && (! (travelling[2]))) && (! (travelling[3]))) && (((((currentLoad[0]==0)) && ((currentLoad[1]==0))) && ((currentLoad[2]==0))) && ((currentLoad[3]==0))))))) */
 T0_init:
 	do
-	:: (! (((! (travelling)) && ((currentLoad==0))))) -> goto accept_S3
+	:: (! ((((((! (travelling[0])) && (! (travelling[1]))) && (! (travelling[2]))) && (! (travelling[3]))) && (((((currentLoad[0]==0)) && ((currentLoad[1]==0))) && ((currentLoad[2]==0))) && ((currentLoad[3]==0)))))) -> goto accept_S3
 	:: (1) -> goto T0_S3
 	:: (1) -> goto T0_init
 	od;
@@ -11,7 +11,7 @@ accept_S3:
 	od;
 T0_S3:
 	do
-	:: (! (((! (travelling)) && ((currentLoad==0))))) -> goto accept_S3
+	:: (! ((((((! (travelling[0])) && (! (travelling[1]))) && (! (travelling[2]))) && (! (travelling[3]))) && (((((currentLoad[0]==0)) && ((currentLoad[1]==0))) && ((currentLoad[2]==0))) && ((currentLoad[3]==0)))))) -> goto accept_S3
 	:: (1) -> goto T0_S3
 	od;
 }

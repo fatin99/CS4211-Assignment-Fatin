@@ -2,7 +2,7 @@
 #define PAN_H
 
 #define SpinVersion	"Spin Version 6.5.1 -- 3 November 2019"
-#define PanSource	"problem1.pml"
+#define PanSource	"problem1-ltl.pml"
 
 #define G_long	4
 #define G_int	4
@@ -140,24 +140,24 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates4	23	/* p1 */
-#define minseq4	243
-#define maxseq4	264
+#define minseq4	244
+#define maxseq4	265
 #define _endstate4	22
 
 #define _nstates3	17	/* :init: */
-#define minseq3	227
-#define maxseq3	242
+#define minseq3	228
+#define maxseq3	243
 #define _endstate3	16
 
 #define _nstates2	30	/* RailwayNetwork */
-#define minseq2	198
-#define maxseq2	226
+#define minseq2	199
+#define maxseq2	227
 #define _endstate2	29
 
-#define _nstates1	134	/* Shuttle */
+#define _nstates1	135	/* Shuttle */
 #define minseq1	65
-#define maxseq1	197
-#define _endstate1	133
+#define maxseq1	198
+#define _endstate1	134
 
 #define _nstates0	66	/* ShuttleManagementSystem */
 #define minseq0	0
@@ -176,8 +176,8 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned short
-#define _T5	106
-#define _T2	107
+#define _T5	107
+#define _T2	108
 #define WS		4 /* word size in bytes */
 #define SYNC	0
 #define ASYNC	5
@@ -260,7 +260,7 @@ typedef struct P1 { /* Shuttle */
 #endif
 	unsigned processingOrder : 1;
 	uchar orders;
-	int capacity;
+	int shuttleCapacity;
 	int charge;
 	int initialStation;
 	int id;
@@ -498,12 +498,13 @@ typedef struct State {
 		unsigned short _event;
 	#endif
 #endif
-	unsigned travelling : 1;
+	uchar travelling[4];
 	uchar managementOrders[4];
 	uchar shuttleOffers;
 	uchar shuttleRequests;
 	uchar railwayReplies[4];
-	int currentLoad;
+	int currentLoad[4];
+	int capacity[4];
 	struct Track tracks;
 #ifdef TRIX
 	/* room for 512 proc+chan ptrs, + safety margin */
@@ -989,7 +990,7 @@ void qsend(int, int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	108
+#define NTRANS	109
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);

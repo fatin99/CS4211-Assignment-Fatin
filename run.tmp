@@ -1,5 +1,5 @@
-pan:1: acceptance cycle (at depth 1140)
-pan: wrote problem1.pml.trail
+pan:1: acceptance cycle (at depth 718)
+pan: wrote problem1-ltl.pml.trail
 
 (Spin Version 6.5.1 -- 3 November 2019)
 Warning: Search not completed
@@ -11,23 +11,23 @@ Full statespace search for:
 	acceptance   cycles 	+ (fairness disabled)
 	invalid end states	- (disabled by never claim)
 
-State-vector 876 byte, depth reached 1175, errors: 1
-   182414 states, stored (364239 visited)
-   295538 states, matched
-   659777 transitions (= visited+matched)
+State-vector 904 byte, depth reached 757, errors: 1
+   164880 states, stored (329385 visited)
+   375266 states, matched
+   704651 transitions (= visited+matched)
         6 atomic steps
-hash conflicts:      1215 (resolved)
+hash conflicts:      1114 (resolved)
 
 Stats on memory usage (in Megabytes):
-  155.175	equivalent memory usage for states (stored*(State-vector + overhead))
-  154.961	actual memory usage for states (compression: 99.86%)
-         	state-vector as stored = 875 byte + 16 byte overhead
+  144.662	equivalent memory usage for states (stored*(State-vector + overhead))
+  143.097	actual memory usage for states (compression: 98.92%)
+         	state-vector as stored = 894 byte + 16 byte overhead
    64.000	memory used for hash table (-w24)
     0.343	memory used for DFS stack (-m10000)
-    1.250	memory lost to fragmentation
-  218.054	total actual memory usage
+  207.019	total actual memory usage
 
 
 
-pan: elapsed time 1.08 seconds
-pan: rate  337570.9 states/second
+pan: elapsed time 1.06 seconds
+pan: rate 310447.69 states/second
+warning: only one claim defined, -N ignored

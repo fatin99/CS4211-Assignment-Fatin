@@ -28,46 +28,46 @@ settable(void)
 
 	trans[4] = (Trans **) emalloc(23*sizeof(Trans *));
 
-	trans[4][8]	= settr(250,0,7,1,0,".(goto)", 0, 2, 0);
-	T = trans[4][7] = settr(249,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(249,0,1,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(249,0,3,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(249,0,5,0,0,"DO", 0, 2, 0);
-	trans[4][1]	= settr(243,0,12,3,0,"(!((!(travelling)&&(currentLoad==0))))", 1, 2, 0);
-	trans[4][2]	= settr(244,0,12,1,0,"goto accept_S3", 0, 2, 0);
-	trans[4][3]	= settr(245,0,19,1,0,"(1)", 0, 2, 0);
-	trans[4][4]	= settr(246,0,19,1,0,"goto T0_S3", 0, 2, 0);
-	trans[4][5]	= settr(247,0,7,1,0,"(1)", 0, 2, 0);
-	trans[4][6]	= settr(248,0,7,1,0,"goto T0_init", 0, 2, 0);
-	trans[4][9]	= settr(251,0,12,1,0,"break", 0, 2, 0);
-	trans[4][13]	= settr(255,0,12,1,0,".(goto)", 0, 2, 0);
-	T = trans[4][12] = settr(254,0,0,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(254,0,10,0,0,"DO", 0, 2, 0);
-	trans[4][10]	= settr(252,0,19,1,0,"(1)", 0, 2, 0);
-	trans[4][11]	= settr(253,0,19,1,0,"goto T0_S3", 0, 2, 0);
-	trans[4][14]	= settr(256,0,19,1,0,"break", 0, 2, 0);
-	trans[4][20]	= settr(262,0,19,1,0,".(goto)", 0, 2, 0);
-	T = trans[4][19] = settr(261,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(261,0,15,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(261,0,17,0,0,"DO", 0, 2, 0);
-	trans[4][15]	= settr(257,0,12,4,0,"(!((!(travelling)&&(currentLoad==0))))", 1, 2, 0);
-	trans[4][16]	= settr(258,0,12,1,0,"goto accept_S3", 0, 2, 0);
-	trans[4][17]	= settr(259,0,19,1,0,"(1)", 0, 2, 0);
-	trans[4][18]	= settr(260,0,19,1,0,"goto T0_S3", 0, 2, 0);
-	trans[4][21]	= settr(263,0,22,1,0,"break", 0, 2, 0);
-	trans[4][22]	= settr(264,0,0,5,5,"-end-", 0, 3500, 0);
+	trans[4][8]	= settr(251,0,7,1,0,".(goto)", 0, 2, 0);
+	T = trans[4][7] = settr(250,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(250,0,1,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(250,0,3,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(250,0,5,0,0,"DO", 0, 2, 0);
+	trans[4][1]	= settr(244,0,12,3,0,"(!(((((!(travelling[0])&&!(travelling[1]))&&!(travelling[2]))&&!(travelling[3]))&&((((currentLoad[0]==0)&&(currentLoad[1]==0))&&(currentLoad[2]==0))&&(currentLoad[3]==0)))))", 1, 2, 0);
+	trans[4][2]	= settr(245,0,12,1,0,"goto accept_S3", 0, 2, 0);
+	trans[4][3]	= settr(246,0,19,1,0,"(1)", 0, 2, 0);
+	trans[4][4]	= settr(247,0,19,1,0,"goto T0_S3", 0, 2, 0);
+	trans[4][5]	= settr(248,0,7,1,0,"(1)", 0, 2, 0);
+	trans[4][6]	= settr(249,0,7,1,0,"goto T0_init", 0, 2, 0);
+	trans[4][9]	= settr(252,0,12,1,0,"break", 0, 2, 0);
+	trans[4][13]	= settr(256,0,12,1,0,".(goto)", 0, 2, 0);
+	T = trans[4][12] = settr(255,0,0,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(255,0,10,0,0,"DO", 0, 2, 0);
+	trans[4][10]	= settr(253,0,19,1,0,"(1)", 0, 2, 0);
+	trans[4][11]	= settr(254,0,19,1,0,"goto T0_S3", 0, 2, 0);
+	trans[4][14]	= settr(257,0,19,1,0,"break", 0, 2, 0);
+	trans[4][20]	= settr(263,0,19,1,0,".(goto)", 0, 2, 0);
+	T = trans[4][19] = settr(262,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(262,0,15,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(262,0,17,0,0,"DO", 0, 2, 0);
+	trans[4][15]	= settr(258,0,12,4,0,"(!(((((!(travelling[0])&&!(travelling[1]))&&!(travelling[2]))&&!(travelling[3]))&&((((currentLoad[0]==0)&&(currentLoad[1]==0))&&(currentLoad[2]==0))&&(currentLoad[3]==0)))))", 1, 2, 0);
+	trans[4][16]	= settr(259,0,12,1,0,"goto accept_S3", 0, 2, 0);
+	trans[4][17]	= settr(260,0,19,1,0,"(1)", 0, 2, 0);
+	trans[4][18]	= settr(261,0,19,1,0,"goto T0_S3", 0, 2, 0);
+	trans[4][21]	= settr(264,0,22,1,0,"break", 0, 2, 0);
+	trans[4][22]	= settr(265,0,0,5,5,"-end-", 0, 3500, 0);
 
 	/* proctype 3: :init: */
 
 	trans[3] = (Trans **) emalloc(17*sizeof(Trans *));
 
-	T = trans[ 3][15] = settr(241,2,0,0,0,"ATOMIC", 0, 2, 0);
-	T->nxt	= settr(241,2,1,0,0,"ATOMIC", 0, 2, 0);
-	trans[3][1]	= settr(227,2,2,6,6,"(run Shuttle(4,2,(1-1),0))", 0, 2, 0);
-	trans[3][2]	= settr(228,2,3,7,7,"(run Shuttle(2,4,(1-1),1))", 0, 2, 0);
-	trans[3][3]	= settr(229,2,4,8,8,"(run Shuttle(5,1,(2-1),2))", 0, 2, 0);
-	trans[3][4]	= settr(230,2,5,9,9,"(run Shuttle(3,3,(3-1),3))", 0, 2, 0);
-	trans[3][5]	= settr(231,2,13,10,10,"", 0, 2, 0); /* m: 6 -> 0,13 */
+	T = trans[ 3][15] = settr(242,2,0,0,0,"ATOMIC", 0, 2, 0);
+	T->nxt	= settr(242,2,1,0,0,"ATOMIC", 0, 2, 0);
+	trans[3][1]	= settr(228,2,2,6,6,"(run Shuttle(4,2,(1-1),0))", 0, 2, 0);
+	trans[3][2]	= settr(229,2,3,7,7,"(run Shuttle(2,4,(1-1),1))", 0, 2, 0);
+	trans[3][3]	= settr(230,2,4,8,8,"(run Shuttle(5,1,(2-1),2))", 0, 2, 0);
+	trans[3][4]	= settr(231,2,5,9,9,"(run Shuttle(3,3,(3-1),3))", 0, 2, 0);
+	trans[3][5]	= settr(232,2,13,10,10,"", 0, 2, 0); /* m: 6 -> 0,13 */
 	reached3[6] = 1;
 	trans[3][6]	= settr(0,0,0,0,0,"first.size = 4",0,0,0);
 	trans[3][7]	= settr(0,0,0,0,0,"first.start = (1-1)",0,0,0);
@@ -76,256 +76,257 @@ settable(void)
 	trans[3][10]	= settr(0,0,0,0,0,"second.size = 2",0,0,0);
 	trans[3][11]	= settr(0,0,0,0,0,"second.start = (2-1)",0,0,0);
 	trans[3][12]	= settr(0,0,0,0,0,"second.end = (3-1)",0,0,0);
-	trans[3][13]	= settr(239,2,14,11,11,"(run ShuttleManagementSystem(first.start,first.end,first.size,second.start,second.end,second.size))", 0, 2, 0);
-	trans[3][14]	= settr(240,0,16,12,12,"(run RailwayNetwork())", 0, 2, 0);
-	trans[3][16]	= settr(242,0,0,13,13,"-end-", 0, 3500, 0);
+	trans[3][13]	= settr(240,2,14,11,11,"(run ShuttleManagementSystem(first.start,first.end,first.size,second.start,second.end,second.size))", 0, 2, 0);
+	trans[3][14]	= settr(241,0,16,12,12,"(run RailwayNetwork())", 0, 2, 0);
+	trans[3][16]	= settr(243,0,0,13,13,"-end-", 0, 3500, 0);
 
 	/* proctype 2: RailwayNetwork */
 
 	trans[2] = (Trans **) emalloc(30*sizeof(Trans *));
 
-	trans[2][27]	= settr(224,0,26,1,0,".(goto)", 0, 2, 0);
-	T = trans[2][26] = settr(223,0,0,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(223,0,1,0,0,"DO", 0, 2, 0);
-	trans[2][1]	= settr(198,0,2,14,14,"shuttleRequests?request.track,request.direction,request.id", 1, 505, 0);
-	trans[2][2]	= settr(199,0,23,15,15,"", 0, 2, 0);
-	T = trans[2][23] = settr(220,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(220,0,3,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(220,0,13,0,0,"IF", 0, 2, 0);
-	trans[2][3]	= settr(200,0,11,16,0,"((request.direction==1))", 0, 2, 0);
-	T = trans[2][11] = settr(208,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(208,0,4,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(208,0,8,0,0,"IF", 0, 2, 0);
-	trans[2][4]	= settr(201,0,5,17,0,"(!(tracks.trackL2R[request.track]))", 1, 2, 0);
-	trans[2][5]	= settr(202,0,6,18,18,"tracks.trackL2R[request.track] = 1", 1, 2, 0);
-	trans[2][6]	= settr(203,0,25,19,19,"reply.granted = 1", 0, 2, 0); /* m: 7 -> 0,25 */
+	trans[2][27]	= settr(225,0,26,1,0,".(goto)", 0, 2, 0);
+	T = trans[2][26] = settr(224,0,0,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(224,0,1,0,0,"DO", 0, 2, 0);
+	trans[2][1]	= settr(199,0,2,14,14,"shuttleRequests?request.track,request.direction,request.id", 1, 505, 0);
+	trans[2][2]	= settr(200,0,23,15,15,"", 0, 2, 0);
+	T = trans[2][23] = settr(221,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(221,0,3,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(221,0,13,0,0,"IF", 0, 2, 0);
+	trans[2][3]	= settr(201,0,11,16,0,"((request.direction==1))", 0, 2, 0);
+	T = trans[2][11] = settr(209,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(209,0,4,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(209,0,8,0,0,"IF", 0, 2, 0);
+	trans[2][4]	= settr(202,0,5,17,0,"(!(tracks.trackL2R[request.track]))", 1, 2, 0);
+	trans[2][5]	= settr(203,0,6,18,18,"tracks.trackL2R[request.track] = 1", 1, 2, 0);
+	trans[2][6]	= settr(204,0,25,19,19,"reply.granted = 1", 0, 2, 0); /* m: 7 -> 0,25 */
 	reached2[7] = 1;
 	trans[2][7]	= settr(0,0,0,0,0,"printf('Railway Network: granting access to track from station %d to station %d\\n',request.track,((request.track+1)%4))",0,0,0);
-	trans[2][12]	= settr(209,0,25,1,0,".(goto)", 0, 2, 0);
-	trans[2][8]	= settr(205,0,9,2,0,"else", 0, 2, 0);
-	trans[2][9]	= settr(206,0,25,20,20,"reply.granted = 0", 0, 2, 0); /* m: 10 -> 0,25 */
+	trans[2][12]	= settr(210,0,25,1,0,".(goto)", 0, 2, 0);
+	trans[2][8]	= settr(206,0,9,2,0,"else", 0, 2, 0);
+	trans[2][9]	= settr(207,0,25,20,20,"reply.granted = 0", 0, 2, 0); /* m: 10 -> 0,25 */
 	reached2[10] = 1;
 	trans[2][10]	= settr(0,0,0,0,0,"printf('Railway Network: rejecting access to track from station %d to station %d\\n',request.track,((request.track+1)%4))",0,0,0);
-	trans[2][24]	= settr(221,0,25,1,0,".(goto)", 0, 2, 0);
-	trans[2][13]	= settr(210,0,21,2,0,"else", 0, 2, 0);
-	T = trans[2][21] = settr(218,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(218,0,14,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(218,0,18,0,0,"IF", 0, 2, 0);
-	trans[2][14]	= settr(211,0,15,21,0,"(!(tracks.trackR2L[request.track]))", 1, 2, 0);
-	trans[2][15]	= settr(212,0,16,22,22,"tracks.trackR2L[request.track] = 1", 1, 2, 0);
-	trans[2][16]	= settr(213,0,25,23,23,"reply.granted = 1", 0, 2, 0); /* m: 17 -> 0,25 */
+	trans[2][24]	= settr(222,0,25,1,0,".(goto)", 0, 2, 0);
+	trans[2][13]	= settr(211,0,21,2,0,"else", 0, 2, 0);
+	T = trans[2][21] = settr(219,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(219,0,14,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(219,0,18,0,0,"IF", 0, 2, 0);
+	trans[2][14]	= settr(212,0,15,21,0,"(!(tracks.trackR2L[request.track]))", 1, 2, 0);
+	trans[2][15]	= settr(213,0,16,22,22,"tracks.trackR2L[request.track] = 1", 1, 2, 0);
+	trans[2][16]	= settr(214,0,25,23,23,"reply.granted = 1", 0, 2, 0); /* m: 17 -> 0,25 */
 	reached2[17] = 1;
 	trans[2][17]	= settr(0,0,0,0,0,"printf('Railway Network: granting access to track from station %d to station %d\\n',(((request.track+1)+1)%4),((request.track+1)%4))",0,0,0);
-	trans[2][22]	= settr(219,0,25,1,0,".(goto)", 0, 2, 0);
-	trans[2][18]	= settr(215,0,19,2,0,"else", 0, 2, 0);
-	trans[2][19]	= settr(216,0,25,24,24,"reply.granted = 0", 0, 2, 0); /* m: 20 -> 0,25 */
+	trans[2][22]	= settr(220,0,25,1,0,".(goto)", 0, 2, 0);
+	trans[2][18]	= settr(216,0,19,2,0,"else", 0, 2, 0);
+	trans[2][19]	= settr(217,0,25,24,24,"reply.granted = 0", 0, 2, 0); /* m: 20 -> 0,25 */
 	reached2[20] = 1;
 	trans[2][20]	= settr(0,0,0,0,0,"printf('Railway Network: rejecting access to track from station %d to station %d\\n',(((request.track+1)+1)%4),((request.track+1)%4))",0,0,0);
-	trans[2][25]	= settr(222,0,26,25,25,"railwayReplies[request.id]!reply.granted", 1, 6, 0);
-	trans[2][28]	= settr(225,0,29,1,0,"break", 0, 2, 0);
-	trans[2][29]	= settr(226,0,0,26,26,"-end-", 0, 3500, 0);
+	trans[2][25]	= settr(223,0,26,25,25,"railwayReplies[request.id]!reply.granted", 1, 6, 0);
+	trans[2][28]	= settr(226,0,29,1,0,"break", 0, 2, 0);
+	trans[2][29]	= settr(227,0,0,26,26,"-end-", 0, 3500, 0);
 
 	/* proctype 1: Shuttle */
 
-	trans[1] = (Trans **) emalloc(134*sizeof(Trans *));
+	trans[1] = (Trans **) emalloc(135*sizeof(Trans *));
 
-	trans[1][1]	= settr(65,0,2,27,27,"currentLoad = 0", 1, 2, 0);
-	trans[1][2]	= settr(66,0,5,28,28,"direction = 0", 0, 2, 0); /* m: 3 -> 0,5 */
-	reached1[3] = 1;
-	trans[1][3]	= settr(0,0,0,0,0,"destination = 0",0,0,0);
-	trans[1][4]	= settr(0,0,0,0,0,"processingOrder = 0",0,0,0);
-	trans[1][5]	= settr(69,0,130,29,29,"travelling = 0", 1, 2, 0);
-	trans[1][131]	= settr(195,0,130,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][130] = settr(194,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(194,0,6,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(194,0,52,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(194,0,66,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(194,0,108,0,0,"DO", 0, 2, 0);
-	trans[1][6]	= settr(70,0,7,30,30,"managementOrders[id]?order.start,order.end,order.size", 1, 503, 0);
-	trans[1][7]	= settr(71,0,13,31,31,"printf('Shuttle %d: processing offer for newly received order\\n',(id+1))", 0, 2, 0); /* m: 8 -> 0,13 */
-	reached1[8] = 1;
-	trans[1][8]	= settr(0,0,0,0,0,"currentPosition = 0",0,0,0);
-	T = trans[1][13] = settr(77,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(77,0,9,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(77,0,11,0,0,"IF", 0, 2, 0);
-	trans[1][9]	= settr(73,0,10,32,0,"(travelling)", 1, 2, 0);
-	trans[1][10]	= settr(74,0,20,33,33,"currentPosition = (currentStation+direction)", 0, 2, 0); /* m: 15 -> 0,20 */
-	reached1[15] = 1;
-	trans[1][14]	= settr(78,0,15,1,0,".(goto)", 0, 2, 0); /* m: 15 -> 0,20 */
-	reached1[15] = 1;
-	trans[1][11]	= settr(75,0,12,2,0,"else", 0, 2, 0);
-	trans[1][12]	= settr(76,0,20,34,34,"currentPosition = currentStation", 0, 2, 0); /* m: 15 -> 0,20 */
-	reached1[15] = 1;
-	trans[1][15]	= settr(79,0,20,35,35,"distance = 0", 0, 2, 0);
-	T = trans[1][20] = settr(84,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(84,0,16,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(84,0,18,0,0,"IF", 0, 2, 0);
-	trans[1][16]	= settr(80,0,26,36,36,"((currentPosition>order.start))", 0, 2, 0); /* m: 17 -> 26,0 */
-	reached1[17] = 1;
-	trans[1][17]	= settr(0,0,0,0,0,"distance = (currentPosition-order.start)",0,0,0);
-	trans[1][21]	= settr(85,0,26,1,0,".(goto)", 0, 2, 0);
-	trans[1][18]	= settr(82,0,19,2,0,"else", 0, 2, 0);
-	trans[1][19]	= settr(83,0,26,37,37,"distance = (order.start-currentPosition)", 0, 2, 0);
-	T = trans[1][26] = settr(90,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(90,0,22,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(90,0,24,0,0,"IF", 0, 2, 0);
-	trans[1][22]	= settr(86,0,29,38,38,"((distance>(4/2)))", 0, 2, 0); /* m: 23 -> 29,0 */
-	reached1[23] = 1;
-	trans[1][23]	= settr(0,0,0,0,0,"distance = (4-distance)",0,0,0);
-	trans[1][27]	= settr(91,0,28,1,0,".(goto)", 0, 2, 0); /* m: 28 -> 0,29 */
-	reached1[28] = 1;
-	trans[1][24]	= settr(88,0,25,2,0,"else", 0, 2, 0);
-	trans[1][25]	= settr(89,0,29,39,39,"distance = distance", 0, 2, 0); /* m: 28 -> 0,29 */
-	reached1[28] = 1;
-	trans[1][28]	= settr(92,0,29,40,40,"printf('Shuttle %d: start destination of the order is %d station(s) away from its current position\\n',(id+1),distance)", 0, 2, 0);
-	trans[1][29]	= settr(93,0,30,41,0,"printf('Shuttle %d: current load is %d, order size is %d, capacity is %d\\n',(id+1),currentLoad,order.size,capacity)", 1, 2, 0);
-	trans[1][30]	= settr(94,0,41,42,42,"", 0, 2, 0);
-	T = trans[1][41] = settr(105,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(105,0,31,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(105,0,36,0,0,"IF", 0, 2, 0);
-	trans[1][31]	= settr(95,0,32,43,43,"((((currentLoad+order.size)<=capacity)&&(distance<=2)))", 1, 2, 0);
-	trans[1][32]	= settr(96,0,43,44,44,"offer.id = id", 0, 2, 0); /* m: 33 -> 0,43 */
-	reached1[33] = 1;
-	trans[1][33]	= settr(0,0,0,0,0,"offer.charge = charge",0,0,0);
-	trans[1][34]	= settr(0,0,0,0,0,"offer.refuse = 0",0,0,0);
-	trans[1][35]	= settr(0,0,0,0,0,"printf('Shuttle %d: order accepted\\n',(id+1))",0,0,0);
-	trans[1][42]	= settr(106,0,43,1,0,".(goto)", 0, 2, 0);
-	trans[1][36]	= settr(100,0,37,2,0,"else", 0, 2, 0);
-	trans[1][37]	= settr(101,0,43,45,45,"offer.id = id", 0, 2, 0); /* m: 38 -> 0,43 */
-	reached1[38] = 1;
-	trans[1][38]	= settr(0,0,0,0,0,"offer.charge = charge",0,0,0);
-	trans[1][39]	= settr(0,0,0,0,0,"offer.refuse = 1",0,0,0);
-	trans[1][40]	= settr(0,0,0,0,0,"printf('Shuttle %d: order refused\\n',(id+1))",0,0,0);
-	trans[1][43]	= settr(107,0,44,46,46,"shuttleOffers!offer.id,offer.charge,offer.refuse", 1, 4, 0);
-	trans[1][44]	= settr(108,0,50,47,47,"managementOrders[id]?order.start,order.end,order.size", 1, 503, 0);
-	T = trans[1][50] = settr(114,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(114,0,45,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(114,0,48,0,0,"IF", 0, 2, 0);
-	trans[1][45]	= settr(109,0,46,48,0,"((order.size>=0))", 0, 2, 0);
-	trans[1][46]	= settr(110,0,47,49,49,"orders!order.start,order.end,order.size", 1, 7, 0);
-	trans[1][47]	= settr(111,0,130,50,0,"printf('Shuttle %d: offer accepted by management\\n',(id+1))", 0, 2, 0);
-	trans[1][51]	= settr(115,0,130,1,0,".(goto)", 0, 2, 0);
-	trans[1][48]	= settr(112,0,49,2,0,"else", 0, 2, 0);
-	trans[1][49]	= settr(113,0,130,1,0,"(1)", 0, 2, 0);
-	trans[1][52]	= settr(116,0,53,51,51,"((nempty(orders)&&!(processingOrder)))", 1, 507, 0);
-	trans[1][53]	= settr(117,0,54,52,52,"orders?currentOrder.start,currentOrder.end,currentOrder.size", 1, 507, 0);
-	trans[1][54]	= settr(118,0,56,53,53,"processingOrder = 1", 0, 2, 0); /* m: 55 -> 0,56 */
-	reached1[55] = 1;
-	trans[1][55]	= settr(0,0,0,0,0,"destination = currentOrder.start",0,0,0);
-	trans[1][56]	= settr(120,0,57,54,54,"travelling = 1", 1, 2, 0);
-	trans[1][57]	= settr(121,0,64,55,0,"printf('Shuttle %d: beginning new order from station %d to station %d with size %d\\n',(id+1),(currentOrder.start+1),(currentOrder.end+1),currentOrder.size)", 0, 2, 0);
-	T = trans[1][64] = settr(128,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(128,0,58,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(128,0,61,0,0,"IF", 0, 2, 0);
-	trans[1][58]	= settr(122,0,130,56,56,"(((currentOrder.start>=currentStation)&&((currentOrder.start-currentStation)<(4/2))))", 0, 2, 0); /* m: 59 -> 130,0 */
-	reached1[59] = 1;
-	trans[1][59]	= settr(0,0,0,0,0,"direction = 1",0,0,0);
-	trans[1][60]	= settr(0,0,0,0,0,"printf('Shuttle %d: travelling left to right\\n',(id+1))",0,0,0);
-	trans[1][65]	= settr(129,0,130,1,0,".(goto)", 0, 2, 0);
-	trans[1][61]	= settr(125,0,62,2,0,"else", 0, 2, 0);
-	trans[1][62]	= settr(126,0,130,57,57,"direction = -(1)", 0, 2, 0); /* m: 63 -> 0,130 */
-	reached1[63] = 1;
-	trans[1][63]	= settr(0,0,0,0,0,"printf('Shuttle %d: travelling right to left\\n',(id+1))",0,0,0);
-	trans[1][66]	= settr(130,0,67,58,0,"((travelling&&processingOrder))", 1, 2, 0);
-	trans[1][67]	= settr(131,0,75,59,59,"nextStation = 0", 0, 2, 0); /* m: 68 -> 0,75 */
-	reached1[68] = 1;
-	trans[1][68]	= settr(0,0,0,0,0,"nextStation = (currentStation+direction)",0,0,0);
-	T = trans[1][75] = settr(139,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(139,0,69,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(139,0,71,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(139,0,73,0,0,"IF", 0, 2, 0);
-	trans[1][69]	= settr(133,0,91,60,60,"((nextStation>=4))", 0, 2, 0); /* m: 70 -> 91,0 */
-	reached1[70] = 1;
-	trans[1][70]	= settr(0,0,0,0,0,"nextStation = 0",0,0,0);
-	trans[1][76]	= settr(140,0,77,1,0,".(goto)", 0, 2, 0); /* m: 77 -> 0,91 */
-	reached1[77] = 1;
-	trans[1][71]	= settr(135,0,91,61,61,"((nextStation<0))", 0, 2, 0); /* m: 72 -> 91,0 */
-	reached1[72] = 1;
-	trans[1][72]	= settr(0,0,0,0,0,"nextStation = (4-1)",0,0,0);
-	trans[1][73]	= settr(137,0,74,2,0,"else", 0, 2, 0);
-	trans[1][74]	= settr(138,0,91,62,62,"(1)", 0, 2, 0); /* m: 77 -> 91,0 */
-	reached1[77] = 1;
-	trans[1][77]	= settr(141,0,91,63,63,"", 0, 2, 0); /* m: 78 -> 0,91 */
+	trans[1][1]	= settr(65,0,2,27,27,"currentLoad[id] = 0", 1, 2, 0);
+	trans[1][2]	= settr(66,0,3,28,28,"capacity[id] = shuttleCapacity", 1, 2, 0);
+	trans[1][3]	= settr(67,0,6,29,29,"direction = 0", 0, 2, 0); /* m: 4 -> 0,6 */
+	reached1[4] = 1;
+	trans[1][4]	= settr(0,0,0,0,0,"destination = 0",0,0,0);
+	trans[1][5]	= settr(0,0,0,0,0,"processingOrder = 0",0,0,0);
+	trans[1][6]	= settr(70,0,131,30,30,"travelling[id] = 0", 1, 2, 0);
+	trans[1][132]	= settr(196,0,131,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][131] = settr(195,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(195,0,7,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(195,0,53,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(195,0,67,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(195,0,109,0,0,"DO", 0, 2, 0);
+	trans[1][7]	= settr(71,0,8,31,31,"managementOrders[id]?order.start,order.end,order.size", 1, 503, 0);
+	trans[1][8]	= settr(72,0,14,32,32,"printf('Shuttle %d: processing offer for newly received order\\n',(id+1))", 0, 2, 0); /* m: 9 -> 0,14 */
+	reached1[9] = 1;
+	trans[1][9]	= settr(0,0,0,0,0,"currentPosition = 0",0,0,0);
+	T = trans[1][14] = settr(78,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(78,0,10,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(78,0,12,0,0,"IF", 0, 2, 0);
+	trans[1][10]	= settr(74,0,11,33,0,"(travelling[id])", 1, 2, 0);
+	trans[1][11]	= settr(75,0,21,34,34,"currentPosition = (currentStation+direction)", 0, 2, 0); /* m: 16 -> 0,21 */
+	reached1[16] = 1;
+	trans[1][15]	= settr(79,0,16,1,0,".(goto)", 0, 2, 0); /* m: 16 -> 0,21 */
+	reached1[16] = 1;
+	trans[1][12]	= settr(76,0,13,2,0,"else", 0, 2, 0);
+	trans[1][13]	= settr(77,0,21,35,35,"currentPosition = currentStation", 0, 2, 0); /* m: 16 -> 0,21 */
+	reached1[16] = 1;
+	trans[1][16]	= settr(80,0,21,36,36,"distance = 0", 0, 2, 0);
+	T = trans[1][21] = settr(85,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(85,0,17,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(85,0,19,0,0,"IF", 0, 2, 0);
+	trans[1][17]	= settr(81,0,27,37,37,"((currentPosition>order.start))", 0, 2, 0); /* m: 18 -> 27,0 */
+	reached1[18] = 1;
+	trans[1][18]	= settr(0,0,0,0,0,"distance = (currentPosition-order.start)",0,0,0);
+	trans[1][22]	= settr(86,0,27,1,0,".(goto)", 0, 2, 0);
+	trans[1][19]	= settr(83,0,20,2,0,"else", 0, 2, 0);
+	trans[1][20]	= settr(84,0,27,38,38,"distance = (order.start-currentPosition)", 0, 2, 0);
+	T = trans[1][27] = settr(91,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(91,0,23,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(91,0,25,0,0,"IF", 0, 2, 0);
+	trans[1][23]	= settr(87,0,30,39,39,"((distance>(4/2)))", 0, 2, 0); /* m: 24 -> 30,0 */
+	reached1[24] = 1;
+	trans[1][24]	= settr(0,0,0,0,0,"distance = (4-distance)",0,0,0);
+	trans[1][28]	= settr(92,0,29,1,0,".(goto)", 0, 2, 0); /* m: 29 -> 0,30 */
+	reached1[29] = 1;
+	trans[1][25]	= settr(89,0,26,2,0,"else", 0, 2, 0);
+	trans[1][26]	= settr(90,0,30,40,40,"distance = distance", 0, 2, 0); /* m: 29 -> 0,30 */
+	reached1[29] = 1;
+	trans[1][29]	= settr(93,0,30,41,41,"printf('Shuttle %d: start destination of the order is %d station(s) away from its current position\\n',(id+1),distance)", 0, 2, 0);
+	trans[1][30]	= settr(94,0,31,42,0,"printf('Shuttle %d: current load is %d, order size is %d, capacity is %d\\n',(id+1),currentLoad[id],order.size,capacity[id])", 1, 2, 0);
+	trans[1][31]	= settr(95,0,42,43,43,"", 0, 2, 0);
+	T = trans[1][42] = settr(106,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(106,0,32,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(106,0,37,0,0,"IF", 0, 2, 0);
+	trans[1][32]	= settr(96,0,33,44,44,"((((currentLoad[id]+order.size)<=capacity[id])&&(distance<=2)))", 1, 2, 0);
+	trans[1][33]	= settr(97,0,44,45,45,"offer.id = id", 0, 2, 0); /* m: 34 -> 0,44 */
+	reached1[34] = 1;
+	trans[1][34]	= settr(0,0,0,0,0,"offer.charge = charge",0,0,0);
+	trans[1][35]	= settr(0,0,0,0,0,"offer.refuse = 0",0,0,0);
+	trans[1][36]	= settr(0,0,0,0,0,"printf('Shuttle %d: order accepted\\n',(id+1))",0,0,0);
+	trans[1][43]	= settr(107,0,44,1,0,".(goto)", 0, 2, 0);
+	trans[1][37]	= settr(101,0,38,2,0,"else", 0, 2, 0);
+	trans[1][38]	= settr(102,0,44,46,46,"offer.id = id", 0, 2, 0); /* m: 39 -> 0,44 */
+	reached1[39] = 1;
+	trans[1][39]	= settr(0,0,0,0,0,"offer.charge = charge",0,0,0);
+	trans[1][40]	= settr(0,0,0,0,0,"offer.refuse = 1",0,0,0);
+	trans[1][41]	= settr(0,0,0,0,0,"printf('Shuttle %d: order refused\\n',(id+1))",0,0,0);
+	trans[1][44]	= settr(108,0,45,47,47,"shuttleOffers!offer.id,offer.charge,offer.refuse", 1, 4, 0);
+	trans[1][45]	= settr(109,0,51,48,48,"managementOrders[id]?order.start,order.end,order.size", 1, 503, 0);
+	T = trans[1][51] = settr(115,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(115,0,46,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(115,0,49,0,0,"IF", 0, 2, 0);
+	trans[1][46]	= settr(110,0,47,49,0,"((order.size>=0))", 0, 2, 0);
+	trans[1][47]	= settr(111,0,48,50,50,"orders!order.start,order.end,order.size", 1, 7, 0);
+	trans[1][48]	= settr(112,0,131,51,0,"printf('Shuttle %d: offer accepted by management\\n',(id+1))", 0, 2, 0);
+	trans[1][52]	= settr(116,0,131,1,0,".(goto)", 0, 2, 0);
+	trans[1][49]	= settr(113,0,50,2,0,"else", 0, 2, 0);
+	trans[1][50]	= settr(114,0,131,1,0,"(1)", 0, 2, 0);
+	trans[1][53]	= settr(117,0,54,52,52,"((nempty(orders)&&!(processingOrder)))", 1, 507, 0);
+	trans[1][54]	= settr(118,0,55,53,53,"orders?currentOrder.start,currentOrder.end,currentOrder.size", 1, 507, 0);
+	trans[1][55]	= settr(119,0,57,54,54,"processingOrder = 1", 0, 2, 0); /* m: 56 -> 0,57 */
+	reached1[56] = 1;
+	trans[1][56]	= settr(0,0,0,0,0,"destination = currentOrder.start",0,0,0);
+	trans[1][57]	= settr(121,0,58,55,55,"travelling[id] = 1", 1, 2, 0);
+	trans[1][58]	= settr(122,0,65,56,0,"printf('Shuttle %d: beginning new order from station %d to station %d with size %d\\n',(id+1),(currentOrder.start+1),(currentOrder.end+1),currentOrder.size)", 0, 2, 0);
+	T = trans[1][65] = settr(129,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(129,0,59,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(129,0,62,0,0,"IF", 0, 2, 0);
+	trans[1][59]	= settr(123,0,131,57,57,"(((currentOrder.start>=currentStation)&&((currentOrder.start-currentStation)<(4/2))))", 0, 2, 0); /* m: 60 -> 131,0 */
+	reached1[60] = 1;
+	trans[1][60]	= settr(0,0,0,0,0,"direction = 1",0,0,0);
+	trans[1][61]	= settr(0,0,0,0,0,"printf('Shuttle %d: travelling left to right\\n',(id+1))",0,0,0);
+	trans[1][66]	= settr(130,0,131,1,0,".(goto)", 0, 2, 0);
+	trans[1][62]	= settr(126,0,63,2,0,"else", 0, 2, 0);
+	trans[1][63]	= settr(127,0,131,58,58,"direction = -(1)", 0, 2, 0); /* m: 64 -> 0,131 */
+	reached1[64] = 1;
+	trans[1][64]	= settr(0,0,0,0,0,"printf('Shuttle %d: travelling right to left\\n',(id+1))",0,0,0);
+	trans[1][67]	= settr(131,0,68,59,0,"((travelling[id]&&processingOrder))", 1, 2, 0);
+	trans[1][68]	= settr(132,0,76,60,60,"nextStation = 0", 0, 2, 0); /* m: 69 -> 0,76 */
+	reached1[69] = 1;
+	trans[1][69]	= settr(0,0,0,0,0,"nextStation = (currentStation+direction)",0,0,0);
+	T = trans[1][76] = settr(140,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(140,0,70,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(140,0,72,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(140,0,74,0,0,"IF", 0, 2, 0);
+	trans[1][70]	= settr(134,0,92,61,61,"((nextStation>=4))", 0, 2, 0); /* m: 71 -> 92,0 */
+	reached1[71] = 1;
+	trans[1][71]	= settr(0,0,0,0,0,"nextStation = 0",0,0,0);
+	trans[1][77]	= settr(141,0,78,1,0,".(goto)", 0, 2, 0); /* m: 78 -> 0,92 */
 	reached1[78] = 1;
-	trans[1][78]	= settr(0,0,0,0,0,"request.id = id",0,0,0);
-	trans[1][79]	= settr(0,0,0,0,0,"request.direction = direction",0,0,0);
-	trans[1][80]	= settr(0,0,0,0,0,"request.track = nextStation",0,0,0);
-	trans[1][81]	= settr(0,0,0,0,0,"",0,0,0);
-	trans[1][82]	= settr(0,0,0,0,0,"printf('Shuttle %d: requesting access to travel from station %d to station %d\\n',(id+1),(currentStation+1),(nextStation+1))",0,0,0);
-	trans[1][92]	= settr(156,0,91,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][91] = settr(155,0,0,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(155,0,83,0,0,"DO", 0, 2, 0);
-	trans[1][83]	= settr(147,0,84,64,64,"shuttleRequests!request.track,request.direction,request.id", 1, 5, 0);
-	trans[1][84]	= settr(148,0,89,65,65,"railwayReplies[id]?reply.granted", 1, 506, 0);
-	T = trans[1][89] = settr(153,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(153,0,85,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(153,0,87,0,0,"IF", 0, 2, 0);
-	trans[1][85]	= settr(149,0,100,66,66,"(reply.granted)", 0, 2, 0); /* m: 94 -> 100,0 */
-	reached1[94] = 1;
-	trans[1][86]	= settr(150,0,94,1,0,"goto :b5", 0, 2, 0); /* m: 94 -> 0,100 */
-	reached1[94] = 1;
-	trans[1][90]	= settr(154,0,91,1,0,".(goto)", 0, 2, 0);
-	trans[1][87]	= settr(151,0,88,2,0,"else", 0, 2, 0);
-	trans[1][88]	= settr(152,0,91,1,0,"(1)", 0, 2, 0);
-	trans[1][93]	= settr(157,0,94,1,0,"break", 0, 2, 0);
-	trans[1][94]	= settr(158,0,100,67,67,"printf('Shuttle %d: travelling from station %d to station %d\\n',(id+1),(currentStation+1),(nextStation+1))", 0, 2, 0); /* m: 95 -> 0,100 */
+	trans[1][72]	= settr(136,0,92,62,62,"((nextStation<0))", 0, 2, 0); /* m: 73 -> 92,0 */
+	reached1[73] = 1;
+	trans[1][73]	= settr(0,0,0,0,0,"nextStation = (4-1)",0,0,0);
+	trans[1][74]	= settr(138,0,75,2,0,"else", 0, 2, 0);
+	trans[1][75]	= settr(139,0,92,63,63,"(1)", 0, 2, 0); /* m: 78 -> 92,0 */
+	reached1[78] = 1;
+	trans[1][78]	= settr(142,0,92,64,64,"", 0, 2, 0); /* m: 79 -> 0,92 */
+	reached1[79] = 1;
+	trans[1][79]	= settr(0,0,0,0,0,"request.id = id",0,0,0);
+	trans[1][80]	= settr(0,0,0,0,0,"request.direction = direction",0,0,0);
+	trans[1][81]	= settr(0,0,0,0,0,"request.track = nextStation",0,0,0);
+	trans[1][82]	= settr(0,0,0,0,0,"",0,0,0);
+	trans[1][83]	= settr(0,0,0,0,0,"printf('Shuttle %d: requesting access to travel from station %d to station %d\\n',(id+1),(currentStation+1),(nextStation+1))",0,0,0);
+	trans[1][93]	= settr(157,0,92,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][92] = settr(156,0,0,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(156,0,84,0,0,"DO", 0, 2, 0);
+	trans[1][84]	= settr(148,0,85,65,65,"shuttleRequests!request.track,request.direction,request.id", 1, 5, 0);
+	trans[1][85]	= settr(149,0,90,66,66,"railwayReplies[id]?reply.granted", 1, 506, 0);
+	T = trans[1][90] = settr(154,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(154,0,86,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(154,0,88,0,0,"IF", 0, 2, 0);
+	trans[1][86]	= settr(150,0,101,67,67,"(reply.granted)", 0, 2, 0); /* m: 95 -> 101,0 */
 	reached1[95] = 1;
-	trans[1][95]	= settr(0,0,0,0,0,"currentStation = nextStation",0,0,0);
-	T = trans[1][100] = settr(164,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(164,0,96,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(164,0,98,0,0,"IF", 0, 2, 0);
-	trans[1][96]	= settr(160,0,97,68,0,"((direction==1))", 0, 2, 0);
-	trans[1][97]	= settr(161,0,106,69,69,"tracks.trackL2R[request.track] = 0", 1, 2, 0);
-	trans[1][101]	= settr(165,0,106,1,0,".(goto)", 0, 2, 0);
-	trans[1][98]	= settr(162,0,99,70,0,"((direction==-(1)))", 0, 2, 0);
-	trans[1][99]	= settr(163,0,106,71,71,"tracks.trackR2L[request.track] = 0", 1, 2, 0);
-	T = trans[1][106] = settr(170,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(170,0,102,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(170,0,104,0,0,"IF", 0, 2, 0);
-	trans[1][102]	= settr(166,0,103,72,0,"((currentStation==destination))", 0, 2, 0);
-	trans[1][103]	= settr(167,0,130,73,73,"travelling = 0", 1, 2, 0);
-	trans[1][107]	= settr(171,0,130,1,0,".(goto)", 0, 2, 0);
-	trans[1][104]	= settr(168,0,105,2,0,"else", 0, 2, 0);
-	trans[1][105]	= settr(169,0,130,74,74,"travelling = 1", 1, 2, 0);
-	trans[1][108]	= settr(172,0,128,75,0,"((!(travelling)&&processingOrder))", 1, 2, 0);
-	T = trans[1][128] = settr(192,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(192,0,109,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(192,0,122,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(192,0,126,0,0,"IF", 0, 2, 0);
-	trans[1][109]	= settr(173,0,111,76,76,"((destination==currentOrder.start))", 0, 2, 0); /* m: 110 -> 111,0 */
-	reached1[110] = 1;
-	trans[1][110]	= settr(0,0,0,0,0,"printf('Shuttle %d: loading %d people at station %d\\n',(id+1),currentOrder.size,(currentOrder.start+1))",0,0,0);
-	trans[1][111]	= settr(175,0,112,77,77,"currentLoad = (currentLoad+currentOrder.size)", 1, 2, 0);
-	trans[1][112]	= settr(176,0,113,78,78,"destination = currentOrder.end", 0, 2, 0);
-	trans[1][113]	= settr(177,0,120,79,79,"travelling = 1", 1, 2, 0);
-	T = trans[1][120] = settr(184,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(184,0,114,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(184,0,117,0,0,"IF", 0, 2, 0);
-	trans[1][114]	= settr(178,0,130,80,80,"(((currentOrder.start>=currentStation)&&((currentOrder.start-currentStation)<(4/2))))", 0, 2, 0); /* m: 115 -> 130,0 */
-	reached1[115] = 1;
-	trans[1][115]	= settr(0,0,0,0,0,"direction = 1",0,0,0);
-	trans[1][116]	= settr(0,0,0,0,0,"printf('Shuttle %d: travelling left to right\\n',(id+1))",0,0,0);
-	trans[1][121]	= settr(185,0,130,1,0,".(goto)", 0, 2, 0);
-	trans[1][117]	= settr(181,0,118,2,0,"else", 0, 2, 0);
-	trans[1][118]	= settr(182,0,130,81,81,"direction = -(1)", 0, 2, 0); /* m: 119 -> 0,130 */
-	reached1[119] = 1;
-	trans[1][119]	= settr(0,0,0,0,0,"printf('Shuttle %d: travelling right to left\\n',(id+1))",0,0,0);
-	trans[1][129]	= settr(193,0,130,1,0,".(goto)", 0, 2, 0);
-	trans[1][122]	= settr(186,0,124,82,82,"((destination==currentOrder.end))", 0, 2, 0); /* m: 123 -> 124,0 */
-	reached1[123] = 1;
-	trans[1][123]	= settr(0,0,0,0,0,"printf('Shuttle %d: unloading %d people at station %d\\n',(id+1),currentOrder.size,(currentOrder.end+1))",0,0,0);
-	trans[1][124]	= settr(188,0,125,83,83,"currentLoad = (currentLoad-currentOrder.size)", 1, 2, 0);
-	trans[1][125]	= settr(189,0,130,84,84,"processingOrder = 0", 0, 2, 0);
-	trans[1][126]	= settr(190,0,127,2,0,"else", 0, 2, 0);
-	trans[1][127]	= settr(191,0,130,1,0,"(1)", 0, 2, 0);
-	trans[1][132]	= settr(196,0,133,1,0,"break", 0, 2, 0);
-	trans[1][133]	= settr(197,0,0,85,85,"-end-", 0, 3500, 0);
+	trans[1][87]	= settr(151,0,95,1,0,"goto :b5", 0, 2, 0); /* m: 95 -> 0,101 */
+	reached1[95] = 1;
+	trans[1][91]	= settr(155,0,92,1,0,".(goto)", 0, 2, 0);
+	trans[1][88]	= settr(152,0,89,2,0,"else", 0, 2, 0);
+	trans[1][89]	= settr(153,0,92,1,0,"(1)", 0, 2, 0);
+	trans[1][94]	= settr(158,0,95,1,0,"break", 0, 2, 0);
+	trans[1][95]	= settr(159,0,101,68,68,"printf('Shuttle %d: travelling from station %d to station %d\\n',(id+1),(currentStation+1),(nextStation+1))", 0, 2, 0); /* m: 96 -> 0,101 */
+	reached1[96] = 1;
+	trans[1][96]	= settr(0,0,0,0,0,"currentStation = nextStation",0,0,0);
+	T = trans[1][101] = settr(165,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(165,0,97,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(165,0,99,0,0,"IF", 0, 2, 0);
+	trans[1][97]	= settr(161,0,98,69,0,"((direction==1))", 0, 2, 0);
+	trans[1][98]	= settr(162,0,107,70,70,"tracks.trackL2R[request.track] = 0", 1, 2, 0);
+	trans[1][102]	= settr(166,0,107,1,0,".(goto)", 0, 2, 0);
+	trans[1][99]	= settr(163,0,100,71,0,"((direction==-(1)))", 0, 2, 0);
+	trans[1][100]	= settr(164,0,107,72,72,"tracks.trackR2L[request.track] = 0", 1, 2, 0);
+	T = trans[1][107] = settr(171,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(171,0,103,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(171,0,105,0,0,"IF", 0, 2, 0);
+	trans[1][103]	= settr(167,0,104,73,0,"((currentStation==destination))", 0, 2, 0);
+	trans[1][104]	= settr(168,0,131,74,74,"travelling[id] = 0", 1, 2, 0);
+	trans[1][108]	= settr(172,0,131,1,0,".(goto)", 0, 2, 0);
+	trans[1][105]	= settr(169,0,106,2,0,"else", 0, 2, 0);
+	trans[1][106]	= settr(170,0,131,75,75,"travelling[id] = 1", 1, 2, 0);
+	trans[1][109]	= settr(173,0,129,76,0,"((!(travelling[id])&&processingOrder))", 1, 2, 0);
+	T = trans[1][129] = settr(193,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(193,0,110,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(193,0,123,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(193,0,127,0,0,"IF", 0, 2, 0);
+	trans[1][110]	= settr(174,0,112,77,77,"((destination==currentOrder.start))", 0, 2, 0); /* m: 111 -> 112,0 */
+	reached1[111] = 1;
+	trans[1][111]	= settr(0,0,0,0,0,"printf('Shuttle %d: loading %d people at station %d\\n',(id+1),currentOrder.size,(currentOrder.start+1))",0,0,0);
+	trans[1][112]	= settr(176,0,113,78,78,"currentLoad[id] = (currentLoad[id]+currentOrder.size)", 1, 2, 0);
+	trans[1][113]	= settr(177,0,114,79,79,"destination = currentOrder.end", 0, 2, 0);
+	trans[1][114]	= settr(178,0,121,80,80,"travelling[id] = 1", 1, 2, 0);
+	T = trans[1][121] = settr(185,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(185,0,115,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(185,0,118,0,0,"IF", 0, 2, 0);
+	trans[1][115]	= settr(179,0,131,81,81,"(((currentOrder.start>=currentStation)&&((currentOrder.start-currentStation)<(4/2))))", 0, 2, 0); /* m: 116 -> 131,0 */
+	reached1[116] = 1;
+	trans[1][116]	= settr(0,0,0,0,0,"direction = 1",0,0,0);
+	trans[1][117]	= settr(0,0,0,0,0,"printf('Shuttle %d: travelling left to right\\n',(id+1))",0,0,0);
+	trans[1][122]	= settr(186,0,131,1,0,".(goto)", 0, 2, 0);
+	trans[1][118]	= settr(182,0,119,2,0,"else", 0, 2, 0);
+	trans[1][119]	= settr(183,0,131,82,82,"direction = -(1)", 0, 2, 0); /* m: 120 -> 0,131 */
+	reached1[120] = 1;
+	trans[1][120]	= settr(0,0,0,0,0,"printf('Shuttle %d: travelling right to left\\n',(id+1))",0,0,0);
+	trans[1][130]	= settr(194,0,131,1,0,".(goto)", 0, 2, 0);
+	trans[1][123]	= settr(187,0,125,83,83,"((destination==currentOrder.end))", 0, 2, 0); /* m: 124 -> 125,0 */
+	reached1[124] = 1;
+	trans[1][124]	= settr(0,0,0,0,0,"printf('Shuttle %d: unloading %d people at station %d\\n',(id+1),currentOrder.size,(currentOrder.end+1))",0,0,0);
+	trans[1][125]	= settr(189,0,126,84,84,"currentLoad[id] = (currentLoad[id]-currentOrder.size)", 1, 2, 0);
+	trans[1][126]	= settr(190,0,131,85,85,"processingOrder = 0", 0, 2, 0);
+	trans[1][127]	= settr(191,0,128,2,0,"else", 0, 2, 0);
+	trans[1][128]	= settr(192,0,131,1,0,"(1)", 0, 2, 0);
+	trans[1][133]	= settr(197,0,134,1,0,"break", 0, 2, 0);
+	trans[1][134]	= settr(198,0,0,86,86,"-end-", 0, 3500, 0);
 
 	/* proctype 0: ShuttleManagementSystem */
 
 	trans[0] = (Trans **) emalloc(66*sizeof(Trans *));
 
-	trans[0][1]	= settr(0,0,62,86,86,"orders[0].start = first.start", 0, 2, 0); /* m: 2 -> 0,62 */
+	trans[0][1]	= settr(0,0,62,87,87,"orders[0].start = first.start", 0, 2, 0); /* m: 2 -> 0,62 */
 	reached0[2] = 1;
 	trans[0][2]	= settr(0,0,0,0,0,"orders[0].end = first.end",0,0,0);
 	trans[0][3]	= settr(0,0,0,0,0,"orders[0].size = first.size",0,0,0);
@@ -338,7 +339,7 @@ settable(void)
 	T = trans[0][62] = settr(61,0,0,0,0,"DO", 0, 2, 0);
 	T = T->nxt	= settr(61,0,9,0,0,"DO", 0, 2, 0);
 	    T->nxt	= settr(61,0,60,0,0,"DO", 0, 2, 0);
-	trans[0][9]	= settr(8,0,18,87,87,"((i<=(2-1)))", 0, 2, 0); /* m: 10 -> 18,0 */
+	trans[0][9]	= settr(8,0,18,88,88,"((i<=(2-1)))", 0, 2, 0); /* m: 10 -> 18,0 */
 	reached0[10] = 1;
 	trans[0][10]	= settr(0,0,0,0,0,"j = 0",0,0,0);
 	trans[0][11]	= settr(0,0,0,0,0,"j = 0",0,0,0);
@@ -346,16 +347,16 @@ settable(void)
 	T = trans[0][18] = settr(17,0,0,0,0,"DO", 0, 2, 0);
 	T = T->nxt	= settr(17,0,12,0,0,"DO", 0, 2, 0);
 	    T->nxt	= settr(17,0,16,0,0,"DO", 0, 2, 0);
-	trans[0][12]	= settr(11,0,14,88,88,"((j<=(4-1)))", 0, 2, 0); /* m: 13 -> 14,0 */
+	trans[0][12]	= settr(11,0,14,89,89,"((j<=(4-1)))", 0, 2, 0); /* m: 13 -> 14,0 */
 	reached0[13] = 1;
 	trans[0][13]	= settr(0,0,0,0,0,"printf('Shuttle Management System: sending order %d to shuttle %d\\n',(i+1),(j+1))",0,0,0);
-	trans[0][14]	= settr(13,0,15,89,89,"managementOrders[j]!orders[i].start,orders[i].end,orders[i].size", 1, 3, 0);
-	trans[0][15]	= settr(14,0,18,90,90,"j = (j+1)", 0, 2, 0);
+	trans[0][14]	= settr(13,0,15,90,90,"managementOrders[j]!orders[i].start,orders[i].end,orders[i].size", 1, 3, 0);
+	trans[0][15]	= settr(14,0,18,91,91,"j = (j+1)", 0, 2, 0);
 	trans[0][16]	= settr(15,0,21,2,0,"else", 0, 2, 0);
 	trans[0][17]	= settr(16,0,21,1,0,"goto :b1", 0, 2, 0); /* m: 21 -> 0,39 */
 	reached0[21] = 1;
 	trans[0][20]	= settr(19,0,21,1,0,"break", 0, 2, 0);
-	trans[0][21]	= settr(20,0,39,91,91,"minCharge = 2147483647", 0, 2, 0); /* m: 22 -> 0,39 */
+	trans[0][21]	= settr(20,0,39,92,92,"minCharge = 2147483647", 0, 2, 0); /* m: 22 -> 0,39 */
 	reached0[22] = 1;
 	trans[0][22]	= settr(0,0,0,0,0,"assignedId = 0",0,0,0);
 	trans[0][23]	= settr(0,0,0,0,0,"j = 0",0,0,0);
@@ -363,59 +364,59 @@ settable(void)
 	T = trans[0][39] = settr(38,0,0,0,0,"DO", 0, 2, 0);
 	T = T->nxt	= settr(38,0,24,0,0,"DO", 0, 2, 0);
 	    T->nxt	= settr(38,0,37,0,0,"DO", 0, 2, 0);
-	trans[0][24]	= settr(23,0,27,92,92,"((j<=(4-1)))", 0, 2, 0); /* m: 25 -> 27,0 */
+	trans[0][24]	= settr(23,0,27,93,93,"((j<=(4-1)))", 0, 2, 0); /* m: 25 -> 27,0 */
 	reached0[25] = 1;
 	trans[0][25]	= settr(0,0,0,0,0,"",0,0,0);
 	trans[0][26]	= settr(0,0,0,0,0,"printf('Shuttle Management System: waiting for offer for order %d from shuttle %d\\n',(i+1),(j+1))",0,0,0);
-	trans[0][27]	= settr(26,0,34,93,93,"shuttleOffers?offer.id,offer.charge,offer.refuse", 1, 504, 0);
+	trans[0][27]	= settr(26,0,34,94,94,"shuttleOffers?offer.id,offer.charge,offer.refuse", 1, 504, 0);
 	T = trans[0][34] = settr(33,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(33,0,28,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(33,0,31,0,0,"IF", 0, 2, 0);
-	trans[0][28]	= settr(27,0,39,94,94,"(((offer.charge<minCharge)&&!(offer.refuse)))", 0, 2, 0); /* m: 29 -> 39,0 */
+	trans[0][28]	= settr(27,0,39,95,95,"(((offer.charge<minCharge)&&!(offer.refuse)))", 0, 2, 0); /* m: 29 -> 39,0 */
 	reached0[29] = 1;
 	trans[0][29]	= settr(0,0,0,0,0,"minCharge = offer.charge",0,0,0);
 	trans[0][30]	= settr(0,0,0,0,0,"assignedId = offer.id",0,0,0);
 	trans[0][35]	= settr(34,0,36,1,0,".(goto)", 0, 2, 0); /* m: 36 -> 0,39 */
 	reached0[36] = 1;
 	trans[0][31]	= settr(30,0,32,2,0,"else", 0, 2, 0);
-	trans[0][32]	= settr(31,0,39,95,95,"minCharge = minCharge", 0, 2, 0); /* m: 33 -> 0,39 */
+	trans[0][32]	= settr(31,0,39,96,96,"minCharge = minCharge", 0, 2, 0); /* m: 33 -> 0,39 */
 	reached0[33] = 1;
 	trans[0][33]	= settr(0,0,0,0,0,"assignedId = assignedId",0,0,0);
-	trans[0][36]	= settr(35,0,39,96,96,"j = (j+1)", 0, 2, 0);
+	trans[0][36]	= settr(35,0,39,97,97,"j = (j+1)", 0, 2, 0);
 	trans[0][37]	= settr(36,0,42,2,0,"else", 0, 2, 0);
 	trans[0][38]	= settr(37,0,42,1,0,"goto :b2", 0, 2, 0); /* m: 42 -> 0,56 */
 	reached0[42] = 1;
 	trans[0][41]	= settr(40,0,42,1,0,"break", 0, 2, 0);
-	trans[0][42]	= settr(41,0,56,97,97,"printf('Shuttle Management System: order %d assigned to shuttle %d\\n',(i+1),(assignedId+1))", 0, 2, 0); /* m: 43 -> 0,56 */
+	trans[0][42]	= settr(41,0,56,98,98,"printf('Shuttle Management System: order %d assigned to shuttle %d\\n',(i+1),(assignedId+1))", 0, 2, 0); /* m: 43 -> 0,56 */
 	reached0[43] = 1;
 	trans[0][43]	= settr(0,0,0,0,0,"j = 0",0,0,0);
 	trans[0][57]	= settr(56,0,56,1,0,".(goto)", 0, 2, 0);
 	T = trans[0][56] = settr(55,0,0,0,0,"DO", 0, 2, 0);
 	T = T->nxt	= settr(55,0,44,0,0,"DO", 0, 2, 0);
 	    T->nxt	= settr(55,0,54,0,0,"DO", 0, 2, 0);
-	trans[0][44]	= settr(43,0,51,98,0,"((j<=(4-1)))", 0, 2, 0);
+	trans[0][44]	= settr(43,0,51,99,0,"((j<=(4-1)))", 0, 2, 0);
 	T = trans[0][51] = settr(50,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(50,0,45,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(50,0,47,0,0,"IF", 0, 2, 0);
-	trans[0][45]	= settr(44,0,46,99,0,"((j==assignedId))", 0, 2, 0);
-	trans[0][46]	= settr(45,0,53,100,100,"managementOrders[j]!orders[i].start,orders[i].end,orders[i].size", 1, 3, 0);
+	trans[0][45]	= settr(44,0,46,100,0,"((j==assignedId))", 0, 2, 0);
+	trans[0][46]	= settr(45,0,53,101,101,"managementOrders[j]!orders[i].start,orders[i].end,orders[i].size", 1, 3, 0);
 	trans[0][52]	= settr(51,0,53,1,0,".(goto)", 0, 2, 0); /* m: 53 -> 0,56 */
 	reached0[53] = 1;
 	trans[0][47]	= settr(46,0,48,2,0,"else", 0, 2, 0);
-	trans[0][48]	= settr(47,0,50,101,101,"", 0, 2, 0); /* m: 49 -> 0,50 */
+	trans[0][48]	= settr(47,0,50,102,102,"", 0, 2, 0); /* m: 49 -> 0,50 */
 	reached0[49] = 1;
 	trans[0][49]	= settr(0,0,0,0,0,"dummy.size = -(1)",0,0,0);
-	trans[0][50]	= settr(49,0,53,102,102,"managementOrders[j]!dummy.start,dummy.end,dummy.size", 1, 3, 0);
-	trans[0][53]	= settr(52,0,56,103,103,"j = (j+1)", 0, 2, 0);
+	trans[0][50]	= settr(49,0,53,103,103,"managementOrders[j]!dummy.start,dummy.end,dummy.size", 1, 3, 0);
+	trans[0][53]	= settr(52,0,56,104,104,"j = (j+1)", 0, 2, 0);
 	trans[0][54]	= settr(53,0,59,2,0,"else", 0, 2, 0);
 	trans[0][55]	= settr(54,0,59,1,0,"goto :b3", 0, 2, 0); /* m: 59 -> 0,62 */
 	reached0[59] = 1;
 	trans[0][58]	= settr(57,0,59,1,0,"break", 0, 2, 0);
-	trans[0][59]	= settr(58,0,62,104,104,"i = (i+1)", 0, 2, 0);
+	trans[0][59]	= settr(58,0,62,105,105,"i = (i+1)", 0, 2, 0);
 	trans[0][60]	= settr(59,0,65,2,0,"else", 0, 2, 0);
 	trans[0][61]	= settr(60,0,65,1,0,"goto :b0", 0, 2, 0);
 	trans[0][64]	= settr(63,0,65,1,0,"break", 0, 2, 0);
-	trans[0][65]	= settr(64,0,0,105,105,"-end-", 0, 3500, 0);
+	trans[0][65]	= settr(64,0,0,106,106,"-end-", 0, 3500, 0);
 	/* np_ demon: */
 	trans[_NP_] = (Trans **) emalloc(3*sizeof(Trans *));
 	T = trans[_NP_][0] = settr(9997,0,1,_T5,0,"(np_)", 1,2,0);
