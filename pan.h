@@ -2,7 +2,7 @@
 #define PAN_H
 
 #define SpinVersion	"Spin Version 6.5.1 -- 3 November 2019"
-#define PanSource	"problem1-ltl.pml"
+#define PanSource	"problem2.pml"
 
 #define G_long	4
 #define G_int	4
@@ -102,7 +102,6 @@
 #ifndef NFAIR
 	#define NFAIR	2	/* must be >= 2 */
 #endif
-#define HAS_LTL	1
 #define HAS_CODE	1
 #if defined(RANDSTORE) && !defined(RANDSTOR)
 	#define RANDSTOR	RANDSTORE
@@ -121,16 +120,10 @@
 #endif
 #ifdef NP
 	#define HAS_NP	2
-	#define VERI	5	/* np_ */
+	#define VERI	4	/* np_ */
 #endif
 #if defined(NOCLAIM) && defined(NP)
 	#undef NOCLAIM
-#endif
-#ifndef NOCLAIM
-	#define NCLAIMS	1
-	#ifndef NP
-		#define VERI	4
-	#endif
 #endif
 
 typedef struct S_F_MAP {
@@ -139,48 +132,41 @@ typedef struct S_F_MAP {
 	int upto;
 } S_F_MAP;
 
-#define _nstates4	23	/* p1 */
-#define minseq4	244
-#define maxseq4	265
-#define _endstate4	22
+#define _nstates3	9	/* :init: */
+#define minseq3	395
+#define maxseq3	402
+#define _endstate3	8
 
-#define _nstates3	17	/* :init: */
-#define minseq3	228
-#define maxseq3	243
-#define _endstate3	16
+#define _nstates2	20	/* ControlPanel */
+#define minseq2	376
+#define maxseq2	394
+#define _endstate2	19
 
-#define _nstates2	30	/* RailwayNetwork */
-#define minseq2	199
-#define maxseq2	227
-#define _endstate2	29
+#define _nstates1	244	/* CommsManager */
+#define minseq1	133
+#define maxseq1	375
+#define _endstate1	243
 
-#define _nstates1	135	/* Shuttle */
-#define minseq1	65
-#define maxseq1	198
-#define _endstate1	134
-
-#define _nstates0	66	/* ShuttleManagementSystem */
+#define _nstates0	134	/* Client */
 #define minseq0	0
-#define maxseq0	64
-#define _endstate0	65
+#define maxseq0	132
+#define _endstate0	133
 
-extern short src_ln4[];
 extern short src_ln3[];
 extern short src_ln2[];
 extern short src_ln1[];
 extern short src_ln0[];
-extern S_F_MAP src_file4[];
 extern S_F_MAP src_file3[];
 extern S_F_MAP src_file2[];
 extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned short
-#define _T5	107
-#define _T2	108
+#define _T5	167
+#define _T2	168
 #define WS		4 /* word size in bytes */
 #define SYNC	0
-#define ASYNC	5
+#define ASYNC	8
 
 #ifndef NCORE
 	#ifdef DUAL_CORE
@@ -192,38 +178,6 @@ extern S_F_MAP src_file0[];
 	#endif
 #endif
 
-struct Order { /* user defined type */
-	int start;
-	int end;
-	int size;
-};
-struct Offer { /* user defined type */
-	int id;
-	int charge;
-	unsigned refuse : 1;
-};
-struct Track { /* user defined type */
-	uchar trackL2R[4];
-	uchar trackR2L[4];
-};
-struct Request { /* user defined type */
-	int track;
-	int direction;
-	int id;
-};
-struct Reply { /* user defined type */
-	unsigned granted : 1;
-};
-typedef struct P4 { /* p1 */
-	unsigned _pid : 8;  /* 0..255 */
-	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 9; /* state    */
-#ifdef HAS_PRIORITY
-	unsigned _priority : 8; /* 0..255 */
-#endif
-} P4;
-#define Air4	(sizeof(P4) - 3)
-
 #define Pinit	((P3 *)_this)
 typedef struct P3 { /* :init: */
 	unsigned _pid : 8;  /* 0..255 */
@@ -232,81 +186,71 @@ typedef struct P3 { /* :init: */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	struct Order _13_3_first;
-	struct Order _13_3_second;
 } P3;
-#define Air3	0
+#define Air3	(sizeof(P3) - 3)
 
-#define PRailwayNetwork	((P2 *)_this)
-typedef struct P2 { /* RailwayNetwork */
+#define PControlPanel	((P2 *)_this)
+typedef struct P2 { /* ControlPanel */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
 	unsigned _p   : 9; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	struct Request request;
-	struct Reply reply;
+	unsigned disabled : 1;
+	unsigned isUpdating : 1;
+	uchar ability;
+	uchar button;
 } P2;
-#define Air2	0
+#define Air2	(sizeof(P2) - Offsetof(P2, button) - 1*sizeof(uchar))
 
-#define PShuttle	((P1 *)_this)
-typedef struct P1 { /* Shuttle */
+#define PCommsManager	((P1 *)_this)
+typedef struct P1 { /* CommsManager */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
 	unsigned _p   : 9; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-	unsigned processingOrder : 1;
-	uchar orders;
-	int shuttleCapacity;
-	int charge;
-	int initialStation;
+	unsigned hasFail : 1;
+	uchar connectedClients[4];
+	uchar currStatus;
+	uchar reportStatus;
+	uchar button;
+	uchar reply;
 	int id;
-	int currentStation;
-	int direction;
-	int destination;
-	int currentPosition;
-	int distance;
-	int nextStation;
-	struct Order order;
-	struct Order currentOrder;
-	struct Offer offer;
-	struct Request request;
-	struct Reply reply;
-} P1;
-#define Air1	0
-
-#define PShuttleManagementSystem	((P0 *)_this)
-typedef struct P0 { /* ShuttleManagementSystem */
-	unsigned _pid : 8;  /* 0..255 */
-	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 9; /* state    */
-#ifdef HAS_PRIORITY
-	unsigned _priority : 8; /* 0..255 */
-#endif
 	int i;
-	int _10_1_j;
-	int _10_1_minCharge;
-	int _10_1_assignedId;
-	struct Order first;
-	struct Order second;
-	struct Offer _10_1_2_offer;
-	struct Order _10_1_3_dummy;
-	struct Order orders[2];
-} P0;
-#define Air0	0
+} P1;
+#define Air1	(sizeof(P1) - Offsetof(P1, i) - 1*sizeof(int))
 
-typedef struct P5 { /* np_ */
+#define PClient	((P0 *)_this)
+typedef struct P0 { /* Client */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
 	unsigned _p   : 9; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
-} P5;
-#define Air5	(sizeof(P5) - 3)
+	unsigned connected : 1;
+	unsigned getInfoSuccess : 1;
+	unsigned useNewInfoSuccess : 1;
+	unsigned useOldInfoSuccess : 1;
+	uchar currStatus;
+	uchar reply;
+	uchar currCommand;
+	int id;
+} P0;
+#define Air0	(sizeof(P0) - Offsetof(P0, id) - 1*sizeof(int))
+
+typedef struct P4 { /* np_ */
+	unsigned _pid : 8;  /* 0..255 */
+	unsigned _t   : 4; /* proctype */
+	unsigned _p   : 9; /* state    */
+#ifdef HAS_PRIORITY
+	unsigned _priority : 8; /* 0..255 */
+#endif
+} P4;
+#define Air4	(sizeof(P4) - 3)
 
 #define Pclaim	P0
 #ifndef NCLAIMS
@@ -498,14 +442,14 @@ typedef struct State {
 		unsigned short _event;
 	#endif
 #endif
-	uchar travelling[4];
-	uchar managementOrders[4];
-	uchar shuttleOffers;
-	uchar shuttleRequests;
-	uchar railwayReplies[4];
-	int currentLoad[4];
-	int capacity[4];
-	struct Track tracks;
+	uchar cmConnectRequest;
+	uchar cmConnectReply[4];
+	uchar cmCommand[4];
+	uchar clientReport;
+	uchar wcpRequestCm;
+	uchar wcpRequestClient[1];
+	uchar cmAbleWcp;
+	uchar cmStatus[4];
 #ifdef TRIX
 	/* room for 512 proc+chan ptrs, + safety margin */
 	char *_ids_[MAXPROC+MAXQ+4];
@@ -530,20 +474,19 @@ typedef struct TRIX_v6 {
 #define FORWARD_MOVES	"pan.m"
 #define BACKWARD_MOVES	"pan.b"
 #define TRANSITIONS	"pan.t"
-#define _NP_	5
-#define _nstates5	3 /* np_ */
-#define _endstate5	2 /* np_ */
+#define _NP_	4
+#define _nstates4	3 /* np_ */
+#define _endstate4	2 /* np_ */
 
-#define _start5	0 /* np_ */
-#define _start4	7
-#define _start3	15
-#define _start2	26
+#define _start4	0 /* np_ */
+#define _start3	7
+#define _start2	16
 #define _start1	1
-#define _start0	1
+#define _start0	130
 #ifdef NP
 	#define ACCEPT_LAB	1 /* at least 1 in np_ */
 #else
-	#define ACCEPT_LAB	1 /* user-defined accept labels */
+	#define ACCEPT_LAB	0 /* user-defined accept labels */
 #endif
 #ifdef MEMCNT
 	#ifdef MEMLIM
@@ -572,7 +515,49 @@ typedef struct TRIX_v6 {
 	#define MEMLIM	(2048)	/* need a default, using 2 GB */
 #endif
 #define PROG_LAB	0 /* progress labels */
-#define NQS	11
+#define NQS	17
+typedef struct Q17 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q17;
+typedef struct Q16 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q16;
+typedef struct Q15 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q15;
+typedef struct Q14 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q14;
+typedef struct Q13 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q13;
+typedef struct Q12 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[4];
+} Q12;
 typedef struct Q11 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
@@ -585,7 +570,8 @@ typedef struct Q10 {
 	uchar _t;	/* q_type */
 	struct {
 		uchar fld0;
-	} contents[1];
+		int fld1;
+	} contents[4];
 } Q10;
 typedef struct Q9 {
 	uchar Qlen;	/* q_size */
@@ -605,54 +591,42 @@ typedef struct Q7 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-		int fld1;
-		int fld2;
-	} contents[4];
+		uchar fld0;
+	} contents[1];
 } Q7;
 typedef struct Q6 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-		int fld1;
-		unsigned fld2 : 1;
-	} contents[4];
+		uchar fld0;
+	} contents[1];
 } Q6;
 typedef struct Q5 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-		int fld1;
-		int fld2;
+		uchar fld0;
 	} contents[1];
 } Q5;
 typedef struct Q4 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-		int fld1;
-		int fld2;
+		uchar fld0;
 	} contents[1];
 } Q4;
 typedef struct Q3 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-		int fld1;
-		int fld2;
+		uchar fld0;
 	} contents[1];
 } Q3;
 typedef struct Q2 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
 	struct {
-		int fld0;
-		int fld1;
-		int fld2;
+		uchar fld0;
 	} contents[1];
 } Q2;
 typedef struct Q1 {
@@ -660,9 +634,7 @@ typedef struct Q1 {
 	uchar _t;	/* q_type */
 	struct {
 		int fld0;
-		int fld1;
-		int fld2;
-	} contents[2];
+	} contents[4];
 } Q1;
 typedef struct Q0 {	/* generic q */
 	uchar Qlen;	/* q_size */
@@ -978,9 +950,9 @@ typedef struct BFS_State {
 } BFS_State;
 #endif
 
-void qsend(int, int, int, int, int, int);
+void qsend(int, int, int, int, int);
 
-#define Addproc(x,y)	addproc(256, y, x, 0, 0, 0, 0, 0, 0)
+#define Addproc(x,y)	addproc(256, y, x, 0)
 #define LOCAL	1
 #define Q_FULL_F	2
 #define Q_EMPT_F	3
@@ -990,7 +962,7 @@ void qsend(int, int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	109
+#define NTRANS	169
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);
