@@ -715,16 +715,16 @@
 	case 46: // STATE 60 - problem2.pml:189 - [wcpRequestClient[i]!button] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][60] = 1;
-		if (q_full(now.wcpRequestClient[ Index(((P1 *)_this)->i, 1) ]))
+		if (q_full(now.wcpRequestClient[ Index(((P1 *)_this)->i, 4) ]))
 			continue;
 #ifdef HAS_CODE
 		if (readtrail && gui) {
 			char simtmp[64];
-			sprintf(simvals, "%d!", now.wcpRequestClient[ Index(((P1 *)_this)->i, 1) ]);
+			sprintf(simvals, "%d!", now.wcpRequestClient[ Index(((P1 *)_this)->i, 4) ]);
 		sprintf(simtmp, "%d", ((P1 *)_this)->button); strcat(simvals, simtmp);		}
 #endif
 		
-		qsend(now.wcpRequestClient[ Index(((P1 *)_this)->i, 1) ], 0, ((P1 *)_this)->button, 0, 1);
+		qsend(now.wcpRequestClient[ Index(((P1 *)_this)->i, 4) ], 0, ((P1 *)_this)->button, 0, 1);
 		_m = 2; goto P999; /* 0 */
 	case 47: // STATE 62 - problem2.pml:190 - [(1)] (68:0:1 - 1)
 		IfNotBlocked
@@ -1412,19 +1412,19 @@
 		reached[1][170] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 88: // STATE 172 - problem2.pml:251 - [(hasFail)] (174:0:2 - 1)
+	case 88: // STATE 172 - problem2.pml:251 - [(hasFail)] (185:0:3 - 1)
 		IfNotBlocked
 		reached[1][172] = 1;
 		if (!(((int)((P1 *)_this)->hasFail)))
 			continue;
 		if (TstOnly) return 1; /* TT */
-		/* dead 1: hasFail */  (trpt+1)->bup.ovals = grab_ints(2);
+		/* dead 1: hasFail */  (trpt+1)->bup.ovals = grab_ints(3);
 		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->hasFail;
 #ifdef HAS_CODE
 		if (!readtrail)
 #endif
 			((P1 *)_this)->hasFail = 0;
-		/* merge: currStatus = 8(0, 173, 174) */
+		/* merge: currStatus = 8(185, 173, 185) */
 		reached[1][173] = 1;
 		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->currStatus;
 		((P1 *)_this)->currStatus = 8;
@@ -1432,58 +1432,33 @@
 		logval("CommsManager:currStatus", ((P1 *)_this)->currStatus);
 #endif
 		;
-		_m = 3; goto P999; /* 1 */
-	case 89: // STATE 174 - problem2.pml:252 - [cmAbleWcp!2] (0:0:0 - 1)
-		IfNotBlocked
+		/* merge: i = 0(185, 174, 185) */
 		reached[1][174] = 1;
-		if (q_full(now.cmAbleWcp))
-			continue;
-#ifdef HAS_CODE
-		if (readtrail && gui) {
-			char simtmp[64];
-			sprintf(simvals, "%d!", now.cmAbleWcp);
-		sprintf(simtmp, "%d", 2); strcat(simvals, simtmp);		}
-#endif
-		
-		qsend(now.cmAbleWcp, 0, 2, 0, 1);
-		_m = 2; goto P999; /* 0 */
-	case 90: // STATE 176 - problem2.pml:253 - [currStatus = 8] (0:188:2 - 1)
-		IfNotBlocked
-		reached[1][176] = 1;
-		(trpt+1)->bup.ovals = grab_ints(2);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->currStatus;
-		((P1 *)_this)->currStatus = 8;
-#ifdef VAR_RANGES
-		logval("CommsManager:currStatus", ((P1 *)_this)->currStatus);
-#endif
-		;
-		/* merge: i = 0(188, 177, 188) */
-		reached[1][177] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->i;
+		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->i;
 		((P1 *)_this)->i = 0;
 #ifdef VAR_RANGES
 		logval("CommsManager:i", ((P1 *)_this)->i);
 #endif
 		;
-		/* merge: .(goto)(0, 189, 188) */
-		reached[1][189] = 1;
+		/* merge: .(goto)(0, 186, 185) */
+		reached[1][186] = 1;
 		;
-		_m = 3; goto P999; /* 2 */
-	case 91: // STATE 178 - problem2.pml:254 - [((i<=(4-1)))] (0:0:0 - 1)
+		_m = 3; goto P999; /* 3 */
+	case 89: // STATE 175 - problem2.pml:252 - [((i<=(4-1)))] (0:0:0 - 1)
 		IfNotBlocked
-		reached[1][178] = 1;
+		reached[1][175] = 1;
 		if (!((((P1 *)_this)->i<=(4-1))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 92: // STATE 179 - problem2.pml:256 - [(connectedClients[i])] (0:0:0 - 1)
+	case 90: // STATE 176 - problem2.pml:254 - [(connectedClients[i])] (0:0:0 - 1)
 		IfNotBlocked
-		reached[1][179] = 1;
+		reached[1][176] = 1;
 		if (!(((int)((P1 *)_this)->connectedClients[ Index(((P1 *)_this)->i, 4) ])))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 93: // STATE 180 - problem2.pml:256 - [cmCommand[i]!1] (0:0:0 - 1)
+	case 91: // STATE 177 - problem2.pml:254 - [cmCommand[i]!1] (0:0:0 - 1)
 		IfNotBlocked
-		reached[1][180] = 1;
+		reached[1][177] = 1;
 		if (q_full(now.cmCommand[ Index(((P1 *)_this)->i, 4) ]))
 			continue;
 #ifdef HAS_CODE
@@ -1495,40 +1470,64 @@
 		
 		qsend(now.cmCommand[ Index(((P1 *)_this)->i, 4) ], 0, 1, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 94: // STATE 182 - problem2.pml:257 - [(1)] (188:0:1 - 1)
+	case 92: // STATE 179 - problem2.pml:255 - [(1)] (185:0:1 - 1)
 		IfNotBlocked
-		reached[1][182] = 1;
+		reached[1][179] = 1;
 		if (!(1))
 			continue;
-		/* merge: .(goto)(188, 184, 188) */
-		reached[1][184] = 1;
+		/* merge: .(goto)(185, 181, 185) */
+		reached[1][181] = 1;
 		;
-		/* merge: i = (i+1)(188, 185, 188) */
-		reached[1][185] = 1;
+		/* merge: i = (i+1)(185, 182, 185) */
+		reached[1][182] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
 		((P1 *)_this)->i = (((P1 *)_this)->i+1);
 #ifdef VAR_RANGES
 		logval("CommsManager:i", ((P1 *)_this)->i);
 #endif
 		;
-		/* merge: .(goto)(0, 189, 188) */
-		reached[1][189] = 1;
+		/* merge: .(goto)(0, 186, 185) */
+		reached[1][186] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 95: // STATE 185 - problem2.pml:254 - [i = (i+1)] (0:188:1 - 3)
+	case 93: // STATE 182 - problem2.pml:252 - [i = (i+1)] (0:185:1 - 3)
 		IfNotBlocked
-		reached[1][185] = 1;
+		reached[1][182] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
 		((P1 *)_this)->i = (((P1 *)_this)->i+1);
 #ifdef VAR_RANGES
 		logval("CommsManager:i", ((P1 *)_this)->i);
 #endif
 		;
-		/* merge: .(goto)(0, 189, 188) */
-		reached[1][189] = 1;
+		/* merge: .(goto)(0, 186, 185) */
+		reached[1][186] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 96: // STATE 191 - problem2.pml:260 - [cmAbleWcp!2] (0:0:0 - 3)
+	case 94: // STATE 188 - problem2.pml:258 - [cmAbleWcp!2] (0:0:0 - 3)
+		IfNotBlocked
+		reached[1][188] = 1;
+		if (q_full(now.cmAbleWcp))
+			continue;
+#ifdef HAS_CODE
+		if (readtrail && gui) {
+			char simtmp[64];
+			sprintf(simvals, "%d!", now.cmAbleWcp);
+		sprintf(simtmp, "%d", 2); strcat(simvals, simtmp);		}
+#endif
+		
+		qsend(now.cmAbleWcp, 0, 2, 0, 1);
+		_m = 2; goto P999; /* 0 */
+	case 95: // STATE 190 - problem2.pml:259 - [currStatus = 8] (0:0:1 - 1)
+		IfNotBlocked
+		reached[1][190] = 1;
+		(trpt+1)->bup.oval = ((P1 *)_this)->currStatus;
+		((P1 *)_this)->currStatus = 8;
+#ifdef VAR_RANGES
+		logval("CommsManager:currStatus", ((P1 *)_this)->currStatus);
+#endif
+		;
+		_m = 3; goto P999; /* 0 */
+	case 96: // STATE 191 - problem2.pml:260 - [cmAbleWcp!2] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][191] = 1;
 		if (q_full(now.cmAbleWcp))
@@ -1715,19 +1714,19 @@
 		reached[1][216] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 105: // STATE 218 - problem2.pml:277 - [(hasFail)] (220:0:2 - 1)
+	case 105: // STATE 218 - problem2.pml:277 - [(hasFail)] (231:0:3 - 1)
 		IfNotBlocked
 		reached[1][218] = 1;
 		if (!(((int)((P1 *)_this)->hasFail)))
 			continue;
 		if (TstOnly) return 1; /* TT */
-		/* dead 1: hasFail */  (trpt+1)->bup.ovals = grab_ints(2);
+		/* dead 1: hasFail */  (trpt+1)->bup.ovals = grab_ints(3);
 		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->hasFail;
 #ifdef HAS_CODE
 		if (!readtrail)
 #endif
 			((P1 *)_this)->hasFail = 0;
-		/* merge: currStatus = 8(0, 219, 220) */
+		/* merge: currStatus = 8(231, 219, 231) */
 		reached[1][219] = 1;
 		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->currStatus;
 		((P1 *)_this)->currStatus = 8;
@@ -1735,58 +1734,33 @@
 		logval("CommsManager:currStatus", ((P1 *)_this)->currStatus);
 #endif
 		;
-		_m = 3; goto P999; /* 1 */
-	case 106: // STATE 220 - problem2.pml:278 - [cmAbleWcp!2] (0:0:0 - 1)
-		IfNotBlocked
+		/* merge: i = 0(231, 220, 231) */
 		reached[1][220] = 1;
-		if (q_full(now.cmAbleWcp))
-			continue;
-#ifdef HAS_CODE
-		if (readtrail && gui) {
-			char simtmp[64];
-			sprintf(simvals, "%d!", now.cmAbleWcp);
-		sprintf(simtmp, "%d", 2); strcat(simvals, simtmp);		}
-#endif
-		
-		qsend(now.cmAbleWcp, 0, 2, 0, 1);
-		_m = 2; goto P999; /* 0 */
-	case 107: // STATE 222 - problem2.pml:279 - [currStatus = 8] (0:234:2 - 1)
-		IfNotBlocked
-		reached[1][222] = 1;
-		(trpt+1)->bup.ovals = grab_ints(2);
-		(trpt+1)->bup.ovals[0] = ((P1 *)_this)->currStatus;
-		((P1 *)_this)->currStatus = 8;
-#ifdef VAR_RANGES
-		logval("CommsManager:currStatus", ((P1 *)_this)->currStatus);
-#endif
-		;
-		/* merge: i = 0(234, 223, 234) */
-		reached[1][223] = 1;
-		(trpt+1)->bup.ovals[1] = ((P1 *)_this)->i;
+		(trpt+1)->bup.ovals[2] = ((P1 *)_this)->i;
 		((P1 *)_this)->i = 0;
 #ifdef VAR_RANGES
 		logval("CommsManager:i", ((P1 *)_this)->i);
 #endif
 		;
-		/* merge: .(goto)(0, 235, 234) */
-		reached[1][235] = 1;
+		/* merge: .(goto)(0, 232, 231) */
+		reached[1][232] = 1;
 		;
-		_m = 3; goto P999; /* 2 */
-	case 108: // STATE 224 - problem2.pml:280 - [((i<=(4-1)))] (0:0:0 - 1)
+		_m = 3; goto P999; /* 3 */
+	case 106: // STATE 221 - problem2.pml:278 - [((i<=(4-1)))] (0:0:0 - 1)
 		IfNotBlocked
-		reached[1][224] = 1;
+		reached[1][221] = 1;
 		if (!((((P1 *)_this)->i<=(4-1))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 109: // STATE 225 - problem2.pml:282 - [(connectedClients[i])] (0:0:0 - 1)
+	case 107: // STATE 222 - problem2.pml:280 - [(connectedClients[i])] (0:0:0 - 1)
 		IfNotBlocked
-		reached[1][225] = 1;
+		reached[1][222] = 1;
 		if (!(((int)((P1 *)_this)->connectedClients[ Index(((P1 *)_this)->i, 4) ])))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 110: // STATE 226 - problem2.pml:282 - [cmCommand[i]!1] (0:0:0 - 1)
+	case 108: // STATE 223 - problem2.pml:280 - [cmCommand[i]!1] (0:0:0 - 1)
 		IfNotBlocked
-		reached[1][226] = 1;
+		reached[1][223] = 1;
 		if (q_full(now.cmCommand[ Index(((P1 *)_this)->i, 4) ]))
 			continue;
 #ifdef HAS_CODE
@@ -1798,40 +1772,64 @@
 		
 		qsend(now.cmCommand[ Index(((P1 *)_this)->i, 4) ], 0, 1, 0, 1);
 		_m = 2; goto P999; /* 0 */
-	case 111: // STATE 228 - problem2.pml:283 - [(1)] (234:0:1 - 1)
+	case 109: // STATE 225 - problem2.pml:281 - [(1)] (231:0:1 - 1)
 		IfNotBlocked
-		reached[1][228] = 1;
+		reached[1][225] = 1;
 		if (!(1))
 			continue;
-		/* merge: .(goto)(234, 230, 234) */
-		reached[1][230] = 1;
+		/* merge: .(goto)(231, 227, 231) */
+		reached[1][227] = 1;
 		;
-		/* merge: i = (i+1)(234, 231, 234) */
-		reached[1][231] = 1;
+		/* merge: i = (i+1)(231, 228, 231) */
+		reached[1][228] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
 		((P1 *)_this)->i = (((P1 *)_this)->i+1);
 #ifdef VAR_RANGES
 		logval("CommsManager:i", ((P1 *)_this)->i);
 #endif
 		;
-		/* merge: .(goto)(0, 235, 234) */
-		reached[1][235] = 1;
+		/* merge: .(goto)(0, 232, 231) */
+		reached[1][232] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 112: // STATE 231 - problem2.pml:280 - [i = (i+1)] (0:234:1 - 3)
+	case 110: // STATE 228 - problem2.pml:278 - [i = (i+1)] (0:231:1 - 3)
 		IfNotBlocked
-		reached[1][231] = 1;
+		reached[1][228] = 1;
 		(trpt+1)->bup.oval = ((P1 *)_this)->i;
 		((P1 *)_this)->i = (((P1 *)_this)->i+1);
 #ifdef VAR_RANGES
 		logval("CommsManager:i", ((P1 *)_this)->i);
 #endif
 		;
-		/* merge: .(goto)(0, 235, 234) */
-		reached[1][235] = 1;
+		/* merge: .(goto)(0, 232, 231) */
+		reached[1][232] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 113: // STATE 237 - problem2.pml:286 - [cmAbleWcp!2] (0:0:0 - 3)
+	case 111: // STATE 234 - problem2.pml:284 - [cmAbleWcp!2] (0:0:0 - 3)
+		IfNotBlocked
+		reached[1][234] = 1;
+		if (q_full(now.cmAbleWcp))
+			continue;
+#ifdef HAS_CODE
+		if (readtrail && gui) {
+			char simtmp[64];
+			sprintf(simvals, "%d!", now.cmAbleWcp);
+		sprintf(simtmp, "%d", 2); strcat(simvals, simtmp);		}
+#endif
+		
+		qsend(now.cmAbleWcp, 0, 2, 0, 1);
+		_m = 2; goto P999; /* 0 */
+	case 112: // STATE 236 - problem2.pml:285 - [currStatus = 8] (0:0:1 - 1)
+		IfNotBlocked
+		reached[1][236] = 1;
+		(trpt+1)->bup.oval = ((P1 *)_this)->currStatus;
+		((P1 *)_this)->currStatus = 8;
+#ifdef VAR_RANGES
+		logval("CommsManager:currStatus", ((P1 *)_this)->currStatus);
+#endif
+		;
+		_m = 3; goto P999; /* 0 */
+	case 113: // STATE 237 - problem2.pml:286 - [cmAbleWcp!2] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][237] = 1;
 		if (q_full(now.cmAbleWcp))
@@ -2230,7 +2228,7 @@
 	case 137: // STATE 55 - problem2.pml:76 - [(((nempty(wcpRequestClient[id])&&(currStatus==8))&&connected))] (0:0:1 - 1)
 		IfNotBlocked
 		reached[0][55] = 1;
-		if (!((((q_len(now.wcpRequestClient[ Index(((P0 *)_this)->id, 1) ])>0)&&(((P0 *)_this)->currStatus==8))&&((int)((P0 *)_this)->connected))))
+		if (!((((q_len(now.wcpRequestClient[ Index(((P0 *)_this)->id, 4) ])>0)&&(((P0 *)_this)->currStatus==8))&&((int)((P0 *)_this)->connected))))
 			continue;
 		if (TstOnly) return 1; /* TT */
 		/* dead 1: currStatus */  (trpt+1)->bup.oval = ((P0 *)_this)->currStatus;

@@ -11,7 +11,7 @@ chan clientReport = [4] of {mtype:report, int};
 
 mtype:update = {manualUpdate};
 chan wcpRequestCm = [1] of {mtype:update};
-chan wcpRequestClient[1] = [4] of {mtype:update};
+chan wcpRequestClient[4] = [1] of {mtype:update};
 
 mtype:able = {enable, disable};
 chan cmAbleWcp = [1] of {mtype:able};
@@ -25,7 +25,7 @@ proctype Client(int id) {
     mtype:status currStatus = idle;
     mtype:connectReply reply;
     mtype:command currCommand;
-    bool connected = false;
+    bool connected = true;
     bool getInfoSuccess = true; //switch this variable to test code
     bool useNewInfoSuccess = true; //switch this variable to test code
     bool useOldInfoSuccess = true; //switch this variable to test code
@@ -249,14 +249,14 @@ proctype CommsManager() {
 		}
         if 
         ::  hasFail -> currStatus = idle;
-            cmAbleWcp!enable;
-        ::  else -> currStatus = idle; 
             for (i:0 .. 4-1){
                 if 
                 :: connectedClients[i] -> cmCommand[i]!disconnect;
                 :: else -> skip;
                 fi
             }
+            cmAbleWcp!enable;
+        ::  else -> currStatus = idle; 
             cmAbleWcp!enable;
         fi
     ::  currStatus == postRevert ->
@@ -275,14 +275,14 @@ proctype CommsManager() {
 		}
         if 
         ::  hasFail -> currStatus = idle; 
-            cmAbleWcp!enable;
-        ::  else -> currStatus = idle; 
             for (i:0 .. 4-1){
                 if 
                 :: connectedClients[i] -> cmCommand[i]!disconnect;
                 ::  else -> skip;
                 fi
             }
+            cmAbleWcp!enable;
+        ::  else -> currStatus = idle; 
             cmAbleWcp!enable;
         fi
     od

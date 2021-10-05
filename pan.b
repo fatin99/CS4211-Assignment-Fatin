@@ -319,7 +319,7 @@
 		
 	case 46: // STATE 60
 		;
-		_m = unsend(now.wcpRequestClient[ Index(((P1 *)_this)->i, 1) ]);
+		_m = unsend(now.wcpRequestClient[ Index(((P1 *)_this)->i, 4) ]);
 		;
 		goto R999;
 
@@ -563,48 +563,47 @@
 		;
 		goto R999;
 
-	case 88: // STATE 173
+	case 88: // STATE 174
 		;
+		((P1 *)_this)->i = trpt->bup.ovals[2];
 		((P1 *)_this)->currStatus = trpt->bup.ovals[1];
 	/* 0 */	((P1 *)_this)->hasFail = trpt->bup.ovals[0];
 		;
 		;
-		ungrab_ints(trpt->bup.ovals, 2);
-		goto R999;
-
-	case 89: // STATE 174
-		;
-		_m = unsend(now.cmAbleWcp);
-		;
-		goto R999;
-
-	case 90: // STATE 177
-		;
-		((P1 *)_this)->i = trpt->bup.ovals[1];
-		((P1 *)_this)->currStatus = trpt->bup.ovals[0];
-		;
-		ungrab_ints(trpt->bup.ovals, 2);
+		ungrab_ints(trpt->bup.ovals, 3);
 		goto R999;
 ;
 		;
 		;
 		;
 		
-	case 93: // STATE 180
+	case 91: // STATE 177
 		;
 		_m = unsend(now.cmCommand[ Index(((P1 *)_this)->i, 4) ]);
 		;
 		goto R999;
 
-	case 94: // STATE 185
+	case 92: // STATE 182
 		;
 		((P1 *)_this)->i = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 95: // STATE 185
+	case 93: // STATE 182
 		;
 		((P1 *)_this)->i = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 94: // STATE 188
+		;
+		_m = unsend(now.cmAbleWcp);
+		;
+		goto R999;
+
+	case 95: // STATE 190
+		;
+		((P1 *)_this)->currStatus = trpt->bup.oval;
 		;
 		goto R999;
 
@@ -668,48 +667,47 @@
 		;
 		goto R999;
 
-	case 105: // STATE 219
+	case 105: // STATE 220
 		;
+		((P1 *)_this)->i = trpt->bup.ovals[2];
 		((P1 *)_this)->currStatus = trpt->bup.ovals[1];
 	/* 0 */	((P1 *)_this)->hasFail = trpt->bup.ovals[0];
 		;
 		;
-		ungrab_ints(trpt->bup.ovals, 2);
-		goto R999;
-
-	case 106: // STATE 220
-		;
-		_m = unsend(now.cmAbleWcp);
-		;
-		goto R999;
-
-	case 107: // STATE 223
-		;
-		((P1 *)_this)->i = trpt->bup.ovals[1];
-		((P1 *)_this)->currStatus = trpt->bup.ovals[0];
-		;
-		ungrab_ints(trpt->bup.ovals, 2);
+		ungrab_ints(trpt->bup.ovals, 3);
 		goto R999;
 ;
 		;
 		;
 		;
 		
-	case 110: // STATE 226
+	case 108: // STATE 223
 		;
 		_m = unsend(now.cmCommand[ Index(((P1 *)_this)->i, 4) ]);
 		;
 		goto R999;
 
-	case 111: // STATE 231
+	case 109: // STATE 228
 		;
 		((P1 *)_this)->i = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 112: // STATE 231
+	case 110: // STATE 228
 		;
 		((P1 *)_this)->i = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 111: // STATE 234
+		;
+		_m = unsend(now.cmAbleWcp);
+		;
+		goto R999;
+
+	case 112: // STATE 236
+		;
+		((P1 *)_this)->currStatus = trpt->bup.oval;
 		;
 		goto R999;
 

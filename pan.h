@@ -447,7 +447,7 @@ typedef struct State {
 	uchar cmCommand[4];
 	uchar clientReport;
 	uchar wcpRequestCm;
-	uchar wcpRequestClient[1];
+	uchar wcpRequestClient[4];
 	uchar cmAbleWcp;
 	uchar cmStatus[4];
 #ifdef TRIX
@@ -515,7 +515,28 @@ typedef struct TRIX_v6 {
 	#define MEMLIM	(2048)	/* need a default, using 2 GB */
 #endif
 #define PROG_LAB	0 /* progress labels */
-#define NQS	17
+#define NQS	20
+typedef struct Q20 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q20;
+typedef struct Q19 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q19;
+typedef struct Q18 {
+	uchar Qlen;	/* q_size */
+	uchar _t;	/* q_type */
+	struct {
+		uchar fld0;
+	} contents[1];
+} Q18;
 typedef struct Q17 {
 	uchar Qlen;	/* q_size */
 	uchar _t;	/* q_type */
@@ -556,7 +577,7 @@ typedef struct Q12 {
 	uchar _t;	/* q_type */
 	struct {
 		uchar fld0;
-	} contents[4];
+	} contents[1];
 } Q12;
 typedef struct Q11 {
 	uchar Qlen;	/* q_size */
