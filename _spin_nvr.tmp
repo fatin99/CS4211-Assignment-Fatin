@@ -1,0 +1,9 @@
+never p2 {    /* !([] (((((currentLoad[0]<=capacity[0])) && ((currentLoad[1]<=capacity[1]))) && ((currentLoad[2]<=capacity[2]))) && ((currentLoad[3]<=capacity[3])))) */
+T0_init:
+	do
+	:: atomic { (! ((((((currentLoad[0]<=capacity[0])) && ((currentLoad[1]<=capacity[1]))) && ((currentLoad[2]<=capacity[2]))) && ((currentLoad[3]<=capacity[3]))))) -> assert(!(! ((((((currentLoad[0]<=capacity[0])) && ((currentLoad[1]<=capacity[1]))) && ((currentLoad[2]<=capacity[2]))) && ((currentLoad[3]<=capacity[3])))))) }
+	:: (1) -> goto T0_init
+	od;
+accept_all:
+	skip
+}

@@ -25,7 +25,7 @@ proctype Client(int id) {
     mtype:status currStatus = idle;
     mtype:connectReply reply;
     mtype:command currCommand;
-    bool connected = true;
+    bool connected = true; //switch this variable to test code
     bool getInfoSuccess = true; //switch this variable to test code
     bool useNewInfoSuccess = true; //switch this variable to test code
     bool useOldInfoSuccess = true; //switch this variable to test code
@@ -139,7 +139,7 @@ proctype CommsManager() {
     int i;
     bool hasFail;
     for (i:0 .. 4-1) {
-        connectedClients[i] = false;
+        connectedClients[i] = true; //switch this variable to test code
     }
     mtype:status currStatus = idle;
     mtype:report reportStatus;

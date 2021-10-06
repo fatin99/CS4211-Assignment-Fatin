@@ -209,11 +209,11 @@
 		reached[1][2] = 1;
 		if (!((((P1 *)_this)->i<=(4-1))))
 			continue;
-		/* merge: connectedClients[i] = 0(7, 3, 7) */
+		/* merge: connectedClients[i] = 1(7, 3, 7) */
 		reached[1][3] = 1;
 		(trpt+1)->bup.ovals = grab_ints(2);
 		(trpt+1)->bup.ovals[0] = ((int)((P1 *)_this)->connectedClients[ Index(((P1 *)_this)->i, 4) ]);
-		((P1 *)_this)->connectedClients[ Index(((P1 *)_this)->i, 4) ] = 0;
+		((P1 *)_this)->connectedClients[ Index(((P1 *)_this)->i, 4) ] = 1;
 #ifdef VAR_RANGES
 		logval("CommsManager:connectedClients[CommsManager:i]", ((int)((P1 *)_this)->connectedClients[ Index(((P1 *)_this)->i, 4) ]));
 #endif

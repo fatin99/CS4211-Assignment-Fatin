@@ -80,7 +80,7 @@ settable(void)
 	    T->nxt	= settr(139,0,5,0,0,"DO", 0, 2, 0);
 	trans[1][2]	= settr(134,0,7,17,17,"((i<=(4-1)))", 0, 2, 0); /* m: 3 -> 7,0 */
 	reached1[3] = 1;
-	trans[1][3]	= settr(0,0,0,0,0,"connectedClients[i] = 0",0,0,0);
+	trans[1][3]	= settr(0,0,0,0,0,"connectedClients[i] = 1",0,0,0);
 	trans[1][4]	= settr(0,0,0,0,0,"i = (i+1)",0,0,0);
 	trans[1][5]	= settr(137,0,10,2,0,"else", 0, 2, 0);
 	trans[1][6]	= settr(138,0,10,1,0,"goto :b1", 0, 2, 0); /* m: 10 -> 0,240 */
