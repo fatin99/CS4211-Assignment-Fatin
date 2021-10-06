@@ -36,7 +36,7 @@ proctype Client(int id) {
         printf("Client %d: requesting connection\n", id+1);
         cmConnectReply[id]?reply ->
         if
-        ::  reply == accept -> currStatus = preInit; connected = true;
+        ::  reply == accept -> cmStatus[id]?currStatus; connected = true;
             printf("Client %d: connection request accepted\n", id+1);
         :: else -> skip;
             printf("Client %d: connection request rejected\n", id+1);
@@ -45,7 +45,7 @@ proctype Client(int id) {
         printf("Client %d: pre-initializing\n", id+1);
         cmCommand[id]?currCommand;
         if 
-        :: currCommand == getInfo -> currStatus = initializing;
+        :: currCommand == getInfo -> cmStatus[id]?currStatus;
             printf("Client %d: getting new info\n", id+1);
         :: else -> skip
         fi
@@ -55,32 +55,32 @@ proctype Client(int id) {
         ::  getInfoSuccess -> clientReport!success, id;
             cmCommand[id]?currCommand;
             if 
-            :: currCommand == useNewInfo -> currStatus = postInit;
+            :: currCommand == useNewInfo -> cmStatus[id]?currStatus;
                 printf("Client %d: using new info\n", id+1);
             :: else -> skip
             fi
         :: else -> clientReport!failure, id;
-            currStatus = idle; connected = false;
+            cmStatus[id]?currStatus; connected = false;
             printf("Client %d: initialization failed. disconnected\n", id+1);
         fi
     ::  currStatus == postInit ->
         printf("Client %d: post-initializing\n", id+1);
         if 
         ::  useNewInfoSuccess -> clientReport!success, id;
-            currStatus = idle;
+            cmStatus[id]?currStatus;
         ::  else -> clientReport!failure, id;
-            connected = false; currStatus = idle;
+            connected = false; cmStatus[id]?currStatus;
             printf("Client %d: post-initialization failed. disconnected\n", id+1);
         fi
     //weather update
     ::  (nempty(wcpRequestClient[id]) && currStatus == idle && connected) ->
         printf("Client %d: manual update request received\n", id+1);
-        currStatus = preUpdate;
+        cmStatus[id]?currStatus;
     ::  (currStatus == preUpdate && connected) ->
         printf("Client %d: pre-updating\n", id+1);
         cmCommand[id]?currCommand;
         if 
-        ::  currCommand == getInfo -> currStatus = updating;
+        ::  currCommand == getInfo -> cmStatus[id]?currStatus;
             printf("Client %d: getting new info\n", id+1);
         :: else -> skip
         fi
@@ -90,14 +90,14 @@ proctype Client(int id) {
         ::  getInfoSuccess -> clientReport!success, id;
             cmCommand[id]?currCommand;
             if 
-            ::  currCommand == useNewInfo -> currStatus = postUpdate;
+            ::  currCommand == useNewInfo -> cmStatus[id]?currStatus;
                 printf("Client %d: using new info\n", id+1);
             :: else -> skip
             fi
         :: else -> clientReport!failure, id; 
             cmCommand[id]?currCommand;
             if 
-            ::  currCommand == useOldInfo -> currStatus = postRevert;
+            ::  currCommand == useOldInfo -> cmStatus[id]?currStatus;
                 printf("Client %d: using old info\n", id+1);
             :: else -> skip
             fi
@@ -106,9 +106,9 @@ proctype Client(int id) {
         printf("Client %d: post-updating\n", id+1);
         if 
         ::  useNewInfoSuccess -> clientReport!success, id;
-            currStatus = idle;
+            cmStatus[id]?currStatus;
         ::  else -> clientReport!failure, id;
-            connected = false; currStatus = idle;
+            connected = false; cmStatus[id]?currStatus;
         fi
         cmCommand[id]?currCommand;
         if 
@@ -120,9 +120,9 @@ proctype Client(int id) {
         printf("Client %d: post-reverting\n", id+1);
         if 
         ::  useOldInfoSuccess -> clientReport!success, id;
-            currStatus = idle;
+            cmStatus[id]?currStatus;
         ::  else -> clientReport!failure, id;
-            connected = false; currStatus = idle;
+            connected = false; cmStatus[id]?currStatus;
         fi
         cmCommand[id]?currCommand;
         if 
@@ -135,7 +135,7 @@ proctype Client(int id) {
 
 proctype CommsManager() {
     bool connectedClients[4];
-    int id;
+    int id; //for initializing one particular client
     int i;
     bool hasFail;
     for (i:0 .. 4-1) {
@@ -152,32 +152,32 @@ proctype CommsManager() {
         mtype:connectReply reply;
         if
         ::  currStatus == idle -> reply = accept; 
-            currStatus = preInit; connectedClients[id] = true;
-            cmAbleWcp!disable;
+            currStatus = preInit; cmStatus[id]!preInit; 
+            connectedClients[id] = true; cmAbleWcp!disable;
         :: else -> reply = refuse;
         fi
         cmConnectReply[id]!reply;
     ::  currStatus == preInit ->
         printf("CommsManager: pre-initializing\n");
         cmCommand[id]!getInfo;
-        currStatus = initializing;
+        currStatus = initializing; cmStatus[id]!initializing;
     ::  currStatus == initializing ->
         printf("CommsManager: initializing\n");
         clientReport?reportStatus, id;
         if 
         ::  reportStatus == success -> cmCommand[id]!useNewInfo; 
-            currStatus = postInit;
+            currStatus = postInit; cmStatus[id]!postInit;
         ::  reportStatus == failure -> connectedClients[id] = false; 
-            currStatus = idle;
+            currStatus = idle; cmStatus[id]!idle;
         fi
     ::  currStatus == postInit ->
         printf("CommsManager: post-initializing\n");
         clientReport?reportStatus, id;
         if 
-        ::  reportStatus == success -> currStatus = idle;
+        ::  reportStatus == success -> currStatus = idle; cmStatus[id]!idle;
             cmAbleWcp!enable;
         ::  reportStatus == failure -> connectedClients[id] = false;
-            currStatus = idle;  
+            currStatus = idle; cmStatus[id]!idle;
             cmAbleWcp!enable;
         fi
     //weather update
@@ -190,7 +190,7 @@ proctype CommsManager() {
             :: else-> skip;
             fi
 		}
-        currStatus = preUpdate;
+        currStatus = preUpdate; cmStatus[id]!preUpdate;
         cmAbleWcp!disable;
     ::  currStatus == preUpdate ->
         printf("CommsManager: pre-updating\n");
@@ -200,7 +200,7 @@ proctype CommsManager() {
             :: else-> skip;
             fi
 		}
-        currStatus = updating;
+        currStatus = updating; cmStatus[id]!updating;
     ::  currStatus == updating ->
         printf("CommsManager: updating\n");
         hasFail = false;
@@ -223,7 +223,7 @@ proctype CommsManager() {
                 :: else-> skip;
                 fi
             }
-            currStatus = postRevert;
+            currStatus = postRevert; cmStatus[id]!postRevert;
         ::  else -> 
             for (i:0 .. 4-1){
                 if 
@@ -231,7 +231,7 @@ proctype CommsManager() {
                 :: else-> skip;
                 fi
             }
-            currStatus = postUpdate;
+            currStatus = postUpdate; cmStatus[id]!postUpdate;
         fi
     ::  currStatus == postUpdate ->
         printf("CommsManager: post-updating\n");
@@ -248,7 +248,7 @@ proctype CommsManager() {
             fi
 		}
         if 
-        ::  hasFail -> currStatus = idle;
+        ::  hasFail -> currStatus = idle; cmStatus[id]!idle;
             for (i:0 .. 4-1){
                 if 
                 :: connectedClients[i] -> cmCommand[i]!disconnect;
@@ -256,7 +256,7 @@ proctype CommsManager() {
                 fi
             }
             cmAbleWcp!enable;
-        ::  else -> currStatus = idle; 
+        ::  else -> currStatus = idle; cmStatus[id]!idle;
             cmAbleWcp!enable;
         fi
     ::  currStatus == postRevert ->
@@ -274,7 +274,7 @@ proctype CommsManager() {
             fi
 		}
         if 
-        ::  hasFail -> currStatus = idle; 
+        ::  hasFail -> currStatus = idle; cmStatus[id]!idle;
             for (i:0 .. 4-1){
                 if 
                 :: connectedClients[i] -> cmCommand[i]!disconnect;
@@ -282,7 +282,7 @@ proctype CommsManager() {
                 fi
             }
             cmAbleWcp!enable;
-        ::  else -> currStatus = idle; 
+        ::  else -> currStatus = idle; cmStatus[id]!idle;
             cmAbleWcp!enable;
         fi
     od
