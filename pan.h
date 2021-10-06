@@ -133,19 +133,19 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates3	9	/* :init: */
-#define minseq3	395
-#define maxseq3	402
+#define minseq3	435
+#define maxseq3	442
 #define _endstate3	8
 
 #define _nstates2	20	/* ControlPanel */
-#define minseq2	376
-#define maxseq2	394
+#define minseq2	416
+#define maxseq2	434
 #define _endstate2	19
 
-#define _nstates1	244	/* CommsManager */
+#define _nstates1	284	/* CommsManager */
 #define minseq1	133
-#define maxseq1	375
-#define _endstate1	243
+#define maxseq1	415
+#define _endstate1	283
 
 #define _nstates0	134	/* Client */
 #define minseq0	0
@@ -162,8 +162,8 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned short
-#define _T5	167
-#define _T2	168
+#define _T5	208
+#define _T2	209
 #define WS		4 /* word size in bytes */
 #define SYNC	0
 #define ASYNC	8
@@ -182,7 +182,7 @@ extern S_F_MAP src_file0[];
 typedef struct P3 { /* :init: */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 9; /* state    */
+	unsigned _p   : 10; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -193,7 +193,7 @@ typedef struct P3 { /* :init: */
 typedef struct P2 { /* ControlPanel */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 9; /* state    */
+	unsigned _p   : 10; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -208,7 +208,7 @@ typedef struct P2 { /* ControlPanel */
 typedef struct P1 { /* CommsManager */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 9; /* state    */
+	unsigned _p   : 10; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -227,7 +227,7 @@ typedef struct P1 { /* CommsManager */
 typedef struct P0 { /* Client */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 9; /* state    */
+	unsigned _p   : 10; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -245,7 +245,7 @@ typedef struct P0 { /* Client */
 typedef struct P4 { /* np_ */
 	unsigned _pid : 8;  /* 0..255 */
 	unsigned _t   : 4; /* proctype */
-	unsigned _p   : 9; /* state    */
+	unsigned _p   : 10; /* state    */
 #ifdef HAS_PRIORITY
 	unsigned _priority : 8; /* 0..255 */
 #endif
@@ -983,7 +983,7 @@ void qsend(int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	169
+#define NTRANS	210
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);

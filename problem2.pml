@@ -31,7 +31,7 @@ proctype Client(int id) {
     bool useOldInfoSuccess = true; //switch this variable to test code
     do
     //client initialization
-    ::  !connected -> 
+    ::  (!connected && currStatus == idle) -> 
         cmConnectRequest!id;
         printf("Client %d: requesting connection\n", id+1);
         cmConnectReply[id]?reply ->
@@ -183,24 +183,24 @@ proctype CommsManager() {
     //weather update
     ::  (nempty(wcpRequestCm) && currStatus == idle) ->
         wcpRequestCm?button;
-        printf("CommsManager: manual update request received\n", id+1);
+        printf("CommsManager: manual update request received\n");
         for (i:0 .. 4-1){
             if 
-            :: connectedClients[i] -> wcpRequestClient[i]!button;
+            :: connectedClients[i] -> wcpRequestClient[i]!button; cmStatus[i]!preUpdate;
             :: else-> skip;
             fi
 		}
-        currStatus = preUpdate; cmStatus[id]!preUpdate;
+        currStatus = preUpdate; 
         cmAbleWcp!disable;
     ::  currStatus == preUpdate ->
         printf("CommsManager: pre-updating\n");
         for (i:0 .. 4-1){
             if 
-            :: connectedClients[i] -> cmCommand[i]!getInfo;
+            :: connectedClients[i] -> cmCommand[i]!getInfo; cmStatus[i]!updating;
             :: else-> skip;
             fi
 		}
-        currStatus = updating; cmStatus[id]!updating;
+        currStatus = updating; 
     ::  currStatus == updating ->
         printf("CommsManager: updating\n");
         hasFail = false;
@@ -219,19 +219,19 @@ proctype CommsManager() {
         ::  hasFail -> 
             for (i:0 .. 4-1){
                 if 
-                :: connectedClients[i] -> cmCommand[i]!useOldInfo;
+                :: connectedClients[i] -> cmCommand[i]!useOldInfo; cmStatus[i]!postRevert;
                 :: else-> skip;
                 fi
             }
-            currStatus = postRevert; cmStatus[id]!postRevert;
+            currStatus = postRevert; 
         ::  else -> 
             for (i:0 .. 4-1){
                 if 
-                :: connectedClients[i] -> cmCommand[i]!useNewInfo;
+                :: connectedClients[i] -> cmCommand[i]!useNewInfo; cmStatus[i]!postUpdate;
                 :: else-> skip;
                 fi
             }
-            currStatus = postUpdate; cmStatus[id]!postUpdate;
+            currStatus = postUpdate; 
         fi
     ::  currStatus == postUpdate ->
         printf("CommsManager: post-updating\n");
@@ -248,15 +248,21 @@ proctype CommsManager() {
             fi
 		}
         if 
-        ::  hasFail -> currStatus = idle; cmStatus[id]!idle;
+        ::  hasFail -> currStatus = idle; 
             for (i:0 .. 4-1){
                 if 
-                :: connectedClients[i] -> cmCommand[i]!disconnect;
+                :: connectedClients[i] -> cmStatus[i]!idle; cmCommand[i]!disconnect;
                 :: else -> skip;
                 fi
             }
             cmAbleWcp!enable;
-        ::  else -> currStatus = idle; cmStatus[id]!idle;
+        ::  else -> currStatus = idle; 
+            for (i:0 .. 4-1){
+                if 
+                :: connectedClients[i] -> cmStatus[i]!idle;
+                :: else -> skip;
+                fi
+            }
             cmAbleWcp!enable;
         fi
     ::  currStatus == postRevert ->
@@ -274,15 +280,21 @@ proctype CommsManager() {
             fi
 		}
         if 
-        ::  hasFail -> currStatus = idle; cmStatus[id]!idle;
+        ::  hasFail -> currStatus = idle; 
             for (i:0 .. 4-1){
                 if 
-                :: connectedClients[i] -> cmCommand[i]!disconnect;
+                :: connectedClients[i] -> cmStatus[i]!idle; cmCommand[i]!disconnect;
                 ::  else -> skip;
                 fi
             }
             cmAbleWcp!enable;
-        ::  else -> currStatus = idle; cmStatus[id]!idle;
+        ::  else -> currStatus = idle; 
+            for (i:0 .. 4-1){
+                if 
+                :: connectedClients[i] -> cmStatus[i]!idle;
+                :: else -> skip;
+                fi
+            }
             cmAbleWcp!enable;
         fi
     od

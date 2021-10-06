@@ -28,50 +28,50 @@ settable(void)
 
 	trans[3] = (Trans **) emalloc(9*sizeof(Trans *));
 
-	T = trans[ 3][7] = settr(401,2,0,0,0,"ATOMIC", 0, 2, 0);
-	T->nxt	= settr(401,2,1,0,0,"ATOMIC", 0, 2, 0);
-	trans[3][1]	= settr(395,2,2,3,3,"(run Client(0))", 0, 2, 0);
-	trans[3][2]	= settr(396,2,3,4,4,"(run Client(1))", 0, 2, 0);
-	trans[3][3]	= settr(397,2,4,5,5,"(run Client(2))", 0, 2, 0);
-	trans[3][4]	= settr(398,2,5,6,6,"(run Client(3))", 0, 2, 0);
-	trans[3][5]	= settr(399,2,6,7,7,"(run CommsManager())", 0, 2, 0);
-	trans[3][6]	= settr(400,0,8,8,8,"(run ControlPanel())", 0, 2, 0);
-	trans[3][8]	= settr(402,0,0,9,9,"-end-", 0, 3500, 0);
+	T = trans[ 3][7] = settr(441,2,0,0,0,"ATOMIC", 0, 2, 0);
+	T->nxt	= settr(441,2,1,0,0,"ATOMIC", 0, 2, 0);
+	trans[3][1]	= settr(435,2,2,3,3,"(run Client(0))", 0, 2, 0);
+	trans[3][2]	= settr(436,2,3,4,4,"(run Client(1))", 0, 2, 0);
+	trans[3][3]	= settr(437,2,4,5,5,"(run Client(2))", 0, 2, 0);
+	trans[3][4]	= settr(438,2,5,6,6,"(run Client(3))", 0, 2, 0);
+	trans[3][5]	= settr(439,2,6,7,7,"(run CommsManager())", 0, 2, 0);
+	trans[3][6]	= settr(440,0,8,8,8,"(run ControlPanel())", 0, 2, 0);
+	trans[3][8]	= settr(442,0,0,9,9,"-end-", 0, 3500, 0);
 
 	/* proctype 2: ControlPanel */
 
 	trans[2] = (Trans **) emalloc(20*sizeof(Trans *));
 
-	trans[2][17]	= settr(392,0,16,1,0,".(goto)", 0, 2, 0);
-	T = trans[2][16] = settr(391,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(391,0,1,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(391,0,11,0,0,"DO", 0, 2, 0);
-	trans[2][1]	= settr(376,0,9,10,10,"cmAbleWcp?ability", 1, 509, 0);
-	T = trans[2][9] = settr(384,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(384,0,2,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(384,0,6,0,0,"IF", 0, 2, 0);
-	trans[2][2]	= settr(377,0,16,11,11,"((ability==2))", 0, 2, 0); /* m: 3 -> 16,0 */
+	trans[2][17]	= settr(432,0,16,1,0,".(goto)", 0, 2, 0);
+	T = trans[2][16] = settr(431,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(431,0,1,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(431,0,11,0,0,"DO", 0, 2, 0);
+	trans[2][1]	= settr(416,0,9,10,10,"cmAbleWcp?ability", 1, 509, 0);
+	T = trans[2][9] = settr(424,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(424,0,2,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(424,0,6,0,0,"IF", 0, 2, 0);
+	trans[2][2]	= settr(417,0,16,11,11,"((ability==2))", 0, 2, 0); /* m: 3 -> 16,0 */
 	reached2[3] = 1;
 	trans[2][3]	= settr(0,0,0,0,0,"disabled = 0",0,0,0);
 	trans[2][4]	= settr(0,0,0,0,0,"isUpdating = 0",0,0,0);
 	trans[2][5]	= settr(0,0,0,0,0,"printf('ControlPanel: enabled\\n')",0,0,0);
-	trans[2][10]	= settr(385,0,16,1,0,".(goto)", 0, 2, 0);
-	trans[2][6]	= settr(381,0,7,2,0,"else", 0, 2, 0);
-	trans[2][7]	= settr(382,0,16,12,12,"disabled = 1", 0, 2, 0); /* m: 8 -> 0,16 */
+	trans[2][10]	= settr(425,0,16,1,0,".(goto)", 0, 2, 0);
+	trans[2][6]	= settr(421,0,7,2,0,"else", 0, 2, 0);
+	trans[2][7]	= settr(422,0,16,12,12,"disabled = 1", 0, 2, 0); /* m: 8 -> 0,16 */
 	reached2[8] = 1;
 	trans[2][8]	= settr(0,0,0,0,0,"printf('ControlPanel: disabled\\n')",0,0,0);
-	trans[2][11]	= settr(386,0,15,13,13,"((!(disabled)&&!(isUpdating)))", 0, 2, 0); /* m: 12 -> 15,0 */
+	trans[2][11]	= settr(426,0,15,13,13,"((!(disabled)&&!(isUpdating)))", 0, 2, 0); /* m: 12 -> 15,0 */
 	reached2[12] = 1;
 	trans[2][12]	= settr(0,0,0,0,0,"printf('ControlPanel: beginning manual update\\n')",0,0,0);
 	trans[2][13]	= settr(0,0,0,0,0,"isUpdating = 1",0,0,0);
 	trans[2][14]	= settr(0,0,0,0,0,"button = 1",0,0,0);
-	trans[2][15]	= settr(390,0,16,14,14,"wcpRequestCm!button", 1, 7, 0);
-	trans[2][18]	= settr(393,0,19,1,0,"break", 0, 2, 0);
-	trans[2][19]	= settr(394,0,0,15,15,"-end-", 0, 3500, 0);
+	trans[2][15]	= settr(430,0,16,14,14,"wcpRequestCm!button", 1, 7, 0);
+	trans[2][18]	= settr(433,0,19,1,0,"break", 0, 2, 0);
+	trans[2][19]	= settr(434,0,0,15,15,"-end-", 0, 3500, 0);
 
 	/* proctype 1: CommsManager */
 
-	trans[1] = (Trans **) emalloc(244*sizeof(Trans *));
+	trans[1] = (Trans **) emalloc(284*sizeof(Trans *));
 
 	trans[1][1]	= settr(133,0,7,16,16,"i = 0", 0, 2, 0);
 	trans[1][8]	= settr(140,0,7,1,0,".(goto)", 0, 2, 0);
@@ -83,354 +83,408 @@ settable(void)
 	trans[1][3]	= settr(0,0,0,0,0,"connectedClients[i] = 1",0,0,0);
 	trans[1][4]	= settr(0,0,0,0,0,"i = (i+1)",0,0,0);
 	trans[1][5]	= settr(137,0,10,2,0,"else", 0, 2, 0);
-	trans[1][6]	= settr(138,0,10,1,0,"goto :b1", 0, 2, 0); /* m: 10 -> 0,240 */
+	trans[1][6]	= settr(138,0,10,1,0,"goto :b1", 0, 2, 0); /* m: 10 -> 0,280 */
 	reached1[10] = 1;
 	trans[1][9]	= settr(141,0,10,1,0,"break", 0, 2, 0);
-	trans[1][10]	= settr(142,0,240,18,18,"currStatus = 8", 0, 2, 0); /* m: 11 -> 0,240 */
+	trans[1][10]	= settr(142,0,280,18,18,"currStatus = 8", 0, 2, 0); /* m: 11 -> 0,280 */
 	reached1[11] = 1;
 	trans[1][11]	= settr(0,0,0,0,0,"reportStatus = 0",0,0,0);
 	trans[1][12]	= settr(0,0,0,0,0,"button = 0",0,0,0);
-	trans[1][241]	= settr(373,0,240,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][240] = settr(372,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(372,0,13,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(372,0,27,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(372,0,31,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(372,0,42,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(372,0,54,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(372,0,73,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(372,0,90,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(372,0,148,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(372,0,194,0,0,"DO", 0, 2, 0);
+	trans[1][281]	= settr(413,0,280,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][280] = settr(412,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(412,0,13,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(412,0,28,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(412,0,33,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(412,0,46,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(412,0,60,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(412,0,80,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(412,0,98,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(412,0,158,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(412,0,219,0,0,"DO", 0, 2, 0);
 	trans[1][13]	= settr(145,0,14,19,0,"((nempty(cmConnectRequest)&&(currStatus==8)))", 1, 503, 0);
 	trans[1][14]	= settr(146,0,15,20,20,"cmConnectRequest?id", 1, 503, 0);
-	trans[1][15]	= settr(147,0,24,21,21,"printf('CommsManager: connection request received from client %d\\n',(id+1))", 0, 2, 0); /* m: 16 -> 0,24 */
+	trans[1][15]	= settr(147,0,25,21,21,"printf('CommsManager: connection request received from client %d\\n',(id+1))", 0, 2, 0); /* m: 16 -> 0,25 */
 	reached1[16] = 1;
 	trans[1][16]	= settr(0,0,0,0,0,"reply = 0",0,0,0);
-	T = trans[1][24] = settr(156,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(156,0,17,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(156,0,22,0,0,"IF", 0, 2, 0);
-	trans[1][17]	= settr(149,0,21,22,22,"((currStatus==8))", 0, 2, 0); /* m: 18 -> 21,0 */
+	T = trans[1][25] = settr(157,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(157,0,17,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(157,0,23,0,0,"IF", 0, 2, 0);
+	trans[1][17]	= settr(149,0,20,22,22,"((currStatus==8))", 0, 2, 0); /* m: 18 -> 20,0 */
 	reached1[18] = 1;
 	trans[1][18]	= settr(0,0,0,0,0,"reply = 2",0,0,0);
 	trans[1][19]	= settr(0,0,0,0,0,"currStatus = 7",0,0,0);
-	trans[1][20]	= settr(0,0,0,0,0,"connectedClients[id] = 1",0,0,0);
-	trans[1][21]	= settr(153,0,26,23,23,"cmAbleWcp!1", 1, 9, 0);
-	trans[1][25]	= settr(157,0,26,1,0,".(goto)", 0, 2, 0);
-	trans[1][22]	= settr(154,0,23,2,0,"else", 0, 2, 0);
-	trans[1][23]	= settr(155,0,26,24,24,"reply = 1", 0, 2, 0);
-	trans[1][26]	= settr(158,0,240,25,25,"cmConnectReply[id]!reply", 1, 4, 0);
-	trans[1][27]	= settr(159,0,29,26,26,"((currStatus==7))", 0, 2, 0); /* m: 28 -> 29,0 */
-	reached1[28] = 1;
-	trans[1][28]	= settr(0,0,0,0,0,"printf('CommsManager: pre-initializing\\n')",0,0,0);
-	trans[1][29]	= settr(161,0,30,27,27,"cmCommand[id]!4", 1, 5, 0);
-	trans[1][30]	= settr(162,0,240,28,28,"currStatus = 6", 0, 2, 0);
-	trans[1][31]	= settr(163,0,33,29,29,"((currStatus==6))", 0, 2, 0); /* m: 32 -> 33,0 */
-	reached1[32] = 1;
-	trans[1][32]	= settr(0,0,0,0,0,"printf('CommsManager: initializing\\n')",0,0,0);
-	trans[1][33]	= settr(165,0,40,30,30,"clientReport?reportStatus,id", 1, 506, 0);
-	T = trans[1][40] = settr(172,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(172,0,34,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(172,0,37,0,0,"IF", 0, 2, 0);
-	trans[1][34]	= settr(166,0,35,31,31,"((reportStatus==2))", 0, 2, 0);
-	trans[1][35]	= settr(167,0,36,32,32,"cmCommand[id]!3", 1, 5, 0);
-	trans[1][36]	= settr(168,0,240,33,33,"currStatus = 5", 0, 2, 0);
-	trans[1][41]	= settr(173,0,240,1,0,".(goto)", 0, 2, 0);
-	trans[1][37]	= settr(169,0,240,34,34,"((reportStatus==1))", 0, 2, 0); /* m: 38 -> 240,0 */
-	reached1[38] = 1;
-	trans[1][38]	= settr(0,0,0,0,0,"connectedClients[id] = 0",0,0,0);
-	trans[1][39]	= settr(0,0,0,0,0,"currStatus = 8",0,0,0);
-	trans[1][42]	= settr(174,0,44,35,35,"((currStatus==5))", 0, 2, 0); /* m: 43 -> 44,0 */
-	reached1[43] = 1;
-	trans[1][43]	= settr(0,0,0,0,0,"printf('CommsManager: post-initializing\\n')",0,0,0);
-	trans[1][44]	= settr(176,0,52,36,36,"clientReport?reportStatus,id", 1, 506, 0);
-	T = trans[1][52] = settr(184,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(184,0,45,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(184,0,48,0,0,"IF", 0, 2, 0);
-	trans[1][45]	= settr(177,0,47,37,37,"((reportStatus==2))", 0, 2, 0); /* m: 46 -> 47,0 */
-	reached1[46] = 1;
-	trans[1][46]	= settr(0,0,0,0,0,"currStatus = 8",0,0,0);
-	trans[1][47]	= settr(179,0,240,38,38,"cmAbleWcp!2", 1, 9, 0);
-	trans[1][53]	= settr(185,0,240,1,0,".(goto)", 0, 2, 0);
-	trans[1][48]	= settr(180,0,51,39,39,"((reportStatus==1))", 0, 2, 0); /* m: 49 -> 51,0 */
-	reached1[49] = 1;
-	trans[1][49]	= settr(0,0,0,0,0,"connectedClients[id] = 0",0,0,0);
+	trans[1][20]	= settr(152,0,21,23,23,"cmStatus[id]!7", 1, 10, 0);
+	trans[1][21]	= settr(153,0,22,24,24,"connectedClients[id] = 1", 0, 2, 0);
+	trans[1][22]	= settr(154,0,27,25,25,"cmAbleWcp!1", 1, 9, 0);
+	trans[1][26]	= settr(158,0,27,1,0,".(goto)", 0, 2, 0);
+	trans[1][23]	= settr(155,0,24,2,0,"else", 0, 2, 0);
+	trans[1][24]	= settr(156,0,27,26,26,"reply = 1", 0, 2, 0);
+	trans[1][27]	= settr(159,0,280,27,27,"cmConnectReply[id]!reply", 1, 4, 0);
+	trans[1][28]	= settr(160,0,30,28,28,"((currStatus==7))", 0, 2, 0); /* m: 29 -> 30,0 */
+	reached1[29] = 1;
+	trans[1][29]	= settr(0,0,0,0,0,"printf('CommsManager: pre-initializing\\n')",0,0,0);
+	trans[1][30]	= settr(162,0,31,29,29,"cmCommand[id]!4", 1, 5, 0);
+	trans[1][31]	= settr(163,0,32,30,30,"currStatus = 6", 0, 2, 0);
+	trans[1][32]	= settr(164,0,280,31,31,"cmStatus[id]!6", 1, 10, 0);
+	trans[1][33]	= settr(165,0,35,32,32,"((currStatus==6))", 0, 2, 0); /* m: 34 -> 35,0 */
+	reached1[34] = 1;
+	trans[1][34]	= settr(0,0,0,0,0,"printf('CommsManager: initializing\\n')",0,0,0);
+	trans[1][35]	= settr(167,0,44,33,33,"clientReport?reportStatus,id", 1, 506, 0);
+	T = trans[1][44] = settr(176,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(176,0,36,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(176,0,40,0,0,"IF", 0, 2, 0);
+	trans[1][36]	= settr(168,0,37,34,34,"((reportStatus==2))", 0, 2, 0);
+	trans[1][37]	= settr(169,0,38,35,35,"cmCommand[id]!3", 1, 5, 0);
+	trans[1][38]	= settr(170,0,39,36,36,"currStatus = 5", 0, 2, 0);
+	trans[1][39]	= settr(171,0,280,37,37,"cmStatus[id]!5", 1, 10, 0);
+	trans[1][45]	= settr(177,0,280,1,0,".(goto)", 0, 2, 0);
+	trans[1][40]	= settr(172,0,43,38,38,"((reportStatus==1))", 0, 2, 0); /* m: 41 -> 43,0 */
+	reached1[41] = 1;
+	trans[1][41]	= settr(0,0,0,0,0,"connectedClients[id] = 0",0,0,0);
+	trans[1][42]	= settr(0,0,0,0,0,"currStatus = 8",0,0,0);
+	trans[1][43]	= settr(175,0,280,39,39,"cmStatus[id]!8", 1, 10, 0);
+	trans[1][46]	= settr(178,0,48,40,40,"((currStatus==5))", 0, 2, 0); /* m: 47 -> 48,0 */
+	reached1[47] = 1;
+	trans[1][47]	= settr(0,0,0,0,0,"printf('CommsManager: post-initializing\\n')",0,0,0);
+	trans[1][48]	= settr(180,0,58,41,41,"clientReport?reportStatus,id", 1, 506, 0);
+	T = trans[1][58] = settr(190,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(190,0,49,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(190,0,53,0,0,"IF", 0, 2, 0);
+	trans[1][49]	= settr(181,0,51,42,42,"((reportStatus==2))", 0, 2, 0); /* m: 50 -> 51,0 */
+	reached1[50] = 1;
 	trans[1][50]	= settr(0,0,0,0,0,"currStatus = 8",0,0,0);
-	trans[1][51]	= settr(183,0,240,40,40,"cmAbleWcp!2", 1, 9, 0);
-	trans[1][54]	= settr(186,0,55,41,41,"((nempty(wcpRequestCm)&&(currStatus==8)))", 1, 507, 0);
-	trans[1][55]	= settr(187,0,56,42,42,"wcpRequestCm?button", 1, 507, 0);
-	trans[1][56]	= settr(188,0,68,43,43,"printf('CommsManager: manual update request received\\n',(id+1))", 0, 2, 0); /* m: 57 -> 0,68 */
-	reached1[57] = 1;
-	trans[1][57]	= settr(0,0,0,0,0,"i = 0",0,0,0);
-	trans[1][69]	= settr(201,0,68,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][68] = settr(200,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(200,0,58,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(200,0,66,0,0,"DO", 0, 2, 0);
-	trans[1][58]	= settr(190,0,63,44,0,"((i<=(4-1)))", 0, 2, 0);
-	T = trans[1][63] = settr(195,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(195,0,59,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(195,0,61,0,0,"IF", 0, 2, 0);
-	trans[1][59]	= settr(191,0,60,45,0,"(connectedClients[i])", 0, 2, 0);
-	trans[1][60]	= settr(192,0,65,46,46,"wcpRequestClient[i]!button", 1, 8, 0);
-	trans[1][64]	= settr(196,0,65,1,0,".(goto)", 0, 2, 0); /* m: 65 -> 0,68 */
-	reached1[65] = 1;
-	trans[1][61]	= settr(193,0,62,2,0,"else", 0, 2, 0);
-	trans[1][62]	= settr(194,0,68,47,47,"(1)", 0, 2, 0); /* m: 65 -> 68,0 */
-	reached1[65] = 1;
-	trans[1][65]	= settr(197,0,68,48,48,"i = (i+1)", 0, 2, 0);
-	trans[1][66]	= settr(198,0,71,2,0,"else", 0, 2, 0);
-	trans[1][67]	= settr(199,0,71,1,0,"goto :b3", 0, 2, 0); /* m: 71 -> 0,72 */
-	reached1[71] = 1;
-	trans[1][70]	= settr(202,0,71,1,0,"break", 0, 2, 0);
-	trans[1][71]	= settr(203,0,72,49,49,"currStatus = 4", 0, 2, 0);
-	trans[1][72]	= settr(204,0,240,50,50,"cmAbleWcp!1", 1, 9, 0);
-	trans[1][73]	= settr(205,0,86,51,51,"((currStatus==4))", 0, 2, 0); /* m: 74 -> 86,0 */
-	reached1[74] = 1;
-	trans[1][74]	= settr(0,0,0,0,0,"printf('CommsManager: pre-updating\\n')",0,0,0);
-	trans[1][75]	= settr(0,0,0,0,0,"i = 0",0,0,0);
-	trans[1][87]	= settr(219,0,86,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][86] = settr(218,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(218,0,76,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(218,0,84,0,0,"DO", 0, 2, 0);
-	trans[1][76]	= settr(208,0,81,52,0,"((i<=(4-1)))", 0, 2, 0);
-	T = trans[1][81] = settr(213,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(213,0,77,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(213,0,79,0,0,"IF", 0, 2, 0);
-	trans[1][77]	= settr(209,0,78,53,0,"(connectedClients[i])", 0, 2, 0);
-	trans[1][78]	= settr(210,0,83,54,54,"cmCommand[i]!4", 1, 5, 0);
-	trans[1][82]	= settr(214,0,83,1,0,".(goto)", 0, 2, 0); /* m: 83 -> 0,86 */
-	reached1[83] = 1;
-	trans[1][79]	= settr(211,0,80,2,0,"else", 0, 2, 0);
-	trans[1][80]	= settr(212,0,86,55,55,"(1)", 0, 2, 0); /* m: 83 -> 86,0 */
-	reached1[83] = 1;
-	trans[1][83]	= settr(215,0,86,56,56,"i = (i+1)", 0, 2, 0);
-	trans[1][84]	= settr(216,0,89,2,0,"else", 0, 2, 0);
-	trans[1][85]	= settr(217,0,89,1,0,"goto :b4", 0, 2, 0); /* m: 89 -> 0,240 */
-	reached1[89] = 1;
-	trans[1][88]	= settr(220,0,89,1,0,"break", 0, 2, 0);
-	trans[1][89]	= settr(221,0,240,57,57,"currStatus = 3", 0, 2, 0);
-	trans[1][90]	= settr(222,0,111,58,58,"((currStatus==3))", 0, 2, 0); /* m: 91 -> 111,0 */
+	trans[1][51]	= settr(183,0,52,43,43,"cmStatus[id]!8", 1, 10, 0);
+	trans[1][52]	= settr(184,0,280,44,44,"cmAbleWcp!2", 1, 9, 0);
+	trans[1][59]	= settr(191,0,280,1,0,".(goto)", 0, 2, 0);
+	trans[1][53]	= settr(185,0,56,45,45,"((reportStatus==1))", 0, 2, 0); /* m: 54 -> 56,0 */
+	reached1[54] = 1;
+	trans[1][54]	= settr(0,0,0,0,0,"connectedClients[id] = 0",0,0,0);
+	trans[1][55]	= settr(0,0,0,0,0,"currStatus = 8",0,0,0);
+	trans[1][56]	= settr(188,0,57,46,46,"cmStatus[id]!8", 1, 10, 0);
+	trans[1][57]	= settr(189,0,280,47,47,"cmAbleWcp!2", 1, 9, 0);
+	trans[1][60]	= settr(192,0,61,48,48,"((nempty(wcpRequestCm)&&(currStatus==8)))", 1, 507, 0);
+	trans[1][61]	= settr(193,0,62,49,49,"wcpRequestCm?button", 1, 507, 0);
+	trans[1][62]	= settr(194,0,75,50,50,"printf('CommsManager: manual update request received\\n')", 0, 2, 0); /* m: 63 -> 0,75 */
+	reached1[63] = 1;
+	trans[1][63]	= settr(0,0,0,0,0,"i = 0",0,0,0);
+	trans[1][76]	= settr(208,0,75,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][75] = settr(207,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(207,0,64,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(207,0,73,0,0,"DO", 0, 2, 0);
+	trans[1][64]	= settr(196,0,70,51,0,"((i<=(4-1)))", 0, 2, 0);
+	T = trans[1][70] = settr(202,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(202,0,65,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(202,0,68,0,0,"IF", 0, 2, 0);
+	trans[1][65]	= settr(197,0,66,52,0,"(connectedClients[i])", 0, 2, 0);
+	trans[1][66]	= settr(198,0,67,53,53,"wcpRequestClient[i]!button", 1, 8, 0);
+	trans[1][67]	= settr(199,0,72,54,54,"cmStatus[i]!4", 1, 10, 0);
+	trans[1][71]	= settr(203,0,72,1,0,".(goto)", 0, 2, 0); /* m: 72 -> 0,75 */
+	reached1[72] = 1;
+	trans[1][68]	= settr(200,0,69,2,0,"else", 0, 2, 0);
+	trans[1][69]	= settr(201,0,75,55,55,"(1)", 0, 2, 0); /* m: 72 -> 75,0 */
+	reached1[72] = 1;
+	trans[1][72]	= settr(204,0,75,56,56,"i = (i+1)", 0, 2, 0);
+	trans[1][73]	= settr(205,0,78,2,0,"else", 0, 2, 0);
+	trans[1][74]	= settr(206,0,78,1,0,"goto :b3", 0, 2, 0); /* m: 78 -> 0,79 */
+	reached1[78] = 1;
+	trans[1][77]	= settr(209,0,78,1,0,"break", 0, 2, 0);
+	trans[1][78]	= settr(210,0,79,57,57,"currStatus = 4", 0, 2, 0);
+	trans[1][79]	= settr(211,0,280,58,58,"cmAbleWcp!1", 1, 9, 0);
+	trans[1][80]	= settr(212,0,94,59,59,"((currStatus==4))", 0, 2, 0); /* m: 81 -> 94,0 */
+	reached1[81] = 1;
+	trans[1][81]	= settr(0,0,0,0,0,"printf('CommsManager: pre-updating\\n')",0,0,0);
+	trans[1][82]	= settr(0,0,0,0,0,"i = 0",0,0,0);
+	trans[1][95]	= settr(227,0,94,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][94] = settr(226,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(226,0,83,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(226,0,92,0,0,"DO", 0, 2, 0);
+	trans[1][83]	= settr(215,0,89,60,0,"((i<=(4-1)))", 0, 2, 0);
+	T = trans[1][89] = settr(221,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(221,0,84,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(221,0,87,0,0,"IF", 0, 2, 0);
+	trans[1][84]	= settr(216,0,85,61,0,"(connectedClients[i])", 0, 2, 0);
+	trans[1][85]	= settr(217,0,86,62,62,"cmCommand[i]!4", 1, 5, 0);
+	trans[1][86]	= settr(218,0,91,63,63,"cmStatus[i]!3", 1, 10, 0);
+	trans[1][90]	= settr(222,0,91,1,0,".(goto)", 0, 2, 0); /* m: 91 -> 0,94 */
 	reached1[91] = 1;
-	trans[1][91]	= settr(0,0,0,0,0,"printf('CommsManager: updating\\n')",0,0,0);
-	trans[1][92]	= settr(0,0,0,0,0,"hasFail = 0",0,0,0);
-	trans[1][93]	= settr(0,0,0,0,0,"i = 0",0,0,0);
-	trans[1][112]	= settr(244,0,111,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][111] = settr(243,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(243,0,94,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(243,0,109,0,0,"DO", 0, 2, 0);
-	trans[1][94]	= settr(226,0,106,59,0,"((i<=(4-1)))", 0, 2, 0);
-	T = trans[1][106] = settr(238,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(238,0,95,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(238,0,104,0,0,"IF", 0, 2, 0);
-	trans[1][95]	= settr(227,0,96,60,0,"(connectedClients[i])", 0, 2, 0);
-	trans[1][96]	= settr(228,0,102,61,61,"clientReport?reportStatus,id", 1, 506, 0);
-	T = trans[1][102] = settr(234,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(234,0,97,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(234,0,100,0,0,"IF", 0, 2, 0);
-	trans[1][97]	= settr(229,0,111,62,62,"((reportStatus==1))", 0, 2, 0); /* m: 98 -> 111,0 */
-	reached1[98] = 1;
-	trans[1][98]	= settr(0,0,0,0,0,"hasFail = 1",0,0,0);
-	trans[1][99]	= settr(0,0,0,0,0,"printf('CommsManager: update failed by Client %d\\n',(i+1))",0,0,0);
-	trans[1][103]	= settr(235,0,108,1,0,".(goto)", 0, 2, 0); /* m: 108 -> 0,111 */
-	reached1[108] = 1;
-	trans[1][100]	= settr(232,0,101,2,0,"else", 0, 2, 0);
-	trans[1][101]	= settr(233,0,111,63,63,"(1)", 0, 2, 0); /* m: 108 -> 111,0 */
-	reached1[108] = 1;
-	trans[1][107]	= settr(239,0,108,1,0,".(goto)", 0, 2, 0); /* m: 108 -> 0,111 */
-	reached1[108] = 1;
-	trans[1][104]	= settr(236,0,105,2,0,"else", 0, 2, 0);
-	trans[1][105]	= settr(237,0,111,64,64,"(1)", 0, 2, 0); /* m: 108 -> 111,0 */
-	reached1[108] = 1;
-	trans[1][108]	= settr(240,0,111,65,65,"i = (i+1)", 0, 2, 0);
-	trans[1][109]	= settr(241,0,146,2,0,"else", 0, 2, 0);
-	trans[1][110]	= settr(242,0,146,1,0,"goto :b5", 0, 2, 0);
-	trans[1][113]	= settr(245,0,146,1,0,"break", 0, 2, 0);
-	T = trans[1][146] = settr(278,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(278,0,114,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(278,0,130,0,0,"IF", 0, 2, 0);
-	trans[1][114]	= settr(246,0,126,66,66,"(hasFail)", 0, 2, 0); /* m: 115 -> 126,0 */
-	reached1[115] = 1;
-	trans[1][115]	= settr(0,0,0,0,0,"i = 0",0,0,0);
-	trans[1][127]	= settr(259,0,126,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][126] = settr(258,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(258,0,116,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(258,0,124,0,0,"DO", 0, 2, 0);
-	trans[1][116]	= settr(248,0,121,67,0,"((i<=(4-1)))", 0, 2, 0);
-	T = trans[1][121] = settr(253,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(253,0,117,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(253,0,119,0,0,"IF", 0, 2, 0);
-	trans[1][117]	= settr(249,0,118,68,0,"(connectedClients[i])", 0, 2, 0);
-	trans[1][118]	= settr(250,0,123,69,69,"cmCommand[i]!2", 1, 5, 0);
-	trans[1][122]	= settr(254,0,123,1,0,".(goto)", 0, 2, 0); /* m: 123 -> 0,126 */
+	trans[1][87]	= settr(219,0,88,2,0,"else", 0, 2, 0);
+	trans[1][88]	= settr(220,0,94,64,64,"(1)", 0, 2, 0); /* m: 91 -> 94,0 */
+	reached1[91] = 1;
+	trans[1][91]	= settr(223,0,94,65,65,"i = (i+1)", 0, 2, 0);
+	trans[1][92]	= settr(224,0,97,2,0,"else", 0, 2, 0);
+	trans[1][93]	= settr(225,0,97,1,0,"goto :b4", 0, 2, 0); /* m: 97 -> 0,280 */
+	reached1[97] = 1;
+	trans[1][96]	= settr(228,0,97,1,0,"break", 0, 2, 0);
+	trans[1][97]	= settr(229,0,280,66,66,"currStatus = 3", 0, 2, 0);
+	trans[1][98]	= settr(230,0,119,67,67,"((currStatus==3))", 0, 2, 0); /* m: 99 -> 119,0 */
+	reached1[99] = 1;
+	trans[1][99]	= settr(0,0,0,0,0,"printf('CommsManager: updating\\n')",0,0,0);
+	trans[1][100]	= settr(0,0,0,0,0,"hasFail = 0",0,0,0);
+	trans[1][101]	= settr(0,0,0,0,0,"i = 0",0,0,0);
+	trans[1][120]	= settr(252,0,119,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][119] = settr(251,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(251,0,102,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(251,0,117,0,0,"DO", 0, 2, 0);
+	trans[1][102]	= settr(234,0,114,68,0,"((i<=(4-1)))", 0, 2, 0);
+	T = trans[1][114] = settr(246,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(246,0,103,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(246,0,112,0,0,"IF", 0, 2, 0);
+	trans[1][103]	= settr(235,0,104,69,0,"(connectedClients[i])", 0, 2, 0);
+	trans[1][104]	= settr(236,0,110,70,70,"clientReport?reportStatus,id", 1, 506, 0);
+	T = trans[1][110] = settr(242,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(242,0,105,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(242,0,108,0,0,"IF", 0, 2, 0);
+	trans[1][105]	= settr(237,0,119,71,71,"((reportStatus==1))", 0, 2, 0); /* m: 106 -> 119,0 */
+	reached1[106] = 1;
+	trans[1][106]	= settr(0,0,0,0,0,"hasFail = 1",0,0,0);
+	trans[1][107]	= settr(0,0,0,0,0,"printf('CommsManager: update failed by Client %d\\n',(i+1))",0,0,0);
+	trans[1][111]	= settr(243,0,116,1,0,".(goto)", 0, 2, 0); /* m: 116 -> 0,119 */
+	reached1[116] = 1;
+	trans[1][108]	= settr(240,0,109,2,0,"else", 0, 2, 0);
+	trans[1][109]	= settr(241,0,119,72,72,"(1)", 0, 2, 0); /* m: 116 -> 119,0 */
+	reached1[116] = 1;
+	trans[1][115]	= settr(247,0,116,1,0,".(goto)", 0, 2, 0); /* m: 116 -> 0,119 */
+	reached1[116] = 1;
+	trans[1][112]	= settr(244,0,113,2,0,"else", 0, 2, 0);
+	trans[1][113]	= settr(245,0,119,73,73,"(1)", 0, 2, 0); /* m: 116 -> 119,0 */
+	reached1[116] = 1;
+	trans[1][116]	= settr(248,0,119,74,74,"i = (i+1)", 0, 2, 0);
+	trans[1][117]	= settr(249,0,156,2,0,"else", 0, 2, 0);
+	trans[1][118]	= settr(250,0,156,1,0,"goto :b5", 0, 2, 0);
+	trans[1][121]	= settr(253,0,156,1,0,"break", 0, 2, 0);
+	T = trans[1][156] = settr(288,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(288,0,122,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(288,0,139,0,0,"IF", 0, 2, 0);
+	trans[1][122]	= settr(254,0,135,75,75,"(hasFail)", 0, 2, 0); /* m: 123 -> 135,0 */
 	reached1[123] = 1;
-	trans[1][119]	= settr(251,0,120,2,0,"else", 0, 2, 0);
-	trans[1][120]	= settr(252,0,126,70,70,"(1)", 0, 2, 0); /* m: 123 -> 126,0 */
-	reached1[123] = 1;
-	trans[1][123]	= settr(255,0,126,71,71,"i = (i+1)", 0, 2, 0);
-	trans[1][124]	= settr(256,0,129,2,0,"else", 0, 2, 0);
-	trans[1][125]	= settr(257,0,129,1,0,"goto :b6", 0, 2, 0); /* m: 129 -> 0,240 */
-	reached1[129] = 1;
-	trans[1][128]	= settr(260,0,129,1,0,"break", 0, 2, 0);
-	trans[1][129]	= settr(261,0,240,72,72,"currStatus = 1", 0, 2, 0);
-	trans[1][147]	= settr(279,0,240,1,0,".(goto)", 0, 2, 0);
-	trans[1][130]	= settr(262,0,131,2,0,"else", 0, 2, 0);
-	trans[1][131]	= settr(263,0,142,73,73,"i = 0", 0, 2, 0);
-	trans[1][143]	= settr(275,0,142,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][142] = settr(274,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(274,0,132,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(274,0,140,0,0,"DO", 0, 2, 0);
-	trans[1][132]	= settr(264,0,137,74,0,"((i<=(4-1)))", 0, 2, 0);
-	T = trans[1][137] = settr(269,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(269,0,133,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(269,0,135,0,0,"IF", 0, 2, 0);
-	trans[1][133]	= settr(265,0,134,75,0,"(connectedClients[i])", 0, 2, 0);
-	trans[1][134]	= settr(266,0,139,76,76,"cmCommand[i]!3", 1, 5, 0);
-	trans[1][138]	= settr(270,0,139,1,0,".(goto)", 0, 2, 0); /* m: 139 -> 0,142 */
-	reached1[139] = 1;
-	trans[1][135]	= settr(267,0,136,2,0,"else", 0, 2, 0);
-	trans[1][136]	= settr(268,0,142,77,77,"(1)", 0, 2, 0); /* m: 139 -> 142,0 */
-	reached1[139] = 1;
-	trans[1][139]	= settr(271,0,142,78,78,"i = (i+1)", 0, 2, 0);
-	trans[1][140]	= settr(272,0,145,2,0,"else", 0, 2, 0);
-	trans[1][141]	= settr(273,0,145,1,0,"goto :b7", 0, 2, 0); /* m: 145 -> 0,240 */
-	reached1[145] = 1;
-	trans[1][144]	= settr(276,0,145,1,0,"break", 0, 2, 0);
-	trans[1][145]	= settr(277,0,240,79,79,"currStatus = 2", 0, 2, 0);
-	trans[1][148]	= settr(280,0,169,80,80,"((currStatus==2))", 0, 2, 0); /* m: 149 -> 169,0 */
+	trans[1][123]	= settr(0,0,0,0,0,"i = 0",0,0,0);
+	trans[1][136]	= settr(268,0,135,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][135] = settr(267,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(267,0,124,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(267,0,133,0,0,"DO", 0, 2, 0);
+	trans[1][124]	= settr(256,0,130,76,0,"((i<=(4-1)))", 0, 2, 0);
+	T = trans[1][130] = settr(262,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(262,0,125,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(262,0,128,0,0,"IF", 0, 2, 0);
+	trans[1][125]	= settr(257,0,126,77,0,"(connectedClients[i])", 0, 2, 0);
+	trans[1][126]	= settr(258,0,127,78,78,"cmCommand[i]!2", 1, 5, 0);
+	trans[1][127]	= settr(259,0,132,79,79,"cmStatus[i]!1", 1, 10, 0);
+	trans[1][131]	= settr(263,0,132,1,0,".(goto)", 0, 2, 0); /* m: 132 -> 0,135 */
+	reached1[132] = 1;
+	trans[1][128]	= settr(260,0,129,2,0,"else", 0, 2, 0);
+	trans[1][129]	= settr(261,0,135,80,80,"(1)", 0, 2, 0); /* m: 132 -> 135,0 */
+	reached1[132] = 1;
+	trans[1][132]	= settr(264,0,135,81,81,"i = (i+1)", 0, 2, 0);
+	trans[1][133]	= settr(265,0,138,2,0,"else", 0, 2, 0);
+	trans[1][134]	= settr(266,0,138,1,0,"goto :b6", 0, 2, 0); /* m: 138 -> 0,280 */
+	reached1[138] = 1;
+	trans[1][137]	= settr(269,0,138,1,0,"break", 0, 2, 0);
+	trans[1][138]	= settr(270,0,280,82,82,"currStatus = 1", 0, 2, 0);
+	trans[1][157]	= settr(289,0,280,1,0,".(goto)", 0, 2, 0);
+	trans[1][139]	= settr(271,0,140,2,0,"else", 0, 2, 0);
+	trans[1][140]	= settr(272,0,152,83,83,"i = 0", 0, 2, 0);
+	trans[1][153]	= settr(285,0,152,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][152] = settr(284,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(284,0,141,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(284,0,150,0,0,"DO", 0, 2, 0);
+	trans[1][141]	= settr(273,0,147,84,0,"((i<=(4-1)))", 0, 2, 0);
+	T = trans[1][147] = settr(279,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(279,0,142,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(279,0,145,0,0,"IF", 0, 2, 0);
+	trans[1][142]	= settr(274,0,143,85,0,"(connectedClients[i])", 0, 2, 0);
+	trans[1][143]	= settr(275,0,144,86,86,"cmCommand[i]!3", 1, 5, 0);
+	trans[1][144]	= settr(276,0,149,87,87,"cmStatus[i]!2", 1, 10, 0);
+	trans[1][148]	= settr(280,0,149,1,0,".(goto)", 0, 2, 0); /* m: 149 -> 0,152 */
 	reached1[149] = 1;
-	trans[1][149]	= settr(0,0,0,0,0,"printf('CommsManager: post-updating\\n')",0,0,0);
-	trans[1][150]	= settr(0,0,0,0,0,"hasFail = 0",0,0,0);
-	trans[1][151]	= settr(0,0,0,0,0,"i = 0",0,0,0);
-	trans[1][170]	= settr(302,0,169,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][169] = settr(301,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(301,0,152,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(301,0,167,0,0,"DO", 0, 2, 0);
-	trans[1][152]	= settr(284,0,164,81,0,"((i<=(4-1)))", 0, 2, 0);
-	T = trans[1][164] = settr(296,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(296,0,153,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(296,0,162,0,0,"IF", 0, 2, 0);
-	trans[1][153]	= settr(285,0,154,82,0,"(connectedClients[i])", 0, 2, 0);
-	trans[1][154]	= settr(286,0,160,83,83,"clientReport?reportStatus,id", 1, 506, 0);
-	T = trans[1][160] = settr(292,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(292,0,155,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(292,0,158,0,0,"IF", 0, 2, 0);
-	trans[1][155]	= settr(287,0,169,84,84,"((reportStatus==1))", 0, 2, 0); /* m: 156 -> 169,0 */
-	reached1[156] = 1;
-	trans[1][156]	= settr(0,0,0,0,0,"hasFail = 1",0,0,0);
-	trans[1][157]	= settr(0,0,0,0,0,"printf('CommsManager: post-update failed by Client %d\\n',(i+1))",0,0,0);
-	trans[1][161]	= settr(293,0,166,1,0,".(goto)", 0, 2, 0); /* m: 166 -> 0,169 */
+	trans[1][145]	= settr(277,0,146,2,0,"else", 0, 2, 0);
+	trans[1][146]	= settr(278,0,152,88,88,"(1)", 0, 2, 0); /* m: 149 -> 152,0 */
+	reached1[149] = 1;
+	trans[1][149]	= settr(281,0,152,89,89,"i = (i+1)", 0, 2, 0);
+	trans[1][150]	= settr(282,0,155,2,0,"else", 0, 2, 0);
+	trans[1][151]	= settr(283,0,155,1,0,"goto :b7", 0, 2, 0); /* m: 155 -> 0,280 */
+	reached1[155] = 1;
+	trans[1][154]	= settr(286,0,155,1,0,"break", 0, 2, 0);
+	trans[1][155]	= settr(287,0,280,90,90,"currStatus = 2", 0, 2, 0);
+	trans[1][158]	= settr(290,0,179,91,91,"((currStatus==2))", 0, 2, 0); /* m: 159 -> 179,0 */
+	reached1[159] = 1;
+	trans[1][159]	= settr(0,0,0,0,0,"printf('CommsManager: post-updating\\n')",0,0,0);
+	trans[1][160]	= settr(0,0,0,0,0,"hasFail = 0",0,0,0);
+	trans[1][161]	= settr(0,0,0,0,0,"i = 0",0,0,0);
+	trans[1][180]	= settr(312,0,179,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][179] = settr(311,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(311,0,162,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(311,0,177,0,0,"DO", 0, 2, 0);
+	trans[1][162]	= settr(294,0,174,92,0,"((i<=(4-1)))", 0, 2, 0);
+	T = trans[1][174] = settr(306,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(306,0,163,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(306,0,172,0,0,"IF", 0, 2, 0);
+	trans[1][163]	= settr(295,0,164,93,0,"(connectedClients[i])", 0, 2, 0);
+	trans[1][164]	= settr(296,0,170,94,94,"clientReport?reportStatus,id", 1, 506, 0);
+	T = trans[1][170] = settr(302,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(302,0,165,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(302,0,168,0,0,"IF", 0, 2, 0);
+	trans[1][165]	= settr(297,0,179,95,95,"((reportStatus==1))", 0, 2, 0); /* m: 166 -> 179,0 */
 	reached1[166] = 1;
-	trans[1][158]	= settr(290,0,159,2,0,"else", 0, 2, 0);
-	trans[1][159]	= settr(291,0,169,85,85,"(1)", 0, 2, 0); /* m: 166 -> 169,0 */
-	reached1[166] = 1;
-	trans[1][165]	= settr(297,0,166,1,0,".(goto)", 0, 2, 0); /* m: 166 -> 0,169 */
-	reached1[166] = 1;
-	trans[1][162]	= settr(294,0,163,2,0,"else", 0, 2, 0);
-	trans[1][163]	= settr(295,0,169,86,86,"(1)", 0, 2, 0); /* m: 166 -> 169,0 */
-	reached1[166] = 1;
-	trans[1][166]	= settr(298,0,169,87,87,"i = (i+1)", 0, 2, 0);
-	trans[1][167]	= settr(299,0,192,2,0,"else", 0, 2, 0);
-	trans[1][168]	= settr(300,0,192,1,0,"goto :b8", 0, 2, 0);
-	trans[1][171]	= settr(303,0,192,1,0,"break", 0, 2, 0);
-	T = trans[1][192] = settr(324,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(324,0,172,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(324,0,189,0,0,"IF", 0, 2, 0);
-	trans[1][172]	= settr(304,0,185,88,88,"(hasFail)", 0, 2, 0); /* m: 173 -> 185,0 */
-	reached1[173] = 1;
-	trans[1][173]	= settr(0,0,0,0,0,"currStatus = 8",0,0,0);
-	trans[1][174]	= settr(0,0,0,0,0,"i = 0",0,0,0);
-	trans[1][186]	= settr(318,0,185,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][185] = settr(317,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(317,0,175,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(317,0,183,0,0,"DO", 0, 2, 0);
-	trans[1][175]	= settr(307,0,180,89,0,"((i<=(4-1)))", 0, 2, 0);
-	T = trans[1][180] = settr(312,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(312,0,176,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(312,0,178,0,0,"IF", 0, 2, 0);
-	trans[1][176]	= settr(308,0,177,90,0,"(connectedClients[i])", 0, 2, 0);
-	trans[1][177]	= settr(309,0,182,91,91,"cmCommand[i]!1", 1, 5, 0);
-	trans[1][181]	= settr(313,0,182,1,0,".(goto)", 0, 2, 0); /* m: 182 -> 0,185 */
-	reached1[182] = 1;
-	trans[1][178]	= settr(310,0,179,2,0,"else", 0, 2, 0);
-	trans[1][179]	= settr(311,0,185,92,92,"(1)", 0, 2, 0); /* m: 182 -> 185,0 */
-	reached1[182] = 1;
-	trans[1][182]	= settr(314,0,185,93,93,"i = (i+1)", 0, 2, 0);
-	trans[1][183]	= settr(315,0,188,2,0,"else", 0, 2, 0);
-	trans[1][184]	= settr(316,0,188,1,0,"goto :b9", 0, 2, 0);
-	trans[1][187]	= settr(319,0,188,1,0,"break", 0, 2, 0);
-	trans[1][188]	= settr(320,0,240,94,94,"cmAbleWcp!2", 1, 9, 0);
-	trans[1][193]	= settr(325,0,240,1,0,".(goto)", 0, 2, 0);
+	trans[1][166]	= settr(0,0,0,0,0,"hasFail = 1",0,0,0);
+	trans[1][167]	= settr(0,0,0,0,0,"printf('CommsManager: post-update failed by Client %d\\n',(i+1))",0,0,0);
+	trans[1][171]	= settr(303,0,176,1,0,".(goto)", 0, 2, 0); /* m: 176 -> 0,179 */
+	reached1[176] = 1;
+	trans[1][168]	= settr(300,0,169,2,0,"else", 0, 2, 0);
+	trans[1][169]	= settr(301,0,179,96,96,"(1)", 0, 2, 0); /* m: 176 -> 179,0 */
+	reached1[176] = 1;
+	trans[1][175]	= settr(307,0,176,1,0,".(goto)", 0, 2, 0); /* m: 176 -> 0,179 */
+	reached1[176] = 1;
+	trans[1][172]	= settr(304,0,173,2,0,"else", 0, 2, 0);
+	trans[1][173]	= settr(305,0,179,97,97,"(1)", 0, 2, 0); /* m: 176 -> 179,0 */
+	reached1[176] = 1;
+	trans[1][176]	= settr(308,0,179,98,98,"i = (i+1)", 0, 2, 0);
+	trans[1][177]	= settr(309,0,217,2,0,"else", 0, 2, 0);
+	trans[1][178]	= settr(310,0,217,1,0,"goto :b8", 0, 2, 0);
+	trans[1][181]	= settr(313,0,217,1,0,"break", 0, 2, 0);
+	T = trans[1][217] = settr(349,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(349,0,182,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(349,0,200,0,0,"IF", 0, 2, 0);
+	trans[1][182]	= settr(314,0,196,99,99,"(hasFail)", 0, 2, 0); /* m: 183 -> 196,0 */
+	reached1[183] = 1;
+	trans[1][183]	= settr(0,0,0,0,0,"currStatus = 8",0,0,0);
+	trans[1][184]	= settr(0,0,0,0,0,"i = 0",0,0,0);
+	trans[1][197]	= settr(329,0,196,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][196] = settr(328,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(328,0,185,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(328,0,194,0,0,"DO", 0, 2, 0);
+	trans[1][185]	= settr(317,0,191,100,0,"((i<=(4-1)))", 0, 2, 0);
+	T = trans[1][191] = settr(323,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(323,0,186,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(323,0,189,0,0,"IF", 0, 2, 0);
+	trans[1][186]	= settr(318,0,187,101,0,"(connectedClients[i])", 0, 2, 0);
+	trans[1][187]	= settr(319,0,188,102,102,"cmStatus[i]!8", 1, 10, 0);
+	trans[1][188]	= settr(320,0,193,103,103,"cmCommand[i]!1", 1, 5, 0);
+	trans[1][192]	= settr(324,0,193,1,0,".(goto)", 0, 2, 0); /* m: 193 -> 0,196 */
+	reached1[193] = 1;
 	trans[1][189]	= settr(321,0,190,2,0,"else", 0, 2, 0);
-	trans[1][190]	= settr(322,0,191,95,95,"currStatus = 8", 0, 2, 0);
-	trans[1][191]	= settr(323,0,240,96,96,"cmAbleWcp!2", 1, 9, 0);
-	trans[1][194]	= settr(326,0,215,97,97,"((currStatus==1))", 0, 2, 0); /* m: 195 -> 215,0 */
-	reached1[195] = 1;
-	trans[1][195]	= settr(0,0,0,0,0,"printf('CommsManager: post-reverting\\n')",0,0,0);
-	trans[1][196]	= settr(0,0,0,0,0,"hasFail = 0",0,0,0);
-	trans[1][197]	= settr(0,0,0,0,0,"i = 0",0,0,0);
-	trans[1][216]	= settr(348,0,215,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][215] = settr(347,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(347,0,198,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(347,0,213,0,0,"DO", 0, 2, 0);
-	trans[1][198]	= settr(330,0,210,98,0,"((i<=(4-1)))", 0, 2, 0);
-	T = trans[1][210] = settr(342,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(342,0,199,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(342,0,208,0,0,"IF", 0, 2, 0);
-	trans[1][199]	= settr(331,0,200,99,0,"(connectedClients[i])", 0, 2, 0);
-	trans[1][200]	= settr(332,0,206,100,100,"clientReport?reportStatus,id", 1, 506, 0);
-	T = trans[1][206] = settr(338,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(338,0,201,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(338,0,204,0,0,"IF", 0, 2, 0);
-	trans[1][201]	= settr(333,0,215,101,101,"((reportStatus==1))", 0, 2, 0); /* m: 202 -> 215,0 */
+	trans[1][190]	= settr(322,0,196,104,104,"(1)", 0, 2, 0); /* m: 193 -> 196,0 */
+	reached1[193] = 1;
+	trans[1][193]	= settr(325,0,196,105,105,"i = (i+1)", 0, 2, 0);
+	trans[1][194]	= settr(326,0,199,2,0,"else", 0, 2, 0);
+	trans[1][195]	= settr(327,0,199,1,0,"goto :b9", 0, 2, 0);
+	trans[1][198]	= settr(330,0,199,1,0,"break", 0, 2, 0);
+	trans[1][199]	= settr(331,0,280,106,106,"cmAbleWcp!2", 1, 9, 0);
+	trans[1][218]	= settr(350,0,280,1,0,".(goto)", 0, 2, 0);
+	trans[1][200]	= settr(332,0,201,2,0,"else", 0, 2, 0);
+	trans[1][201]	= settr(333,0,213,107,107,"currStatus = 8", 0, 2, 0); /* m: 202 -> 0,213 */
 	reached1[202] = 1;
-	trans[1][202]	= settr(0,0,0,0,0,"hasFail = 1",0,0,0);
-	trans[1][203]	= settr(0,0,0,0,0,"printf('CommsManager: post-revert failed by Client %d\\n',(i+1))",0,0,0);
-	trans[1][207]	= settr(339,0,212,1,0,".(goto)", 0, 2, 0); /* m: 212 -> 0,215 */
-	reached1[212] = 1;
-	trans[1][204]	= settr(336,0,205,2,0,"else", 0, 2, 0);
-	trans[1][205]	= settr(337,0,215,102,102,"(1)", 0, 2, 0); /* m: 212 -> 215,0 */
-	reached1[212] = 1;
-	trans[1][211]	= settr(343,0,212,1,0,".(goto)", 0, 2, 0); /* m: 212 -> 0,215 */
-	reached1[212] = 1;
-	trans[1][208]	= settr(340,0,209,2,0,"else", 0, 2, 0);
-	trans[1][209]	= settr(341,0,215,103,103,"(1)", 0, 2, 0); /* m: 212 -> 215,0 */
-	reached1[212] = 1;
-	trans[1][212]	= settr(344,0,215,104,104,"i = (i+1)", 0, 2, 0);
-	trans[1][213]	= settr(345,0,238,2,0,"else", 0, 2, 0);
-	trans[1][214]	= settr(346,0,238,1,0,"goto :b10", 0, 2, 0);
-	trans[1][217]	= settr(349,0,238,1,0,"break", 0, 2, 0);
-	T = trans[1][238] = settr(370,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(370,0,218,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(370,0,235,0,0,"IF", 0, 2, 0);
-	trans[1][218]	= settr(350,0,231,105,105,"(hasFail)", 0, 2, 0); /* m: 219 -> 231,0 */
-	reached1[219] = 1;
-	trans[1][219]	= settr(0,0,0,0,0,"currStatus = 8",0,0,0);
-	trans[1][220]	= settr(0,0,0,0,0,"i = 0",0,0,0);
-	trans[1][232]	= settr(364,0,231,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][231] = settr(363,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(363,0,221,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(363,0,229,0,0,"DO", 0, 2, 0);
-	trans[1][221]	= settr(353,0,226,106,0,"((i<=(4-1)))", 0, 2, 0);
-	T = trans[1][226] = settr(358,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(358,0,222,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(358,0,224,0,0,"IF", 0, 2, 0);
-	trans[1][222]	= settr(354,0,223,107,0,"(connectedClients[i])", 0, 2, 0);
-	trans[1][223]	= settr(355,0,228,108,108,"cmCommand[i]!1", 1, 5, 0);
-	trans[1][227]	= settr(359,0,228,1,0,".(goto)", 0, 2, 0); /* m: 228 -> 0,231 */
-	reached1[228] = 1;
-	trans[1][224]	= settr(356,0,225,2,0,"else", 0, 2, 0);
-	trans[1][225]	= settr(357,0,231,109,109,"(1)", 0, 2, 0); /* m: 228 -> 231,0 */
-	reached1[228] = 1;
-	trans[1][228]	= settr(360,0,231,110,110,"i = (i+1)", 0, 2, 0);
-	trans[1][229]	= settr(361,0,234,2,0,"else", 0, 2, 0);
-	trans[1][230]	= settr(362,0,234,1,0,"goto :b11", 0, 2, 0);
-	trans[1][233]	= settr(365,0,234,1,0,"break", 0, 2, 0);
-	trans[1][234]	= settr(366,0,240,111,111,"cmAbleWcp!2", 1, 9, 0);
-	trans[1][239]	= settr(371,0,240,1,0,".(goto)", 0, 2, 0);
-	trans[1][235]	= settr(367,0,236,2,0,"else", 0, 2, 0);
-	trans[1][236]	= settr(368,0,237,112,112,"currStatus = 8", 0, 2, 0);
-	trans[1][237]	= settr(369,0,240,113,113,"cmAbleWcp!2", 1, 9, 0);
-	trans[1][242]	= settr(374,0,243,1,0,"break", 0, 2, 0);
-	trans[1][243]	= settr(375,0,0,114,114,"-end-", 0, 3500, 0);
+	trans[1][202]	= settr(0,0,0,0,0,"i = 0",0,0,0);
+	trans[1][214]	= settr(346,0,213,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][213] = settr(345,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(345,0,203,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(345,0,211,0,0,"DO", 0, 2, 0);
+	trans[1][203]	= settr(335,0,208,108,0,"((i<=(4-1)))", 0, 2, 0);
+	T = trans[1][208] = settr(340,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(340,0,204,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(340,0,206,0,0,"IF", 0, 2, 0);
+	trans[1][204]	= settr(336,0,205,109,0,"(connectedClients[i])", 0, 2, 0);
+	trans[1][205]	= settr(337,0,210,110,110,"cmStatus[i]!8", 1, 10, 0);
+	trans[1][209]	= settr(341,0,210,1,0,".(goto)", 0, 2, 0); /* m: 210 -> 0,213 */
+	reached1[210] = 1;
+	trans[1][206]	= settr(338,0,207,2,0,"else", 0, 2, 0);
+	trans[1][207]	= settr(339,0,213,111,111,"(1)", 0, 2, 0); /* m: 210 -> 213,0 */
+	reached1[210] = 1;
+	trans[1][210]	= settr(342,0,213,112,112,"i = (i+1)", 0, 2, 0);
+	trans[1][211]	= settr(343,0,216,2,0,"else", 0, 2, 0);
+	trans[1][212]	= settr(344,0,216,1,0,"goto :b10", 0, 2, 0);
+	trans[1][215]	= settr(347,0,216,1,0,"break", 0, 2, 0);
+	trans[1][216]	= settr(348,0,280,113,113,"cmAbleWcp!2", 1, 9, 0);
+	trans[1][219]	= settr(351,0,240,114,114,"((currStatus==1))", 0, 2, 0); /* m: 220 -> 240,0 */
+	reached1[220] = 1;
+	trans[1][220]	= settr(0,0,0,0,0,"printf('CommsManager: post-reverting\\n')",0,0,0);
+	trans[1][221]	= settr(0,0,0,0,0,"hasFail = 0",0,0,0);
+	trans[1][222]	= settr(0,0,0,0,0,"i = 0",0,0,0);
+	trans[1][241]	= settr(373,0,240,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][240] = settr(372,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(372,0,223,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(372,0,238,0,0,"DO", 0, 2, 0);
+	trans[1][223]	= settr(355,0,235,115,0,"((i<=(4-1)))", 0, 2, 0);
+	T = trans[1][235] = settr(367,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(367,0,224,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(367,0,233,0,0,"IF", 0, 2, 0);
+	trans[1][224]	= settr(356,0,225,116,0,"(connectedClients[i])", 0, 2, 0);
+	trans[1][225]	= settr(357,0,231,117,117,"clientReport?reportStatus,id", 1, 506, 0);
+	T = trans[1][231] = settr(363,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(363,0,226,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(363,0,229,0,0,"IF", 0, 2, 0);
+	trans[1][226]	= settr(358,0,240,118,118,"((reportStatus==1))", 0, 2, 0); /* m: 227 -> 240,0 */
+	reached1[227] = 1;
+	trans[1][227]	= settr(0,0,0,0,0,"hasFail = 1",0,0,0);
+	trans[1][228]	= settr(0,0,0,0,0,"printf('CommsManager: post-revert failed by Client %d\\n',(i+1))",0,0,0);
+	trans[1][232]	= settr(364,0,237,1,0,".(goto)", 0, 2, 0); /* m: 237 -> 0,240 */
+	reached1[237] = 1;
+	trans[1][229]	= settr(361,0,230,2,0,"else", 0, 2, 0);
+	trans[1][230]	= settr(362,0,240,119,119,"(1)", 0, 2, 0); /* m: 237 -> 240,0 */
+	reached1[237] = 1;
+	trans[1][236]	= settr(368,0,237,1,0,".(goto)", 0, 2, 0); /* m: 237 -> 0,240 */
+	reached1[237] = 1;
+	trans[1][233]	= settr(365,0,234,2,0,"else", 0, 2, 0);
+	trans[1][234]	= settr(366,0,240,120,120,"(1)", 0, 2, 0); /* m: 237 -> 240,0 */
+	reached1[237] = 1;
+	trans[1][237]	= settr(369,0,240,121,121,"i = (i+1)", 0, 2, 0);
+	trans[1][238]	= settr(370,0,278,2,0,"else", 0, 2, 0);
+	trans[1][239]	= settr(371,0,278,1,0,"goto :b11", 0, 2, 0);
+	trans[1][242]	= settr(374,0,278,1,0,"break", 0, 2, 0);
+	T = trans[1][278] = settr(410,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(410,0,243,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(410,0,261,0,0,"IF", 0, 2, 0);
+	trans[1][243]	= settr(375,0,257,122,122,"(hasFail)", 0, 2, 0); /* m: 244 -> 257,0 */
+	reached1[244] = 1;
+	trans[1][244]	= settr(0,0,0,0,0,"currStatus = 8",0,0,0);
+	trans[1][245]	= settr(0,0,0,0,0,"i = 0",0,0,0);
+	trans[1][258]	= settr(390,0,257,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][257] = settr(389,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(389,0,246,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(389,0,255,0,0,"DO", 0, 2, 0);
+	trans[1][246]	= settr(378,0,252,123,0,"((i<=(4-1)))", 0, 2, 0);
+	T = trans[1][252] = settr(384,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(384,0,247,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(384,0,250,0,0,"IF", 0, 2, 0);
+	trans[1][247]	= settr(379,0,248,124,0,"(connectedClients[i])", 0, 2, 0);
+	trans[1][248]	= settr(380,0,249,125,125,"cmStatus[i]!8", 1, 10, 0);
+	trans[1][249]	= settr(381,0,254,126,126,"cmCommand[i]!1", 1, 5, 0);
+	trans[1][253]	= settr(385,0,254,1,0,".(goto)", 0, 2, 0); /* m: 254 -> 0,257 */
+	reached1[254] = 1;
+	trans[1][250]	= settr(382,0,251,2,0,"else", 0, 2, 0);
+	trans[1][251]	= settr(383,0,257,127,127,"(1)", 0, 2, 0); /* m: 254 -> 257,0 */
+	reached1[254] = 1;
+	trans[1][254]	= settr(386,0,257,128,128,"i = (i+1)", 0, 2, 0);
+	trans[1][255]	= settr(387,0,260,2,0,"else", 0, 2, 0);
+	trans[1][256]	= settr(388,0,260,1,0,"goto :b12", 0, 2, 0);
+	trans[1][259]	= settr(391,0,260,1,0,"break", 0, 2, 0);
+	trans[1][260]	= settr(392,0,280,129,129,"cmAbleWcp!2", 1, 9, 0);
+	trans[1][279]	= settr(411,0,280,1,0,".(goto)", 0, 2, 0);
+	trans[1][261]	= settr(393,0,262,2,0,"else", 0, 2, 0);
+	trans[1][262]	= settr(394,0,274,130,130,"currStatus = 8", 0, 2, 0); /* m: 263 -> 0,274 */
+	reached1[263] = 1;
+	trans[1][263]	= settr(0,0,0,0,0,"i = 0",0,0,0);
+	trans[1][275]	= settr(407,0,274,1,0,".(goto)", 0, 2, 0);
+	T = trans[1][274] = settr(406,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(406,0,264,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(406,0,272,0,0,"DO", 0, 2, 0);
+	trans[1][264]	= settr(396,0,269,131,0,"((i<=(4-1)))", 0, 2, 0);
+	T = trans[1][269] = settr(401,0,0,0,0,"IF", 0, 2, 0);
+	T = T->nxt	= settr(401,0,265,0,0,"IF", 0, 2, 0);
+	    T->nxt	= settr(401,0,267,0,0,"IF", 0, 2, 0);
+	trans[1][265]	= settr(397,0,266,132,0,"(connectedClients[i])", 0, 2, 0);
+	trans[1][266]	= settr(398,0,271,133,133,"cmStatus[i]!8", 1, 10, 0);
+	trans[1][270]	= settr(402,0,271,1,0,".(goto)", 0, 2, 0); /* m: 271 -> 0,274 */
+	reached1[271] = 1;
+	trans[1][267]	= settr(399,0,268,2,0,"else", 0, 2, 0);
+	trans[1][268]	= settr(400,0,274,134,134,"(1)", 0, 2, 0); /* m: 271 -> 274,0 */
+	reached1[271] = 1;
+	trans[1][271]	= settr(403,0,274,135,135,"i = (i+1)", 0, 2, 0);
+	trans[1][272]	= settr(404,0,277,2,0,"else", 0, 2, 0);
+	trans[1][273]	= settr(405,0,277,1,0,"goto :b13", 0, 2, 0);
+	trans[1][276]	= settr(408,0,277,1,0,"break", 0, 2, 0);
+	trans[1][277]	= settr(409,0,280,136,136,"cmAbleWcp!2", 1, 9, 0);
+	trans[1][282]	= settr(414,0,283,1,0,"break", 0, 2, 0);
+	trans[1][283]	= settr(415,0,0,137,137,"-end-", 0, 3500, 0);
 
 	/* proctype 0: Client */
 
@@ -447,176 +501,167 @@ settable(void)
 	T = T->nxt	= settr(129,0,68,0,0,"DO", 0, 2, 0);
 	T = T->nxt	= settr(129,0,92,0,0,"DO", 0, 2, 0);
 	    T->nxt	= settr(129,0,111,0,0,"DO", 0, 2, 0);
-	trans[0][1]	= settr(0,0,2,115,0,"(!(connected))", 0, 2, 0);
-	trans[0][2]	= settr(1,0,3,116,116,"cmConnectRequest!id", 1, 3, 0);
-	trans[0][3]	= settr(2,0,4,117,0,"printf('Client %d: requesting connection\\n',(id+1))", 0, 2, 0);
-	trans[0][4]	= settr(3,0,12,118,118,"cmConnectReply[id]?reply", 1, 504, 0);
+	trans[0][1]	= settr(0,0,2,138,0,"((!(connected)&&(currStatus==8)))", 0, 2, 0);
+	trans[0][2]	= settr(1,0,3,139,139,"cmConnectRequest!id", 1, 3, 0);
+	trans[0][3]	= settr(2,0,4,140,0,"printf('Client %d: requesting connection\\n',(id+1))", 0, 2, 0);
+	trans[0][4]	= settr(3,0,12,141,141,"cmConnectReply[id]?reply", 1, 504, 0);
 	T = trans[0][12] = settr(11,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(11,0,5,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(11,0,9,0,0,"IF", 0, 2, 0);
-	trans[0][5]	= settr(4,0,130,119,119,"((reply==2))", 0, 2, 0); /* m: 6 -> 130,0 */
-	reached0[6] = 1;
-	trans[0][6]	= settr(0,0,0,0,0,"currStatus = 7",0,0,0);
-	trans[0][7]	= settr(0,0,0,0,0,"connected = 1",0,0,0);
+	trans[0][5]	= settr(4,0,6,142,142,"((reply==2))", 0, 2, 0);
+	trans[0][6]	= settr(5,0,7,143,143,"cmStatus[id]?currStatus", 1, 510, 0);
+	trans[0][7]	= settr(6,0,130,144,144,"connected = 1", 0, 2, 0); /* m: 8 -> 0,130 */
+	reached0[8] = 1;
 	trans[0][8]	= settr(0,0,0,0,0,"printf('Client %d: connection request accepted\\n',(id+1))",0,0,0);
 	trans[0][13]	= settr(12,0,130,1,0,".(goto)", 0, 2, 0);
 	trans[0][9]	= settr(8,0,10,2,0,"else", 0, 2, 0);
-	trans[0][10]	= settr(9,0,130,120,120,"(1)", 0, 2, 0); /* m: 11 -> 130,0 */
+	trans[0][10]	= settr(9,0,130,145,145,"(1)", 0, 2, 0); /* m: 11 -> 130,0 */
 	reached0[11] = 1;
 	trans[0][11]	= settr(0,0,0,0,0,"printf('Client %d: connection request rejected\\n',(id+1))",0,0,0);
-	trans[0][14]	= settr(13,0,16,121,121,"((currStatus==7))", 0, 2, 0); /* m: 15 -> 16,0 */
+	trans[0][14]	= settr(13,0,16,146,146,"((currStatus==7))", 0, 2, 0); /* m: 15 -> 16,0 */
 	reached0[15] = 1;
 	trans[0][15]	= settr(0,0,0,0,0,"printf('Client %d: pre-initializing\\n',(id+1))",0,0,0);
-	trans[0][16]	= settr(15,0,22,122,122,"cmCommand[id]?currCommand", 1, 505, 0);
+	trans[0][16]	= settr(15,0,22,147,147,"cmCommand[id]?currCommand", 1, 505, 0);
 	T = trans[0][22] = settr(21,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(21,0,17,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(21,0,20,0,0,"IF", 0, 2, 0);
-	trans[0][17]	= settr(16,0,130,123,123,"((currCommand==4))", 0, 2, 0); /* m: 18 -> 130,0 */
-	reached0[18] = 1;
-	trans[0][18]	= settr(0,0,0,0,0,"currStatus = 6",0,0,0);
-	trans[0][19]	= settr(0,0,0,0,0,"printf('Client %d: getting new info\\n',(id+1))",0,0,0);
+	trans[0][17]	= settr(16,0,18,148,148,"((currCommand==4))", 0, 2, 0);
+	trans[0][18]	= settr(17,0,19,149,149,"cmStatus[id]?currStatus", 1, 510, 0);
+	trans[0][19]	= settr(18,0,130,150,0,"printf('Client %d: getting new info\\n',(id+1))", 0, 2, 0);
 	trans[0][23]	= settr(22,0,130,1,0,".(goto)", 0, 2, 0);
 	trans[0][20]	= settr(19,0,21,2,0,"else", 0, 2, 0);
 	trans[0][21]	= settr(20,0,130,1,0,"(1)", 0, 2, 0);
-	trans[0][24]	= settr(23,0,41,124,124,"((currStatus==6))", 0, 2, 0); /* m: 25 -> 41,0 */
+	trans[0][24]	= settr(23,0,41,151,151,"((currStatus==6))", 0, 2, 0); /* m: 25 -> 41,0 */
 	reached0[25] = 1;
 	trans[0][25]	= settr(0,0,0,0,0,"printf('Client %d: initializing\\n',(id+1))",0,0,0);
 	T = trans[0][41] = settr(40,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(40,0,26,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(40,0,36,0,0,"IF", 0, 2, 0);
-	trans[0][26]	= settr(25,0,27,125,0,"(getInfoSuccess)", 0, 2, 0);
-	trans[0][27]	= settr(26,0,28,126,126,"clientReport!2,id", 1, 6, 0);
-	trans[0][28]	= settr(27,0,34,127,127,"cmCommand[id]?currCommand", 1, 505, 0);
+	trans[0][26]	= settr(25,0,27,152,0,"(getInfoSuccess)", 0, 2, 0);
+	trans[0][27]	= settr(26,0,28,153,153,"clientReport!2,id", 1, 6, 0);
+	trans[0][28]	= settr(27,0,34,154,154,"cmCommand[id]?currCommand", 1, 505, 0);
 	T = trans[0][34] = settr(33,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(33,0,29,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(33,0,32,0,0,"IF", 0, 2, 0);
-	trans[0][29]	= settr(28,0,130,128,128,"((currCommand==3))", 0, 2, 0); /* m: 30 -> 130,0 */
-	reached0[30] = 1;
-	trans[0][30]	= settr(0,0,0,0,0,"currStatus = 5",0,0,0);
-	trans[0][31]	= settr(0,0,0,0,0,"printf('Client %d: using new info\\n',(id+1))",0,0,0);
+	trans[0][29]	= settr(28,0,30,155,155,"((currCommand==3))", 0, 2, 0);
+	trans[0][30]	= settr(29,0,31,156,156,"cmStatus[id]?currStatus", 1, 510, 0);
+	trans[0][31]	= settr(30,0,130,157,0,"printf('Client %d: using new info\\n',(id+1))", 0, 2, 0);
 	trans[0][35]	= settr(34,0,130,1,0,".(goto)", 0, 2, 0);
 	trans[0][32]	= settr(31,0,33,2,0,"else", 0, 2, 0);
 	trans[0][33]	= settr(32,0,130,1,0,"(1)", 0, 2, 0);
 	trans[0][42]	= settr(41,0,130,1,0,".(goto)", 0, 2, 0);
 	trans[0][36]	= settr(35,0,37,2,0,"else", 0, 2, 0);
-	trans[0][37]	= settr(36,0,38,129,129,"clientReport!1,id", 1, 6, 0);
-	trans[0][38]	= settr(37,0,130,130,130,"currStatus = 8", 0, 2, 0); /* m: 39 -> 0,130 */
-	reached0[39] = 1;
-	trans[0][39]	= settr(0,0,0,0,0,"connected = 0",0,0,0);
+	trans[0][37]	= settr(36,0,38,158,158,"clientReport!1,id", 1, 6, 0);
+	trans[0][38]	= settr(37,0,39,159,159,"cmStatus[id]?currStatus", 1, 510, 0);
+	trans[0][39]	= settr(38,0,130,160,160,"connected = 0", 0, 2, 0); /* m: 40 -> 0,130 */
+	reached0[40] = 1;
 	trans[0][40]	= settr(0,0,0,0,0,"printf('Client %d: initialization failed. disconnected\\n',(id+1))",0,0,0);
-	trans[0][43]	= settr(42,0,53,131,131,"((currStatus==5))", 0, 2, 0); /* m: 44 -> 53,0 */
+	trans[0][43]	= settr(42,0,53,161,161,"((currStatus==5))", 0, 2, 0); /* m: 44 -> 53,0 */
 	reached0[44] = 1;
 	trans[0][44]	= settr(0,0,0,0,0,"printf('Client %d: post-initializing\\n',(id+1))",0,0,0);
 	T = trans[0][53] = settr(52,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(52,0,45,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(52,0,48,0,0,"IF", 0, 2, 0);
-	trans[0][45]	= settr(44,0,46,132,0,"(useNewInfoSuccess)", 0, 2, 0);
-	trans[0][46]	= settr(45,0,47,133,133,"clientReport!2,id", 1, 6, 0);
-	trans[0][47]	= settr(46,0,130,134,134,"currStatus = 8", 0, 2, 0);
+	trans[0][45]	= settr(44,0,46,162,0,"(useNewInfoSuccess)", 0, 2, 0);
+	trans[0][46]	= settr(45,0,47,163,163,"clientReport!2,id", 1, 6, 0);
+	trans[0][47]	= settr(46,0,130,164,164,"cmStatus[id]?currStatus", 1, 510, 0);
 	trans[0][54]	= settr(53,0,130,1,0,".(goto)", 0, 2, 0);
 	trans[0][48]	= settr(47,0,49,2,0,"else", 0, 2, 0);
-	trans[0][49]	= settr(48,0,50,135,135,"clientReport!1,id", 1, 6, 0);
-	trans[0][50]	= settr(49,0,130,136,136,"connected = 0", 0, 2, 0); /* m: 51 -> 0,130 */
-	reached0[51] = 1;
-	trans[0][51]	= settr(0,0,0,0,0,"currStatus = 8",0,0,0);
-	trans[0][52]	= settr(0,0,0,0,0,"printf('Client %d: post-initialization failed. disconnected\\n',(id+1))",0,0,0);
-	trans[0][55]	= settr(54,0,56,137,137,"(((nempty(wcpRequestClient[id])&&(currStatus==8))&&connected))", 1, 508, 0);
-	trans[0][56]	= settr(55,0,130,138,138,"printf('Client %d: manual update request received\\n',(id+1))", 0, 2, 0); /* m: 57 -> 0,130 */
-	reached0[57] = 1;
-	trans[0][57]	= settr(0,0,0,0,0,"currStatus = 4",0,0,0);
-	trans[0][58]	= settr(57,0,60,139,139,"(((currStatus==4)&&connected))", 0, 2, 0); /* m: 59 -> 60,0 */
+	trans[0][49]	= settr(48,0,50,165,165,"clientReport!1,id", 1, 6, 0);
+	trans[0][50]	= settr(49,0,51,166,166,"connected = 0", 0, 2, 0);
+	trans[0][51]	= settr(50,0,52,167,167,"cmStatus[id]?currStatus", 1, 510, 0);
+	trans[0][52]	= settr(51,0,130,168,0,"printf('Client %d: post-initialization failed. disconnected\\n',(id+1))", 0, 2, 0);
+	trans[0][55]	= settr(54,0,56,169,169,"(((nempty(wcpRequestClient[id])&&(currStatus==8))&&connected))", 1, 508, 0);
+	trans[0][56]	= settr(55,0,57,170,0,"printf('Client %d: manual update request received\\n',(id+1))", 0, 2, 0);
+	trans[0][57]	= settr(56,0,130,171,171,"cmStatus[id]?currStatus", 1, 510, 0);
+	trans[0][58]	= settr(57,0,60,172,172,"(((currStatus==4)&&connected))", 0, 2, 0); /* m: 59 -> 60,0 */
 	reached0[59] = 1;
 	trans[0][59]	= settr(0,0,0,0,0,"printf('Client %d: pre-updating\\n',(id+1))",0,0,0);
-	trans[0][60]	= settr(59,0,66,140,140,"cmCommand[id]?currCommand", 1, 505, 0);
+	trans[0][60]	= settr(59,0,66,173,173,"cmCommand[id]?currCommand", 1, 505, 0);
 	T = trans[0][66] = settr(65,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(65,0,61,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(65,0,64,0,0,"IF", 0, 2, 0);
-	trans[0][61]	= settr(60,0,130,141,141,"((currCommand==4))", 0, 2, 0); /* m: 62 -> 130,0 */
-	reached0[62] = 1;
-	trans[0][62]	= settr(0,0,0,0,0,"currStatus = 3",0,0,0);
-	trans[0][63]	= settr(0,0,0,0,0,"printf('Client %d: getting new info\\n',(id+1))",0,0,0);
+	trans[0][61]	= settr(60,0,62,174,174,"((currCommand==4))", 0, 2, 0);
+	trans[0][62]	= settr(61,0,63,175,175,"cmStatus[id]?currStatus", 1, 510, 0);
+	trans[0][63]	= settr(62,0,130,176,0,"printf('Client %d: getting new info\\n',(id+1))", 0, 2, 0);
 	trans[0][67]	= settr(66,0,130,1,0,".(goto)", 0, 2, 0);
 	trans[0][64]	= settr(63,0,65,2,0,"else", 0, 2, 0);
 	trans[0][65]	= settr(64,0,130,1,0,"(1)", 0, 2, 0);
-	trans[0][68]	= settr(67,0,90,142,142,"(((currStatus==3)&&connected))", 0, 2, 0); /* m: 69 -> 90,0 */
+	trans[0][68]	= settr(67,0,90,177,177,"(((currStatus==3)&&connected))", 0, 2, 0); /* m: 69 -> 90,0 */
 	reached0[69] = 1;
 	trans[0][69]	= settr(0,0,0,0,0,"printf('Client %d: updating\\n',(id+1))",0,0,0);
 	T = trans[0][90] = settr(89,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(89,0,70,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(89,0,80,0,0,"IF", 0, 2, 0);
-	trans[0][70]	= settr(69,0,71,143,0,"(getInfoSuccess)", 0, 2, 0);
-	trans[0][71]	= settr(70,0,72,144,144,"clientReport!2,id", 1, 6, 0);
-	trans[0][72]	= settr(71,0,78,145,145,"cmCommand[id]?currCommand", 1, 505, 0);
+	trans[0][70]	= settr(69,0,71,178,0,"(getInfoSuccess)", 0, 2, 0);
+	trans[0][71]	= settr(70,0,72,179,179,"clientReport!2,id", 1, 6, 0);
+	trans[0][72]	= settr(71,0,78,180,180,"cmCommand[id]?currCommand", 1, 505, 0);
 	T = trans[0][78] = settr(77,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(77,0,73,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(77,0,76,0,0,"IF", 0, 2, 0);
-	trans[0][73]	= settr(72,0,130,146,146,"((currCommand==3))", 0, 2, 0); /* m: 74 -> 130,0 */
-	reached0[74] = 1;
-	trans[0][74]	= settr(0,0,0,0,0,"currStatus = 2",0,0,0);
-	trans[0][75]	= settr(0,0,0,0,0,"printf('Client %d: using new info\\n',(id+1))",0,0,0);
+	trans[0][73]	= settr(72,0,74,181,181,"((currCommand==3))", 0, 2, 0);
+	trans[0][74]	= settr(73,0,75,182,182,"cmStatus[id]?currStatus", 1, 510, 0);
+	trans[0][75]	= settr(74,0,130,183,0,"printf('Client %d: using new info\\n',(id+1))", 0, 2, 0);
 	trans[0][79]	= settr(78,0,130,1,0,".(goto)", 0, 2, 0);
 	trans[0][76]	= settr(75,0,77,2,0,"else", 0, 2, 0);
 	trans[0][77]	= settr(76,0,130,1,0,"(1)", 0, 2, 0);
 	trans[0][91]	= settr(90,0,130,1,0,".(goto)", 0, 2, 0);
 	trans[0][80]	= settr(79,0,81,2,0,"else", 0, 2, 0);
-	trans[0][81]	= settr(80,0,82,147,147,"clientReport!1,id", 1, 6, 0);
-	trans[0][82]	= settr(81,0,88,148,148,"cmCommand[id]?currCommand", 1, 505, 0);
+	trans[0][81]	= settr(80,0,82,184,184,"clientReport!1,id", 1, 6, 0);
+	trans[0][82]	= settr(81,0,88,185,185,"cmCommand[id]?currCommand", 1, 505, 0);
 	T = trans[0][88] = settr(87,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(87,0,83,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(87,0,86,0,0,"IF", 0, 2, 0);
-	trans[0][83]	= settr(82,0,130,149,149,"((currCommand==2))", 0, 2, 0); /* m: 84 -> 130,0 */
-	reached0[84] = 1;
-	trans[0][84]	= settr(0,0,0,0,0,"currStatus = 1",0,0,0);
-	trans[0][85]	= settr(0,0,0,0,0,"printf('Client %d: using old info\\n',(id+1))",0,0,0);
+	trans[0][83]	= settr(82,0,84,186,186,"((currCommand==2))", 0, 2, 0);
+	trans[0][84]	= settr(83,0,85,187,187,"cmStatus[id]?currStatus", 1, 510, 0);
+	trans[0][85]	= settr(84,0,130,188,0,"printf('Client %d: using old info\\n',(id+1))", 0, 2, 0);
 	trans[0][89]	= settr(88,0,130,1,0,".(goto)", 0, 2, 0);
 	trans[0][86]	= settr(85,0,87,2,0,"else", 0, 2, 0);
 	trans[0][87]	= settr(86,0,130,1,0,"(1)", 0, 2, 0);
-	trans[0][92]	= settr(91,0,101,150,150,"(((currStatus==2)&&connected))", 0, 2, 0); /* m: 93 -> 101,0 */
+	trans[0][92]	= settr(91,0,101,189,189,"(((currStatus==2)&&connected))", 0, 2, 0); /* m: 93 -> 101,0 */
 	reached0[93] = 1;
 	trans[0][93]	= settr(0,0,0,0,0,"printf('Client %d: post-updating\\n',(id+1))",0,0,0);
 	T = trans[0][101] = settr(100,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(100,0,94,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(100,0,97,0,0,"IF", 0, 2, 0);
-	trans[0][94]	= settr(93,0,95,151,0,"(useNewInfoSuccess)", 0, 2, 0);
-	trans[0][95]	= settr(94,0,96,152,152,"clientReport!2,id", 1, 6, 0);
-	trans[0][96]	= settr(95,0,103,153,153,"currStatus = 8", 0, 2, 0);
+	trans[0][94]	= settr(93,0,95,190,0,"(useNewInfoSuccess)", 0, 2, 0);
+	trans[0][95]	= settr(94,0,96,191,191,"clientReport!2,id", 1, 6, 0);
+	trans[0][96]	= settr(95,0,103,192,192,"cmStatus[id]?currStatus", 1, 510, 0);
 	trans[0][102]	= settr(101,0,103,1,0,".(goto)", 0, 2, 0);
 	trans[0][97]	= settr(96,0,98,2,0,"else", 0, 2, 0);
-	trans[0][98]	= settr(97,0,99,154,154,"clientReport!1,id", 1, 6, 0);
-	trans[0][99]	= settr(98,0,103,155,155,"connected = 0", 0, 2, 0); /* m: 100 -> 0,103 */
-	reached0[100] = 1;
-	trans[0][100]	= settr(0,0,0,0,0,"currStatus = 8",0,0,0);
-	trans[0][103]	= settr(102,0,109,156,156,"cmCommand[id]?currCommand", 1, 505, 0);
+	trans[0][98]	= settr(97,0,99,193,193,"clientReport!1,id", 1, 6, 0);
+	trans[0][99]	= settr(98,0,100,194,194,"connected = 0", 0, 2, 0);
+	trans[0][100]	= settr(99,0,103,195,195,"cmStatus[id]?currStatus", 1, 510, 0);
+	trans[0][103]	= settr(102,0,109,196,196,"cmCommand[id]?currCommand", 1, 505, 0);
 	T = trans[0][109] = settr(108,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(108,0,104,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(108,0,107,0,0,"IF", 0, 2, 0);
-	trans[0][104]	= settr(103,0,130,157,157,"((currCommand==1))", 0, 2, 0); /* m: 105 -> 130,0 */
+	trans[0][104]	= settr(103,0,130,197,197,"((currCommand==1))", 0, 2, 0); /* m: 105 -> 130,0 */
 	reached0[105] = 1;
 	trans[0][105]	= settr(0,0,0,0,0,"connected = 0",0,0,0);
 	trans[0][106]	= settr(0,0,0,0,0,"printf('Client %d: update failed. disconnected\\n',(id+1))",0,0,0);
 	trans[0][110]	= settr(109,0,130,1,0,".(goto)", 0, 2, 0);
 	trans[0][107]	= settr(106,0,108,2,0,"else", 0, 2, 0);
 	trans[0][108]	= settr(107,0,130,1,0,"(1)", 0, 2, 0);
-	trans[0][111]	= settr(110,0,120,158,158,"(((currStatus==1)&&connected))", 0, 2, 0); /* m: 112 -> 120,0 */
+	trans[0][111]	= settr(110,0,120,198,198,"(((currStatus==1)&&connected))", 0, 2, 0); /* m: 112 -> 120,0 */
 	reached0[112] = 1;
 	trans[0][112]	= settr(0,0,0,0,0,"printf('Client %d: post-reverting\\n',(id+1))",0,0,0);
 	T = trans[0][120] = settr(119,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(119,0,113,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(119,0,116,0,0,"IF", 0, 2, 0);
-	trans[0][113]	= settr(112,0,114,159,0,"(useOldInfoSuccess)", 0, 2, 0);
-	trans[0][114]	= settr(113,0,115,160,160,"clientReport!2,id", 1, 6, 0);
-	trans[0][115]	= settr(114,0,122,161,161,"currStatus = 8", 0, 2, 0);
+	trans[0][113]	= settr(112,0,114,199,0,"(useOldInfoSuccess)", 0, 2, 0);
+	trans[0][114]	= settr(113,0,115,200,200,"clientReport!2,id", 1, 6, 0);
+	trans[0][115]	= settr(114,0,122,201,201,"cmStatus[id]?currStatus", 1, 510, 0);
 	trans[0][121]	= settr(120,0,122,1,0,".(goto)", 0, 2, 0);
 	trans[0][116]	= settr(115,0,117,2,0,"else", 0, 2, 0);
-	trans[0][117]	= settr(116,0,118,162,162,"clientReport!1,id", 1, 6, 0);
-	trans[0][118]	= settr(117,0,122,163,163,"connected = 0", 0, 2, 0); /* m: 119 -> 0,122 */
-	reached0[119] = 1;
-	trans[0][119]	= settr(0,0,0,0,0,"currStatus = 8",0,0,0);
-	trans[0][122]	= settr(121,0,128,164,164,"cmCommand[id]?currCommand", 1, 505, 0);
+	trans[0][117]	= settr(116,0,118,202,202,"clientReport!1,id", 1, 6, 0);
+	trans[0][118]	= settr(117,0,119,203,203,"connected = 0", 0, 2, 0);
+	trans[0][119]	= settr(118,0,122,204,204,"cmStatus[id]?currStatus", 1, 510, 0);
+	trans[0][122]	= settr(121,0,128,205,205,"cmCommand[id]?currCommand", 1, 505, 0);
 	T = trans[0][128] = settr(127,0,0,0,0,"IF", 0, 2, 0);
 	T = T->nxt	= settr(127,0,123,0,0,"IF", 0, 2, 0);
 	    T->nxt	= settr(127,0,126,0,0,"IF", 0, 2, 0);
-	trans[0][123]	= settr(122,0,130,165,165,"((currCommand==1))", 0, 2, 0); /* m: 124 -> 130,0 */
+	trans[0][123]	= settr(122,0,130,206,206,"((currCommand==1))", 0, 2, 0); /* m: 124 -> 130,0 */
 	reached0[124] = 1;
 	trans[0][124]	= settr(0,0,0,0,0,"connected = 0",0,0,0);
 	trans[0][125]	= settr(0,0,0,0,0,"printf('Client %d: revert failed. disconnected\\n',(id+1))",0,0,0);
@@ -624,7 +669,7 @@ settable(void)
 	trans[0][126]	= settr(125,0,127,2,0,"else", 0, 2, 0);
 	trans[0][127]	= settr(126,0,130,1,0,"(1)", 0, 2, 0);
 	trans[0][132]	= settr(131,0,133,1,0,"break", 0, 2, 0);
-	trans[0][133]	= settr(132,0,0,166,166,"-end-", 0, 3500, 0);
+	trans[0][133]	= settr(132,0,0,207,207,"-end-", 0, 3500, 0);
 	/* np_ demon: */
 	trans[_NP_] = (Trans **) emalloc(3*sizeof(Trans *));
 	T = trans[_NP_][0] = settr(9997,0,1,_T5,0,"(np_)", 1,2,0);
