@@ -133,19 +133,19 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates3	9	/* :init: */
-#define minseq3	438
-#define maxseq3	445
+#define minseq3	441
+#define maxseq3	448
 #define _endstate3	8
 
-#define _nstates2	20	/* ControlPanel */
-#define minseq2	419
-#define maxseq2	437
-#define _endstate2	19
+#define _nstates2	21	/* ControlPanel */
+#define minseq2	421
+#define maxseq2	440
+#define _endstate2	20
 
-#define _nstates1	286	/* CommsManager */
+#define _nstates1	288	/* CommsManager */
 #define minseq1	134
-#define maxseq1	418
-#define _endstate1	285
+#define maxseq1	420
+#define _endstate1	287
 
 #define _nstates0	135	/* Client */
 #define minseq0	0
@@ -162,8 +162,8 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned short
-#define _T5	211
-#define _T2	212
+#define _T5	215
+#define _T2	216
 #define WS		4 /* word size in bytes */
 #define SYNC	0
 #define ASYNC	8
@@ -481,7 +481,7 @@ typedef struct TRIX_v6 {
 
 #define _start4	0 /* np_ */
 #define _start3	7
-#define _start2	16
+#define _start2	17
 #define _start1	1
 #define _start0	131
 #ifdef NP
@@ -984,7 +984,7 @@ void qsend(int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	213
+#define NTRANS	217
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);
