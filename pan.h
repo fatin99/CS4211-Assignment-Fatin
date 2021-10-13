@@ -133,24 +133,24 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates3	9	/* :init: */
-#define minseq3	435
-#define maxseq3	442
+#define minseq3	438
+#define maxseq3	445
 #define _endstate3	8
 
 #define _nstates2	20	/* ControlPanel */
-#define minseq2	416
-#define maxseq2	434
+#define minseq2	419
+#define maxseq2	437
 #define _endstate2	19
 
-#define _nstates1	284	/* CommsManager */
-#define minseq1	133
-#define maxseq1	415
-#define _endstate1	283
+#define _nstates1	286	/* CommsManager */
+#define minseq1	134
+#define maxseq1	418
+#define _endstate1	285
 
-#define _nstates0	134	/* Client */
+#define _nstates0	135	/* Client */
 #define minseq0	0
-#define maxseq0	132
-#define _endstate0	133
+#define maxseq0	133
+#define _endstate0	134
 
 extern short src_ln3[];
 extern short src_ln2[];
@@ -162,8 +162,8 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned short
-#define _T5	208
-#define _T2	209
+#define _T5	211
+#define _T2	212
 #define WS		4 /* word size in bytes */
 #define SYNC	0
 #define ASYNC	8
@@ -238,6 +238,7 @@ typedef struct P0 { /* Client */
 	uchar currStatus;
 	uchar reply;
 	uchar currCommand;
+	uchar button;
 	int id;
 } P0;
 #define Air0	(sizeof(P0) - Offsetof(P0, id) - 1*sizeof(int))
@@ -482,7 +483,7 @@ typedef struct TRIX_v6 {
 #define _start3	7
 #define _start2	16
 #define _start1	1
-#define _start0	130
+#define _start0	131
 #ifdef NP
 	#define ACCEPT_LAB	1 /* at least 1 in np_ */
 #else
@@ -983,7 +984,7 @@ void qsend(int, int, int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	210
+#define NTRANS	213
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);

@@ -3,7 +3,7 @@ chan cmConnectRequest = [4] of {int};
 mtype:connectReply = {accept, refuse};
 chan cmConnectReply[4] = [1] of {mtype:connectReply};
 
-mtype:command = {getInfo, useNewInfo, useOldInfo, disconnect};
+mtype:command = {getInfo, useNewInfo, useOldInfo, disconnect, nothing};
 chan cmCommand[4] = [1] of {mtype:command};
 
 mtype:report = {success, failure};
@@ -25,6 +25,7 @@ proctype Client(int id) {
     mtype:status currStatus = idle;
     mtype:connectReply reply;
     mtype:command currCommand;
+    mtype:update button;
     bool connected = true; //switch this variable to test code
     bool getInfoSuccess = true; //switch this variable to test code
     bool useNewInfoSuccess = true; //switch this variable to test code
@@ -74,6 +75,7 @@ proctype Client(int id) {
         fi
     //weather update
     ::  (nempty(wcpRequestClient[id]) && currStatus == idle && connected) ->
+        wcpRequestClient[id]?button;
         printf("Client %d: manual update request received\n", id+1);
         cmStatus[id]?currStatus;
     ::  (currStatus == preUpdate && connected) ->
@@ -259,7 +261,7 @@ proctype CommsManager() {
         ::  else -> currStatus = idle; 
             for (i:0 .. 4-1){
                 if 
-                :: connectedClients[i] -> cmStatus[i]!idle;
+                :: connectedClients[i] -> cmStatus[i]!idle; cmCommand[i]!nothing;
                 :: else -> skip;
                 fi
             }
@@ -291,7 +293,7 @@ proctype CommsManager() {
         ::  else -> currStatus = idle; 
             for (i:0 .. 4-1){
                 if 
-                :: connectedClients[i] -> cmStatus[i]!idle;
+                :: connectedClients[i] -> cmStatus[i]!idle; cmCommand[i]!nothing;
                 :: else -> skip;
                 fi
             }

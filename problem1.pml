@@ -45,8 +45,8 @@ proctype ShuttleManagementSystem(Order first; Order second) {
 		}
         int minCharge = 2147483647; //Assumption: max charge by a shuttle
 	    int assignedId;
-        //The shuttle having made the lowest oer will receive the assignment. In the event of two equal oers, 
-        // the assignment will go to the shuttle that rst made the oer.
+        //The shuttle having made the lowest offer will receive the assignment. In the event of two equal offers, 
+        // the assignment will go to the shuttle that first made the offer.
 		for (j:0 .. 4-1){ 
 			Offer offer
 			printf("Shuttle Management System: waiting for offer for order %d from shuttle %d\n", i+1, j+1);

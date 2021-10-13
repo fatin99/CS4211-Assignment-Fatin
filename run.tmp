@@ -1,4 +1,4 @@
-pan:1: invalid end state (at depth 239)
+pan:1: invalid end state (at depth 263)
 pan: wrote problem2.pml.trail
 
 (Spin Version 6.5.1 -- 3 November 2019)
@@ -6,20 +6,20 @@ Warning: Search not completed
 	+ Partial Order Reduction
 
 Full statespace search for:
-	never claim         	- (not selected)
+	never claim         	- (none specified)
 	assertion violations	+
 	cycle checks       	- (disabled by -DSAFETY)
 	invalid end states	+
 
-State-vector 236 byte, depth reached 240, errors: 1
-      236 states, stored
+State-vector 236 byte, depth reached 264, errors: 1
+      260 states, stored
         0 states, matched
-      236 transitions (= stored+matched)
+      260 transitions (= stored+matched)
         5 atomic steps
 hash conflicts:         0 (resolved)
 
 Stats on memory usage (in Megabytes):
-    0.056	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.061	equivalent memory usage for states (stored*(State-vector + overhead))
     0.256	actual memory usage for states
    64.000	memory used for hash table (-w24)
     0.343	memory used for DFS stack (-m10000)
@@ -27,4 +27,4 @@ Stats on memory usage (in Megabytes):
 
 
 
-pan: elapsed time 0.004 seconds
+pan: elapsed time 0.005 seconds
